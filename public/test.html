@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>Express session demo</title>
+  </head>
+  <body>
+    <h1>Choose an action.</h1>
+    <button id="btn1" type="button" title="Open WebSocket connection">
+      ROOM 1
+    </button>
+    <button id="btn2" type="button" title="Send WebSocket message">
+      ROOM 2
+    </button>
+    <pre id="messages" style="height: 400px; overflow: scroll"></pre>
+    <!--<script src="app.js"></script>-->
+    <script src="CoCreate-socket.js"></script>
+    
+    <script>
+      const btn1 = document.getElementById('btn1');
+      const btn2 = document.getElementById('btn2');
+      
+      const config = {
+        "apiKey":           'c2b08663-06e3-440c-ef6f-13978b42883a',
+        "securityKey":      'f26baf68-e3a9-45fc-effe-502e47116265',
+        "organization_id":  '5de0387b12e200ea63204d6c'
+      }
+      
+      const collection = 'ws-test';
+      
+      CoCreateSocket.create({
+        namespace: config.apiKey,
+        room: collection
+      })
+
+      CoCreateSocket.create({
+        namespace: 'test',
+        room: 'r2'
+      })
+      
+      btn1.addEventListener('click', function(e) {
+        let request = config;
+        request['collection'] = collection;
+        request['data'] = {
+          'name': 'jinQF',
+          'description': 'Fullstack developer'
+        }
+        request['meta'] = "create ws testing"
+        request['element'] = 'testing'
+        
+        CoCreateSocket.send(config.apiKey + "/" + collection, 'createDocument', request)
+      })
+      
+      // btn2.addEventListener('click', function(e) {
+      //   CoCreateSocket.send('test/r2', 'createDocument', {
+      //     namespace: 'test',
+      //     rooms: ['r2'],
+      //     emit: ['hello room2']
+      //   })
+      // })
+      
+      CoCreateSocket.listen('createDocument', function(data){
+        console.log('r1 - createDocument');
+        console.log(data);
+        
+      })
+
+      CoCreateSocket.listen('updateDocument', function(data){
+        console.log('r1 - updateDocument');
+        console.log(data)
+      })
+      
+      CoCreateSocket.listen('createDocument', function(data){
+        console.log('r2-test --1');
+        console.log(data)
+      })
+
+    </script>
+  </body>
+</html>
