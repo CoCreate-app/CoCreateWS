@@ -1,3 +1,3 @@
-{
+module.exports = {
     "db_url": "mongodb+srv://cocreate-app:123@cocreatedb.dnjr1.mongodb.net"
 }

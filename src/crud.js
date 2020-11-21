@@ -1,6 +1,6 @@
 
 const MongoClient = require('mongodb').MongoClient;
-const config = require('../config.json');
+const config = require('../config.js');
 
 const {ObjectID, Binary} = require("mongodb");
 

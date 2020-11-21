@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-var config = require('../../config.json');
+var config = require('../../config.js');
 
 // Nombre de bd
 const dbName = 'mydb';
