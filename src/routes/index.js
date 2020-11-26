@@ -10,6 +10,29 @@ router.get('/test', function(req, res, next) {
     res.send('index static from SERVER NODE');
 });
 
+
+router.get('/css', function(req, res, next) {
+    res.setHeader('content-type', 'text/css');
+    res.send('.mainbtn{background-color:blue}');
+});
+
+
+router.get('/js', function(req, res, next) {
+    res.setHeader('content-type', 'text/javascript');
+    res.send('alert("Hola from erver")');
+});
+
+
+router.get('/twiml', function(req, res, next) {
+    res.setHeader('content-type', 'text/xml');
+    res.send('<?xml version="1.0" encoding="UTF-8"?>\
+              <Response>\
+                   <Say>Hello World</Say>\
+              </Response>');
+});
+
+
+
 /* GET search result page. 
 router.get('/searchresult', function(req, res, next) {
   res.sendFile(global.appRoot + '/public/searchresult.html');
@@ -46,5 +69,7 @@ router.get('/searchresult', function(req, res, next) {
 */
 
 router.get('/organization/*', GetRouteOrganization.getRoute);
+//router.get('/routes/*', GetRouteOrganization.getRouteMongo);
+router.get('/*', GetRouteOrganization.getRouteMongo);
 
 module.exports = router;

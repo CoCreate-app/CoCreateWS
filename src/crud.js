@@ -47,7 +47,6 @@ function initDBManagers(manager, db){
 class CoCreateCrud extends CoCreateBase {
 	constructor(wsManager, db) {
 		super(wsManager, db);
-		this.initBase();
 		this.init();
 	}
 	

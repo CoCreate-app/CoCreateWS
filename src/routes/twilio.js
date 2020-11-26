@@ -5,7 +5,7 @@ const config = require('../config/config_twilio');
 const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const ClientCapability = require('twilio').jwt.ClientCapability;
 const client = require('twilio')(config.accountSid, config.authToken);
-const url_twilio = 'https://server.cocreate.app:8088/twilio/actions_twiml';
+const url_twilio = 'https://server.cocreate.app:8088/twilio';
 
 
 router.get('/token/:clientName?', (req, res) => {
@@ -45,10 +45,10 @@ router.get('/token/:clientName?', (req, res) => {
 
 router.post('/incomming347',(req, res)=>{
   let data_original = {...req.body};
-  console.log("Incomming data_original ",data_original)
+  //console.log("Incomming data_original ",data_original)
   const twiml = new VoiceResponse();
   let { from  } = req.query;
-  console.log(req.query)
+  //console.log(req.query)
    from = (data_original.From)  ? data_original.From : decodeURIComponent(from);
   //const dial = twiml.dial({ callerId: from });
   const dial = twiml.dial();
@@ -82,10 +82,10 @@ router.post('/simulatefail',(req, res)=>{
 
 router.post('/incomming602',(req, res)=>{
   let data_original = {...req.body};
-  console.log("Incomming data_original ",data_original)
+  //console.log("Incomming data_original ",data_original)
   const twiml = new VoiceResponse();
   let { from  } = req.query;
-  console.log(req.query)
+//  console.log(req.query)
    from = (data_original.From)  ? data_original.From : decodeURIComponent(from);
   const dial = twiml.dial({ callerId: from });
   dial.client('frankie');
@@ -121,13 +121,23 @@ router.post('/voice', (req, res) => {
     default:
       let from = (data_original.From) ? data_original.From : '+16027372368';
       dial = twiml.dial({ callerId: from });
-      dial.number(data_original.To);
+      dial.number({
+          statusCallbackEvent: 'initiated ringing answered completed',
+          statusCallback: url_twilio+'/calls_events',
+          statusCallbackMethod: 'POST'
+      },data_original.To);
   }
   console.log("Voice ",twiml.toString())
   res.set('Content-Type', 'text/xml');
   res.send(twiml.toString());
 });
 
+
+router.post('/calls_events', (req, res)=>{
+  let data_original = {...req.body};
+  console.log("Events")
+  console.log(data_original)
+});
 
 router.get('/actions_twiml', (req, res)=>{
   res.header("Access-Control-Allow-Origin", "*");

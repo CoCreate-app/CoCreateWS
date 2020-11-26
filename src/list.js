@@ -68,7 +68,6 @@ class CoCreateList extends CoCreateBase {
 		}
 		
 		try {
-			
 			var collection = this.db.collection(data['collection']);
 			const operator = data.operator;
 			

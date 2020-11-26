@@ -6,6 +6,8 @@ class CoCreateBase {
 		this.wsManager = wsManager;
 		this.db = client.db('mydb');
 		this.dbClient = client;
+		
+		this.initBase()
 
 	}
 	
