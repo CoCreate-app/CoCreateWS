@@ -21,7 +21,7 @@ items:
           containers:
             - name: cocreate-ws
             # replace with your image name 
-              image: cocreatews/cocreatews
+              image: frankpagan/cocreatews
               ports:
                 - containerPort: 8081
 
