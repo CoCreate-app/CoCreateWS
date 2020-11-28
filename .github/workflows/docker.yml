@@ -20,6 +20,6 @@ jobs:
     - name: docker push
       id: docker_push
       run: |
-        docker push cocreate/cocreatews:latest
+        docker push cocreatews/cocreatews:latest
 #     - name: Image digest
 #       run: echo ${{ steps.docker_push.outputs.digest }}
