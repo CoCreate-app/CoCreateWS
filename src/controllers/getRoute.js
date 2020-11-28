@@ -55,11 +55,11 @@ module.exports.getRouteMongo = async (req, res, next) => {
                 res.send(route_export[route['name']]);
             }
             else {
-                res.send('Error Get ROute Document Export');
+                res.send('Error Get ROute Document Export Collection -> '+route['collection'] + ' document_id -> '+route['document_id']);
             }
         }
         else {
-                res.send('No Found this ROute in ours BD ');
+                res.send('No Found this ROute in ours BD  Host ['+hostname+'] and OrgId ['+organization_id+']');
         }
     }
     
