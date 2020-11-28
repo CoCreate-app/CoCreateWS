@@ -16,7 +16,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
     - name: docker build
       id: docker_build
-      run: docker build . -t cocreate/cocreatews:latest
+      run: docker build . -t cocreatews/cocreatews:latest
     - name: docker push
       id: docker_push
       run: |
