@@ -21,6 +21,6 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: cocreate/cocreateWs:latest
+        tags: cocreate/cocreatews:latest
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
