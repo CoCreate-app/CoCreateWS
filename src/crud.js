@@ -60,6 +60,35 @@ class CoCreateCrud extends CoCreateBase {
 		}
 	}
 
+/** Create Document **/ 
+	/*
+	that.wsManager.onMessage(socket, "createDocument", data, roomInfo)
+	
+	that.wsManager.onMessage(socket, "readDocument", data, roomInfo)
+	
+	that.wsManager.onMessage(socket, "updateDocument", data, roomInfo)
+		Example:
+		that.wsManager.onMessage(socket, "updateDocument", {
+			namespace: '',
+			room: '',
+			broadcast: true/false,
+			broadcast_sender: true/false,
+			
+			collection: "test123",
+			document_id: "document_id",
+			data:{
+			
+				name1:“hello”,
+				name2: “hello1”
+			},
+			delete_fields:["name3", "name4"],
+			element: “xxxx”,
+			metaData: "xxxx"
+			}, roomInfo)
+			
+	that.wsManager.onMessage(socket, "deleteDocument", data, roomInfo)
+	*/
+
 	/** Create Document **/
 	async createDocument(socket, data, roomInfo){
 		const securityRes = await this.checkSecurity(data);

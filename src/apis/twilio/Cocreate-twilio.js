@@ -13,11 +13,11 @@ class CoCreateTwilio extends CoCreateBase {
 
 	init() {
 		if (this.wsManager) {
-			this.wsManager.on('twilio',		(socket, data) => this.sendTwilio(socket, data));
+			this.wsManager.on('twilio',		(socket, data, roomInfo) => this.sendTwilio(socket, data, roomInfo));
 		}
 	}
 	
-	async sendTwilio(socket, data) {
+	async sendTwilio(socket, data, roomInfo) {
 		
 		let data_original = {...data};
 	    let that = this;
@@ -108,6 +108,10 @@ class CoCreateTwilio extends CoCreateBase {
         			data_original["transfer_call"] = true;
         			console.log("data_original" ,data_original)
         			utils.send_response(that.wsManager, socket, {"type":type,"response":data_original}, send_response);
+        			
+        			that.wsManager.onMessage(socket, 'createDocument', data /* it will be request data */, roomInfo);
+        			
+
         		}
 
         	break;
