@@ -38,21 +38,18 @@ items:
           port: 8081
           targetPort: 8081
 
-  
-  # Enable ingress when hostname is confirmed.
-  # Edit host: and uncomment below
-  # - apiVersion: extensions/v1beta1
-  #   kind: Ingress
-  #   metadata:
-  #     name: cocreate-ws-ingress
-  #     nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
-  #     nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
-  #   spec:
-  #     rules:
-  #       - host: minikube
-  #         http:
-  #           paths:
-  #             - path: /
-  #               backend:
-  #                 serviceName: cocreate-ws-service
-  #                 servicePort: 8081
+  - apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      name: cocreate-ws-ingress
+      nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
+      nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
+    spec:
+      rules:
+        - host: ws.cocreate.app
+          http:
+            paths:
+              - path: /
+                backend:
+                  serviceName: cocreate-ws-service
+                  servicePort: 8081
