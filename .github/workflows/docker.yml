@@ -14,13 +14,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
-    - name: Build and push
+    - name: docker build
       id: docker_build
-      uses: docker/build-push-action@v2
-      with:
-        context: ./
-        file: ./Dockerfile
-        push: true
-        tags: cocreate/cocreatews:latest
-    - name: Image digest
-      run: echo ${{ steps.docker_build.outputs.digest }}
+      run: docker build . -t cocreate/cocreatews:latest
+    - name: docker push
+      id: docker_push
+      run: |
+        docker push cocreate/cocreatews:latest
+#     - name: Image digest
+#       run: echo ${{ steps.docker_push.outputs.digest }}
