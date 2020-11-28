@@ -1,4 +1,5 @@
 var utils = require("./utils.js");
+var config = require('../../config.json');
 
 
 module.exports.getRouteMongo = async (req, res, next) => {
@@ -59,7 +60,7 @@ module.exports.getRouteMongo = async (req, res, next) => {
             }
         }
         else {
-                res.send('No Found this ROute in ours BD  Host ['+hostname+'] and OrgId ['+organization_id+']');
+                res.send('No Found this ROute in ours BD  Host ['+hostname+'] and OrgId ['+organization_id+']  '+JSON.stringify(organization)+'<br/>'+config.db_url);
         }
     }
     
