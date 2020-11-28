@@ -24,6 +24,8 @@ items:
               image: frankpagan/cocreatews:latest
               ports:
                 - containerPort: 8081
+          imagePullSecrets:
+          - name: cocreate
 
   - apiVersion: v1
     kind: Service
