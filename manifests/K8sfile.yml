@@ -42,8 +42,9 @@ items:
     kind: Ingress
     metadata:
       name: cocreate-ws-ingress
-      nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
-      nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
+        nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
     spec:
       rules:
         - host: ws.cocreate.app
