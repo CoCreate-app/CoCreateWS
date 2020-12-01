@@ -23,7 +23,7 @@ items:
             # replace with your image name 
               image: frankpagan/cocreatews:latest
               ports:
-                - containerPort: 8081
+                - containerPort: 8088
           imagePullSecrets:
           - name: cocreate
 
@@ -37,8 +37,8 @@ items:
       ports:
         - name: app
           protocol: TCP
-          port: 8081
-          targetPort: 8081
+          port: 8088
+          targetPort: 8088
 
   - apiVersion: extensions/v1beta1
     kind: Ingress
@@ -55,4 +55,4 @@ items:
               - path: /
                 backend:
                   serviceName: cocreate-ws-service
-                  servicePort: 8081
+                  servicePort: 8088
