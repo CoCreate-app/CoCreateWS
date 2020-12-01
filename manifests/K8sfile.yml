@@ -45,14 +45,19 @@ items:
     metadata:
       name: cocreate-ws-ingress
       annotations:
+        cert-manager.io/cluster-issuer: "cocreate-letsencrypt-prod"
         nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
         nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
     spec:
       rules:
-        - host: ws.cocreate.app
-          http:
-            paths:
-              - path: /
-                backend:
-                  serviceName: cocreate-ws-service
-                  servicePort: 8081
+      - host: ws.cocreate.app
+        http:
+          paths:
+            - path: /
+              backend:
+                serviceName: cocreate-ws-service
+                servicePort: 8081
+      tls:
+      - hosts:
+        - ws.cocreate.app
+        secretName: ws-tls-secret
