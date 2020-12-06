@@ -50,10 +50,14 @@ items:
         nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
     spec:
       rules:
-      - host: org.cocreate.app
+      - host: ws.cocreate.app
         http:
           paths:
-            - path: /crud
+            - path: /
               backend:
                 serviceName: cocreate-ws-service
                 servicePort: 8081
+      tls:
+      - hosts:
+        - ws.cocreate.app
+        secretName: ws-tls-secret
