@@ -45,7 +45,6 @@ items:
     metadata:
       name: cocreate-ws-ingress
       annotations:
-        cert-manager.io/cluster-issuer: "cocreate-letsencrypt-prod"
         nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
         nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
         # hollerino dec 11th 2020
