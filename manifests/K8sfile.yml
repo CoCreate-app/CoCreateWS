@@ -64,4 +64,4 @@ items:
       tls:
       - hosts:
         - ws.cocreate.app
-        secretName: ws-tls-secret
+        secretName: cocreate-wildcard
