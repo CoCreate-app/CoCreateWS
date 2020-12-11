@@ -48,6 +48,10 @@ items:
         cert-manager.io/cluster-issuer: "cocreate-letsencrypt-prod"
         nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
         nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
+        # hollerino dec 11th 2020
+        # https://github.com/kubernetes/ingress-nginx/blob/master/docs/user-guide/nginx-configuration/annotations.md#session-affinity
+        nginx.ingress.kubernetes.io/affinity: cookie
+        nginx.ingress.kubernetes.io/session-cookie-hash: sha1
     spec:
       rules:
       - host: ws.cocreate.app
