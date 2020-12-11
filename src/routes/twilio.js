@@ -133,10 +133,38 @@ router.post('/voice', (req, res) => {
 });
 
 
+const CoCreateCRUD = require("./core/CoCreate-CRUD.js")
+/**
+ * Socket init 
+ */
+ 
+
+
 router.post('/calls_events', (req, res)=>{
+  
+  const socket = {
+    "config": {
+        "apiKey": "c2b08663-06e3-440c-ef6f-13978b42883a",
+    	"securityKey": "f26baf68-e3a9-45fc-effe-502e47116265",
+    	"organization_Id": "5de0387b12e200ea63204d6c"
+    },
+    "host": "server.cocreate.app:8088"
+}
+CoCreateCRUD.CoCreateSocketInit(socket)
+  
   let data_original = {...req.body};
   console.log("Events")
   console.log(data_original)
+  //HERE save JSON in BD
+  
+  CoCreateCRUD.CreateDocument({
+	collection: "testtwillio",
+	broadcast_sender: true,
+	broadcast: false,
+	data: data_original,
+	
+}, socket.config);
+  
 });
 
 router.get('/actions_twiml', (req, res)=>{

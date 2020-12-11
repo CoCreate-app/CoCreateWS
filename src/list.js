@@ -68,7 +68,7 @@ class CoCreateList extends CoCreateBase {
 		}
 		
 		try {
-			var collection = this.db.collection(data['collection']);
+			const collection = this.getCollection(data)
 			const operator = data.operator;
 			
 			var query = {};
@@ -158,7 +158,9 @@ class CoCreateList extends CoCreateBase {
 		}
 		try {
 			var result_collections = [];
-			result_collections = await this.db.listCollections().toArray().then(infos => {
+			const dbName = data['db'] || data['organization_id'];
+			
+			result_collections = await this.getDB(dbName).listCollections().toArray().then(infos => {
 				var result = [];
 				infos.forEach(function(item) {
 					let __uuid = item.info.uuid.toString('hex')

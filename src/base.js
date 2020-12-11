@@ -13,7 +13,7 @@ class CoCreateBase {
 	
 	initBase() {
 		if (this.wsManager) {
-			this.wsManager.on('changeDB', 	(socket, data, roomInfo) => this.changeDB(socket, data, roomInfo));
+			// this.wsManager.on('changeDB', 	(socket, data, roomInfo) => this.changeDB(socket, data, roomInfo));
 		}	
 	}
 	
@@ -59,11 +59,10 @@ class CoCreateBase {
 		return
 	}
 	
-	getDb(namespace) {
+	getDB(namespace) {
 		var dbConn;
 		try {
 			if (namespace && namespace != '') {
-				// dbConn = this.baseDb.getSiblingDB(namespace);
 				dbConn = this.dbClient.db(namespace)
 			} else {
 				dbConn = this.dbClient.db('mydb');
@@ -73,6 +72,16 @@ class CoCreateBase {
 			dbConn = this.dbClient.db('mydb');
 		}
 		return dbConn;
+	}
+	
+	getCollection(data) {
+		const collectionName = data['collection'];
+		try {
+			const dbName = data['db'] || data['organization_id'];
+			return this.getDB(dbName).collection(collectionName);
+		} catch (error) {
+			return this.db.collection(collectionName);		
+		}
 	}
 }
 
