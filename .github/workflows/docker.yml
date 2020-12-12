@@ -4,7 +4,7 @@ on:
   push:
     branches: 
     - develop
-    - newtest 
+    - newtest
 
 jobs:
   build:
@@ -16,12 +16,16 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
     - name: Build and push Docker image
       uses: docker/build-push-action@v1.1.0
       with:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         repository: ${{ secrets.DOCKERHUB_USER }}/cocreatews
-        tags: ${{ github.sha }}, latest,${GITHUB_REF##*/}
+        tags: ${{ github.sha }}, latest, ${{ steps.extract_branch.outputs.branch }}
 #     - name: Image digest
 #       run: echo ${{ steps.docker_push.outputs.digest }}
