@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: cocreate-newtest-deployment
+      labels:
+        app: cocreate-newtest
+    spec:
+      replicas: 2
+      selector:
+        matchLabels:
+          app: cocreate-newtest
+      template:
+        metadata:
+          labels:
+            app: cocreate-newtest
+            # gitcommit: ${CICD_GIT_COMMIT}
+        spec:
+          containers:
+            - name: cocreate-newtest
+            # replace with your image name 
+              image: frankpagan/cocreatews:latest
+              ports:
+                - containerPort: 8081
+          imagePullSecrets:
+          - name: cocreate
+
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: cocreate-newtest-service
+    spec:
+      selector:
+        app: cocreate-newtest
+      ports:
+        - name: app
+          protocol: TCP
+          port: 8081
+          targetPort: 8081
+
+  - apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      name: cocreate-newtest-ingress
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
+        nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
+        # hollerino dec 11th 2020
+        # https://github.com/kubernetes/ingress-nginx/blob/master/docs/user-guide/nginx-configuration/annotations.md#session-affinity
+        nginx.ingress.kubernetes.io/affinity: cookie
+        nginx.ingress.kubernetes.io/session-cookie-hash: sha1
+    spec:
+      rules:
+      - host: newtest.cocreate.app
+        http:
+          paths:
+            - path: /
+              backend:
+                serviceName: cocreate-newtest-service
+                servicePort: 8081
+      tls:
+      - hosts:
+        - newtest.cocreate.app
+        secretName: cocreate-wildcard

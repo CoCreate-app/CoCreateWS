@@ -2,7 +2,9 @@ name: Docker Build Push
 
 on:
   push:
-    branches: [ develop ]
+    branches: 
+    - develop
+    - newtest 
 
 jobs:
   build:
@@ -16,10 +18,10 @@ jobs:
         password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
     - name: docker build
       id: docker_build
-      run: docker build . -t frankpagan/cocreatews:latest
+      run: docker build . -t frankpagan/cocreatews:${GITHUB_REF##*/}
     - name: docker push
       id: docker_push
       run: |
-        docker push frankpagan/cocreatews:latest
+        docker push frankpagan/cocreatews:${GITHUB_REF##*/}
 #     - name: Image digest
 #       run: echo ${{ steps.docker_push.outputs.digest }}
