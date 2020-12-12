@@ -16,12 +16,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
-    - name: docker build
-      id: docker_build
-      run: docker build . -t frankpagan/cocreatews:${GITHUB_REF##*/}
-    - name: docker push
-      id: docker_push
-      run: |
-        docker push frankpagan/cocreatews:${GITHUB_REF##*/}
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v1.1.0
+      with:
+        username: ${{ secrets.DOCKERHUB_USER }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        repository: ${{ secrets.DOCKERHUB_USER }}/cocreatews
+        tags: ${{ github.sha }}, latest,${GITHUB_REF##*/}
 #     - name: Image digest
 #       run: echo ${{ steps.docker_push.outputs.digest }}

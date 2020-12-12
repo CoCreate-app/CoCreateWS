@@ -4,22 +4,22 @@ items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: cocreate-newtest-deployment
+      name: cocreate-ws-deployment
       labels:
-        app: cocreate-newtest
+        app: cocreate-ws
     spec:
       replicas: 2
       selector:
         matchLabels:
-          app: cocreate-newtest
+          app: cocreate-ws
       template:
         metadata:
           labels:
-            app: cocreate-newtest
+            app: cocreate-ws
             # gitcommit: ${CICD_GIT_COMMIT}
         spec:
           containers:
-            - name: cocreate-newtest
+            - name: cocreate-ws
             # replace with your image name 
               image: frankpagan/cocreatews:latest
               ports:
@@ -30,10 +30,10 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
-      name: cocreate-newtest-service
+      name: cocreate-ws-service
     spec:
       selector:
-        app: cocreate-newtest
+        app: cocreate-ws
       ports:
         - name: app
           protocol: TCP
@@ -43,7 +43,7 @@ items:
   - apiVersion: extensions/v1beta1
     kind: Ingress
     metadata:
-      name: cocreate-newtest-ingress
+      name: cocreate-ws-ingress
       annotations:
         nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
         nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
@@ -58,7 +58,7 @@ items:
           paths:
             - path: /
               backend:
-                serviceName: cocreate-newtest-service
+                serviceName: cocreate-ws-service
                 servicePort: 8081
       tls:
       - hosts:
