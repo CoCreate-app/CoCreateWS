@@ -8,7 +8,7 @@ items:
       labels:
         app: cocreate-ws
     spec:
-      replicas: 1
+      replicas: 2
       selector:
         matchLabels:
           app: cocreate-ws
@@ -21,7 +21,7 @@ items:
           containers:
             - name: cocreate-ws
             # replace with your image name 
-              image: frankpagan/cocreatews:latest
+              image: frankpagan/cocreatews:master
               ports:
                 - containerPort: 8081
           imagePullSecrets:
