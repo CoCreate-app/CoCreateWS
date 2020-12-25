@@ -204,7 +204,7 @@ router.post('/calls_events', async (req, res)=>{
             	collection: collection_name,
             	broadcast_sender: true,
             	broadcast: false,
-            	data: data_parent,
+            	data: data_original,
           }, socket.config);
       break;
       case 'answered':
@@ -212,7 +212,7 @@ router.post('/calls_events', async (req, res)=>{
         callData = await collection.findOne({"sid":data_parent["sid"]});
         CoCreateCRUD.UpdateDocument({
           collection: collection_name,
-          data: {'status':status},
+          data: data_parent,
           document_id : callData._id.toString()
         }, socket.config);
         break;
