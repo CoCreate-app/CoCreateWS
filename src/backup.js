@@ -76,7 +76,7 @@ class CoCreateBackup extends CoCreateBase {
 
 		try {
 			
-			const collection = this.getCollection(data)
+			var collection = this.getDb(data['namespace']).collection(data["collection"]);
 			
 			var query = {};
 			if (securityRes['organization_id']) {
@@ -133,7 +133,7 @@ class CoCreateBackup extends CoCreateBase {
 			
 			jsonData.map((item) => delete item._id);
 
-			const collection = this.getDB(this.importDB).collection(this.importCollection);
+			var collection = this.getDb(this.importDB).collection(this.importCollection);
 			
 			collection.insertMany(jsonData, function(err, result) {
 				if (!err) {

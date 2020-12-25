@@ -68,15 +68,12 @@ class CoCreateIndustry extends CoCreateBase {
 		}		
 	}
 	async buildIndustry(socket, data) {
-		// const securityRes = await this.checkSecurity(data);
+		const securityRes = await this.checkSecurity(data);
 		
-		// if (!securityRes.result) {
-		// 	this.wsManager.send(socket, 'securityError', 'error');
-		// 	return;   
-		// }
-		
-		console.log("start Industry")
-		console.log(data);
+		if (!securityRes.result) {
+			this.wsManager.send(socket, 'securityError', 'error');
+			return;   
+		}
 		
 		var industryDocumentsCollection = this.db.collection('industry_documents');
 		var industryDocuments = await industryDocumentsCollection.find({"industry_id": data['industry_id']}).toArray();
@@ -90,8 +87,8 @@ class CoCreateIndustry extends CoCreateBase {
 		var builderUI_id = result.builderUI_id;
 		var idPairs = result.idPairs;
 
-		await this.updateDocumentsByIndustry(idPairs, data['new_organization_id']);
-		await this.removeFieldsForIndustry(idPairs, data['new_organization_id']);
+		await this.updateDocumentsByIndustry(idPairs);
+		await this.removeFieldsForIndustry(idPairs);
 		
 		this.wsManager.send(socket, 'buildIndustry', {
 			adminUI_id: adminUI_id,
@@ -107,18 +104,16 @@ class CoCreateIndustry extends CoCreateBase {
 		var industryDocumentsCollection = this.db.collection('industry_documents');
 		
 		var industryDocuments = await industryDocumentsCollection.find({"industry_id": industryId}).toArray();
-		
-		const newDB = this.getDB(newOrganizationId);
 	
 		var adminUI_id = '';
 		var builderUI_id = '';
 		
 		var idPairs = [];
 		
-		for (var i = 0; i < industryDocuments.length; i++) {
+		for (var i=0; i < industryDocuments.length; i++) {
 			var document = industryDocuments[i];
 			
-			var collection = newDB.collection(document['collection_name']);
+			var collection = this.db.collection(document['collection_name']);
 			
 			delete document['_id'];
 			delete document['organization_id'];
@@ -155,15 +150,12 @@ class CoCreateIndustry extends CoCreateBase {
 		}
 	}	
 	
-	async updateDocumentsByIndustry(idPairs, newOrgId) {
-		const newDB = this.getDB(newOrgId);
-		
-		for (var i = 0; i < idPairs.length; i++) {
-			const {collection_name, new_document_id} = idPairs[i];
-			var collection = newDB.collection(collection_name);
-			
-			var document = await collection.findOne({'_id': ObjectID(new_document_id)});
-			
+	async updateDocumentsByIndustry(idPairs) {
+	
+		for (var i=0; i < idPairs.length; i++) {
+			var idPair = idPairs[i];
+			var collection = this.db.collection(idPair['collection_name']);
+			var document = await collection.findOne({'_id': ObjectID(idPair['new_document_id'])});
 			for (var field in document) {
 				if (field != '_id' && field != 'organization_id' && field != 'collection_name' && field != 'old_document_id') {
 					var fieldValue = document[field];
@@ -173,48 +165,36 @@ class CoCreateIndustry extends CoCreateBase {
 			}
 			
 			delete document['_id'];
-			await collection.findOneAndUpdate({'_id': ObjectID(new_document_id)}, {$set: document});
+			await collection.findOneAndUpdate({'_id': ObjectID(idPair['new_document_id'])}, {$set: document});
 		}
 	}
 	
-	async removeFieldsForIndustry(idPairs, newOrgId) {
-		const newDB = this.getDB(newOrgId)
+	async removeFieldsForIndustry(idPairs) {
 		for (var i=0; i < idPairs.length; i++) {
 			var idPair = idPairs[i];
-			var collection = newDB.collection(idPair['collection_name']);
+			var collection = this.db.collection(idPair['collection_name']);
 			await collection.findOneAndUpdate({'_id': ObjectID(idPair['new_document_id'])}, {$unset: {"old_document_id": "", "collection_name": ""}});
 		}
 	}
 	
-	//. commented by jin
 	replaceId(fieldValue, idPairs) {
 		var type = typeof fieldValue;
-		// if (type == 'string') {
-		// 	for (var i=0; i < idPairs.length; i++) {
-		// 		var idPair = idPairs[i];
-		// 		fieldValue = fieldValue.replace(new RegExp(idPair['old_document_id'], 'g'), idPair['new_document_id']);    
-		// 	}
-		// } else if (type == 'object') {
-		// 	for (var key in fieldValue) {
-		// 		for (var i = 0; i < idPairs.length; i++) {
-		// 			var idPair = idPairs[i];
-		// 			if (fieldValue[key]) fieldValue[key] = fieldValue[key].replace(new RegExp(idPair['old_document_id'], 'g'), idPair['new_document_id']);    
-		// 		}
-		// 	}
-		// }
-		idPairs.forEach(({old_document_id, new_document_id}) => {
-			if (type == 'string') {
-				fieldValue = fieldValue.replace(new RegExp(old_document_id, 'g'), new_document_id);
-			} else if (type == "object") {
-				for (let key in fieldValue) {
-					if (fieldValue[key])
-						fieldValue[key] = fieldValue[key].replace(new RegExp(old_document_id, 'g'), new_document_id);
+		if (type == 'string') {
+			for (var i=0; i<idPairs.length; i++) {
+				var idPair = idPairs[i];
+				fieldValue = fieldValue.replace(new RegExp(idPair['old_document_id'], 'g'), idPair['new_document_id']);    
+			}
+		} else if (type == 'object') {
+			for (var key in fieldValue) {
+				for (var i=0; i<idPairs.length; i++) {
+					var idPair = idPairs[i];
+					if (fieldValue[key]) fieldValue[key] = fieldValue[key].replace(new RegExp(idPair['old_document_id'], 'g'), idPair['new_document_id']);    
 				}
 			}
-		})
+		}
 		return fieldValue;
 	}
-
+	
 	//. builder
 	async fetchInfoForBuilder(socket, data) {
 		const self = this;

@@ -23,6 +23,7 @@ module.exports.WSManager = function(manager) {
 	MongoClient
 		.connect(config.db_url, { useNewUrlParser: true, poolSize: 10 })
 		.then(client => {
+			// initDBManagers(manager, client.db('mydb'));
 			initDBManagers(manager, client);
 		})
 		.catch(error => console.error(error));
@@ -54,6 +55,7 @@ class CoCreateCrud extends CoCreateBase {
 	init() {
 		if (this.wsManager) {
 			this.wsManager.on('createDocument', 	(socket, data, roomInfo) => this.createDocument(socket, data, roomInfo));
+			// this.wsManager.on('readDocument',		(socket, data, roomInfo) => this.readDocument(socket, data))
 			this.wsManager.on('readDocument',		(socket, data, roomInfo) => this.readDocument(socket, data))
 			this.wsManager.on('updateDocument', 	(socket, data, roomInfo) => this.updateDocument(socket, data))
 			this.wsManager.on('deleteDocument', 	(socket, data, roomInfo) => this.deleteDocument(socket, data))
@@ -74,11 +76,10 @@ class CoCreateCrud extends CoCreateBase {
 			broadcast: true/false,
 			broadcast_sender: true/false,
 			
-			collection: "testtwillio",
+			collection: "test123",
 			document_id: "document_id",
 			data:{
-				to:
-				ssid:
+			
 				name1:“hello”,
 				name2: “hello1”
 			},
@@ -104,7 +105,7 @@ class CoCreateCrud extends CoCreateBase {
 		if(!data.data) return;
 		
 		try{
-			var collection = this.getCollection(data)
+			var collection = this.db.collection(data['collection']);
 			
 			collection.insertOne(data.data, function(error, result) {
 				if(!error && result){
@@ -132,6 +133,55 @@ class CoCreateCrud extends CoCreateBase {
 		}
 	}
 	
+	/** Read Document 
+		old version
+	**/
+	
+	// async readDocument(socket, data) {
+	// 	if (!data['collection'] || data['collection'] == 'null' || typeof data['collection'] !== 'string') {
+	// 		return;
+	// 	} 
+	// 	const self = this;
+	// 	const securityRes = await this.checkSecurity(data);
+	// 	if (!securityRes.result) {
+	// 		this.wsManager.send(socket, 'securityError', 'error');
+	// 		return;   
+	// 	}
+		
+	// 	try {
+			
+	// 		var collection = this.getDb(data['namespace']).collection(data["collection"]);
+			
+	// 		var query = {
+	// 			"_id": new ObjectID(data["document_id"])
+	// 		};
+	// 		if (securityRes['organization_id']) {
+	// 			query['organization_id'] = securityRes['organization_id'];
+	// 		}
+			
+	// 		collection.find(query).toArray(function(error, result) {
+	// 			if (!error && result) {
+	// 				if (result.length > 0) {
+	// 					let tmp = result[0];
+	// 					if (data['exclude_fields']) {
+	// 						data['exclude_fields'].forEach(function(field) {
+	// 							delete tmp[field];
+	// 						})
+	// 					}
+	// 					self.wsManager.send(socket, 'readDocument', {
+	// 						'collection'  : data['collection'],
+	// 						'document_id' : data['document_id'],
+	// 						'data'        : tmp,
+	// 						'metadata'    : data['metadata']
+	// 					});
+	// 				}
+	// 			} 
+	// 		});
+	// 	} catch (error) {
+	// 		console.log('readDocument error', error); 
+	// 	}
+	// }
+	
 	/** Read Document **/
 	async readDocument(socket, data) {
 		if (!data['collection'] || data['collection'] == 'null' || typeof data['collection'] !== 'string') {
@@ -145,7 +195,9 @@ class CoCreateCrud extends CoCreateBase {
 		}
 		
 		try {
-			var collection = this.getCollection(data)
+			
+			// var collection = this.getDb(data['namespace']).collection(data["collection"]);
+			var collection = this.db.collection(data["collection"]);
 			
 			var query = {
 				"_id": new ObjectID(data["document_id"])
@@ -188,7 +240,8 @@ class CoCreateCrud extends CoCreateBase {
 		}
 		
 		try {
-			var collection = this.getCollection(data)
+			
+			var collection = this.db.collection(data["collection"]);
 			
 			var query = {"_id": new ObjectID(data["document_id"]) };
 			// if (securityRes['organization_id']) query['organization_id'] = securityRes['organization_id'];
@@ -244,7 +297,7 @@ class CoCreateCrud extends CoCreateBase {
 		}
 	
 		try {
-			var collection = this.getCollection(data)
+			var collection = this.db.collection(data["collection"]);
 			var query = {
 				"_id": new ObjectID(data["document_id"])
 			};
