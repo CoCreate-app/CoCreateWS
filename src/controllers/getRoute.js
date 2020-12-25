@@ -17,7 +17,7 @@ module.exports.getRouteMongo = async (req, res, next) => {
     let url = req.url; // route/*
     let route_uri = url.split(req.hostname)[0];
     console.log(" route_uri => ", route_uri,' hostname ',hostname)
-    let organization = await utils.organizationsfindOne({domain:hostname},'masterDB')
+    let organization = await utils.organizationsfindOne({domain:hostname},'5ae0cfac6fb8c4e656fdaf92' /** masterDB **/)
     if(organization==null){
         res.send('Error Get Organization by Domain =>'+hostname);
         return null;

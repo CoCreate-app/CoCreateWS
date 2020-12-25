@@ -5,6 +5,9 @@ const { createServer } = require('http');
 const crudController = require("./crud")
 const wsManager = require("./WSManager")
 const urlencoded = require('body-parser').urlencoded;
+var metricsCocreate = require("./metrics.js");
+
+metricsCocreate();
 
 const app = express();
 

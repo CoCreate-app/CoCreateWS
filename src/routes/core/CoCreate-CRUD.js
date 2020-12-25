@@ -10,6 +10,8 @@ module.exports.CoCreateSocketInit = function (socket) {
 }
 
 //. CreateDocument
+// data param needs organization_id field added to pass security check
+
 module.exports.CreateDocument = function (info, config) {
 	if (info === null) return;
 	

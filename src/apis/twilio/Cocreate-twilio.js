@@ -188,10 +188,13 @@ class CoCreateTwilio extends CoCreateBase {
 											},data_original.data.friendlyName);
 											*/
 							//response.conference(data_original.data.friendlyName);
-						
+							const url_twilio_root = 'https://server.cocreate.app:8088/twilio';
 							response.conference({
 								    waitUrl: waitUrl,
-								    waitMethod : 'GET'
+								    waitMethod : 'GET',
+								    statusCallbackEvent : 'start end join leave mute hold speaker',
+								    statusCallback : url_twilio_root+'/calls_events_conference',
+								    statusCallbackMethod : 'POST'
 								}, data_original.data.friendlyName);
 							console.log(response.toString())
 			                await client.calls(call.parentCallSid).update({

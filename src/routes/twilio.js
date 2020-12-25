@@ -65,13 +65,25 @@ router.post('/incomming347',(req, res)=>{
   
   dial.client('jean');
   
-  console.log("from",from,clientName)
-  console.log(twiml.toString())
+  //console.log("from",from,clientName)
+ // console.log(twiml.toString())
   
   res.type('text/xml');
   //res.send(twiml.toString());
-  res.send('<?xml version="1.0" encoding="UTF-8"?><Response><Dial><Client>jean</Client></Dial></Response>');
+  let response = '<?xml version="1.0" encoding="UTF-8"?>\
+    <Response>\
+      <Dial>\
+        <Client statusCallbackEvent="initiated ringing answered completed" statusCallback="https://server.cocreate.app:8088/twilio/calls_events" statusCallbackMethod="POST">jean</Client>\
+      </Dial>\
+    </Response>'
+  res.send(response);
 })
+
+router.post('/listen_record',(req, res)=>{
+  let data_original = {...req.body};
+  console.log("Listen_recording ",data_original);
+});
+
 
 router.post('/simulatefail',(req, res)=>{
   res.send('<?xml version="1.0" encoding="UTF-8"?>\
@@ -121,11 +133,13 @@ router.post('/voice', (req, res) => {
     default:
       let from = (data_original.From) ? data_original.From : '+16027372368';
       dial = twiml.dial({ callerId: from });
+      //dial.number(data_original.To);
       dial.number({
           statusCallbackEvent: 'initiated ringing answered completed',
           statusCallback: url_twilio+'/calls_events',
           statusCallbackMethod: 'POST'
       },data_original.To);
+      
   }
   console.log("Voice ",twiml.toString())
   res.set('Content-Type', 'text/xml');
@@ -138,33 +152,85 @@ const CoCreateCRUD = require("./core/CoCreate-CRUD.js")
  * Socket init 
  */
  
-
-
-router.post('/calls_events', (req, res)=>{
-  
-  const socket = {
-    "config": {
-        "apiKey": "c2b08663-06e3-440c-ef6f-13978b42883a",
-    	"securityKey": "f26baf68-e3a9-45fc-effe-502e47116265",
-    	"organization_Id": "5de0387b12e200ea63204d6c"
-    },
-    "host": "server.cocreate.app:8088"
-}
+const socket = {
+                  "config": {
+                    "apiKey": "c2b08663-06e3-440c-ef6f-13978b42883a",
+                  	"securityKey": "f26baf68-e3a9-45fc-effe-502e47116265",
+                  	"organization_Id": "5de0387b12e200ea63204d6c"
+                  },
+                  "host": "server.cocreate.app:8088"
+              }
 CoCreateCRUD.CoCreateSocketInit(socket)
+
+CoCreateCRUD.listen('readDocumentList', function(data) {
+  console.log(data);
+})
   
+
+router.post('/calls_events_conference', async (req, res)=>{
+  console.log("Conference events")
   let data_original = {...req.body};
-  console.log("Events")
   console.log(data_original)
-  //HERE save JSON in BD
+});
+
+router.post('/calls_events', async (req, res)=>{
   
-  CoCreateCRUD.CreateDocument({
-	collection: "testtwillio",
-	broadcast_sender: true,
-	broadcast: false,
-	data: data_original,
+
+  const connection = require('../config/dbConnection.js');
+  const db = await connection(socket.config['organization_Id']); // obtenemos la conexión   
+  let collection_name = "testtwillio";
+  const collection = db.collection(collection_name);
+  let callData = {};
+  let data_original = {...req.body, organization_id: socket.config.organization_Id};
+  let status = data_original['CallStatus']
+  
+  
+	const accountId = 'ACa677caf4788f8e1ae9451097da1712d0';	
+	const authToken = '836b57fefa38c2ca2a40c1bfb2566dab'; 	
+	let twilio = require('twilio')(accountId, authToken);
 	
-}, socket.config);
+	console.log(data_original["ParentCallSid"])
+  const data_parent = await twilio.calls(data_original["ParentCallSid"]).fetch()
+  data_original["directionParentCall"] = data_parent['direction'];
+  console.log("PArent =>>>>>>>>>>>>>>>>>>>>>>")
+  console.log('ParentCallSid => '+data_original["ParentCallSid"]+'- SID '+data_parent["sid"] + ' CallSid  '+data_original["CallSid"])
+  console.log("ENDPArent =>>>>>>>>>>>>>>>>>>>>>>")
+	
+			
   
+  switch (status) {
+    case 'ringing':
+          CoCreateCRUD.CreateDocument({
+            	collection: collection_name,
+            	broadcast_sender: true,
+            	broadcast: false,
+            	data: data_parent,
+          }, socket.config);
+      break;
+      case 'answered':
+        //callData = await collection.findOne({"CallSid":data_original["CallSid"]});
+        callData = await collection.findOne({"sid":data_parent["sid"]});
+        CoCreateCRUD.UpdateDocument({
+          collection: collection_name,
+          data: {'status':status},
+          document_id : callData._id.toString()
+        }, socket.config);
+        break;
+      case 'completed':
+        //callData = await collection.findOne({"CallSid":data_original["CallSid"]});
+        callData = await collection.findOne({"sid":data_original["sid"]});
+        let status_update = callData["CallStatus"] === 'answered' ? status : 'missCall';
+        data_parent["status"] = status;
+        CoCreateCRUD.UpdateDocument({
+          collection: collection_name,
+          data: data_parent,
+          document_id : callData._id.toString()
+        }, socket.config);
+        break;
+  }
+  console.log("Events -> "+status)
+  //console.log(data_original)
+  //HERE save JSON in BD
 });
 
 router.get('/actions_twiml', (req, res)=>{

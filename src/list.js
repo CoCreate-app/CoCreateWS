@@ -73,7 +73,6 @@ class CoCreateList extends CoCreateBase {
 			
 			var query = {};
 			query = this.readQuery(operator);
-		
 
 			// if (operator['fetch'] && operator.fetch.name) {
 			// 	let fetch_value = operator.fetch.value;
@@ -131,6 +130,7 @@ class CoCreateList extends CoCreateBase {
 						
 						result_data = result;
 					}
+					
 					self.wsManager.send(socket, 'readDocumentList', {
 						'collection': data['collection'],
 						'element': data['element'],

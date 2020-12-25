@@ -9,6 +9,7 @@ const CoCreateList = require("./list")
 const CoCreateIndustry = require('./industry')
 const CoCreateUser = require('./user')
 const CoCreateMessage = require('./message')
+const CoCreateOrganization = require('./organization')
 const CoCreateDomain = require('./apis/domain/Cocreate-domain')
 const CoCreateStripe = require('./apis/stripe/Cocreate-stripe')
 const CoCreateEmail = require('./apis/email/Cocreate-email')
@@ -38,6 +39,7 @@ function initDBManagers(manager, db){
 	new CoCreateEmail(manager, db)
 	new CoCreateXXX(manager, db)
 	new CoCreateTwilio(manager, db)
+	new CoCreateOrganization(manager, db)
 
 	new CoCreateBackup(manager, db)
 }
@@ -83,12 +85,13 @@ class CoCreateCrud extends CoCreateBase {
 			delete_fields:["name3", "name4"],
 			element: “xxxx”,
 			metaData: "xxxx"
-			}, roomInfo) 
+			}, roomInfo)
 			
 	that.wsManager.onMessage(socket, "deleteDocument", data, roomInfo)
 	*/
 
 	/** Create Document **/
+	// data param needs organization_id field added to pass security check
 	async createDocument(socket, data, roomInfo){
 		const securityRes = await this.checkSecurity(data);
 		const self = this;
@@ -188,7 +191,7 @@ class CoCreateCrud extends CoCreateBase {
 			var collection = this.getCollection(data)
 			
 			var query = {"_id": new ObjectID(data["document_id"]) };
-			if (securityRes['organization_id']) query['organization_id'] = securityRes['organization_id'];
+			// if (securityRes['organization_id']) query['organization_id'] = securityRes['organization_id'];
 			
 			var update = {};
 			if( data['set'] )   update['$set'] = data['set'];
