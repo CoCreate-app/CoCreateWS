@@ -5,9 +5,9 @@ const { createServer } = require('http');
 const crudController = require("./crud")
 const wsManager = require("./WSManager")
 const urlencoded = require('body-parser').urlencoded;
-var metricsCocreate = require("./metrics.js");
+//var metricsCocreate = require("./metrics.js");
 
-metricsCocreate();
+//metricsCocreate();
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(urlencoded({ extended: false }));
 
 app.use(express.static('public'));
 
-app.use('/', require('./routes/index'));
+
 /*
 app.use('/users', require('./src/routes/users'));
 app.use('/api', require('./src/routes/api'));
@@ -29,6 +29,8 @@ app.use('/js/twilio.min.js', (req, res) => {
   console.log("-----------------------------------")
   res.sendFile('/home/ubuntu/environment/CoCreateWS/node_modules/twilio-client/dist/twilio.min.js');
 });
+
+app.use('/', require('./routes/index'));
 
 crudController.WSManager(wsManager);
 

@@ -61,7 +61,7 @@ module.exports.UpdateDocument = function (info, config) {
 	request_data['document_id'] = info.document_id
 	request_data['metadata'] = info['metadata']
 	request_data['upsert'] = true;
-	request_data['broadcast'] = false;
+	request_data['broadcast'] = true;
 
 	CoCreateSocket.send('updateDocument', request_data, '');	
 }
