@@ -15,7 +15,7 @@ class CoCreateOrganization extends CoCreateBase {
 			this.wsManager.on('deleteOrg',		(socket, data, roomInfo) => this.deleteOrg(socket, data));
 			
 			this.wsManager.on('runIndustry',	(socket, data, roomInfo) => this.runIndustry(socket, data));
-			this.wsManager.on('createIndustryTest',	(socket, data, roomInfo) => this.createIndustry(socket, data));
+			this.wsManager.on('createIndustryNew',	(socket, data, roomInfo) => this.createIndustry(socket, data));
 		}
 	}
 
@@ -128,9 +128,6 @@ class CoCreateOrganization extends CoCreateBase {
 		const {industry_id, new_organization_id, db} = data
 		let industryDocumentsCollection = this.getDB(db).collection('industry_documents');
 
-		//. industry's subdomain
-		let industryDocuments = await industryDocumentsCollection.find({"industry_data.industry_id" : industry_id}).toArray();
-		
 		//. get old_subdomain and new_subdomain
 		let industry = await this.getDB(db).collection('industries').findOne({_id: ObjectID(industry_id)});
 		let newOrgDocument = await this.getDB(db).collection('organizations').findOne({_id: ObjectID(new_organization_id)});
@@ -138,8 +135,13 @@ class CoCreateOrganization extends CoCreateBase {
 		let subdomain = industry && industry.subdomain ? industry.subdomain : "";
 		let new_subdomain = newOrgDocument && newOrgDocument.domains ? newOrgDocument.domains[0] : "";
 		
-		console.log("-----------------", subdomain, new_subdomain, industry, newOrgDocument)
-		const {adminUI_id, builderUI_id, idPairs} = await this.createEmptyDocumentsFromIndustry(industryDocuments, new_organization_id, subdomain, new_subdomain);
+		const {adminUI_id, builderUI_id, idPairs} = await this.createEmptyDocumentsFromIndustry(
+			industryDocumentsCollection, 
+			industry_id, 
+			new_organization_id, 
+			subdomain, 
+			new_subdomain
+		);
 		
 		await this.updateDocumentsByIndustry(idPairs, new_organization_id)
 		this.wsManager.send(socket, 'runIndustry', {
@@ -149,18 +151,17 @@ class CoCreateOrganization extends CoCreateBase {
 		})
 	}
 	
-	async createEmptyDocumentsFromIndustry(industryDocuments, newOrgId, old_subdomain, new_subdomain) {
+	async createEmptyDocumentsFromIndustry(industryDocumentsCollection, industry_id, newOrgId, old_subdomain, new_subdomain) {
 		const newDB = this.getDB(newOrgId);
+		const self = this;
 		let adminUI_id = '';
 		let builderUI_id = '';
 		let idPairs = [];
 		
+		let documentCursor = industryDocumentsCollection.find({"industry_data.industry_id" : industry_id})
 		
-		console.log(old_subdomain, new_subdomain)
-		
-		for (var i = 0; i < industryDocuments.length; i++) {
-			let document = industryDocuments[i];
-
+		while(await documentCursor.hasNext()) {
+			let document = await documentCursor.next();
 			const {collection, document_id, industry_id} = document.industry_data || {}
 			if (!collection || !document_id) {
 				continue;
@@ -176,7 +177,7 @@ class CoCreateOrganization extends CoCreateBase {
 			if (old_subdomain && new_subdomain) {
 				for (let field in document) {
 					if (field != '_id' && field != 'organization_id') {
-						document[field] = this.replaceContent(document[field], old_subdomain, new_subdomain);
+						document[field] = self.replaceContent(document[field], old_subdomain, new_subdomain);
 					}
 				}
 			}
@@ -194,10 +195,11 @@ class CoCreateOrganization extends CoCreateBase {
 					old_id : document_id,
 					collection_name: collection
 				})
-			}	
-		
+			}		
 		}
-
+		// console.log(idPairs);
+		// console.log(idPairs.length);
+		
 		return {
 			adminUI_id: adminUI_id,
 			builderUI_id: builderUI_id,
@@ -240,7 +242,7 @@ class CoCreateOrganization extends CoCreateBase {
 			content = content.replace(new RegExp(src, 'g'), target);
 		} else if (type == "object") {
 			for (let key in content) {
-				if (content[key]) {
+				if (content[key] && typeof content[key] == 'string') {
 					content[key] = content[key].replace(new RegExp(src, 'g'), target);
 				}
 			}
@@ -254,13 +256,32 @@ class CoCreateOrganization extends CoCreateBase {
 	async createIndustry(socket, data)
 	{
 		try {
-			const {organization_id, industry_id, db} = data;
-			const srcDB = this.getDB(organization_id);
+			const {organization_id, db} = data;
 			const self = this;
+			const collection = this.getCollection(data);
+			
+			let orgDocument = await this.getDB(db).collection('organizations').findOne({_id: ObjectID(organization_id)});
+			let subdomain = orgDocument && orgDocument.domains ? orgDocument.domains[0] : "";
+			
+			let insertData = data.data;
+			if (!insertData.subdomain) {
+				insertData.subdomain = subdomain;
+			}
+
+			let insertResult = await collection.insertOne(insertData);
+			console.log(insertResult.ops[0])
+			
+			const industry_id = insertResult.ops[0]._id + "";
+			const anotherCollection = self.getDB(organization_id).collection(data['collection']);
+			anotherCollection.insertOne(insertResult.ops[0]);
+			
+			//. create inustryDocuments
+			const srcDB = this.getDB(organization_id);
 			let collections = []
-			const exclusion_collections = ["users", "organizations", "industries", "industry_documents"];
+			const exclusion_collections = ["users", "organizations", "industries", "industry_documents", "crdt-transactions", "metrics"];
 			collections = await srcDB.listCollections().toArray()
 			collections = collections.map(x => x.name)
+
 			for (let i = 0; i < collections.length; i++) {
 				let collection = collections[i];
 				if (exclusion_collections.indexOf(collection) > -1) {
@@ -268,7 +289,8 @@ class CoCreateOrganization extends CoCreateBase {
 				}
 				await self.insertDocumentsToIndustry(collection, industry_id, organization_id, db);
 			}
-	
+			
+			//. update subdomain
 			const response  = {
 				'db': data['db'],
 				'organization_id': organization_id,
@@ -276,13 +298,16 @@ class CoCreateOrganization extends CoCreateBase {
 				'data': collections,
 				'metadata': data['metadata'],
 			}
-			self.wsManager.send(socket, 'createIndustry', response);
+			
+			console.log(response)
+			self.wsManager.send(socket, 'createIndustryNew', response);
 
+			
 		} catch (error) {
 			console.log(error)
 		}
 	}
-	
+
 	async insertDocumentsToIndustry(collectionName, industryId, organizationId, targetDB) {
 		try{
 			const industryDocumentsCollection = this.getDB(targetDB).collection('industry_documents');
@@ -291,10 +316,8 @@ class CoCreateOrganization extends CoCreateBase {
 				'organization_id': organizationId
 			}
 
-			const documents = await collection.find(query).toArray();
-			
-			for (let i = 0; i < documents.length; i++) {
-				var document = documents[i];
+			const documentCursor = collection.find(query);
+			await documentCursor.forEach(async (document) => {
 				var documentId = document['_id'].toString();
 	
 				delete document['_id'];
@@ -318,15 +341,7 @@ class CoCreateOrganization extends CoCreateBase {
 						upsert: true
 					}
 				);
-				
-				// industryDocumentsCollection.deleteMany(
-				// 	{
-				// 		"industry_data.document_id" : {$eq: documentId},
-				// 		"industry_data.industry_id" : {$eq: industryId},
-				// 		"industry_data.collection"	: {$eq: collectionName},
-				// 	}
-				// );
-			}
+			})
 		}
 		catch (e) {
 			console.log(e)

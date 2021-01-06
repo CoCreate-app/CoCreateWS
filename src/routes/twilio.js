@@ -117,7 +117,7 @@ router.post('/incomming602',(req, res)=>{
       </Response>');
 })
 
-router.post('/voice', (req, res) => {
+router.post('/voice', async (req, res) => {
   // Create TwiML response
   let { friendlyname } = req.body;
   const twiml = new VoiceResponse();
@@ -131,6 +131,23 @@ router.post('/voice', (req, res) => {
         dial.conference(friendlyname);
       break;
     case 'queue':
+      /*
+      console.log(" QUEUE ",opt,data_original)
+      const data_parent = await twilio.calls(data_original["CallSid"]).fetch()
+      console.log("data_parent ",data_parent)
+      const connection = require('../config/dbConnection.js');
+      const db = await connection(socket.config['organization_Id']); // obtenemos la conexión   
+      let collection_name = "testtwillio";
+      const collection = db.collection(collection_name);
+      let callData = await collection.findOne({"ParentCallSid":data_original["CallSid"]});
+      CoCreateCRUD.UpdateDocument({
+          collection: collection_name,
+          data: {'status':opt},
+          broadcast_sender: true,
+          broadcast: true,
+          document_id : callData._id.toString()
+      }, socket.config);
+     */ 
       friendlyname = friendlyname ? friendlyname : 'cocreateDefault'
       twiml.dial().queue(friendlyname);
     break;
@@ -205,11 +222,13 @@ router.post('/calls_events_conference', async (req, res)=>{
       //data_original['status'] = 'complete';
     break;
     case 'participant-hold':
+      data_original['status'] = 'hold-conference';
+    break;
     case 'participant-join':
       data_original['status'] = 'hold';
     break;
     case 'participant-speech-start':
-      data_original['status'] = 'in-progress';
+      data_original['status'] = 'in-progress-conference';
     break;
     /*default:
       data_original['status'] = status;
