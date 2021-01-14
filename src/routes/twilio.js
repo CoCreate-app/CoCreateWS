@@ -72,13 +72,14 @@ router.post('/incomming347',(req, res)=>{
   
   //console.log("from",from,clientName)
  // console.log(twiml.toString())
-  
+  //  https://server.cocreate.app:8088/test/twiml347.xml
+  //  https://server.cocreate.app:8088/twilio/incomming347
   res.type('text/xml');
   //res.send(twiml.toString());
   let response = '<?xml version="1.0" encoding="UTF-8"?>\
     <Response>\
       <Dial>\
-        <Client statusCallbackEvent="initiated ringing answered completed" statusCallback="https://server.cocreate.app:8088/twilio/calls_events" statusCallbackMethod="POST">jean</Client>\
+        <Client  statusCallbackEvent="initiated ringing answered completed" statusCallback="https://server.cocreate.app:8088/twilio/calls_events" statusCallbackMethod="POST">jean</Client>\
       </Dial>\
     </Response>'
   res.send(response);

@@ -16,6 +16,7 @@ module.exports.getRouteMongo = async (req, res, next) => {
     let hostname = req.hostname; //domain
     let url = req.url; // route/*
     let route_uri = url.split(req.hostname)[0];
+    route_uri = route_uri.indexOf('?') ? route_uri.split('?')[0] : route_uri
     console.log(" route_uri => ", route_uri,' hostname ',hostname)
     let organization = await utils.organizationsfindOne({domain:hostname},'5ae0cfac6fb8c4e656fdaf92' /** masterDB **/)
     if(organization==null){
@@ -38,6 +39,7 @@ module.exports.getRouteMongo = async (req, res, next) => {
             if(route_export!=null){
                 let content_type = '';
                 let ext = route_uri.indexOf('.')!=-1 ? route_uri.split('.')[route_uri.split('.').length-1] : 'html';
+                ext = ext.indexOf('?') ? ext.split('?')[0] : ext
                 switch(ext){
                     case 'css':
                         content_type = 'text/css'
@@ -52,7 +54,8 @@ module.exports.getRouteMongo = async (req, res, next) => {
                         content_type = 'text/html'
                 }
                 //let content_type = route['content_type'] ? route['content_type'] : 'text/html';
-                res.setHeader('content-type', content_type);
+                //res.setHeader('content-type', content_type);
+                res.type(content_type);
                 res.send(route_export[route['name']]);
             }
             else {

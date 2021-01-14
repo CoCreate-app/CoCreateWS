@@ -39,7 +39,7 @@ class CoCreateUser extends CoCreateBase {
 			return;   
 		}
 
-		const collection = this.getDb(data['namespace']).collection(data["collection"]);
+		const collection = this.getDB(data['namespace']).collection(data["collection"]);
 			
 		const query = {
 			[data['name']]: data['value']
@@ -88,22 +88,14 @@ class CoCreateUser extends CoCreateBase {
 			self.wsManager.send(socket, 'securityError', 'error');
 			return;   
 		}
-		
 		try {
-			
-			const collection = self.getDb(data['namespace']).collection(data["data-collection"]);
+			const {organization_id, db} = data
+			const selectedDB = db || organization_id;
+			const collection = self.getDB(selectedDB).collection(data["data-collection"]);
 			const query = new Object();
 			
-			if (securityRes['organization_id']) {
-				query['organization_id'] = securityRes['organization_id'];
-			}
-			
 			// query['connected_orgs'] = data['organization_id'];
-			
-			// if (data['data-document_id']) {
-			//   query['data-document_id'] = new ObjectID(data['data-module']);
-			// } 
-			
+
 			for (var key in data['loginData']) {
 				query[key] = data['loginData'][key];
 			}
@@ -143,19 +135,21 @@ class CoCreateUser extends CoCreateBase {
 	async usersCurrentOrg(socket, data) {
 		try {
 			const self = this;
-			const collection = this.getDb(data['namespace']).collection(data["data-collection"]);
+			const {organization_id, db} = data
+			const selectedDB = db || organization_id;
+			const collection = this.getDB(selectedDB).collection(data["data-collection"]);
 			
 			let query = new Object();
 			
 			query['_id'] = new ObjectID(data['user_id']);
-			
+
 			collection.find(query).toArray(function(error, result) {
 			
 				if (!error && result && result.length > 0) {
 					
 					if (result.length > 0) {
 						let org_id = result[0]['current_org'];
-						const orgCollection = self.getDb(data['namespace']).collection('organizations');
+						const orgCollection = self.getDB(selectedDB).collection('organizations');
 						
 						orgCollection.find({"_id": new ObjectID(org_id),}).toArray(function(err, res) {
 							if (!err && res && res.length > 0) {
@@ -204,7 +198,9 @@ class CoCreateUser extends CoCreateBase {
 		}
 		
 		try {
-			const collection = self.getDb(data['namespace']).collection(data['data-collection']);
+			const {organization_id, db} = data
+			const selectedDB = db || organization_id;
+			const collection = self.getDB(selectedDB).collection(data['data-collection']);
 			const user_id = data['user_id'];
 			const query = {
 				"_id": new ObjectID(user_id),
@@ -245,7 +241,9 @@ class CoCreateUser extends CoCreateBase {
 		if (!items[1]) return;
 
 		try {
-			const collection = self.getDb().collection('users');
+			const {organization_id, db} = data
+			const selectedDB = db || organization_id;
+			const collection = self.getDB(selectedDB).collection('users');
 			const user_id = items[1];
 			const query = {
 				"_id": new ObjectID(user_id),

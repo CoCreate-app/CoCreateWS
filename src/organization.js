@@ -128,30 +128,57 @@ class CoCreateOrganization extends CoCreateBase {
 		const {industry_id, new_organization_id, db} = data
 		let industryDocumentsCollection = this.getDB(db).collection('industry_documents');
 
-		//. get old_subdomain and new_subdomain
+
 		let industry = await this.getDB(db).collection('industries').findOne({_id: ObjectID(industry_id)});
-		let newOrgDocument = await this.getDB(db).collection('organizations').findOne({_id: ObjectID(new_organization_id)});
-		
-		let subdomain = industry && industry.subdomain ? industry.subdomain : "";
-		let new_subdomain = newOrgDocument && newOrgDocument.domains ? newOrgDocument.domains[0] : "";
-		
-		const {adminUI_id, builderUI_id, idPairs} = await this.createEmptyDocumentsFromIndustry(
-			industryDocumentsCollection, 
-			industry_id, 
-			new_organization_id, 
-			subdomain, 
-			new_subdomain
-		);
-		
-		await this.updateDocumentsByIndustry(idPairs, new_organization_id)
-		this.wsManager.send(socket, 'runIndustry', {
-			adminUI_id,
-			builderUI_id,
-			industry_id
-		})
+		let error = null;
+
+		if (!industry._id) {
+			error = "Can't get industry"
+		} else {
+			let newOrgDocument = await this.getDB(db).collection('organizations').findOne({_id: ObjectID(new_organization_id)});
+			
+			if (!newOrgDocument) {
+				error = "Can't get organization";
+			} else {
+				let new_subdomain = newOrgDocument && newOrgDocument.domains ? newOrgDocument.domains[0] : "";
+				
+				const {adminUI_id, builderUI_id, idPairs} = await this.createEmptyDocumentsFromIndustry
+				(
+					industryDocumentsCollection, 
+					industry_id, 
+					newOrgDocument,
+					industry.organization_data || {}, 
+					new_subdomain
+				);
+				await this.updateDocumentsByIndustry(idPairs, new_organization_id)	
+				this.wsManager.send(socket, 'runIndustry', {
+					error: false,
+					message: "successfuly",
+					adminUI_id,
+					builderUI_id,
+					industry_id
+				})
+				return;
+			}
+		}
+		if (error) {
+			this.wsManager.send(socket, 'runIndustry', {
+				error: true,
+				message: error,
+			})
+		}
+
+
 	}
 	
-	async createEmptyDocumentsFromIndustry(industryDocumentsCollection, industry_id, newOrgId, old_subdomain, new_subdomain) {
+	async createEmptyDocumentsFromIndustry(industryDocumentsCollection, industry_id, newOrg, orgData, new_subdomain) {
+		const newOrgId = newOrg._id.toString();
+		const newOrgApiKey = newOrg.apiKey;
+		const newOrgSecurityKey = newOrg.securityKey;
+		
+		const {subdomain, apiKey, securityKey, organization_id} = orgData;
+
+		
 		const newDB = this.getDB(newOrgId);
 		const self = this;
 		let adminUI_id = '';
@@ -174,11 +201,22 @@ class CoCreateOrganization extends CoCreateBase {
 			delete document['industry_data'];
 			
 			//. replace subdomain
-			if (old_subdomain && new_subdomain) {
-				for (let field in document) {
-					if (field != '_id' && field != 'organization_id') {
-						document[field] = self.replaceContent(document[field], old_subdomain, new_subdomain);
+			for (let field in document) {
+				if (field != '_id' && field != 'organization_id') {
+					if (subdomain && new_subdomain) {
+						document[field] = self.replaceContent(document[field], subdomain, new_subdomain);
 					}
+					
+					if (newOrgId && organization_id) {
+						document[field] = self.replaceContent(document[field], organization_id, newOrgId);
+					}
+					if (newOrgApiKey && apiKey) {
+						document[field] = self.replaceContent(document[field], apiKey, newOrgApiKey);
+					}
+					if (newOrgSecurityKey && securityKey) {
+						document[field] = self.replaceContent(document[field], securityKey, newOrgSecurityKey);
+					}
+					
 				}
 			}
 
@@ -264,15 +302,20 @@ class CoCreateOrganization extends CoCreateBase {
 			let subdomain = orgDocument && orgDocument.domains ? orgDocument.domains[0] : "";
 			
 			let insertData = data.data;
-			if (!insertData.subdomain) {
-				insertData.subdomain = subdomain;
+			insertData.organization_data = {
+				subdomain: subdomain,
+				apiKey: orgDocument.apiKey,
+				securityKey: orgDocument.securityKey,
+				organization_id: organization_id
 			}
-
+			//. set masterDB			
+			insertData.organization_id = db || organization_id;
 			let insertResult = await collection.insertOne(insertData);
-			console.log(insertResult.ops[0])
-			
+
 			const industry_id = insertResult.ops[0]._id + "";
 			const anotherCollection = self.getDB(organization_id).collection(data['collection']);
+			//. update organization
+			insertResult.ops[0].organization_id = organization_id;
 			anotherCollection.insertOne(insertResult.ops[0]);
 			
 			//. create inustryDocuments
@@ -312,6 +355,7 @@ class CoCreateOrganization extends CoCreateBase {
 		try{
 			const industryDocumentsCollection = this.getDB(targetDB).collection('industry_documents');
 			const collection = this.getDB(organizationId).collection(collectionName);
+
 			const  query = {
 				'organization_id': organizationId
 			}
@@ -325,7 +369,7 @@ class CoCreateOrganization extends CoCreateBase {
 				document['industry_data'] = {
 					document_id: documentId,
 					industry_id: industryId,
-					collection: collectionName 
+					collection: collectionName,
 				}
 
 				industryDocumentsCollection.update(
