@@ -1,6 +1,6 @@
 'use strict'
 var utils= require('../utils');
-const CoCreateBase = require("../../base");
+const CoCreateBase = require("../../core/CoCreateBase");
 
 class CoCreateXXX extends CoCreateBase {
 	constructor(wsManager, db) {

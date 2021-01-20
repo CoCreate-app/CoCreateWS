@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 var utils = require("../controllers/utils.js");
-const GetRouteOrganization = require('../controllers/getRoute');
+const GetRouteOrganization = require('./getRoute');
 
 
 /* GET home page. */

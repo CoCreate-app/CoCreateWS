@@ -1,50 +1,6 @@
 
-const MongoClient = require('mongodb').MongoClient;
-const config = require('../config.json');
-
 const {ObjectID, Binary} = require("mongodb");
-
-const CoCreateBase = require("./base");
-const CoCreateList = require("./list")
-const CoCreateIndustry = require('./industry')
-const CoCreateUser = require('./user')
-const CoCreateMessage = require('./message')
-const CoCreateOrganization = require('./organization')
-const CoCreateDomain = require('./apis/domain/Cocreate-domain')
-const CoCreateStripe = require('./apis/stripe/Cocreate-stripe')
-const CoCreateEmail = require('./apis/email/Cocreate-email')
-const CoCreateXXX = require('./apis/xxx/Cocreate-xxx')
-const CoCreateTwilio = require('./apis/twilio/Cocreate-twilio')
-
-const CoCreateBackup = require("./backup")
-
-
-module.exports.WSManager = function(manager) {
-	MongoClient
-		.connect(config.db_url, { useNewUrlParser: true, poolSize: 10 })
-		.then(client => {
-			// initDBManagers(manager, client.db('mydb'));
-			initDBManagers(manager, client);
-		})
-		.catch(error => console.error(error));
-}
-
-function initDBManagers(manager, db){
-	new CoCreateCrud(manager, db)
-	new CoCreateList(manager, db)
-	new CoCreateIndustry(manager, db)
-	new CoCreateUser(manager, db)
-	new CoCreateMessage(manager, db)
-	new CoCreateDomain(manager, db)
-	new CoCreateStripe(manager, db)
-	new CoCreateEmail(manager, db)
-	new CoCreateXXX(manager, db)
-	new CoCreateTwilio(manager, db)
-	new CoCreateOrganization(manager, db)
-
-	new CoCreateBackup(manager, db)
-}
-/***************/
+const CoCreateBase = require("../core/CoCreateBase");
 
 class CoCreateCrud extends CoCreateBase {
 	constructor(wsManager, db) {
@@ -329,6 +285,8 @@ class CoCreateCrud extends CoCreateBase {
 		}
 	}
 }
+
+module.exports = CoCreateCrud;
 
 
 

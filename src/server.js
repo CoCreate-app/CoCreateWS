@@ -2,8 +2,9 @@
 
 const express = require('express');
 const { createServer } = require('http');
-const crudController = require("./crud")
-const wsManager = require("./WSManager")
+
+const init = require("./init")
+const wsManager = require("./core/WSManager")
 const urlencoded = require('body-parser').urlencoded;
 //var metricsCocreate = require("./metrics.js");
 
@@ -23,7 +24,7 @@ app.use('/users', require('./src/routes/users'));
 app.use('/api', require('./src/routes/api'));
 */
 app.use('/stripe', require('./routes/stripe'));
-app.use('/twilio', require('./routes/twilio'));
+app.use('/twilio', require('./apis/twilio/routes'));
 
 app.use('/js/twilio.min.js', (req, res) => {
   console.log("-----------------------------------")
@@ -32,7 +33,7 @@ app.use('/js/twilio.min.js', (req, res) => {
 
 app.use('/', require('./routes/index'));
 
-crudController.WSManager(wsManager);
+init.WSManager(wsManager);
 
 const server = createServer(app);
 

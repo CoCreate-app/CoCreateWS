@@ -3,7 +3,7 @@
 var utils= require('../utils');
 
 
-const CoCreateBase = require("../../base");
+const CoCreateBase = require("../../core/CoCreateBase");
 //const {ObjectID, Binary} = require("mongodb");
 
 class CoCreateEmail extends CoCreateBase {

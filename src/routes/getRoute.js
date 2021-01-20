@@ -1,4 +1,4 @@
-var utils = require("./utils.js");
+var utils = require("../controllers/utils.js");
 var config = require('../../config.json');
 
 

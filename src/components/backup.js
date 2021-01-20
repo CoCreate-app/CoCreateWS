@@ -1,5 +1,5 @@
 
-const CoCreateBase = require("./base");
+const CoCreateBase = require("../core/CoCreateBase");
 const {ObjectID, Binary} = require("mongodb");
 
 const json2csv = require("json-2-csv")

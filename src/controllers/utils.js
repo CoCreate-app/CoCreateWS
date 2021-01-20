@@ -26,6 +26,22 @@ module.exports = {
       //console.log(" finlllay ")
     }*/
   },
+  getDocumentByQuery: async (data,dbName) => {
+    
+    try {
+        const db = await connection(dbName); // obtenemos la conexión      
+        const collection = db.collection(data["collection"]);
+        delete data["collection"];
+        var query = {
+          ...data
+        };
+        return await collection.findOne(query);
+    }
+    catch(e){
+      console.log(" Catch Error finOne --- By Query",e)
+      return null;
+    }
+  },
   organizationsfindOne : async (data,dbName) => {
     try {
       const db = await connection(dbName); // obtenemos la conexión      

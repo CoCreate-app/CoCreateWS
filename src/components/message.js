@@ -1,5 +1,5 @@
 
-const CoCreateBase = require("./base");
+const CoCreateBase = require("../core/CoCreateBase");
 const {ObjectID, Binary} = require("mongodb");
 
 class CoCreateMessage extends CoCreateBase {
