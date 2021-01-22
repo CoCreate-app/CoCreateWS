@@ -8,12 +8,12 @@ const CoCreateIndustry = require('./components/industry')
 const CoCreateUser = require('./components/user')
 const CoCreateMessage = require('./components/message')
 const CoCreateOrganization = require('./components/organization')
-
-const CoCreateDomain = require('./apis/domain/Cocreate-domain')
-const CoCreateStripe = require('./apis/stripe/Cocreate-stripe')
-const CoCreateEmail = require('./apis/email/Cocreate-email')
-const CoCreateXXX = require('./apis/xxx/Cocreate-xxx')
-const CoCreateTwilio = require('./apis/twilio/Cocreate-twilio')
+const CoCreateSendGrid = require('./plugins/sendgrid/CoCreate-sendgrid'); 
+const CoCreateDomain = require('./plugins/domain/Cocreate-domain')
+const CoCreateStripe = require('./plugins/stripe/Cocreate-stripe')
+const CoCreateEmail = require('./plugins/email/Cocreate-email')
+const CoCreateXXX = require('./plugins/xxx/Cocreate-xxx')
+const CoCreateTwilio = require('./plugins/twilio/Cocreate-twilio')
 
 const CoCreateBackup = require("./components/backup")
 
@@ -39,6 +39,6 @@ function initDBManagers(manager, db){
 	new CoCreateXXX(manager, db)
 	new CoCreateTwilio(manager, db)
 	new CoCreateOrganization(manager, db)
-
+	new CoCreateSendGrid(manager);
 	new CoCreateBackup(manager, db)
 }

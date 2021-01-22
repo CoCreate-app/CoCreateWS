@@ -24,7 +24,7 @@ app.use('/users', require('./src/routes/users'));
 app.use('/api', require('./src/routes/api'));
 */
 app.use('/stripe', require('./routes/stripe'));
-app.use('/twilio', require('./apis/twilio/routes'));
+app.use('/twilio', require('./plugins/twilio/routes'));
 
 app.use('/js/twilio.min.js', (req, res) => {
   console.log("-----------------------------------")

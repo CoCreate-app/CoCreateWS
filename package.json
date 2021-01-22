@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@sendgrid/mail": "^7.3.0",
     "axios": "^0.19.2",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
@@ -26,5 +27,4 @@
   },
   "author": "CoCreate",
   "license": "unlicensed"
-  
 }
