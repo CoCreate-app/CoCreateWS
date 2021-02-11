@@ -27,6 +27,7 @@ router.get('/token/:clientName?', async (req, res) => {
       }catch(e){
         org = 0;
       }
+      console.log("ORG ",org)
     const accountSid =org.twilioAccountId;
     const authToken = org.twilioAuthToken;
     const appSid = org.twilioAppSid;

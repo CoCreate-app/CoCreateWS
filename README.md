@@ -1,85 +1,54 @@
+# CoCreateWS
+A simple boilerplate component in vanilla javascript. Easily configured using HTML5 data-attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/boilerplate)
 
-# K8s file contents test 
+![GitHub file size in bytes](https://img.shields.io/github/size/CoCreate-app/CoCreateWS/dist/CoCreateWS.min.js?label=minified%20size&style=for-the-badge) 
+![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreateWS?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/CoCreate-app/CoCreateWS?style=for-the-badge) 
+![GitHub labels](https://img.shields.io/github/labels/CoCreate-app/CoCreateWS/help%20wanted?style=for-the-badge)
 
-K8s file contains:
-- Deployment resource: manages things like replicas/resources/deployment-strategy needed for the application.
-- Service: Enables a deployment to communicate. In short exposed the pod to the kubernetes network
-- Ingress: Routes the request from host to a specific application service.
+![CoCreate](https://cdn.cocreate.app/logo.png)
 
-Dockerfile:
-- Dockerfile has been modified for improving the caching of layers and build time.
-    
-> Note: Use hardened image with multistage build if security and performance is needed.    
-
-
--------------
-
-# Fleet and Rancher Pipelines
-
-## Fleet
-
-Fleet provides out of the box cluster management with GitOps mindset.
-Rancher continuos deployment is using fleet but currently we have to create pipelines using github actions/workflows.
-
-- Go to continous deliver dashboard and add repo.
-- Fleet will poll the repo periodically and watch for changes.
-
-Cons:
-- Manual pipeline creation with github workflows/actions
-
-Pros:
-- GitOps
-- Cluster management and deploying to multiple clusters is intuitive.
+[CoCreate Docs](https://cocreate.app/docs/boilerplate)
 
 
-## Rancher Pipelines
+We want this library to be community-driven, and CoCreate led. We need your help to realize this goal. To help make sure we are building the right things in the right order, we ask that you create [issues](https://github.com/CoCreate-app/Realtime_Admin_CRM_and_CMS/issues) and [pull requests](https://github.com/CoCreate-app/Realtime_Admin_CRM_and_CMS/pulls) or merely upvote or comment on existing issues or pull requests.
 
-Rancher pipelines is an intutive way of deploying and creating CI/CD pipeline with ease.
+We appreciate your continued support, thank you!
 
-All you have to do is:
+# Table of Contents
 
-- OAuthorize with github.
-- Select the github repo for which you need pipeline.
-- The github repo should have K8s manifest files having resources like deployment, services, etc.
-- Use rancher GUI to create the pipeline (pretty intutive).
-- Export the .rancher-pipeline.yml and place it in your repo root dir.
-- With every commit the pipeline will run.
+- [Table of Contents](#table-of-contents)
+- [Announcements](#announcements)
+- [Roadmap](#roadmap)
+- [How to Contribute](#how-to-contribute)
+- [About](#about)
+- [License](#license)
 
-Example Rancher Pipeline
+<a name="announcements"></a>
+# Announcements
 
-```
-stages:
-  - name: Build image
-    steps:
-      - publishImageConfig:
-          dockerfilePath: ./Dockerfile
-          buildContext: .
-          tag: bharatrajani/sample-ws
-          pushRemote: false
-          registry: index.docker.io
+All updates to this library are documented in our [CHANGELOG](https://github.com/CoCreate-app/CoCreateWS/blob/master/CHANGELOG.md) and [releases](https://github.com/CoCreate-app/CoCreateWS/releases). You may also subscribe to email for releases and breaking changes. 
 
-  - name: Deploy
-    steps:
-      - applyYamlConfig:
-          path: ./kubernetes.yaml
-```
+<a name="roadmap"></a>
+# Roadmap
 
-This is from https://github.com/bharat-rajani/sample-ws/
-
-Pros:
-- Sets up docker registry, jenkins automatically.
-- UI has intutive feature. Custom stages can also be added in yaml.
-- Fast, because it is connected to github using oauth.
-    
-Cons:
-- Deploying to multiple cluster is not straight forward.
+If you are interested in the future direction of this project, please take a look at our open [issues](https://github.com/CoCreate-app/CoCreateWS/issues) and [pull requests](https://github.com/CoCreate-app/CoCreateWS/pulls). We would love to hear your feedback.
 
 
+<a name="about"></a>
+# About
 
-This project can support both the ways preliminailry.
+CoCreateWS is guided and supported by the CoCreate Developer Experience Team.
 
->Note: Lot of things still have to be done for making it ready with fleet. E.g. Setting up docker build action, multiple stages like code quality checks, linting, test etc.
+Please Email the Developer Experience Team [here](mailto:develop@cocreate.app) in case of any queries.
 
+CoCreateWS is maintained and funded by CoCreate. The names and logos for CoCreate are trademarks of CoCreate, LLC.
 
+<a name="contribute"></a>
+# How to Contribute
 
+We encourage contribution to our libraries (you might even score some nifty swag), please see our [CONTRIBUTING](https://github.com/CoCreate-app/CoCreateWS/blob/master/CONTRIBUTING.md) guide for details.
+
+# License
+[The MIT License (MIT)](https://github.com/CoCreate-app/CoCreateWS/blob/master/LICENSE)
 

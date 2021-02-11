@@ -1,8 +1,41 @@
 {
-  "name": "ws-test",
+  "name": "cocreatews",
   "version": "1.0.0",
-  "description": "",
+  "description": "CoCreateWS",
+  "keywords": [
+    "cocreatews",
+    "cocreate",
+    "low-code-framework",
+    "no-code-framework",
+    "cocreatejs",
+    "cocreatejs-component",
+    "cocreate-framework",
+    "no-code",
+    "low-code",
+    "collaborative-framework",
+    "realtime",
+    "realtime-framework",
+    "collaboration",
+    "shared-editing",
+    "html5-framework",
+    "javascript-framework"
+  ],
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoCreate-app/CoCreateWS.git"
+  },
+  "author": "CoCreate LLC",
+  "license": "unlicensed",
+  "bugs": {
+    "url": "https://github.com/CoCreate-app/CoCreateWS/issues"
+  },
+  "homepage": "https://cocreate.app/docs/CoCreateWS",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@sendgrid/mail": "^7.3.0",
     "axios": "^0.19.2",
@@ -19,12 +52,7 @@
     "uuid": "^8.1.0",
     "ws": "^7.3.0"
   },
-  "devDependencies": {},
-  "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "CoCreate",
-  "license": "unlicensed"
+  "dependencies": {
+    "@cocreate/docs": "^1.0.3"
+  }
 }
