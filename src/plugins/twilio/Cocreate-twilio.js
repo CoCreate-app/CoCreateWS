@@ -278,7 +278,6 @@ class CoCreateTwilio extends CoCreateBase {
 			
 			case 'response':
 				try{
-					
 					let result = this.runResonse(twiml, data.data);
 					utils.send_response(that.wsManager, socket, {"type":type,"response":result}, send_response)
 					
@@ -296,7 +295,6 @@ class CoCreateTwilio extends CoCreateBase {
 		if (typeof data !== 'object' || data == null) return null;
 		
 		let nouns = Object.keys(data).filter(x => x !== '__param' && x !== '__props');
-		let mainResult = {};
 		let latestResult = "";
 		const self = this;
 		
@@ -304,7 +302,6 @@ class CoCreateTwilio extends CoCreateBase {
 			let nounDataList  = [];
 			
 			if (Array.isArray(data[noun])) {
-				mainResult[noun] = [];
 				nounDataList = data[noun];
 			} else {
 				nounDataList.push(data[noun]);
@@ -321,12 +318,10 @@ class CoCreateTwilio extends CoCreateBase {
 				}
 				
 				latestResult = result.toString();
-				// mainResult[noun] = self.__applyData(mainResult[noun], result.toString());
 				if (result) {
 					let deep_result = self.runResonse(result, requestData);
 					
 					if (deep_result) {
-						// mainResult[noun] = self.__applyData(mainResult[noun], deep_result);
 						latestResult = deep_result;
 					}
 				}				
