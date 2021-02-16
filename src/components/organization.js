@@ -39,7 +39,7 @@ class CoCreateOrganization extends CoCreateBase {
 						'data': result.ops[0],
 						'metadata': data['metadata'],
 					}
-					self.wsManager.send(socket, 'createOrg', response);
+					self.wsManager.send(socket, 'createOrg', response, );
 					if (data.room) {
 						self.wsManager.broadcast(socket, data.namespace || data['organization_id'] , data.room, 'createDocument', response, true);
 					} else {
@@ -74,7 +74,7 @@ class CoCreateOrganization extends CoCreateBase {
 						'data': result.ops[0],
 						'metadata': data['metadata'],
 					}
-					self.wsManager.send(socket, 'createUser', response);
+					self.wsManager.send(socket, 'createUser', response, data['organization_id']);
 					// if (data.room) {
 					// 	self.wsManager.broadcast(socket, data.namespace || data['organization_id'] , data.room, 'createDocument', response, true);
 					// } else {

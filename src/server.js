@@ -23,7 +23,7 @@ app.use(express.static('public'));
 app.use('/users', require('./src/routes/users'));
 app.use('/api', require('./src/routes/api'));
 */
-app.use('/stripe', require('./routes/stripe'));
+// app.use('/stripe', require('./routes/stripe'));
 app.use('/twilio', require('./plugins/twilio/routes'));
 
 app.use('/js/twilio.min.js', (req, res) => {
@@ -39,7 +39,6 @@ const server = createServer(app);
 
 
 server.on('upgrade', function upgrade(request, socket, head) {
-  console.log('connected')
   if (!wsManager.handleUpgrade(request, socket, head)) {
     socket.destroy();
   }

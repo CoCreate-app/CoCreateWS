@@ -28,7 +28,7 @@ class CoCreateMessage extends CoCreateBase {
 	**/
 	async sendMessage(socket, data, roomInfo) {
 		if (!await this.checkSecurity(data)) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
 			return;   
 		}
 
@@ -42,7 +42,7 @@ class CoCreateMessage extends CoCreateBase {
 			const emit = req_data.emit;
 			
 			if (data.broadcast_sender === true) {
-				self.wsManager.send(socket, emit.message, emit.data);
+				self.wsManager.send(socket, emit.message, emit.data, data['organization_id']);
 			}
 
 			if (data.broadcast !== false) {
@@ -62,12 +62,12 @@ class CoCreateMessage extends CoCreateBase {
 	
 	async windowBtnEvent(socket, data) {
 		if (!await this.checkSecurity(data)) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
     		return; 
 		}
 		
 		try {
-			this.wsManager.send(socket, 'windowBtnEvent', data.data);
+			this.wsManager.send(socket, 'windowBtnEvent', data.data, data['organization_id']);
 			//. broadcast
 			if (data.room) {
 				this.wsManager.broadcast(socket, data['organization_id'] , data.room, 'windowBtnEvent', data.data, true);
@@ -82,12 +82,12 @@ class CoCreateMessage extends CoCreateBase {
 	
 	async openWindow(socket, data) {
 		if (!await this.checkSecurity(data)) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
     		return; 
 		}
 		
 		try {
-			this.wsManager.send(socket, 'openWindow', data.data);
+			this.wsManager.send(socket, 'openWindow', data.data, data['organization_id']);
 			//. broadcast
 			if (data.room) {
 				this.wsManager.broadcast(socket, data['organization_id'] , data.room, 'openWindow', data.data, true);

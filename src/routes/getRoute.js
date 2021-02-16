@@ -63,7 +63,7 @@ module.exports.getRouteMongo = async (req, res, next) => {
             }
         }
         else {
-                res.send('No Found this ROute in ours BD  Host ['+hostname+'] and OrgId ['+organization_id+']  '+JSON.stringify(organization)+'<br/>'+config.db_url);
+                res.send('No Found this ROute in ours BD  Host ['+hostname+'] and OrgId ['+organization_id+']  '+JSON.stringify(organization)+'<br/>');
         }
     }
     
@@ -106,7 +106,7 @@ module.exports.getRoute = async (req, res, next) => {
     var org = await utils.getDocument({'collection':'organizations','document_id':organization_id});
     var route = org.routes.find(element => element.route.toLowerCase() == route_uri);
     if (typeof route != 'undefined'){
-        console.log(" ROute ",route);
+        console.log(" Route ",route);
         var result = await utils.getDocument(route);
         console.log("Result ",result)
         res.send(result[route.name]);
@@ -117,7 +117,7 @@ module.exports.getRoute = async (req, res, next) => {
             list_route += '<li>'+route.route+'</li>';
         });
         list_route += '</ul>'
-            res.send('No Found this ROute in ours BD '+list_route);
+            res.send('This route does not exist: '+list_route);
     }
 }
 

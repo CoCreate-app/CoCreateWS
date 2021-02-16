@@ -35,7 +35,7 @@ class CoCreateIndustry extends CoCreateBase {
 			
 			this.wsManager.send(socket, 'createdIndustry', {
 				industry_id: industryId
-			})
+			}, data['organization_id'])
 			
 		} catch (error) {
 			console.log(error);
@@ -71,7 +71,7 @@ class CoCreateIndustry extends CoCreateBase {
 		const securityRes = await this.checkSecurity(data);
 		
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
 			return;   
 		}
 		
@@ -94,7 +94,7 @@ class CoCreateIndustry extends CoCreateBase {
 			adminUI_id: adminUI_id,
 			builderUI_id: builderUI_id,
 			industry_id: data['industry_id']			
-		})
+		}, data['organization_id'])
 
 	}	
 
@@ -199,7 +199,7 @@ class CoCreateIndustry extends CoCreateBase {
 	async fetchInfoForBuilder(socket, data) {
 		const self = this;
 		if (!await this.checkSecurity(data)) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
 			return;   
 		}
 		
@@ -225,7 +225,7 @@ class CoCreateIndustry extends CoCreateBase {
 					self.wsManager.send(socket, 'fetchedInfoForBuilder', {
 						collections: collectionList,
 						modules: modules
-					});
+					}, data['organization_id']);
 				})
 			});
 		} catch (error) {

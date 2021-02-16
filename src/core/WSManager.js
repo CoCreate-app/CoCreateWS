@@ -31,7 +31,7 @@ class WSManager extends EventEmitter{
 	onWebSocket(req, ws, info) {
 		const self = this;
 		
-		this.addClient(ws, info.key);
+		this.addClient(ws, info.key, info);
 		
 		ws.on('message', (message) => {
 			self.onMessage(ws, message, info);
@@ -39,19 +39,19 @@ class WSManager extends EventEmitter{
 		
 		ws.on('close', function () {
 			console.log('closed client')
-			self.removeClient(ws, info.key)
+			self.removeClient(ws, info.key, info)
 		})
 
 		ws.on("error", () => {
 			console.log('websocket errror before upgrade');
-			self.removeClient(ws, info.key)
+			self.removeClient(ws, info.key, info)
 		});
 		
 		this.send(ws, 'connect', info.key);
 		
 	}
 	
-	removeClient(ws, key) {
+	removeClient(ws, key, roomInfo) {
 		let room_clients = this.clients.get(key)
 		const index = room_clients.indexOf(ws);
 		console.log(index)
@@ -60,11 +60,11 @@ class WSManager extends EventEmitter{
 		}
 		
 		if (room_clients.length == 0) {
-			this.emit('userStatus', ws, {info: key.replace(`/${this.prefix}/`, ''), status: 'off'});
+			this.emit('userStatus', ws, {info: key.replace(`/${this.prefix}/`, ''), status: 'off'}, roomInfo);
 		}
 	}
 	
-	addClient(ws, key) {
+	addClient(ws, key, roomInfo) {
 		let room_clients = this.clients.get(key);
 		if (room_clients) {
 			room_clients.push(ws);
@@ -73,7 +73,7 @@ class WSManager extends EventEmitter{
 		}
 		this.clients.set(key, room_clients);
 
-		this.emit('userStatus', ws, {info: key.replace(`/${this.prefix}/`, ''), status: 'on'});
+		this.emit('userStatus', ws, {info: key.replace(`/${this.prefix}/`, ''), status: 'on'}, roomInfo);
 	}
 	
 	getKeyFromUrl(pathname)	{
@@ -92,7 +92,8 @@ class WSManager extends EventEmitter{
 	onMessage(ws, message, roomInfo) {
 		
 		try {
-			
+			this.recordTransfer('in', message, roomInfo.orgId)
+
 			if (message instanceof Buffer) {
 				this.emit('importFile2DB', ws, message, roomInfo)
 				return;
@@ -113,6 +114,8 @@ class WSManager extends EventEmitter{
 	}
 	
 	broadcast(ws, namespace, room, messageType, data, isExact) {
+		const self = this;
+		
 	    let room_key = this.prefix + "/" + namespace;
 	    if (room) {
 	    	room_key += `/${room}`;	
@@ -129,6 +132,10 @@ class WSManager extends EventEmitter{
 				clients.forEach((client) => {
 					if (ws != client) {
 						client.send(responseData);
+						// console.log(namespace, room)
+						// console.log(responseData)
+						self.recordTransfer('out', responseData, namespace)
+						
 					}
 				})
 			}
@@ -139,6 +146,9 @@ class WSManager extends EventEmitter{
 					value.forEach(client => {
 						if (ws != client) {
 							client.send(responseData);
+							// console.log(namespace, room)
+							// console.log(responseData)
+							self.recordTransfer('out', responseData, namespace)
 						}
 					})
 				}
@@ -148,16 +158,35 @@ class WSManager extends EventEmitter{
 		
 	}
 	
-	send(ws, messageType,  data){
-		const responseData = {
+	send(ws, messageType,  data, orgId){
+		let responseData = JSON.stringify({
 			action: messageType,
 			data: data
-		}
-		ws.send(JSON.stringify(responseData));
+		});
+		ws.send(responseData);
+		this.recordTransfer('out', responseData, orgId)
 	}
 	
-	sendBinary(ws, data) {
+	sendBinary(ws, data, orgId) {
 		ws.send(data, {binary: true});
+		this.recordTransfer('out', data, orgId)
+	}
+	
+	recordTransfer(type, data, orgId) {
+		let date = new Date();
+		let size = 0;
+		
+		type = type || 'in'
+		
+		if (data instanceof Buffer) {
+			size = data.byteLength;
+		} else if (data instanceof String || typeof data === 'string') {
+			size = Buffer.byteLength(data, 'utf8');
+		}
+		
+		if (size > 0 && orgId) {
+			console.log (`${orgId}  ----  ${type}   ${date.toISOString()}  ${size}`);
+		}
 	}
 }
 

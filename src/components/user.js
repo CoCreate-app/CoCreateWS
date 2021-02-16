@@ -10,11 +10,11 @@ class CoCreateUser extends CoCreateBase {
 	
 	init() {
 		if (this.wsManager) {
-			this.wsManager.on('checkUnique',		(socket, data, roomInfo) => this.checkUnique(socket, data));
-			this.wsManager.on('login',					(socket, data, roomInfo) => this.login(socket, data))
-			this.wsManager.on('usersCurrentOrg',(socket, data, roomInfo) => this.usersCurrentOrg(socket, data))
-			this.wsManager.on('fetchUser',			(socket, data, roomInfo) => this.fetchUser(socket, data))
-			this.wsManager.on('userStatus',			(socket, data) => this.setUserStatus(socket, data))
+			this.wsManager.on('checkUnique',			(socket, data, roomInfo) => this.checkUnique(socket, data, roomInfo));
+			this.wsManager.on('login',					(socket, data, roomInfo) => this.login(socket, data, roomInfo))
+			this.wsManager.on('usersCurrentOrg',		(socket, data, roomInfo) => this.usersCurrentOrg(socket, data, roomInfo))
+			this.wsManager.on('fetchUser',				(socket, data, roomInfo) => this.fetchUser(socket, data, roomInfo))
+			this.wsManager.on('userStatus',				(socket, data, roomInfo) => this.setUserStatus(socket, data, roomInfo))
 		}
 	}
 
@@ -60,7 +60,7 @@ class CoCreateUser extends CoCreateBase {
 					if (result.length == 0) {
 						response.unique = true;
 					}
-					self.wsManager.send(socket, 'checkedUnique', response)
+					self.wsManager.send(socket, 'checkedUnique', response, data['organization_id'])
 				}
 			})
 		} catch (error) {
@@ -85,7 +85,7 @@ class CoCreateUser extends CoCreateBase {
 		const securityRes = await this.checkSecurity(data);
 		const self = this;
 		if (!securityRes.result) {
-			self.wsManager.send(socket, 'securityError', 'error');
+			self.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
 			return;   
 		}
 		try {
@@ -117,7 +117,7 @@ class CoCreateUser extends CoCreateBase {
 						status: "success"
 					};
 				} 
-				self.wsManager.send(socket, 'login', response)
+				self.wsManager.send(socket, 'login', response, data['organization_id'])
 			});
 		} catch (error) {
 			console.log(error);
@@ -162,7 +162,7 @@ class CoCreateUser extends CoCreateBase {
 									adminUI_id: 	res[0]['adminUI_id'],
 									builderUI_id: res[0]['builderUI_id'],
 									href: data['href']
-								})
+								}, data['organization_id'])
 							}
 						});
 					}
@@ -193,7 +193,7 @@ class CoCreateUser extends CoCreateBase {
 		const self = this;
 		const securityRes = await this.checkSecurity(data);
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
 			return;   
 		}
 		
@@ -212,7 +212,7 @@ class CoCreateUser extends CoCreateBase {
 			
 			collection.findOne(query, function(error, result) {
 				if (!error) {
-					self.wsManager.send(socket, 'fetchedUser', result);
+					self.wsManager.send(socket, 'fetchedUser', result, data['organization_id']);
 				}
 			})
 		} catch (error) {
@@ -223,7 +223,7 @@ class CoCreateUser extends CoCreateBase {
 	/**
 	 * status: 'on/off/idle'
 	 */
-	async setUserStatus(socket, data) {
+	async setUserStatus(socket, data, roomInfo) {
 		const self = this;
 		// const securityRes = await this.checkSecurity(data);
 		// if (!securityRes.result) {

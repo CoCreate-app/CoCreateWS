@@ -17,11 +17,11 @@ class CoCreateBackup extends CoCreateBase {
 	
 	init() {
 		if (this.wsManager) {
-			this.wsManager.on('exportDB',		(socket, data) => this.exportData(socket, data));
-			this.wsManager.on('importDB',		(socket, data) => this.setImportData(socket, data));
-			this.wsManager.on('importFile2DB',	(socket, data) => this.importData(socket, data));
+			this.wsManager.on('exportDB',		(socket, data, roomInfo) => this.exportData(socket, data, roomInfo));
+			this.wsManager.on('importDB',		(socket, data, roomInfo) => this.setImportData(socket, data, roomInfo));
+			this.wsManager.on('importFile2DB',	(socket, data, roomInfo) => this.importData(socket, data, roomInfo));
 			
-			this.wsManager.on('downloadData',	(socket, data) => this.downloadData(socket, data))
+			this.wsManager.on('downloadData',	(socket, data, roomInfo) => this.downloadData(socket, data, roomInfo))
 		}
 	}
 	
@@ -32,13 +32,13 @@ class CoCreateBackup extends CoCreateBase {
 	 	data: JSON data
 	 }
 	**/
-	async downloadData(socket, data) {
+	async downloadData(socket, data, roomInfo) {
 		const export_type = data.type || "json";
 		
 		try {
 			let binaryData = null;
 			const result = data.data;
-			
+			const orgId = roomInfo ? roomInfo.orgId : "";
 			if (export_type === 'csv') {
 				binaryData = await json2csv.json2csvAsync(JSON.parse(JSON.stringify(result)), {
 					emptyFieldValue: ''
@@ -47,9 +47,9 @@ class CoCreateBackup extends CoCreateBase {
 				binaryData = Buffer.from(JSON.stringify(result));
 			}
 			
-			this.wsManager.send(socket, 'downloadFileInfo', {file_name: `backup_${data['collection']}.${export_type}`});
+			this.wsManager.send(socket, 'downloadFileInfo', {file_name: `backup_${data['collection']}.${export_type}`}, orgId);
 
-			this.wsManager.sendBinary(socket, binaryData);
+			this.wsManager.sendBinary(socket, binaryData, orgId);
 
 		} catch (error) {
 			console.log('export error', error); 
@@ -77,6 +77,7 @@ class CoCreateBackup extends CoCreateBase {
 		try {
 			
 			var collection = this.getDb(data['namespace']).collection(data["collection"]);
+			const orgId = roomInfo ? roomInfo.orgId : "";
 			
 			var query = {};
 			if (securityRes['organization_id']) {
@@ -86,7 +87,7 @@ class CoCreateBackup extends CoCreateBase {
 			collection.find(query).toArray(async function(error, result) {
 				if (!error) {
 					let binaryData = null;
-					self.wsManager.send(socket, 'downloadFileInfo', {file_name: `backup_${data['collection']}.${export_type}`});
+					self.wsManager.send(socket, 'downloadFileInfo', {file_name: `backup_${data['collection']}.${export_type}`}, orgId);
 					if (export_type === 'csv') {
 						binaryData = await json2csv.json2csvAsync(JSON.parse(JSON.stringify(result)), {
 							emptyFieldValue: ''
@@ -95,7 +96,7 @@ class CoCreateBackup extends CoCreateBase {
 						binaryData = Buffer.from(JSON.stringify(result));
 					}
 
-					self.wsManager.sendBinary(socket, binaryData);
+					self.wsManager.sendBinary(socket, binaryData, orgId);
 				}
 			});
 		} catch (error) {
@@ -103,10 +104,11 @@ class CoCreateBackup extends CoCreateBase {
 		}
 	}
 	
-	async setImportData(socket, data) {
+	async setImportData(socket, data, roomInfo) {
 		const securityRes = await this.checkSecurity(data);
+		const orgId = roomInfo ? roomInfo.orgId : "";
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', orgId);
 			return;   
 		}
 		this.importCollection = data['collection']
@@ -114,9 +116,9 @@ class CoCreateBackup extends CoCreateBase {
 		this.importDB = data['namespace'];
 	}
 
-	async importData(socket, data) {
+	async importData(socket, data, roomInfo) {
 		const self = this;
-		
+		const orgId = roomInfo ? roomInfo.orgId : "";
 		if (!this.importCollection || !this.importType) {
 			return;
 		}
@@ -142,7 +144,7 @@ class CoCreateBackup extends CoCreateBase {
 						'database': self.importDB,
 						'import_type': self.importType,
 						'data': result
-					})
+					}, orgId)
 				}
 			})
 			
