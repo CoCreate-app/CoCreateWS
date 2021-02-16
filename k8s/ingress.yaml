@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
+  name: cocreatews
+  namespace: default
+spec:
+  rules:
+    - host: "*.cocreate.app"
+      http:
+        paths:
+          - backend:
+              serviceName: cocreate
+              servicePort: 8081
+            path: /
+  tls:
+    - hosts:
+        - "*.cocreate.app"
+      secretName: cocreate-app
