@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: cocreatews
+  name: cocreatews
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: cocreatews
+  template:
+    metadata:
+      labels:
+        app: cocreatews
+    spec:
+      containers:
+        - image: cocreatews
+          imagePullPolicy: Always
+          name: cocreatews
+          ports:
+            - containerPort: 8081
+              name: app
+              protocol: TCP
+      imagePullSecrets:
+        - name: github
+      restartPolicy: Always

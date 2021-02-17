@@ -1,0 +1,10 @@
+resources:
+  - daemonset.yaml
+  - service.yaml
+  - ingress.yaml
+commonLabels:
+  app: cocreatews
+images:
+- name: cocreatews
+  newName: docker.pkg.github.com/cocreate-app/cocreatews/cocreatews
+  newTag: IMAGE_TAG
