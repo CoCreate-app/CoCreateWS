@@ -25,3 +25,5 @@ spec:
       imagePullSecrets:
         - name: github
       restartPolicy: Always
+      nodeSelector:
+        nodeType: application
