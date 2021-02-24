@@ -14,6 +14,7 @@ const CoCreateStripe = require('./plugins/stripe/Cocreate-stripe')
 const CoCreateEmail = require('./plugins/email/Cocreate-email')
 const CoCreateXXX = require('./plugins/xxx/Cocreate-xxx')
 const CoCreateTwilio = require('./plugins/twilio/Cocreate-twilio')
+const CoCreateMetrics = require('./components/metrics')
 
 const CoCreateBackup = require("./components/backup")
 
@@ -41,4 +42,6 @@ function initDBManagers(manager, db){
 	new CoCreateOrganization(manager, db)
 	new CoCreateSendGrid(manager);
 	new CoCreateBackup(manager, db)
+	
+	new CoCreateMetrics(manager, db)
 }

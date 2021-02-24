@@ -1,77 +1,177 @@
-//export NODE_OPTIONS="--require appmetrics/start"
-var appmetrics = require('appmetrics');
-/*appmetrics.setConfig('advancedProfiling', {'threshold':60000})
-appmetrics.emit('memory', {'time':60000})
-*/
-var monitoring = appmetrics.monitor();
 
-let timeCPU = new Date().getTime();
-let timeMemory = new Date().getTime();
-let save_metrics_every = 1;//time in minute
+const CoCreateBase = require("../core/CoCreateBase");
+const process = require("process")
 
-const CoCreateCRUD = require("./routes/core/CoCreate-CRUD.js")
+class CoCreateMetrics extends CoCreateBase {
+	constructor(wsManager, db) {
+		super(wsManager, db);
+		this.metrics = new Map();
+		this.cycleTime = 60;
+		
+		this.staticMemorySize = "10";
+		
+		this.init();
+	}
+	
+	init() {
+		if (this.wsManager) {
+			this.wsManager.on('setBandwidth', 	(socket, data) => this.setBandwidth(data));
+			this.wsManager.on('createMetrics', 	(socket, data) => this.create(data));
+			this.wsManager.on('deleteMetrics', 	(socket, data) => this.remove(data));
+			this.wsManager.on('changeCountMetrics', (socket, data) => this.changeCount(data))
+		}
 
-module.exports  = ()=>{ //BEGIN function init
-    console.log("·------------------ METRICS ");
-    const socket = {
-                    "config": {
-                      "apiKey": "c2b08663-06e3-440c-ef6f-13978b42883a",
-                    	"securityKey": "f26baf68-e3a9-45fc-effe-502e47116265",
-                    	"organization_Id": "5de0387b12e200ea63204d6c"
-                    },
-                    "host": "server.cocreate.app:8088"
-                }
-    CoCreateCRUD.CoCreateSocketInit(socket)
-            
-    monitoring.on('initialized', function (env) {
-        env = monitoring.getEnvironment();
-        for (var entry in env) {
-            console.log(entry + ':' + env[entry]);
-        };
-    });
-    
-    monitoring.on('cpu', function (cpu) {
-        let dataSave = {}
-        dataSave['organization_id'] = socket.config.organization_Id;
-        dataSave['time'] = new Date(cpu.time);
-        dataSave['process'] = cpu.process;
-        dataSave['system'] = cpu.system;
-        dataSave['type'] = 'cpu';
-        let time2 = new Date().getTime();        
-        if( ( (time2 - timeCPU) / 1000 / 60 ) > save_metrics_every ){
-            timeCPU = new Date().getTime();
-            CoCreateCRUD.CreateDocument({
-            	collection: 'metrics',
-            	broadcast_sender: true,
-            	broadcast: true,
-            	data: dataSave,
-            }, socket.config);
-            console.log('[' + new Date(cpu.time) + '] CPU: ' + cpu.process);
-        }
-    });
-    
-    monitoring.on('memory', function (memory) {
-        let dataSave = {}
-        dataSave['organization_id'] = socket.config.organization_Id;
-        dataSave['time'] = new Date(memory.time);
-        dataSave['physical_total'] = memory.physical_total;
-        dataSave['physical_used'] = memory.physical_used;
-        dataSave['physical_free'] = memory.physical_free;
-        dataSave['virtual'] = memory.virtual;
-        dataSave['private'] = memory.private;
-        dataSave['physical'] = memory.physical;
-        dataSave['type'] = 'memory';
-        let time2 = new Date().getTime();        
-        if( ( (time2 - timeMemory) / 1000 / 60 ) > save_metrics_every ){
-            timeMemory = new Date().getTime();
-            CoCreateCRUD.CreateDocument({
-            	collection: 'metrics',
-            	broadcast_sender: true,
-            	broadcast: true,
-            	data: dataSave,
-            }, socket.config);
-            console.log('Memory [' + memory.physical + ' / '+memory.physical_used+']  ' );
-        }
-    });
-        
-}//END function init
+		let self = this;
+		this.timer = setInterval(() => {
+			self.store();
+		}, self.cycleTime * 1000);
+	}
+	
+	__refresh() {
+		let date = new Date();
+		let strDate = date.toISOString();
+		
+		this.metrics.forEach((item, org) => {
+			item.time = strDate;
+			item.in_size = [];
+			item.out_size = [];
+			item.memory_size = [];
+		})
+	}
+	
+	setBandwidth({type, data, org_id, total_cnt}) {
+		try {
+			let date = new Date();
+			let size = 0;
+			
+			type = type || 'in'
+			
+			if (data instanceof Buffer) {
+				size = data.byteLength;
+			} else if (data instanceof String || typeof data === 'string') {
+				size = Buffer.byteLength(data, 'utf8');
+			}
+			
+			if (size > 0 && org_id) {
+	
+				let item = this.metrics.get(org_id);
+				if (!item) return
+				
+				item.time = date.toISOString();
+				
+				if (type == "in") {
+				   item.in_size.push(size);
+				} else {
+				   item.out_size.push(size);
+				}
+			}
+			
+		} catch (err) {
+			console.log(err)
+		}
+	}
+	
+	setMemory({data, org_id}) {
+		if (data > 0 &&  org_id) {
+			let item = this.metrics.get(org_id)
+			if (!item) return
+			
+			item.memory = data;
+			item.memory_cnt = 0;
+		}
+	}
+	
+	create({org_id, client_cnt, total_cnt}) {
+		if (!org_id || org_id == 'users') return;
+		
+		let metric = this.metrics.get(org_id);
+		
+		if(!metric) {
+			this.metrics.set(org_id, 
+			{
+				in_size: [],
+				out_size: [],
+				memory_size: [],
+				total_cnt: total_cnt,
+				client_cnt: client_cnt
+			})	
+		} else {
+			metric.client_cnt = client_cnt;
+		}
+	}
+	
+	remove({org_id}) {
+		this.metrics.delete(org_id)
+	}
+	
+	changeCount({org_id, total_cnt, client_cnt}) {
+		if (!org_id || org_id == 'users') return;
+		let metric = this.metrics.get(org_id)
+		if (!metric) {
+			metric.total_cnt = total_cnt;
+			metric.client_cnt = client_cnt;
+		}
+	}
+	
+	async store() {
+		let date = new Date();
+		let self = this;
+		
+		let total_cnt = 0;
+		this.metrics.forEach((item, org) => {total_cnt += item.client_cnt})
+
+		const used = process.memoryUsage();
+		let totalMemory = used.heapUsed;
+		
+		await this.metrics.forEach(async (item, org) => {
+
+			let inSize = 0, outSize = 0, memorySize = 0
+			inSize = item.in_size.reduce((a, b) => a + b, 0);
+			outSize = item.out_size.reduce((a, b) => a + b, 0);
+			
+			let maxIn = 0, maxOut = 0
+			
+			if (inSize > 0) {
+				inSize = inSize / item.in_size.length;
+				maxIn = Math.max(...item.in_size);
+			}
+			
+			if (outSize > 0) {
+				outSize = inSize / item.out_size.length;
+				maxOut = Math.max(...item.out_size);
+			}
+			
+			//. calcuate memory size
+			// memorySize = (item.client_cnt / total_cnt) * totalMemory + inSize + outSize;
+			memorySize = maxIn > maxOut ? maxIn : maxOut;
+			
+			let dbSize = await self.getDB(org).stats()
+			delete dbSize['$clusterTime'];
+
+			await self.storeMetrics({
+				organization: org,
+				date: date,
+				in_size: inSize,
+				out_size: outSize,
+				memory_size: memorySize,
+				client_cnt: item.client_cnt,
+				db_size: dbSize
+			});
+		})
+		this.__refresh();
+	}
+
+	/** store metrics **/
+	async storeMetrics(data){
+		if(!data || !data.organization) return;
+		
+		try{
+			var collection = this.getDB(data.organization).collection('jin_metrics_crud');
+			await collection.insertOne(data);
+		}catch(error){
+			console.log('createDocument error', error);
+		}
+	}
+}
+
+module.exports = CoCreateMetrics;
