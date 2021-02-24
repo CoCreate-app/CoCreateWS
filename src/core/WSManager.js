@@ -38,12 +38,10 @@ class WSManager extends EventEmitter{
 		})
 		
 		ws.on('close', function () {
-			console.log('closed client')
 			self.removeClient(ws, info.key, info)
 		})
 
 		ws.on("error", () => {
-			console.log('websocket errror before upgrade');
 			self.removeClient(ws, info.key, info)
 		});
 		
@@ -54,14 +52,25 @@ class WSManager extends EventEmitter{
 	removeClient(ws, key, roomInfo) {
 		let room_clients = this.clients.get(key)
 		const index = room_clients.indexOf(ws);
-		console.log(index)
+
 		if (index > -1) {
 			room_clients.splice(index, 1);
 		}
 		
 		if (room_clients.length == 0) {
 			this.emit('userStatus', ws, {info: key.replace(`/${this.prefix}/`, ''), status: 'off'}, roomInfo);
+			this.emit("removeMetrics", null, {org_id: roomInfo.orgId});
+		} else {
+			let total_cnt = 0;
+			this.clients.forEach((c) => total_cnt += c.length)
+			
+			this.emit("changeCountMetrics", null, {
+				org_id: roomInfo.orgId, 
+				total_cnt, 
+				client_cnt: room_clients.length
+			});
 		}
+		
 	}
 	
 	addClient(ws, key, roomInfo) {
@@ -72,8 +81,18 @@ class WSManager extends EventEmitter{
 			room_clients = [ws];
 		}
 		this.clients.set(key, room_clients);
-
+		
 		this.emit('userStatus', ws, {info: key.replace(`/${this.prefix}/`, ''), status: 'on'}, roomInfo);
+
+		//. add metrics
+		let total_cnt = 0;
+		this.clients.forEach((c) => total_cnt += c.length)
+		
+		this.emit("createMetrics", null, {
+			org_id: roomInfo.orgId, 
+			client_cnt: room_clients.length, 
+			total_cnt: total_cnt
+		});
 	}
 	
 	getKeyFromUrl(pathname)	{
@@ -172,21 +191,27 @@ class WSManager extends EventEmitter{
 		this.recordTransfer('out', data, orgId)
 	}
 	
-	recordTransfer(type, data, orgId) {
-		let date = new Date();
-		let size = 0;
+	recordTransfer(type, data, org_id) {
+		this.emit("setBandwidth", null, {
+			type, 
+			data, 
+			org_id
+		});
 		
-		type = type || 'in'
+		// let date = new Date();
+		// let size = 0;
 		
-		if (data instanceof Buffer) {
-			size = data.byteLength;
-		} else if (data instanceof String || typeof data === 'string') {
-			size = Buffer.byteLength(data, 'utf8');
-		}
+		// type = type || 'in'
 		
-		if (size > 0 && orgId) {
-			console.log (`${orgId}  ----  ${type}   ${date.toISOString()}  ${size}`);
-		}
+		// if (data instanceof Buffer) {
+		// 	size = data.byteLength;
+		// } else if (data instanceof String || typeof data === 'string') {
+		// 	size = Buffer.byteLength(data, 'utf8');
+		// }
+		
+		// if (size > 0 && orgId) {
+		// 	console.log (`${orgId}  ----  ${type} \t ${date.toISOString()} \t ${size}`);
+		// }
 	}
 }
 
