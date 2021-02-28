@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/cocreatews",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "CoCreateWS",
   "keywords": [
     "cocreatews",
@@ -35,22 +35,6 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "@sendgrid/mail": "^7.3.0",
-    "axios": "^0.19.2",
-    "csvtojson": "^2.0.10",
-    "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "fast-csv": "^4.3.1",
-    "json-2-csv": "^3.7.6",
-    "mongodb": "^3.5.8",
-    "querystring": "^0.2.0",
-    "stripe": "^8.96.0",
-    "twilio": "^3.49.4",
-    "twilio-client": "^1.12.5",
-    "uuid": "^8.1.0",
-    "ws": "^7.3.0"
   },
   "dependencies": {
     "@cocreate/docs": "^1.0.3"
