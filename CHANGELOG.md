@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.1.0...v0.2.0) (2021-02-28)
+
+
+### Features
+
+* Intial Release ([41ce433](https://github.com/CoCreate-app/CoCreateWS/commit/41ce4336d3b6ee4afa7c2dfddedb3d9590eb3700))
+
 # [0.1.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.0.2...v0.1.0) (2021-02-28)
 
 
