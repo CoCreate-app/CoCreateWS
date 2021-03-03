@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.4.0...v0.5.0) (2021-03-03)
+
+
+### Features
+
+* use GITHUB token for actions ([c0f84d9](https://github.com/CoCreate-app/CoCreateWS/commit/c0f84d994da602341c727ac2de39ca62b2f9a554))
+
 # [0.4.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.3.0...v0.4.0) (2021-03-03)
 
 
