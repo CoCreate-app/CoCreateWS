@@ -1,3 +1,10 @@
+## [0.5.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.1...v0.5.2) (2021-03-03)
+
+
+### Bug Fixes
+
+* add sendgrid package ([81deb6a](https://github.com/CoCreate-app/CoCreateWS/commit/81deb6afa0513d9710a38d06f7710a9e4db760dc))
+
 ## [0.5.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.0...v0.5.1) (2021-03-03)
 
 
