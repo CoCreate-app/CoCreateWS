@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.3.0...v0.4.0) (2021-03-03)
+
+
+### Features
+
+* **docker:** assing NODE_ENV ([faffd8d](https://github.com/CoCreate-app/CoCreateWS/commit/faffd8d7cd135774d5a635d34e0bd88ff439c8a7))
+
 # [0.3.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.2.0...v0.3.0) (2021-02-28)
 
 
