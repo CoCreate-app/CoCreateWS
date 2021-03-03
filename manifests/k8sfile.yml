@@ -8,9 +8,9 @@ metadata:
 spec:
   ports:
   - name: app
-    port: 8081
+    port: 3000
     protocol: TCP
-    targetPort: 8081
+    targetPort: 3000
   selector:
     app: cocreatews
   sessionAffinity: None
@@ -37,7 +37,7 @@ spec:
         imagePullPolicy: Always
         name: cocreatews
         ports:
-        - containerPort: 8081
+        - containerPort: 3000
           name: app
           protocol: TCP
       imagePullSecrets:
@@ -65,7 +65,7 @@ spec:
       paths:
       - backend:
           serviceName: cocreatews
-          servicePort: 8081
+          servicePort: 3000
         path: /
   tls:
   - hosts:
