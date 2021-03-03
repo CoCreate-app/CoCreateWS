@@ -4,11 +4,13 @@ const express = require('express');
 const { createServer } = require('http');
 
 const init = require("./init")
-const wsManager = require("./core/WSManager")
+const WSManager = require("./core/WSManager")
 const urlencoded = require('body-parser').urlencoded;
-//var metricsCocreate = require("./metrics.js");
+const wsManager = new WSManager("ws");
 
-//metricsCocreate();
+const port = process.env.PORT || 8081;
+
+console.log(process.env.PORT)
 
 const app = express();
 
@@ -44,4 +46,4 @@ server.on('upgrade', function upgrade(request, socket, head) {
   }
 });
 
-server.listen(8081);
+server.listen(port);

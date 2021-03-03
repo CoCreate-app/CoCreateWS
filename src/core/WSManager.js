@@ -5,11 +5,11 @@ const url = require("url");
 const EventEmitter = require("events").EventEmitter;
 
 class WSManager extends EventEmitter{
-	constructor() {
+	constructor(prefix) {
 		super();
 
 		this.clients = new Map();
-		this.prefix = "crud";
+		this.prefix = prefix || "crud";
 		
 		//. websocket server
 		this.wss = new WebSocket.Server({noServer: true});
@@ -216,4 +216,4 @@ class WSManager extends EventEmitter{
 }
 
 
-module.exports = new WSManager()
+module.exports = WSManager
