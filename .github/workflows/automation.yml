@@ -4,12 +4,6 @@ on:
   push:
     branches:
     - master
-  pull_request:
-    branches:
-    - master
-  create:
-    branches:
-    - master
 
 jobs:
   updateKeyword:

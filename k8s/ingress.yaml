@@ -15,7 +15,7 @@ spec:
         paths:
           - backend:
               serviceName: cocreatews
-              servicePort: 8081
+              servicePort: 3000
             path: /
   tls:
     - hosts:

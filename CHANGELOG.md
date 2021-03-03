@@ -1,3 +1,24 @@
+# [0.5.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.4.0...v0.5.0) (2021-03-03)
+
+
+### Features
+
+* use GITHUB token for actions ([c0f84d9](https://github.com/CoCreate-app/CoCreateWS/commit/c0f84d994da602341c727ac2de39ca62b2f9a554))
+
+# [0.4.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.3.0...v0.4.0) (2021-03-03)
+
+
+### Features
+
+* **docker:** assing NODE_ENV ([faffd8d](https://github.com/CoCreate-app/CoCreateWS/commit/faffd8d7cd135774d5a635d34e0bd88ff439c8a7))
+
+# [0.3.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.2.0...v0.3.0) (2021-02-28)
+
+
+### Features
+
+* Intial Release ([83070a3](https://github.com/CoCreate-app/CoCreateWS/commit/83070a3e7c90b50e319eab17d41c695af909bcf3))
+
 # [0.2.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.1.0...v0.2.0) (2021-02-28)
 
 
