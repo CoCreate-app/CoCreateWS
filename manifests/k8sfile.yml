@@ -33,11 +33,11 @@ spec:
         app: cocreatews
     spec:
       containers:
-      - image: docker.pkg.github.com/cocreate-app/cocreatews/cocreatews:v0.5.0
+      - image: docker.pkg.github.com/cocreate-app/cocreatews/cocreatews:v0.5.1
         imagePullPolicy: Always
         name: cocreatews
         ports:
-        - containerPort: 3000
+        - containerPort: 8081
           name: app
           protocol: TCP
       imagePullSecrets:
