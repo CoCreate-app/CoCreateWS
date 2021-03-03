@@ -1,3 +1,10 @@
+## [0.5.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.0...v0.5.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* missing dependencies ([69d3603](https://github.com/CoCreate-app/CoCreateWS/commit/69d360357389e75b29ada0481de637fa26eb57b0))
+
 # [0.5.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.4.0...v0.5.0) (2021-03-03)
 
 
