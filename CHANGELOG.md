@@ -1,3 +1,10 @@
+## [0.5.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.4...v0.5.5) (2021-03-07)
+
+
+### Bug Fixes
+
+* relocate plugins to api ([cd12142](https://github.com/CoCreate-app/CoCreateWS/commit/cd121420607c406e6677e44f0eeda5eba5206041))
+
 ## [0.5.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.3...v0.5.4) (2021-03-07)
 
 
