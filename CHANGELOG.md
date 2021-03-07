@@ -1,3 +1,11 @@
+## [0.5.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.3...v0.5.4) (2021-03-07)
+
+
+### Bug Fixes
+
+* **automation:** change job name ([02905e1](https://github.com/CoCreate-app/CoCreateWS/commit/02905e1b6541da57433360e0d2a5c564336025d7))
+* **automation:** change job name ([3950fba](https://github.com/CoCreate-app/CoCreateWS/commit/3950fba9e7cc6efa081b3056b33910b324d7c02d))
+
 ## [0.5.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.2...v0.5.3) (2021-03-07)
 
 
