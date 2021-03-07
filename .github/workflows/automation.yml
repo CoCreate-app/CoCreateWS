@@ -27,7 +27,7 @@ jobs:
       - name: update documentation
         uses: CoCreate-app/CoCreate-docs@master
 
-  ci:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
