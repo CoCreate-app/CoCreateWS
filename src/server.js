@@ -20,9 +20,16 @@ app.use(urlencoded({ extended: false }));
 
 app.use(express.static('public'));
 
-app.use('/twilio', require('./plugins/twilio/routes'));
+// app.use('/twilio', require('./plugins/twilio/routes'));
+
+// app.get('/ws/hello', (req, res) => {
+//   console.log('connected')
+//   res.send('Hello World');
+// })
 
 app.use('/', require('./routes/index'));
+
+
 
 init.WSManager(wsManager);
 

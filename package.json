@@ -38,17 +38,13 @@
   },
   "dependencies": {
     "@cocreate/docs": "^1.0.3",
-    "@sendgrid/mail": "^7.3.0",
     "axios": "^0.19.2",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "fb": "^2.0.0",
     "json-2-csv": "^3.7.6",
     "mongodb": "^3.5.8",
     "querystring": "^0.2.0",
-    "stripe": "^8.96.0",
-    "twilio": "^3.53.0",
     "ws": "^7.3.0"
   }
 }
