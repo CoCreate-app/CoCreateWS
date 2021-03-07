@@ -1,3 +1,10 @@
+## [0.5.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.2...v0.5.3) (2021-03-07)
+
+
+### Bug Fixes
+
+* **automation:** create ci/cd workflow ([b1c314b](https://github.com/CoCreate-app/CoCreateWS/commit/b1c314bc247fe55e1f4a9ed446c64ce501d3b8ef))
+
 ## [0.5.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.1...v0.5.2) (2021-03-03)
 
 
