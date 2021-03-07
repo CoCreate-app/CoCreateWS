@@ -1,3 +1,25 @@
+## [0.5.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.3...v0.5.4) (2021-03-07)
+
+
+### Bug Fixes
+
+* **automation:** change job name ([02905e1](https://github.com/CoCreate-app/CoCreateWS/commit/02905e1b6541da57433360e0d2a5c564336025d7))
+* **automation:** change job name ([3950fba](https://github.com/CoCreate-app/CoCreateWS/commit/3950fba9e7cc6efa081b3056b33910b324d7c02d))
+
+## [0.5.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.2...v0.5.3) (2021-03-07)
+
+
+### Bug Fixes
+
+* **automation:** create ci/cd workflow ([b1c314b](https://github.com/CoCreate-app/CoCreateWS/commit/b1c314bc247fe55e1f4a9ed446c64ce501d3b8ef))
+
+## [0.5.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.1...v0.5.2) (2021-03-03)
+
+
+### Bug Fixes
+
+* add sendgrid package ([81deb6a](https://github.com/CoCreate-app/CoCreateWS/commit/81deb6afa0513d9710a38d06f7710a9e4db760dc))
+
 ## [0.5.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.0...v0.5.1) (2021-03-03)
 
 

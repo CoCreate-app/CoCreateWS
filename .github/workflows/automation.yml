@@ -1,24 +1,33 @@
-name: CI
+name: release/CD
 
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
-  updateKeyword:
+  about:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-          
+
       - name: Jaid/action-sync-node-meta
         uses: jaid/action-sync-node-meta@v1.4.0
         with:
           direction: overwrite-github # default is overwrite-file
           githubToken: ${{ secrets.GITHUB }}
-  
-  ci:
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: update documentation
+        uses: CoCreate-app/CoCreate-docs@master
+
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,6 +35,7 @@ jobs:
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2
+        id: semantic
         with:
           # You can specify specifying version range for the extra plugins if you prefer.
           extra_plugins: |
@@ -35,15 +45,64 @@ jobs:
             @semantic-release/github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}  # Auto Changog generator
-           
-  docs:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Auto Changog generator
+    outputs:
+      new_release_published: ${{ steps.semantic.outputs.new_release_published }}
+      new_release_version: ${{ steps.semantic.outputs.new_release_version }}
+
+  package:
     runs-on: ubuntu-latest
+    needs: release
+    if: needs.release.outputs.new_release_published == 'true'
+    env:
+      IMAGE: docker.pkg.github.com/cocreate-app/cocreatews/cocreatews
+      VERSION: ${{ needs.release.outputs.new_release_version }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
-      - name: update documentation
-        uses: CoCreate-app/CoCreate-docs@master
-          
-  
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Login docker registry
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN}
+
+      - name: Build docker image
+        run: docker build . -t ${IMAGE}:latest -t ${IMAGE}:${VERSION}
+
+      - name: Push docker image
+        run: |
+          docker push ${IMAGE}:latest
+          docker push ${IMAGE}:${VERSION}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - release
+      - package
+    if: needs.release.outputs.new_release_published == 'true'
+    env:
+      VERSION: ${{ needs.release.outputs.new_release_version }}
+      KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
+      KUBECONFIG: kubeconfig
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Get kubectl
+        run: |
+          curl -LO https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl
+          chmod +x kubectl
+
+      - name: Save kubeconfig
+        env:
+          KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
+        run: |
+          echo ${KUBECONFIG_FILE} | base64 -d  > ${KUBECONFIG}
+
+      - name: Apply deployment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB }}
+        run: |
+          sed -i "s/IMAGE_TAG/${VERSION}/g" k8s/kustomization.yaml
+          ./kubectl kustomize k8s/ | ./kubectl apply -f -
