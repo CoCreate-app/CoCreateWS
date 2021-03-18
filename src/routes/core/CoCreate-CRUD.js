@@ -43,6 +43,21 @@ module.exports.ReadDocument = function(info, config) {
     CoCreateSocket.send('readDocument', request_data)
 }
 
+module.exports.ReadDocumentList = function(info, config) {
+	if (info === null) return;
+	
+	let commonParams = {
+      "apiKey":           config.apiKey,
+      "securityKey":      config.securityKey,
+      "organization_id":  config.organization_Id,
+	}
+	
+	
+    
+    let request_data = {...info, ...commonParams};
+    CoCreateSocket.send('ReadDocumentList', request_data)
+}
+
 module.exports.UpdateDocument = function (info, config) {
 	if (info === null) return;
 	

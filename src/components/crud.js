@@ -1,6 +1,8 @@
 
 const {ObjectID, Binary} = require("mongodb");
 const CoCreateBase = require("../core/CoCreateBase");
+const {encodeObject, decodeObject, replaceArray} = require("./utils.crud.js")
+
 
 class CoCreateCrud extends CoCreateBase {
 	constructor(wsManager, db) {
@@ -62,8 +64,9 @@ class CoCreateCrud extends CoCreateBase {
 		
 		try{
 			var collection = this.db.collection(data['collection']);
-			
-			collection.insertOne(data.data, function(error, result) {
+			let insertData = replaceArray(data.data);
+
+			collection.insertOne(insertData, function(error, result) {
 				if(!error && result){
 					const response  = {
 						'collection': data['collection'],
@@ -174,7 +177,7 @@ class CoCreateCrud extends CoCreateBase {
 						self.wsManager.send(socket, 'readDocument', {
 							'collection'  : data['collection'],
 							'document_id' : data['document_id'],
-							'data'        : tmp,
+							'data'        : encodeObject(tmp),
 							'element'	  : data['element'],
 							'metadata'    : data['metadata']
 						}, data['organization_id']);
@@ -203,7 +206,7 @@ class CoCreateCrud extends CoCreateBase {
 			// if (securityRes['organization_id']) query['organization_id'] = securityRes['organization_id'];
 			
 			var update = {};
-			if( data['set'] )   update['$set'] = data['set'];
+			if( data['set'] )   update['$set'] = replaceArray(data['set']);
 			if( data['unset'] ) update['$unset'] = data['unset'].reduce((r, d) => {r[d] = ""; return r}, {});
 	
 			collection.findOneAndUpdate(
@@ -218,7 +221,7 @@ class CoCreateCrud extends CoCreateBase {
 				let response = {
 					'collection'  : data['collection'],
 					'document_id' : data['document_id'],
-					'data'        : result.value || {},
+					'data'        : encodeObject(result.value || {}),
 					'metadata'    : data['metadata']
 				};
 				

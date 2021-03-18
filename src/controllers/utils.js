@@ -42,7 +42,7 @@ module.exports = {
       return null;
     }
   },
-  organizationsfindOne : async (data,dbName) => {
+  organizationsfindOne : async (data, dbName) => {
     try {
       const db = await connection(dbName); // obtenemos la conexión      
       const collection = db.collection('organizations');

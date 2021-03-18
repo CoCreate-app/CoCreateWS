@@ -3,7 +3,7 @@ var path = require('path');
 var router = express.Router();
 var utils = require("../controllers/utils.js");
 const GetRouteOrganization = require('./getRoute');
-
+console.log("·.......Entro en routes")
 
 /* GET home page. */
 router.get('/test', function(req, res, next) {
