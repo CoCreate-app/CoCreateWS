@@ -9,8 +9,8 @@ class CoCreateList extends CoCreateBase {
 	}
 	
 	init() {
-		this.wsManager.on('readDocumentList', (socket, data, roomInfo) => this.readDocumentList(socket, data));
-		this.wsManager.on('readCollectionList', (socket, data, roomInfo) => this.readCollectionList(socket, data));
+		this.wsManager.on('readDocumentList', (socket, data, roomInfo) => this.readDocumentList(socket, data, roomInfo));
+		this.wsManager.on('readCollectionList', (socket, data, roomInfo) => this.readCollectionList(socket, data, roomInfo));
 	
 	}
 	
@@ -54,16 +54,26 @@ class CoCreateList extends CoCreateBase {
 			data: [] // array
 	 }
 	 **/
-	async readDocumentList(socket, data) {
+	async readDocumentList(socket, data, roomInfo) {
 		const securityRes = await this.checkSecurity(data);
+		
+		function sleep(ms) {
+			return new Promise((resolve) => {
+				setTimeout(resolve, ms);
+			});
+		}
+		
+		await sleep(3000)
+		
+		
 		const self = this;
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id'], roomInfo);
 			return;   
 		}
 		
 		if (data['is_collection']) {
-			var result = await this.readCollectionList(socket, data);
+			var result = await this.readCollectionList(socket, data, roomInfo);
 			return;
 		}
 		
@@ -139,7 +149,7 @@ class CoCreateList extends CoCreateBase {
 						'metadata': data['metadata'],
 						'created_ids': data['created_ids'],
 						'is_collection': data['is_collection']
-					}, data['organization_id']);
+					}, data['organization_id'], roomInfo);
 				}
 				
 				//console.log(error);
@@ -147,13 +157,14 @@ class CoCreateList extends CoCreateBase {
 			})
 		} catch (error) {
 			console.log('readDocumentList error', error);
+			this.wsManager.send(socket, 'ServerError', 'error', null, roomInfo);
 		}
 	}
 	
-	async readCollectionList(socket, data) {
+	async readCollectionList(socket, data, roomInfo) {
 		const securityRes = await this.checkSecurity(data);
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id'], roomInfo);
 			return;   
 		}
 		try {
@@ -178,9 +189,9 @@ class CoCreateList extends CoCreateBase {
 				'operator': data.opreator,
 				'is_collection': data.is_collection,
 				'metadata': data.metadata
-			}, data['organization_id']);
+			}, data['organization_id'], roomInfo);
 		} catch(error) {
-			
+			this.wsManager.send(socket, 'ServerError', 'error', null, roomInfo);
 		}
 	}
 	

@@ -3,12 +3,16 @@ const qs = require('querystring');
 const WebSocket = require('ws');
 const url = require("url");
 const EventEmitter = require("events").EventEmitter;
+const AsyncMessage = require("./AsyncMessage")
+const { GenerateUUID } = require("./utils")
 
 class WSManager extends EventEmitter{
 	constructor(prefix) {
 		super();
 
 		this.clients = new Map();
+		this.asyncMessages = new Map();
+		
 		this.prefix = prefix || "crud";
 		
 		//. websocket server
@@ -60,6 +64,7 @@ class WSManager extends EventEmitter{
 		if (room_clients.length == 0) {
 			this.emit('userStatus', ws, {info: key.replace(`/${this.prefix}/`, ''), status: 'off'}, roomInfo);
 			this.emit("removeMetrics", null, {org_id: roomInfo.orgId});
+			// this.addAsyncMessage.delete(key);
 		} else {
 			let total_cnt = 0;
 			this.clients.forEach((c) => total_cnt += c.length)
@@ -81,6 +86,7 @@ class WSManager extends EventEmitter{
 			room_clients = [ws];
 		}
 		this.clients.set(key, room_clients);
+		this.addAsyncMessage(roomInfo.key)
 		
 		this.emit('userStatus', ws, {info: key.replace(`/${this.prefix}/`, ''), status: 'on'}, roomInfo);
 
@@ -93,6 +99,13 @@ class WSManager extends EventEmitter{
 			client_cnt: room_clients.length, 
 			total_cnt: total_cnt
 		});
+	}
+	
+	addAsyncMessage(key) {
+		let asyncMessage = this.asyncMessages.get(key)
+		if (!asyncMessage) {
+			this.asyncMessages.set(key, new AsyncMessage(key));
+		}
 	}
 	
 	getKeyFromUrl(pathname)	{
@@ -119,12 +132,24 @@ class WSManager extends EventEmitter{
 			}
 			
 			const data = JSON.parse(message)
+			let cloneRoomInfo = {...roomInfo};
 			
 			if (data.action) {
-				if (roomInfo.orgId != null) {
-					this.emit('changeDB', ws, {db: roomInfo.orgId}, roomInfo);
+				//. checking async status....				
+				let { metadata } = data.data;
+				if (metadata && metadata.async == true) {
+					const uuid = GenerateUUID(), asyncMessage = this.asyncMessages.get(cloneRoomInfo.key);
+					cloneRoomInfo.asyncId = uuid;
+					if (asyncMessage) {
+						asyncMessage.defineMessage(uuid);
+					}
 				}
-				this.emit(data.action, ws, data.data, roomInfo);
+				//. End
+				
+				if (cloneRoomInfo.orgId != null) {
+					this.emit('changeDB', ws, {db: cloneRoomInfo.orgId}, cloneRoomInfo);
+				}
+				this.emit(data.action, ws, data.data, cloneRoomInfo);
 			}
 			
 		} catch(e) {
@@ -132,9 +157,9 @@ class WSManager extends EventEmitter{
 		}
 	}
 	
-	broadcast(ws, namespace, room, messageType, data, isExact) {
+	broadcast(ws, namespace, room, messageType, data, isExact, roomInfo) {
 		const self = this;
-		
+		const asyncId = this.getAsyncId(roomInfo)
 	    let room_key = this.prefix + "/" + namespace;
 	    if (room) {
 	    	room_key += `/${room}`;	
@@ -144,17 +169,24 @@ class WSManager extends EventEmitter{
 			data: data
 		});
 		
+		let isAsync = false;
+		let asyncData = [];
+		if (asyncId && roomInfo && roomInfo.key) {
+			isAsync = true;	
+		}
+		
 		if (isExact) {
 			const clients = this.clients.get(room_key);
 			
 			if (clients) {
 				clients.forEach((client) => {
 					if (ws != client) {
-						client.send(responseData);
-						// console.log(namespace, room)
-						// console.log(responseData)
+						if (isAsync) {
+							asyncData.push({socket: client, message: responseData})
+						} else {
+							client.send(responseData);
+						}
 						self.recordTransfer('out', responseData, namespace)
-						
 					}
 				})
 			}
@@ -164,26 +196,49 @@ class WSManager extends EventEmitter{
 				if (key.includes(room_key)) {
 					value.forEach(client => {
 						if (ws != client) {
-							client.send(responseData);
-							// console.log(namespace, room)
-							// console.log(responseData)
+							if (isAsync) {
+								asyncData.push({socket: client, message: responseData})
+							} else {
+								client.send(responseData);
+							}
 							self.recordTransfer('out', responseData, namespace)
 						}
 					})
 				}
 			})
-			
+		}
+		
+		//. set async processing
+		if (isAsync) {
+			this.asyncMessages.get(roomInfo.key).setMessage(asyncId, asyncData)
 		}
 		
 	}
 	
-	send(ws, messageType,  data, orgId){
+	send(ws, messageType,  data, orgId, roomInfo){
+		const asyncId = this.getAsyncId(roomInfo)
 		let responseData = JSON.stringify({
 			action: messageType,
 			data: data
 		});
-		ws.send(responseData);
+
+		if (asyncId && roomInfo && roomInfo.key) {
+			console.log(asyncId, roomInfo.key)
+			this.asyncMessages.get(roomInfo.key).setMessage(asyncId, [{socket: ws, message: responseData}]);
+		} else {
+			ws.send(responseData);
+		}
 		this.recordTransfer('out', responseData, orgId)
+
+	}
+	
+	getAsyncId(roomInfo) {
+		if (!roomInfo) return null;
+		
+		if (roomInfo.asyncId) {
+			return roomInfo.asyncId;
+		}
+		return null
 	}
 	
 	sendBinary(ws, data, orgId) {

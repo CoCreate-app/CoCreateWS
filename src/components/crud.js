@@ -13,7 +13,6 @@ class CoCreateCrud extends CoCreateBase {
 	init() {
 		if (this.wsManager) {
 			this.wsManager.on('createDocument', 	(socket, data, roomInfo) => this.createDocument(socket, data, roomInfo));
-			// this.wsManager.on('readDocument',		(socket, data, roomInfo) => this.readDocument(socket, data))
 			this.wsManager.on('readDocument',		(socket, data, roomInfo) => this.readDocument(socket, data, roomInfo))
 			this.wsManager.on('updateDocument', 	(socket, data, roomInfo) => this.updateDocument(socket, data, roomInfo))
 			this.wsManager.on('deleteDocument', 	(socket, data, roomInfo) => this.deleteDocument(socket, data, roomInfo))
@@ -56,14 +55,14 @@ class CoCreateCrud extends CoCreateBase {
 		const self = this;
 		
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', null, roomInfo);
 			return;
 		}
 		
 		if(!data.data) return;
 		
 		try{
-			var collection = this.db.collection(data['collection']);
+			const collection = this.db.collection(data['collection']);
 			let insertData = replaceArray(data.data);
 
 			collection.insertOne(insertData, function(error, result) {
@@ -76,89 +75,40 @@ class CoCreateCrud extends CoCreateBase {
 						'metadata': data['metadata']
 					};
 					if (data.broadcast_sender !== false) {
-						self.wsManager.send(socket, 'createDocument', response, data['organization_id']);
+						self.wsManager.send(socket, 'createDocument', response, data['organization_id'], roomInfo);
 					}
 					if (data.broadcast !== false) {
 						if (data.room) {
-							self.wsManager.broadcast(socket, data.namespace || data['organization_id'] , data.room, 'createDocument', response, true);
+							self.wsManager.broadcast(socket, data.namespace || data['organization_id'] , data.room, 'createDocument', response, true, roomInfo);
 						} else {
-							self.wsManager.broadcast(socket, data.namespace || data['organization_id'], null, 'createDocument', response)	
+							self.wsManager.broadcast(socket, data.namespace || data['organization_id'], null, 'createDocument', response, false, roomInfo)	
 						}
 					}
 				}
 			});
 		}catch(error){
 			console.log('createDocument error', error);
+			this.wsManager.send(socket, 'ServerError', 'error', null, roomInfo);
 		}
 	}
 	
-	/** Read Document 
-		old version
-	**/
-	
-	// async readDocument(socket, data) {
-	// 	if (!data['collection'] || data['collection'] == 'null' || typeof data['collection'] !== 'string') {
-	// 		return;
-	// 	} 
-	// 	const self = this;
-	// 	const securityRes = await this.checkSecurity(data);
-	// 	if (!securityRes.result) {
-	// 		this.wsManager.send(socket, 'securityError', 'error');
-	// 		return;   
-	// 	}
-		
-	// 	try {
-			
-	// 		var collection = this.getDb(data['namespace']).collection(data["collection"]);
-			
-	// 		var query = {
-	// 			"_id": new ObjectID(data["document_id"])
-	// 		};
-	// 		if (securityRes['organization_id']) {
-	// 			query['organization_id'] = securityRes['organization_id'];
-	// 		}
-			
-	// 		collection.find(query).toArray(function(error, result) {
-	// 			if (!error && result) {
-	// 				if (result.length > 0) {
-	// 					let tmp = result[0];
-	// 					if (data['exclude_fields']) {
-	// 						data['exclude_fields'].forEach(function(field) {
-	// 							delete tmp[field];
-	// 						})
-	// 					}
-	// 					self.wsManager.send(socket, 'readDocument', {
-	// 						'collection'  : data['collection'],
-	// 						'document_id' : data['document_id'],
-	// 						'data'        : tmp,
-	// 						'metadata'    : data['metadata']
-	// 					});
-	// 				}
-	// 			} 
-	// 		});
-	// 	} catch (error) {
-	// 		console.log('readDocument error', error); 
-	// 	}
-	// }
-	
 	/** Read Document **/
-	async readDocument(socket, data) {
+	async readDocument(socket, data, roomInfo) {
 		if (!data['collection'] || data['collection'] == 'null' || typeof data['collection'] !== 'string') {
 			return;
 		} 
 		const self = this;
 		const securityRes = await this.checkSecurity(data);
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', null, roomInfo);
 			return;   
 		}
 		
 		try {
 			
-			// var collection = this.getDb(data['namespace']).collection(data["collection"]);
-			var collection = this.db.collection(data["collection"]);
+			const collection = this.db.collection(data["collection"]);
 			
-			var query = {
+			const query = {
 				"_id": new ObjectID(data["document_id"])
 			};
 			if (securityRes['organization_id']) {
@@ -180,32 +130,31 @@ class CoCreateCrud extends CoCreateBase {
 							'data'        : encodeObject(tmp),
 							'element'	  : data['element'],
 							'metadata'    : data['metadata']
-						}, data['organization_id']);
+						}, data['organization_id'], roomInfo);
 					}
 				} 
 			});
 		} catch (error) {
 			console.log('readDocument error', error); 
+			this.wsManager.send(socket, 'ServerError', 'error', null, roomInfo);
 		}
 	}
 
 	/** Update Document **/
-	async updateDocument(socket, data) {
+	async updateDocument(socket, data, roomInfo) {
 		const  securityRes = await this.checkSecurity(data);
 		const self = this;
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error', data['organization_id']);
+			this.wsManager.send(socket, 'securityError', 'error', data['organization_id'], roomInfo);
 			return;
 		}
 		
 		try {
 			
-			var collection = this.db.collection(data["collection"]);
+			const collection = this.db.collection(data["collection"]);
+			const query = {"_id": new ObjectID(data["document_id"]) };
 			
-			var query = {"_id": new ObjectID(data["document_id"]) };
-			// if (securityRes['organization_id']) query['organization_id'] = securityRes['organization_id'];
-			
-			var update = {};
+			const update = {};
 			if( data['set'] )   update['$set'] = replaceArray(data['set']);
 			if( data['unset'] ) update['$unset'] = data['unset'].reduce((r, d) => {r[d] = ""; return r}, {});
 	
@@ -228,14 +177,14 @@ class CoCreateCrud extends CoCreateBase {
 				if(data['unset']) response['delete_fields'] = data['unset'];
 				
 				if (data.broadcast_sender != false) {
-					self.wsManager.send(socket, 'updateDocument', { ...response, element: data['element']}, data['organization_id']);
+					self.wsManager.send(socket, 'updateDocument', { ...response, element: data['element']}, data['organization_id'], roomInfo);
 				}
 					
 				if (data.broadcast !== false) {
 					if (data.room) {
-						self.wsManager.broadcast(socket, data.namespace || data['organization_id'] , data.room, 'updateDocument', response, true);
+						self.wsManager.broadcast(socket, data.namespace || data['organization_id'] , data.room, 'updateDocument', response, true, roomInfo);
 					} else {
-						self.wsManager.broadcast(socket, data.namespace || data['organization_id'], null, 'updateDocument', response)	
+						self.wsManager.broadcast(socket, data.namespace || data['organization_id'], null, 'updateDocument', response, false, roomInfo)	
 					}
 				}
 			});
@@ -247,17 +196,17 @@ class CoCreateCrud extends CoCreateBase {
 	}
 	
 	/** Delete Document **/
-	async deleteDocument(socket, data) {
+	async deleteDocument(socket, data, roomInfo) {
 		const self = this;
 		const securityRes = await this.checkSecurity(data);
 		if (!securityRes.result) {
-			this.wsManager.send(socket, 'securityError', 'error');
+			this.wsManager.send(socket, 'securityError', 'error', null, roomInfo);
 			return;   
 		}
 	
 		try {
-			var collection = this.db.collection(data["collection"]);
-			var query = {
+			const collection = this.db.collection(data["collection"]);
+			const query = {
 				"_id": new ObjectID(data["document_id"])
 			};
 			// if (securityRes['organization_id']) {
@@ -272,19 +221,20 @@ class CoCreateCrud extends CoCreateBase {
 							'metadata': data['metadata']
 						}
 					if (data.broadcast_sender !== false) {
-						self.wsManager.send(socket, 'deleteDocument', { ...response, element: data['element']}, data['organization_id']);
+						self.wsManager.send(socket, 'deleteDocument', { ...response, element: data['element']}, data['organization_id'], roomInfo);
 					}
 					if (data.broadcast !== false) {
 						if (data.room) {
-							self.wsManager.broadcast(socket, data.namespace || data['organization_id'] , data.room, 'deleteDocument', response, true);
+							self.wsManager.broadcast(socket, data.namespace || data['organization_id'] , data.room, 'deleteDocument', response, true, roomInfo);
 						} else {
-							self.wsManager.broadcast(socket, data.namespace || data['organization_id'], null, 'deleteDocument', response)	
+							self.wsManager.broadcast(socket, data.namespace || data['organization_id'], null, 'deleteDocument', response, false, roomInfo)	
 						}
 					}
 				}
 			})
 		} catch (error) {
 			console.log(error);
+			this.wsManager.send(socket, 'ServerError', 'error', null, roomInfo);
 		}
 	}
 }
