@@ -1,4 +1,5 @@
 'use strict';
+var cors = require('cors')
 
 const express = require('express');
 const { createServer } = require('http');
@@ -13,7 +14,7 @@ const port = process.env.PORT || 8081;
 console.log(process.env.PORT)
 
 const app = express();
-
+app.use(cors())
 //app.use(express.json())  
 // Parse incoming POST params with Express middleware
 app.use(urlencoded({ extended: false }));
