@@ -131,13 +131,12 @@ class WSManager extends EventEmitter{
 				return;
 			}
 			
-			const data = JSON.parse(message)
+			const requestData = JSON.parse(message)
 			let cloneRoomInfo = {...roomInfo};
 			
-			if (data.action) {
+			if (requestData.action) {
 				//. checking async status....				
-				let { metadata } = data.data;
-				if (metadata && metadata.async == true) {
+				if (requestData.data.async == true) {
 					const uuid = GenerateUUID(), asyncMessage = this.asyncMessages.get(cloneRoomInfo.key);
 					cloneRoomInfo.asyncId = uuid;
 					if (asyncMessage) {
@@ -149,7 +148,7 @@ class WSManager extends EventEmitter{
 				if (cloneRoomInfo.orgId != null) {
 					this.emit('changeDB', ws, {db: cloneRoomInfo.orgId}, cloneRoomInfo);
 				}
-				this.emit(data.action, ws, data.data, cloneRoomInfo);
+				this.emit(requestData.action, ws, requestData.data, cloneRoomInfo);
 			}
 			
 		} catch(e) {
@@ -223,7 +222,6 @@ class WSManager extends EventEmitter{
 		});
 
 		if (asyncId && roomInfo && roomInfo.key) {
-			console.log(asyncId, roomInfo.key)
 			this.asyncMessages.get(roomInfo.key).setMessage(asyncId, [{socket: ws, message: responseData}]);
 		} else {
 			ws.send(responseData);

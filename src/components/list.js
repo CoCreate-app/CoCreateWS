@@ -63,9 +63,8 @@ class CoCreateList extends CoCreateBase {
 			});
 		}
 		
-		await sleep(3000)
-		
-		
+		// await sleep(3000)
+
 		const self = this;
 		if (!securityRes.result) {
 			this.wsManager.send(socket, 'securityError', 'error', data['organization_id'], roomInfo);
@@ -91,7 +90,7 @@ class CoCreateList extends CoCreateBase {
 			// 	}
 			// 	query[operator.fetch.name] = fetch_value;
 			// }
-			
+
 			if (securityRes['organization_id']) {
 				query['organization_id'] = securityRes['organization_id'];
 			}
@@ -102,6 +101,7 @@ class CoCreateList extends CoCreateBase {
 			});
 			collection.find(query).sort(sort).toArray(function(error, result) {
 				if (result) {
+
 					if (operator['search']['type'] == 'and') {
 						result = self.readAndSearch(result, operator['search']['value']);
 					} else {
@@ -141,19 +141,24 @@ class CoCreateList extends CoCreateBase {
 						result_data = result;
 					}
 					
+					console.log('sending--------')
+					
 					self.wsManager.send(socket, 'readDocumentList', {
-						'collection': data['collection'],
-						'element': data['element'],
-						'data': result_data,
-						'operator': {...operator, total: total},
-						'metadata': data['metadata'],
-						'created_ids': data['created_ids'],
-						'is_collection': data['is_collection']
+						'collection'	: data['collection'],
+						'element'		: data['element'],
+						'data'			: result_data,
+						'operator'		: {...operator, total: total},
+						'metadata'		: data['metadata'],
+						'created_ids'	: data['created_ids'],
+						'is_collection'	: data['is_collection'],
+						'async'			: data['async'],
+						'event'			: data['event'],
+						
 					}, data['organization_id'], roomInfo);
+				} else {
+					console.log(error)
+					self.wsManager.send(socket, 'ServerError', error, null, roomInfo);
 				}
-				
-				//console.log(error);
-				
 			})
 		} catch (error) {
 			console.log('readDocumentList error', error);
@@ -183,12 +188,14 @@ class CoCreateList extends CoCreateBase {
 			})
 			
 			this.wsManager.send(socket, 'readCollectionList', {
-				'collection': data['collection'],
-				'element': data['element'],
-				'data': result_collections,
-				'operator': data.opreator,
-				'is_collection': data.is_collection,
-				'metadata': data.metadata
+				'collection'	: data['collection'],
+				'element'		: data['element'],
+				'data'			: result_collections,
+				'operator'		: data.opreator,
+				'is_collection'	: data.is_collection,
+				'metadata'		: data.metadata,
+				'async'			: data['async'],
+				'event'			: data['event'],
 			}, data['organization_id'], roomInfo);
 		} catch(error) {
 			this.wsManager.send(socket, 'ServerError', 'error', null, roomInfo);
