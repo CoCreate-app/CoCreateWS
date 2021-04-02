@@ -4,14 +4,13 @@ var cors = require('cors')
 const express = require('express');
 const { createServer } = require('http');
 
-const init = require("./init")
-const WSManager = require("./core/WSManager")
+const adapter = require("./adapter")
+const SocketServer = require("@cocreate/socket-server")
 const urlencoded = require('body-parser').urlencoded;
-const wsManager = new WSManager("ws");
+
+const wsManager = new SocketServer("ws");
 
 const port = process.env.PORT || 8081;
-
-console.log(process.env.PORT)
 
 const app = express();
 app.use(cors())
@@ -30,12 +29,9 @@ app.use(express.static('public'));
 
 app.use('/', require('./routes/index'));
 
-
-
-init.WSManager(wsManager);
+adapter.init(wsManager).then((status) => console.log(status))
 
 const server = createServer(app);
-
 
 server.on('upgrade', function upgrade(request, socket, head) {
   if (!wsManager.handleUpgrade(request, socket, head)) {
