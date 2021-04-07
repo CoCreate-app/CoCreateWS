@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.5...v0.6.0) (2021-04-07)
+
+
+### Features
+
+* Update to server/client structure with options for async await and uid for socket  messages ([7e3c859](https://github.com/CoCreate-app/CoCreateWS/commit/7e3c8590cb39d056a3fed6fcfedc8da017cc517c))
+
 ## [0.5.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.5.4...v0.5.5) (2021-03-07)
 
 
