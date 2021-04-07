@@ -1,4 +1,4 @@
-var utils = require("../controllers/utils.js");
+var utils = require("../helpers/utils.js");
 var config = require('../../config.json');
 var path = require('path');
 var fs = require('fs');

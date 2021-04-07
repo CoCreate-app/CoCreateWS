@@ -1,4 +1,4 @@
-const connection = require('../config/dbConnection.js');
+const connection = require('./dbConnection.js');
 var ObjectID = require('mongodb').ObjectID;
 module.exports = {
   getDocument: async (data,dbName) => {

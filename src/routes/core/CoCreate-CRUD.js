@@ -1,4 +1,4 @@
-const CoCreateSocket = require('./CoCreate-socket')
+const CoCreateSocket = require('@cocreate/socket-server')
 
 module.exports.CoCreateSocketInit = function (socket) {
 	CoCreateSocket.create({

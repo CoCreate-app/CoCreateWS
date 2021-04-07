@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var router = express.Router();
-var utils = require("../controllers/utils.js");
+var utils = require("../helpers/utils.js");
 const GetRouteOrganization = require('./getRoute');
 console.log("·.......Entro en routes")
 
