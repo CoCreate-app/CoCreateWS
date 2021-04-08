@@ -49,4 +49,3 @@ We encourage contribution to our libraries (you might even score some nifty swag
 
 # License
 [The MIT License (MIT)](https://github.com/CoCreate-app/CoCreateWS/blob/master/LICENSE)
-
