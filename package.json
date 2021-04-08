@@ -41,14 +41,12 @@
     "@cocreate/socket-server": "^1.0.0",
     "@cocreate/crud-server": "^1.0.0",
     "@cocreate/message-server": "^1.0.0",
-    "axios": "^0.19.2",
     "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "json-2-csv": "^3.7.6",
     "mongodb": "^3.5.8",
-    "querystring": "^0.2.0",
-    "ws": "^7.3.0"
+    "querystring": "^0.2.0"
   }
 }
