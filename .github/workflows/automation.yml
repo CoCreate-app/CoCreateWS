@@ -61,6 +61,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
+      - name: npm login
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
+      - name: yarn install
+        run: >
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >
+          .npmrc
       - name: Login docker registry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
