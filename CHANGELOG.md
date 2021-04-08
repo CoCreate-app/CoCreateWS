@@ -1,3 +1,10 @@
+## [0.6.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.5...v0.6.6) (2021-04-08)
+
+
+### Bug Fixes
+
+* test deploy ([ab7555c](https://github.com/CoCreate-app/CoCreateWS/commit/ab7555c5c0a63db2d74a97d33c74d69df7cdbcd0))
+
 ## [0.6.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.4...v0.6.5) (2021-04-08)
 
 
