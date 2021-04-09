@@ -37,11 +37,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@cocreate/docs": "^1.0.3",
-    "@cocreate/socket-server": "^1.0.0",
     "@cocreate/crud-server": "^1.0.0",
+    "@cocreate/docs": "^1.0.3",
     "@cocreate/message-server": "^1.0.0",
     "@cocreate/metrics-server": "^1.0.0",
+    "@cocreate/socket-server": "^1.0.0",
     "cors": "^2.8.5",
     "csvtojson": "^2.0.10",
     "express": "^4.17.1",
