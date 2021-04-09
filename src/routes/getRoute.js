@@ -62,7 +62,7 @@ module.exports.getRouteMongo = async (req, res, next) => {
             }
         }
         else {
-                res.send('No Found this ROute in ours BD  Host ['+hostname+'] and OrgId ['+organization_id+']  '+JSON.stringify(organization)+'<br/>');
+                res.send('No Found this ROute in ours BD  Host ['+hostname+'] and OrgId ['+organization_id+'] ');
         }
     }
     
