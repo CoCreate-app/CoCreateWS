@@ -1,3 +1,10 @@
+## [0.6.15](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.14...v0.6.15) (2021-04-09)
+
+
+### Bug Fixes
+
+* updated to latest version of crud and socket server ([54b865f](https://github.com/CoCreate-app/CoCreateWS/commit/54b865f57010449b296f67c07bf42c3d6fe2f05d))
+
 ## [0.6.14](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.13...v0.6.14) (2021-04-08)
 
 
