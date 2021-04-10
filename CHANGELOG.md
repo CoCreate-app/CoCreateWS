@@ -1,3 +1,10 @@
+## [0.6.17](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.16...v0.6.17) (2021-04-10)
+
+
+### Bug Fixes
+
+* Cleaned file structure ([20b227d](https://github.com/CoCreate-app/CoCreateWS/commit/20b227d291476cc32c43172e4d4979b129ea7914))
+
 ## [0.6.16](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.15...v0.6.16) (2021-04-09)
 
 
