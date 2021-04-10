@@ -1,3 +1,10 @@
+## [0.6.16](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.15...v0.6.16) (2021-04-09)
+
+
+### Bug Fixes
+
+* remove org details when route fails ([ac71796](https://github.com/CoCreate-app/CoCreateWS/commit/ac717966fb1176003acd6b3c014afb83e220beba))
+
 ## [0.6.15](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.14...v0.6.15) (2021-04-09)
 
 
