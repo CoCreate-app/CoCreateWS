@@ -8,9 +8,11 @@ module.exports.getRouteMongo = async (req, res, next) => {
     let hostname = req.hostname; 
     let url = req.url; 
     let route_uri = url.split(req.hostname)[0];
+    let masterDB = '5ae0cfac6fb8c4e656fdaf92'
     route_uri = route_uri.indexOf('?') ? route_uri.split('?')[0] : route_uri
+    
 
-    let organization = await utils.organizationsfindOne({domains:hostname},'5de0387b12e200ea63204d6c')
+    let organization = await utils.organizationsfindOne({domains:hostname},masterDB)
 
     if(organization == null) {
         res.send('Error Get Organization by Domain =>'+hostname);
@@ -29,10 +31,8 @@ module.exports.getRouteMongo = async (req, res, next) => {
 
             if (route_export != null) {
                 let content_type = '';
-                
                 let is_file = route['is_file'];
                 let ext = path.extname(route_uri);
-
                 if (!is_file) {
                     switch(ext){
                         case 'css':
@@ -43,8 +43,7 @@ module.exports.getRouteMongo = async (req, res, next) => {
                             break;
                         case 'xml':
                             content_type = 'text/xml'
-                            break;
-                            content_type = 'text/html'
+                        break;
                         default:
                             content_type = 'text/html'
                     }
@@ -58,65 +57,12 @@ module.exports.getRouteMongo = async (req, res, next) => {
                 }
             }
             else {
-                res.send('Error Get ROute Document Export Collection -> '+route['collection'] + ' document_id -> '+route['document_id']);
+                res.send('Document provided by routes could not be found in collection: '+route['collection'] + ' document_id: '+route['document_id']);
             }
         }
         else {
-                res.send('No Found this ROute in ours BD  Host ['+hostname+'] and OrgId ['+organization_id+'] ');
+                res.send('Organization could not be found for ['+hostname+'] in masterDb ['+organization_id+'] ');
         }
     }
     
 }
-module.exports.getRoute = async (req, res, next) => {
-    
-    // to test -> http://52.207.107.241:8081/organization/hello/org
-    // -> https://server.cocreate.app:8088/organization/test/frank
-    
-    /*
-    db.organizations.findOneAndUpdate(
-       { _id:ObjectId('5de0387b12e200ea63204d6c') },
-       { $set: { "routes" : [{
-                        route: '/test/frank',
-                        collection: 'module_activities',
-                        document_id: "5e4802ce3ed96d38e71fc7e5",
-                        name: 'name1',
-                      },
-                      {
-                        route: '/hello/jean',
-                        collection: 'modules',
-                        document_id: '5de03fc7c745412976891134',
-                        name: 'html',
-                      },
-                      {
-                        route: '/hello/org',
-                        collection: 'organizations',
-                        document_id: '5f03eb8462181154025cd876',
-                        name: 'name',
-                      }
-                      ]} },
-       {  upsert:true, returnNewDocument : true }
-    );
-    */
-    
-    console.log("URL=> ",req.url , " req.hostname ", req.hostname)
-    let route_uri = req.url.split('/organization')[1];
-    let organization_id = '5de0387b12e200ea63204d6c';
-    
-    var org = await utils.getDocument({'collection':'organizations','document_id':organization_id});
-    var route = org.routes.find(element => element.route.toLowerCase() == route_uri);
-    if (typeof route != 'undefined'){
-        console.log(" Route ",route);
-        var result = await utils.getDocument(route);
-        console.log("Result ",result)
-        res.send(result[route.name]);
-    }
-    else {
-        let list_route = '<ul>'
-        org.routes.forEach(function(route) {   
-            list_route += '<li>'+route.route+'</li>';
-        });
-        list_route += '</ul>'
-            res.send('This route does not exist: '+list_route);
-    }
-}
-
