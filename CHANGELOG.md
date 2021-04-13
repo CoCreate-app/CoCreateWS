@@ -1,3 +1,10 @@
+## [0.6.18](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.17...v0.6.18) (2021-04-13)
+
+
+### Bug Fixes
+
+* routes updated and cleaned ([626036e](https://github.com/CoCreate-app/CoCreateWS/commit/626036e13d66b61ef86d1bb49b06412a5dc2bebd))
+
 ## [0.6.17](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.16...v0.6.17) (2021-04-10)
 
 
