@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var utils = require("../helpers/utils.js");
+var fs = require('fs');
 
 router.get('/*', async (req, res, next) => {
 
