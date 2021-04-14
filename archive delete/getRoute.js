@@ -1,21 +1,22 @@
 var express = require('express');
-var router = express.Router();
-var path = require('path');
 var utils = require("../helpers/utils.js");
+var config = require('../../config.json');
+var path = require('path');
 var fs = require('fs');
 
-router.get('/*', async (req, res, next) => {
-    console.log("GetRoutes by organization")
-    
+module.exports.getRouteMongo = async (req, res, next) => {
+
     let hostname = req.hostname; 
     let url = req.url; 
     let route_uri = url.split(req.hostname)[0];
     let masterDB = '5ae0cfac6fb8c4e656fdaf92'
     route_uri = route_uri.indexOf('?') ? route_uri.split('?')[0] : route_uri
+    
 
     let organization = await utils.organizationsfindOne({domains:hostname},masterDB)
+
     if(organization == null) {
-        res.send('Organization cannot be found using the domain:'+hostname);
+        res.send('Error Get Organization by Domain =>'+hostname);
         return null;
     } else {
         
@@ -65,6 +66,4 @@ router.get('/*', async (req, res, next) => {
         }
     }
     
-});
-
-module.exports = router;
+}

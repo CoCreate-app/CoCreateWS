@@ -46,10 +46,7 @@ module.exports = {
     try {
       const db = await connection(dbName); // obtenemos la conexión      
       const collection = db.collection('organizations');
-      var query = {
-          "domains": data["domain"]
-        };
-        
+      var query ={ "domains": { $in: [data["domains"]] } };
       return await collection.findOne(query);
      }catch(e){
       console.log(" Catch Error OrganizationfinOne ---",e)

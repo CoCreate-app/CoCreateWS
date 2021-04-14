@@ -24,8 +24,13 @@ app.get('/ws/hello', (req, res) => {
   res.send('Hello World');
 })
 **/
+app.get('/ws/hello', (req, res) => {
+  console.log('connected , Hello word')
+  res.send('Hello World');
+})
 
 app.use('/', require('./routes/index'));
+
 
 adapter.init(socketManager).then((status) => console.log(status))
 
