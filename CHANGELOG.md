@@ -1,3 +1,10 @@
+## [0.6.20](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.19...v0.6.20) (2021-04-14)
+
+
+### Bug Fixes
+
+* Get rote by org ([243f154](https://github.com/CoCreate-app/CoCreateWS/commit/243f15455df781a6aac1d8d04f4b8f9ecfa078d7))
+
 ## [0.6.19](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.18...v0.6.19) (2021-04-13)
 
 
