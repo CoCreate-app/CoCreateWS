@@ -1,3 +1,11 @@
+## [0.6.19](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.18...v0.6.19) (2021-04-13)
+
+
+### Bug Fixes
+
+* routes missing dependency ([24d12d3](https://github.com/CoCreate-app/CoCreateWS/commit/24d12d3b1bbccdfed301967093bf7445afb0792e))
+* routes missing dependency ([d814051](https://github.com/CoCreate-app/CoCreateWS/commit/d814051415a72611071948efaab19a37a0b790ff))
+
 ## [0.6.18](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.17...v0.6.18) (2021-04-13)
 
 
