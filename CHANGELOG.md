@@ -1,3 +1,11 @@
+## [0.6.21](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.20...v0.6.21) (2021-04-19)
+
+
+### Bug Fixes
+
+* content type ([9ce01c9](https://github.com/CoCreate-app/CoCreateWS/commit/9ce01c908e26a0b26c07ef9b1bdee3b75388369f))
+* routes file type ([ef3b58d](https://github.com/CoCreate-app/CoCreateWS/commit/ef3b58d90725547bcb0f7f2b8ee05b28397926d0))
+
 ## [0.6.20](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.19...v0.6.20) (2021-04-14)
 
 
