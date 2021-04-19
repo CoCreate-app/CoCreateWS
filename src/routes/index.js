@@ -32,7 +32,7 @@ router.get('/*', async (req, res, next) => {
             if (route_export != null) {
                 let content_type = '';
                 let is_file = route['is_file'];
-                let ext = path.extname(route_uri);
+                let ext = path.extname(route_uri).substr(1);
                 if (!is_file) {
                     switch(ext){
                         case 'css':
