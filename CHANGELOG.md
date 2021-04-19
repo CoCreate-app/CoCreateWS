@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.21...v0.7.0) (2021-04-19)
+
+
+### Features
+
+* add permission package ([def004e](https://github.com/CoCreate-app/CoCreateWS/commit/def004e20de332f6ab90354feb3ff43b0a5793f5))
+
 ## [0.6.21](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.20...v0.6.21) (2021-04-19)
 
 
