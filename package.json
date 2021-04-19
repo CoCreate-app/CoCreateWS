@@ -26,7 +26,7 @@
     "url": "git+https://github.com/CoCreate-app/CoCreateWS.git"
   },
   "author": "CoCreate LLC",
-  "license": "unlicensed",
+  "license": "SSPL-1.0",
   "bugs": {
     "url": "https://github.com/CoCreate-app/CoCreateWS/issues"
   },
