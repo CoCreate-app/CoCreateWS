@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.7.0...v0.7.1) (2021-04-23)
+
+
+### Bug Fixes
+
+* remove securityKey ([721c0c8](https://github.com/CoCreate-app/CoCreateWS/commit/721c0c838a4454c7d2ed326713743f4e248fb33b))
+
 # [0.7.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.6.21...v0.7.0) (2021-04-19)
 
 
