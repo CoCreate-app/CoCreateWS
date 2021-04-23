@@ -5,7 +5,7 @@ const config = require('../config.json');
 const CoCreateCrudServer = require('@cocreate/crud-server')
 const CoCreateMessageServer = require('@cocreate/message-server')
 const CoCreateMetricsServer = require('@cocreate/metrics-server')
-const CoCreatePermission = require("@cocreate/permissions")
+const ServerPermission = require("./permission.js")
 
 module.exports.init = async function(manager) {
 	try {
@@ -13,7 +13,7 @@ module.exports.init = async function(manager) {
 		CoCreateCrudServer.init(manager, db_client)
 		CoCreateMessageServer.init(manager, db_client);
 		CoCreateMetricsServer.init(manager, db_client)
-		let permission = new CoCreatePermission(db_client)
+		let permission = new ServerPermission(db_client)
 		return {
 			status: true, 
 			instances: {
