@@ -49,6 +49,7 @@
     "express-session": "^1.17.1",
     "json-2-csv": "^3.7.6",
     "mongodb": "^3.5.8",
+    "node-html-parser": "^3.2.0",
     "querystring": "^0.2.0"
   }
 }
