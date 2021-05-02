@@ -29,10 +29,7 @@ module.exports = async function renderHtml(html, organization_id) {
             if (dbCache.has(cacheKey))
                 record = dbCache.get(cacheKey)
             else {
-                         console.log('<<<<<<<<<<<', {
-                    collection: coll,
-                    document_id: id
-                }, organization_id)
+          
                 record = await
                 getDocument({
                     collection: coll,
