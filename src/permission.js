@@ -14,13 +14,13 @@ class ServerPermission extends CoCreatePermission {
 		return {
 			apikey: apiKey,
 			organization_id,
-			key: 'collections',
-			key_value: collection,
-			type: action
+			collection,
+			plugin: 'messages',
+			type: action,
 		}
   }
   
-	async getPermissionObject(key, organization_id) {
+	async getPermissionObject(key, organization_id, type) {
 		
 		try {
 			if (!organization_id) {
@@ -37,8 +37,8 @@ class ServerPermission extends CoCreatePermission {
 			}
 
 			let permission = await collection.findOne({
-				apikey: key,
-				type: 'apikey'
+				key,
+				type: type || 'apikey'
 			});
 			
 			if (!permission.collections) {
@@ -62,10 +62,12 @@ class ServerPermission extends CoCreatePermission {
 					}
 				})
 			}
-			console.log('WS permission fetch data----', permission)
+		
+		console.log('WS permission fetch data----', permission)
 
 			return permission;
 		} catch (error) {
+		  console.log("Error en permission")
 			return null;
 		}
 		

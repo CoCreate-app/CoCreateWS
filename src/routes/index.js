@@ -21,17 +21,30 @@ router.get('/*', async (req, res, next) => {
         
         let organization_id = organization._id.toString();
         route_uri = route_uri.indexOf('/ws') != -1 ? route_uri.substr(3) : route_uri;
-        let route = await utils.routesfindOne({hostname:hostname , route_uri : route_uri  },organization_id);
-        console.log(organization, hostname, route_uri,route);
-        if (route != null){
-            var route_export = await utils.getDocument({
-                'collection':route['collection'],
-                'document_id':route['document_id']
-            }, organization_id);
-
-            if (route_export != null) {
+        let route_files = await utils.routesfindOne({hostname:hostname , route_uri : route_uri  },organization_id);
+       // console.log(organization, hostname, route_uri,route_files);
+        let data = null;
+        
+        if (route_files != null){
+            try{
+                //verifing if exists
+                console.log("GET SOURCE ")
+                data = route_files['src'];
+                if(data=='')
+                    throw "Error src empty";
+            }catch(e){
+                console.log("Exception GET SOURCE ",e)
+                var route_export = await utils.getDocument({
+                    'collection':route_files['collection'],
+                    'document_id':route_files['document_id']
+                }, organization_id);
+                data =  route_export[route_files['name']]
+            }
+            
+            
+            if (data != null) {
                 let content_type = '';
-                let is_file = route['is_file'];
+                let is_file = route_files['is_file'];
                 let ext = path.extname(route_uri).substr(1);
                 if (!is_file) {
                     switch(ext){
@@ -48,16 +61,16 @@ router.get('/*', async (req, res, next) => {
                             content_type = 'text/html'
                     }
                     res.type(content_type);
-                    res.send(route_export[route['name']]);
+                    res.send(data);
                 } else {
                     // let content_type = route['content_type'] || "image/png";
-                    let file = Buffer.from(route_export[route['name']], 'base64');
+                    let file = Buffer.from(data, 'base64');
                     // res.set('Content-Type', content_type);
                     res.send(file);
                 }
             }
             else {
-                res.send('Document provided by routes could not be found in collection: '+route['collection'] + ' document_id: '+route['document_id']);
+                res.send('Document provided by routes could not be found ');
             }
         }
         else {

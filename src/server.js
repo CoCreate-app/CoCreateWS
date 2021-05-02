@@ -32,11 +32,12 @@ app.get('/ws/hello', (req, res) => {
 app.use('/', require('./routes/index'));
 
 
-adapter.init(socketManager).then(({status, instances}) => {
-  if (status && instances) {
-    socketManager.setPermission(instances.permission)
-  }
-})
+adapter.init(socketManager)
+// .then(({status, instances}) => {
+//   if (status && instances) {
+//     socketManager.setPermission(instances.permission)
+//   }
+// })
 
 const server = createServer(app);
 

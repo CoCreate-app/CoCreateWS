@@ -4,5 +4,13 @@
     "redis": {
     	"host": "54.156.111.118",
     	"port": 6379
+    },
+    "jwttoken": {
+        "key": "aaIbx6W0366Mm6NXrPQb1k3Hg3sRxd1B",
+        "options": {
+            "algorithm": "HS256",
+            "expiresIn": "2 days",
+            "issuer": "issuer"
+        }
     }
 }
