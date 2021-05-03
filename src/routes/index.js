@@ -28,37 +28,38 @@ router.get('/*', async(req, res, next) => {
 
     url = url.startsWith('/ws') ? url.substr(3) : url; // dev
 
-
+    // console.log('>>>>>>>>>>>>>', url, organization)
     let organization_id = organization._id.toString();
     let route_files = await utils.routesfindOne({ hostname: hostname, route_uri: url }, organization_id);
 
 
-    if (route_files == null)
-        res.send('Organization could not be found for [' + hostname + '] in masterDb [' + organization_id + '] ');
-    let data = route_files['src'];
-    if (!data)
-
-    {
-
-        console.log("Exception GET SOURCE ", e)
-        var route_export = await utils.getDocument({
+    if (!route_files)
+        return res.send(`there is no ${url} in masterDb  ${organization_id} `);
+    let data;
+    if (route_files['src'])
+        data = route_files['src'];
+    else {
+        let route_export = await utils.getDocument({
             collection: route_files['collection'],
             document_id: route_files['document_id']
         }, organization_id);
         data = route_export[route_files['name']];
-        if (!data) {
-            res.send('Document provided by routes could not be found and has no src ');
-        }
+
+    }
+
+    if (!data) {
+        res.send('Document provided by routes could not be found and has no src ');
     }
 
 
 
 
+
     let content_type = route_files['content_type'] ||
-        mime.lookup(route_files['route']) ||
+        mime.lookup(url) ||
         'text/html';
 
-
+    // console.log('(>>>>>>>>>>>>>>', content_type, route_files['content_type'], route_files['route'])
 
     if (content_type.startsWith('image/') || content_type.startsWith('audio/') || content_type.startsWith('video/')) {
         // let content_type = route['content_type'] || "image/png";
