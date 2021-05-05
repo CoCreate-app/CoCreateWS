@@ -18,14 +18,14 @@ jobs:
           direction: overwrite-github # default is overwrite-file
           githubToken: ${{ secrets.GITHUB }}
 
-  docs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+  # docs:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
 
-      - name: update documentation
-        uses: CoCreate-app/CoCreate-docs@master
+  #     - name: update documentation
+  #       uses: CoCreate-app/CoCreate-docs@master
 
   release:
     runs-on: ubuntu-latest

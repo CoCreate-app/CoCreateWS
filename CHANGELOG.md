@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.7.1...v0.8.0) (2021-05-05)
+
+
+### Features
+
+* permissions listens to change and updates document in memory ([7f9d07e](https://github.com/CoCreate-app/CoCreateWS/commit/7f9d07ef0202128260af94d4a98140ede17378e4))
+
 ## [0.7.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.7.0...v0.7.1) (2021-04-23)
 
 
