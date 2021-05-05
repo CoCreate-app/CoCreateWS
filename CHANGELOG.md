@@ -1,3 +1,10 @@
+# [0.9.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.8.0...v0.9.0) (2021-05-05)
+
+
+### Features
+
+* add @cocreate/auth package ([4b2ee22](https://github.com/CoCreate-app/CoCreateWS/commit/4b2ee22a7b401e8a66c42fdcb6947af89b1eb9bd))
+
 # [0.8.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.7.1...v0.8.0) (2021-05-05)
 
 
