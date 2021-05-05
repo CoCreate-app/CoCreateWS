@@ -59,13 +59,13 @@ router.get('/*', async(req, res, next) => {
         mime.lookup(url) ||
         'text/html';
 
-    // console.log('(>>>>>>>>>>>>>>', content_type, route_files['content_type'], route_files['route'])
+    console.log('(>>>>>>>>>>>>>>', content_type, route_files['content_type'], route_files['route'])
 
     if (content_type.startsWith('image/') || content_type.startsWith('audio/') || content_type.startsWith('video/')) {
         // let content_type = route['content_type'] || "image/png";
         // todo: is there are better alternative or conevention not to process base64
         let file = Buffer.from(data, 'base64');
-        // res.set('Content-Type', content_type);
+        res.set('Content-Type', content_type);
         res.send(file);
     }
     else if (content_type === 'text/html') {
