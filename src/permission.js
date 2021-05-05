@@ -7,6 +7,7 @@ class ServerPermission extends CoCreatePermission {
   constructor(db_client) {
     super()
     this.dbClient = db_client;
+    this.initEvent()
   }
   
   getParameters(action, data) {
@@ -18,6 +19,18 @@ class ServerPermission extends CoCreatePermission {
 			plugin: 'messages',
 			type: action,
 		}
+  }
+  
+  initEvent() {
+    const self = this;
+    process.on('changed-document', async (data) => {
+      const {collection, document_id, organization_id, data : permissionData } = data
+      
+      if (collection === 'permissions' && self.hasPermission(permissionData.key)) {
+        let new_permission = await self.getPermissionObject(permissionData.key, organization_id, permissionData.type)
+        self.setPermissionObject(permissionData.key, new_permission)
+      }
+    })
   }
   
 	async getPermissionObject(key, organization_id, type) {
@@ -63,7 +76,7 @@ class ServerPermission extends CoCreatePermission {
 				})
 			}
 		
-		console.log('WS permission fetch data----', permission)
+		// console.log('WS permission fetch data----', permission)
 
 			return permission;
 		} catch (error) {
