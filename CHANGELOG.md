@@ -1,3 +1,10 @@
+## [0.9.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.0...v0.9.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* update permissions to handle documents level permisions ([92bd2fa](https://github.com/CoCreate-app/CoCreateWS/commit/92bd2fa7d366bde80f36f232bbc427419a507ff8))
+
 # [0.9.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.8.0...v0.9.0) (2021-05-05)
 
 
