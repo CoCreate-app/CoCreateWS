@@ -1,3 +1,10 @@
+## [0.9.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.1...v0.9.2) (2021-05-07)
+
+
+### Bug Fixes
+
+* updated packages ([16535fb](https://github.com/CoCreate-app/CoCreateWS/commit/16535fb04b418039638dc8207f9a7269011a27a4))
+
 ## [0.9.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.0...v0.9.1) (2021-05-07)
 
 
