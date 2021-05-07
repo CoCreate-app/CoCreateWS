@@ -11,13 +11,14 @@ class ServerPermission extends CoCreatePermission {
   }
   
   getParameters(action, data) {
-		const { apiKey, organization_id, collection } = data;
+		const { apiKey, organization_id, collection, document_id } = data;
 		return {
 			apikey: apiKey,
 			organization_id,
 			collection,
 			plugin: 'messages',
 			type: action,
+			document_id
 		}
   }
   
