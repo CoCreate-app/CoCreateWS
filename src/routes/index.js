@@ -16,6 +16,9 @@ const render = require('./render');
  * */
 const masterDB = '5ae0cfac6fb8c4e656fdaf92'
 router.get('/*', async(req, res, next) => {
+
+
+
     let hostname = req.hostname;
     let organization = await utils.organizationsfindOne({ domains: hostname }, masterDB)
     if (!organization)
@@ -30,11 +33,21 @@ router.get('/*', async(req, res, next) => {
 
     // console.log('>>>>>>>>>>>>>', url, organization)
     let organization_id = organization._id.toString();
+
+
     let route_files = await utils.routesfindOne({ hostname: hostname, route_uri: url }, organization_id);
 
 
     if (!route_files)
-        return res.send(`there is no ${url} in masterDb  ${organization_id} `);
+        return res.status(404).send(`there is no ${url} in masterDb  ${organization_id} `);
+
+    if (!route_files['public'] ||  route_files['public'] === "false")
+        return res.status(404).send(`access not allowed`);
+
+
+
+
+
     let data;
     if (route_files['src'])
         data = route_files['src'];
@@ -53,13 +66,12 @@ router.get('/*', async(req, res, next) => {
 
 
 
-
-
     let content_type = route_files['content_type'] ||
         mime.lookup(url) ||
         'text/html';
 
-    console.log('(>>>>>>>>>>>>>>', content_type, route_files['content_type'], route_files['route'])
+
+    // console.log('(>>>>>>>>>>>>>>', content_type, route_files['content_type'], route_files['route'])
 
     if (content_type.startsWith('image/') || content_type.startsWith('audio/') || content_type.startsWith('video/')) {
         // let content_type = route['content_type'] || "image/png";
