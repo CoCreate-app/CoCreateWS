@@ -97,7 +97,7 @@ router.get('/*', async(req, res, next) => {
 
         try {
 
-            let fullHtml = await render(db_client, data, organization_id);
+            let fullHtml = await render(dbClient, data, organization_id);
             res.type(content_type);
             res.send(fullHtml);
         }
