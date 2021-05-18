@@ -1,3 +1,10 @@
+## [0.9.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.2...v0.9.3) (2021-05-18)
+
+
+### Bug Fixes
+
+* db connection issue ([4954fcc](https://github.com/CoCreate-app/CoCreateWS/commit/4954fcc895448377b7be96df4b59ba70e2c833fa))
+
 ## [0.9.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.1...v0.9.2) (2021-05-07)
 
 
