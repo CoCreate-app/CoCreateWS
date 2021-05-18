@@ -1,7 +1,7 @@
 let { parse } = require("node-html-parser");
-let { getDocument } = require('./utils');
+let { getDocument } = require('../helpers/utils');
 
-module.exports = async function renderHtml(db_client, html, organization_id) {
+module.exports = async function renderHtml(html, organization_id) {
 
     let dep = [];
     let dbCache = new Map();
@@ -31,7 +31,7 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             else {
           
                 record = await
-                getDocument(db_client, {
+                getDocument({
                     collection: coll,
                     document_id: id
                 }, organization_id);

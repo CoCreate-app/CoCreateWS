@@ -1,20 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var utils = require("./utils.js");
+var utils = require("../helpers/utils.js");
 var fs = require('fs');
 const mime = require('mime-types')
 const render = require('./render');
-
-const { MongoClient } = require('mongodb');
-var config = require('../../config.json');
-
-let dbClient = null;
-
-MongoClient.connect(config.db_url, { useNewUrlParser: true, poolSize: 10 })
-    .then((client, err) => {
-        dbClient = client;
-    });
 
 /**
  * <write a short decription>
@@ -27,8 +17,10 @@ MongoClient.connect(config.db_url, { useNewUrlParser: true, poolSize: 10 })
 const masterDB = '5ae0cfac6fb8c4e656fdaf92'
 router.get('/*', async(req, res, next) => {
 
+
+
     let hostname = req.hostname;
-    let organization = await utils.organizationsfindOne(dbClient, { domains: hostname }, masterDB)
+    let organization = await utils.organizationsfindOne({ domains: hostname }, masterDB)
     if (!organization)
         return res.send('Organization cannot be found using the domain:' + hostname);
 
@@ -43,7 +35,7 @@ router.get('/*', async(req, res, next) => {
     let organization_id = organization._id.toString();
 
 
-    let route_files = await utils.routesfindOne(dbClient,{ hostname: hostname, route_uri: url }, organization_id);
+    let route_files = await utils.routesfindOne({ hostname: hostname, route_uri: url }, organization_id);
 
 
     if (!route_files)
@@ -60,14 +52,10 @@ router.get('/*', async(req, res, next) => {
     if (route_files['src'])
         data = route_files['src'];
     else {
-        let route_export = await utils.getDocument(
-            dbClient,
-            {
-                collection: route_files['collection'],
-                document_id: route_files['document_id']
-            }, 
-            organization_id
-        );
+        let route_export = await utils.getDocument({
+            collection: route_files['collection'],
+            document_id: route_files['document_id']
+        }, organization_id);
         data = route_export[route_files['name']];
 
     }
@@ -97,7 +85,7 @@ router.get('/*', async(req, res, next) => {
 
         try {
 
-            let fullHtml = await render(db_client, data, organization_id);
+            let fullHtml = await render(data, organization_id);
             res.type(content_type);
             res.send(fullHtml);
         }

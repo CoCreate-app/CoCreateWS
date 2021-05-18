@@ -1,10 +1,16 @@
-const connection = require('./dbConnection.js');
 var ObjectID = require('mongodb').ObjectID;
+
+const select_db = (client, db_name) => {
+  if (client) {
+    return client.db(db_name)
+  }
+}
+
 module.exports = {
-  getDocument: async (data, dbName) => {
+  getDocument: async (client, data, dbName) => {
     
     try {
-        const db = await connection(dbName); // obtenemos la conexión      
+        const db = select_db(client, dbName); // obtenemos la conexión      
         //console.log(" Beginf Query")
     
         const collection = db.collection(data["collection"]);
@@ -26,10 +32,10 @@ module.exports = {
       //console.log(" finlllay ")
     }*/
   },
-  getDocumentByQuery: async (data,dbName) => {
+  getDocumentByQuery: async (client, data,dbName) => {
     
     try {
-        const db = await connection(dbName); // obtenemos la conexión      
+        const db = select_db(client, dbName); // obtenemos la conexión      
         const collection = db.collection(data["collection"]);
         delete data["collection"];
         var query = {
@@ -42,9 +48,9 @@ module.exports = {
       return null;
     }
   },
-  organizationsfindOne : async (data, dbName) => {
+  organizationsfindOne : async (client, data, dbName) => {
     try {
-      const db = await connection(dbName); // obtenemos la conexión      
+      const db = select_db(client, dbName); // obtenemos la conexión      
       const collection = db.collection('organizations');
       var query ={ "domains": { $in: [data["domains"]] } };
       return await collection.findOne(query);
@@ -53,9 +59,9 @@ module.exports = {
       return null;
     } 
   },
-  routesfindOne : async (data,dbName) => {
+  routesfindOne : async (client, data,dbName) => {
     try {
-      const db = await connection(dbName); // obtenemos la conexión 
+      const db = select_db(client, dbName); // obtenemos la conexión 
       const collection = db.collection('files');
       return await collection.findOne({domains: { $in: [data["hostname"]] }  , "path" : data["route_uri"]});
       //return await collection.findOne({domains: { $in: [data["hostname"]] }  , route : data["route_uri"]});
