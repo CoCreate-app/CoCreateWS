@@ -20,7 +20,9 @@
     "html5-framework",
     "javascript-framework"
   ],
-  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CoCreate-app/CoCreateWS.git"
@@ -31,6 +33,7 @@
     "url": "https://github.com/CoCreate-app/CoCreateWS/issues"
   },
   "homepage": "https://cocreate.app/docs/CoCreateWS",
+  "main": "index.js",
   "scripts": {
     "start": "PORT=3000 node src/server.js",
     "dev": "PORT=3000 nodemon src/server.js",
