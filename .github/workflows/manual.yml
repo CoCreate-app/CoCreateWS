@@ -41,5 +41,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB }}
         run: |
-          sed -i "s/IMAGE_TAG/${Version}/g" k8s/kustomization.yaml
-          ./kubectl kustomize k8s/ | ./kubectl apply -f -
+          sed -i "s/IMAGE_TAG/${Version}/g" manifests/kustomization.yaml
+          ./kubectl kustomize manifests/ | ./kubectl apply -f -
