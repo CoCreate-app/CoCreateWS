@@ -12,7 +12,6 @@ A simple CoCreateWS component in vanilla javascript. Easily configured using HTM
 
 For a complete guide and working demo refer to the [doumentation](https://cocreate.app/docs/CoCreateWS)
 
-
 ## NPM
 
 ```shell
