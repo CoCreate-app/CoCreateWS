@@ -10,7 +10,7 @@ on:
     inputs:
       Version:
         description: |
-          Version to deploy
+          Version to deploy:
         default: 'Latest'
         required: true
 

@@ -1,4 +1,4 @@
-name: release/CD
+name: Automated Deployment
 
 on:
   push:
