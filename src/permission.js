@@ -60,7 +60,16 @@ class ServerPermission extends CoCreatePermission {
 			}
 
 			if (permission && permission.roles) {
-				const role_ids = permission.roles.map((x) => ObjectID(x));
+			  const role_ids = []
+			  permission.roles.forEach((x) => {
+			    try {
+			      if (x) {
+  			      role_ids.push(ObjectID(x))
+			      }
+			    } catch (err) {
+			      console.log(err)
+			    }
+			  })
 
 				let roles = await collection.find({
 					_id: { $in: role_ids }

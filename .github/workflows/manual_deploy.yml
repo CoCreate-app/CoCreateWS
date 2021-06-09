@@ -1,0 +1,45 @@
+# This is a workflow that is manually triggered to deploy supported components other than applications
+
+name: Manual Deployment
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      Version:
+        description: |
+          Version to deploy
+        default: 'Latest'
+        required: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      Version: ${{ github.event.inputs.Version }}
+      KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
+      KUBECONFIG: kubeconfig
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Get kubectl
+        run: |
+          curl -LO https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl
+          chmod +x kubectl
+
+      - name: Save kubeconfig
+        env:
+          KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
+        run: |
+          echo ${KUBECONFIG_FILE} | base64 -d  > ${KUBECONFIG}
+
+      - name: Apply deployment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB }}
+        run: |
+          sed -i "s/IMAGE_TAG/${VERSION}/g" k8s/kustomization.yaml
+          ./kubectl kustomize k8s/ | ./kubectl apply -f -
