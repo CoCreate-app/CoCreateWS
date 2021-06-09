@@ -1,3 +1,10 @@
+## [0.9.7](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.6...v0.9.7) (2021-06-09)
+
+
+### Bug Fixes
+
+* Updated to manifests ([cf3abf6](https://github.com/CoCreate-app/CoCreateWS/commit/cf3abf675dcefe465b2dfd4d72c4a715ff0e11a8))
+
 ## [0.9.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.5...v0.9.6) (2021-06-08)
 
 
