@@ -12,6 +12,10 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
                 "[data-collection][name][data-document_id]"
             )) {
             let meta = el.attributes;
+            
+            if(el.tagName == "DIV" && !meta['domEditor'])
+                return;
+                
             let id = meta["data-document_id"],
                 coll = meta['data-collection'],
                 name = meta['name'];
