@@ -43,7 +43,7 @@ router.get('/*', async(req, res, next) => {
     let organization_id = organization._id.toString();
 
 
-    let route_files = await utils.routesfindOne(dbClient,{ hostname: hostname, route_uri: url }, organization_id);
+    let route_files = await utils.routesfindOne(dbClient, { hostname: hostname, route_uri: url }, organization_id);
 
 
     if (!route_files)
@@ -61,11 +61,10 @@ router.get('/*', async(req, res, next) => {
         data = route_files['src'];
     else {
         let route_export = await utils.getDocument(
-            dbClient,
-            {
+            dbClient, {
                 collection: route_files['collection'],
                 document_id: route_files['document_id']
-            }, 
+            },
             organization_id
         );
         data = route_export[route_files['name']];
@@ -104,8 +103,10 @@ router.get('/*', async(req, res, next) => {
         catch (err) {
             if (err.message.startsWith('infinite loop:'))
                 return res.send('there is a infinite loop');
-            else
-                return res.send('something is wrong')
+            else {
+                console.warn('something is wrong with server-rendering: ' + err.message)
+                return res.send(data)
+            }
         }
 
     }
