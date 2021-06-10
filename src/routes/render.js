@@ -14,7 +14,7 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             let meta = el.attributes;
 
             if (el.tagName == "DIV" && !meta['domEditor'])
-                return;
+                continue;
 
             let id = meta["data-document_id"],
                 coll = meta['data-collection'],
@@ -55,6 +55,7 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
                 continue;
             }
             let dom = await render(chunk);
+
 
             el.innerHTML = "";
             el.appendChild(dom);
