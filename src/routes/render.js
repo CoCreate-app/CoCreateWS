@@ -12,15 +12,15 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
                 "[data-collection][name][data-document_id]"
             )) {
             let meta = el.attributes;
-            
-            if(el.tagName == "DIV" && !meta['domEditor'])
+
+            if (el.tagName == "DIV" && !meta['domEditor'])
                 return;
-                
+
             let id = meta["data-document_id"],
                 coll = meta['data-collection'],
                 name = meta['name'];
             let key = id + coll + name;
-            if(!id || !name || !coll) continue;
+            if (!id || !name || !coll) continue;
             if (dep.includes(key))
                 throw new Error(
                     `infinite loop: ${lastKey} ${id} ${coll} ${name}  has been already rendered`
@@ -33,7 +33,7 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             if (dbCache.has(cacheKey))
                 record = dbCache.get(cacheKey)
             else {
-          
+
                 record = await
                 getDocument(db_client, {
                     collection: coll,
@@ -44,10 +44,9 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
 
 
 
-            if(!record || !record[name])
-            {
-                    dep.pop();
-                    continue;
+            if (!record || !record[name]) {
+                dep.pop();
+                continue;
             }
             let chunk = record[name];
             if (!chunk) {
