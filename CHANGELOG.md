@@ -1,3 +1,10 @@
+## [0.9.10](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.9...v0.9.10) (2021-06-11)
+
+
+### Bug Fixes
+
+* server side render ([ea0e364](https://github.com/CoCreate-app/CoCreateWS/commit/ea0e3641fd67bfa476ac677ca8d7bba64b3814a9))
+
 ## [0.9.9](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.8...v0.9.9) (2021-06-09)
 
 
