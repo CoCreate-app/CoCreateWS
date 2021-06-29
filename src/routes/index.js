@@ -53,7 +53,7 @@ router.get('/*', async(req, res, next) => {
     //     return res.status(404).send(`access not allowed`);
 
 
-
+    console.log('called')
 
 
     let data;
@@ -98,14 +98,19 @@ router.get('/*', async(req, res, next) => {
 
             let fullHtml = await render(dbClient, data, organization_id);
             res.type(content_type);
+            // throw new Error(' "a test error"')
             res.send(fullHtml);
+            console.log('html sent')
         }
         catch (err) {
-            if (err.message.startsWith('infinite loop:'))
+            if (err.message.startsWith('infinite loop:')) {
+                console.log('infinte loop ')
                 return res.send('there is a infinite loop');
+
+            }
             else {
                 console.warn('something is wrong with server-rendering: ' + err.message)
-                return res.send(data)
+                return res.send(data + `<script>console.log("${'something is wrong with server-rendering: ' + err.message}")</script>`)
             }
         }
 

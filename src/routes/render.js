@@ -1,6 +1,6 @@
 let { parse } = require("node-html-parser");
 let { getDocument } = require('./utils');
-
+let renderedIgnoreEl = { INPUT: true, TEXTAREA: true, SELECT: true, LINK: true, IFRAME: true };
 module.exports = async function renderHtml(db_client, html, organization_id) {
 
     let dep = [];
@@ -13,7 +13,10 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             )) {
             let meta = el.attributes;
 
-            if (el.tagName == "DIV" && !meta['domEditor'])
+            if (el.tagName == "DIV" && !el.classList.contains('domEditor'))
+                continue;
+
+            if (renderedIgnoreEl[el.tagName])
                 continue;
 
             let id = meta["data-document_id"],
@@ -56,7 +59,7 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             }
             let dom = await render(chunk);
 
-
+            el.setAttribute('rendered', '')
             el.innerHTML = "";
             el.appendChild(dom);
 
