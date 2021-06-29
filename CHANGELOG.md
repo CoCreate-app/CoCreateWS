@@ -1,3 +1,10 @@
+## [0.9.11](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.10...v0.9.11) (2021-06-29)
+
+
+### Bug Fixes
+
+* exclude input, textarea, select, iframe from serverside render ([497f187](https://github.com/CoCreate-app/CoCreateWS/commit/497f1875c30a76c0bb40b2143505c70724adb540))
+
 ## [0.9.10](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.9...v0.9.10) (2021-06-11)
 
 
