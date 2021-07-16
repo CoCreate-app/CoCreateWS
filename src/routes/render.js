@@ -1,6 +1,6 @@
 let { parse } = require("node-html-parser");
 let { getDocument } = require('./utils');
-let renderedIgnoreEl = { INPUT: true, TEXTAREA: true, SELECT: true, LINK: true, IFRAME: true };
+let renderedIgnoreEl = { INPUT: true, TEXTAREA: true, SELECT: true, LINK: true, IFRAME: true, "COCREATE-SELECT": true };
 module.exports = async function renderHtml(db_client, html, organization_id) {
 
     let dep = [];
