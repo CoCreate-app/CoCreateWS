@@ -1,3 +1,10 @@
+## [0.9.14](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.13...v0.9.14) (2021-07-17)
+
+
+### Bug Fixes
+
+* upgrade crud-server ([4a5765c](https://github.com/CoCreate-app/CoCreateWS/commit/4a5765c4c90d00ab5ae78ab51a84ec174c4fc4f0))
+
 ## [0.9.13](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.12...v0.9.13) (2021-07-17)
 
 
