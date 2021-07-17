@@ -1,3 +1,12 @@
+## [0.9.12](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.11...v0.9.12) (2021-07-17)
+
+
+### Bug Fixes
+
+* ignore cocreate-select dom element ([a5a5e98](https://github.com/CoCreate-app/CoCreateWS/commit/a5a5e98b6037bf723e542a38dff46a8bbd963677))
+* organization_id for updateDocument ([de802de](https://github.com/CoCreate-app/CoCreateWS/commit/de802de8e719c38a28eff7fb0782600644eebc65))
+* update permissions ([43385ad](https://github.com/CoCreate-app/CoCreateWS/commit/43385adc54a7921261d90affc03357ac8017064c))
+
 ## [0.9.11](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.10...v0.9.11) (2021-06-29)
 
 
