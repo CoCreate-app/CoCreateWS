@@ -1,3 +1,10 @@
+## [0.9.13](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.12...v0.9.13) (2021-07-17)
+
+
+### Bug Fixes
+
+* package permission ([69e0eae](https://github.com/CoCreate-app/CoCreateWS/commit/69e0eaea23d37071a1f0930a5a901a55c01a1caa))
+
 ## [0.9.12](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.11...v0.9.12) (2021-07-17)
 
 
