@@ -1,3 +1,10 @@
+## [0.9.15](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.14...v0.9.15) (2021-07-26)
+
+
+### Bug Fixes
+
+* redeploy to test create org in masterDb ([0d03735](https://github.com/CoCreate-app/CoCreateWS/commit/0d037357199c811b250d57a1e4c6c61fced3b1f4))
+
 ## [0.9.14](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.13...v0.9.14) (2021-07-17)
 
 
