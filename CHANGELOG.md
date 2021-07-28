@@ -1,3 +1,10 @@
+## [0.9.16](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.15...v0.9.16) (2021-07-28)
+
+
+### Bug Fixes
+
+* removed data- from crud, fetch, filter and pass attributes ([43fd52a](https://github.com/CoCreate-app/CoCreateWS/commit/43fd52abfc938fe3eb55de5ec7e01f3e11b3500c))
+
 ## [0.9.15](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.14...v0.9.15) (2021-07-26)
 
 
