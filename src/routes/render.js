@@ -9,7 +9,7 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
     async function render(html, lastKey) {
         const dom = parse(html);
         for (let el of dom.querySelectorAll(
-                "[data-collection][name][data-document_id]"
+                "[collection][name][document_id]"
             )) {
             let meta = el.attributes;
 
@@ -19,8 +19,8 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             if (renderedIgnoreEl[el.tagName])
                 continue;
 
-            let id = meta["data-document_id"],
-                coll = meta['data-collection'],
+            let id = meta["document_id"],
+                coll = meta['collection'],
                 name = meta['name'];
             let key = id + coll + name;
             if (!id || !name || !coll) continue;
