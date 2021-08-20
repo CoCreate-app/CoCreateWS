@@ -32,10 +32,17 @@ router.get('/*', async(req, res, next) => {
     if (!organization)
         return res.send('Organization cannot be found using the domain:' + hostname);
 
-
     let url = req.url;
-    if (url.endsWith('/'))
-        url = url.substring(0, url.length - 1);
+    if (url.endsWith('/')) {
+        url += "index.html";
+    }
+    else {
+       let directory = url.split("/").slice(-1)[0];
+       if (!directory.includes('.')){
+            url += "/index.html";
+       }
+    }
+        // url = url.substring(0, url.length - 1);
 
     url = url.startsWith('/ws') ? url.substr(3) : url; // dev
 

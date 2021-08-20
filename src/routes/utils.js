@@ -59,12 +59,13 @@ module.exports = {
       return null;
     } 
   },
+  
   routesfindOne : async (client, data,dbName) => {
     try {
       const db = select_db(client, dbName); // obtenemos la conexión 
       const collection = db.collection('files');
       return await collection.findOne({domains: { $in: [data["hostname"]] }  , "path" : data["route_uri"]});
-      //return await collection.findOne({domains: { $in: [data["hostname"]] }  , route : data["route_uri"]});
+      // return await collection.findOne( { $or: [{domains: { $in: [data["hostname"]] }, route : data["route_uri"]}, {domains: { $in: [data["hostname"]]}, route : data["route_uri"]} ] });
     }catch(e){
       console.log(" Catch Error ---",e)
       return null;
