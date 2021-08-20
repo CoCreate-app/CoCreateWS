@@ -1,3 +1,10 @@
+# [0.10.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.16...v0.10.0) (2021-08-20)
+
+
+### Features
+
+* route urls ending in a directory to retun /index.html ([e4108d8](https://github.com/CoCreate-app/CoCreateWS/commit/e4108d87a308d4e2314960d9e00ffd239d5af64f))
+
 ## [0.9.16](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.15...v0.9.16) (2021-07-28)
 
 
