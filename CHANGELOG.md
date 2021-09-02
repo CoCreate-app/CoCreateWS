@@ -1,3 +1,10 @@
+## [0.10.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.0...v0.10.1) (2021-09-02)
+
+
+### Bug Fixes
+
+* base64 from db. respond with  image ([2163179](https://github.com/CoCreate-app/CoCreateWS/commit/2163179af1355d7fc60e0d453b72a6aaaac6cdae))
+
 # [0.10.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.9.16...v0.10.0) (2021-08-20)
 
 
