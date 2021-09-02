@@ -16,14 +16,6 @@ MongoClient.connect(config.db_url, { useNewUrlParser: true, poolSize: 10 })
         dbClient = client;
     });
 
-/**
- * <write a short decription>
- * 
- * 1. with hostname we query a master db in order to find the organization_id... 
- *      with the org id we can now query for the uri in collection "files" and return value for fieldName "src"
- * 2. in db we store path as /docs/dnd but need something more flexible so we can respond even if request /docs/dnd/
- * 
- * */
 const masterDB = '5ae0cfac6fb8c4e656fdaf92'
 router.get('/*', async(req, res, next) => {
 
@@ -54,7 +46,7 @@ router.get('/*', async(req, res, next) => {
 
 
     if (!route_files)
-        return res.status(404).send(`there is no ${url} in masterDb  ${organization_id} `);
+        return res.status(404).send(`${url} could not be found for ${organization_id} `);
 
     // if (!route_files['public'] ||  route_files['public'] === "false")
     //     return res.status(404).send(`access not allowed`);
@@ -82,24 +74,21 @@ router.get('/*', async(req, res, next) => {
         res.send('Document provided by routes could not be found and has no src ');
     }
 
-
-
     let content_type = route_files['content_type'] ||
         mime.lookup(url) ||
         'text/html';
 
 
-    // console.log('(>>>>>>>>>>>>>>', content_type, route_files['content_type'], route_files['route'])
-
     if (content_type.startsWith('image/') || content_type.startsWith('audio/') || content_type.startsWith('video/')) {
-        // let content_type = route['content_type'] || "image/png";
-        // todo: is there are better alternative or conevention not to process base64
-        let file = Buffer.from(data, 'base64');
-        res.set('Content-Type', content_type);
-        res.send(file);
+        var base64Data = data.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
+        let file = Buffer.from(base64Data, 'base64');
+        res.writeHead(200, {
+         'Content-Type': content_type,
+         'Content-Length': file.length
+        });
+        res.end(file);
     }
     else if (content_type === 'text/html') {
-
 
         try {
 
@@ -125,6 +114,7 @@ router.get('/*', async(req, res, next) => {
     else {
         res.type(content_type);
         res.send(data);
+        console.log('else')
     }
 
 
