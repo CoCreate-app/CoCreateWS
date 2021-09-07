@@ -1,3 +1,10 @@
+## [0.10.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.1...v0.10.2) (2021-09-07)
+
+
+### Bug Fixes
+
+* infinite loop domEditor in template ([2669e05](https://github.com/CoCreate-app/CoCreateWS/commit/2669e0584401c1b0294c45c93e863a08525df0f3))
+
 ## [0.10.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.0...v0.10.1) (2021-09-02)
 
 
