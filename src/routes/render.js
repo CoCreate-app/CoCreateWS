@@ -15,7 +15,10 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
 
             if (el.tagName == "DIV" && !el.classList.contains('domEditor'))
                 continue;
-
+                
+            if (el.classList.contains('domEditor') && el.closest('.template'))
+                continue;
+           
             if (renderedIgnoreEl[el.tagName])
                 continue;
 
