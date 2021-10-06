@@ -13,13 +13,16 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             )) {
             let meta = el.attributes;
 
+            if (renderedIgnoreEl[el.tagName])
+                continue;
+                
             if (el.tagName == "DIV" && !el.classList.contains('domEditor'))
                 continue;
                 
             if (el.classList.contains('domEditor') && el.closest('.template'))
                 continue;
            
-            if (renderedIgnoreEl[el.tagName])
+            if (el.hasAttributte('actions'))
                 continue;
 
             let id = meta["document_id"],
