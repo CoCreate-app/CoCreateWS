@@ -1,3 +1,10 @@
+## [0.10.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.2...v0.10.3) (2021-10-06)
+
+
+### Bug Fixes
+
+* serverside rendering needs to ignore elements with attribute actions ([961bb83](https://github.com/CoCreate-app/CoCreateWS/commit/961bb8386b6b6bb79e8d1b8c81f2ba887490a61d))
+
 ## [0.10.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.1...v0.10.2) (2021-09-07)
 
 
