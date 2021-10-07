@@ -22,7 +22,7 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             if (el.classList.contains('domEditor') && el.closest('.template'))
                 continue;
            
-            if (el.hasAttributte('actions'))
+            if (el.hasAttribute('actions'))
                 continue;
 
             let id = meta["document_id"],
