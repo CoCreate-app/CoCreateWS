@@ -1,3 +1,10 @@
+## [0.10.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.3...v0.10.4) (2021-10-07)
+
+
+### Bug Fixes
+
+* hasAttrute typo ([dd71afb](https://github.com/CoCreate-app/CoCreateWS/commit/dd71afb488a6ea41d08bdb69e82d67e86bfe0865))
+
 ## [0.10.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.2...v0.10.3) (2021-10-06)
 
 
