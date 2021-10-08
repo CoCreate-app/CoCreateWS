@@ -23,8 +23,9 @@ router.get('/*', async(req, res, next) => {
     let organization = await utils.organizationsfindOne(dbClient, { domains: hostname }, masterDB)
     if (!organization)
         return res.send('Organization cannot be found using the domain:' + hostname);
-
-    let url = req.url;
+    let [url, parameters] = req.url.split("?");
+    if(parameters){}
+    // let url = req.url;
     if (url.endsWith('/')) {
         url += "index.html";
     }
