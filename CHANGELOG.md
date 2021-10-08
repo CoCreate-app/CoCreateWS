@@ -1,3 +1,10 @@
+## [0.10.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.4...v0.10.5) (2021-10-08)
+
+
+### Bug Fixes
+
+* bug when url has ?parameters ([4897efd](https://github.com/CoCreate-app/CoCreateWS/commit/4897efd5c26e1b99cead9424b196042565a211b1))
+
 ## [0.10.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.3...v0.10.4) (2021-10-07)
 
 
