@@ -68,3 +68,4 @@ We appreciate your continued support, thank you!
 # License
 
 [Server Side Public License (SSPL)](https://github.com/CoCreate-app/CoCreateWS/blob/master/LICENSE)
+
