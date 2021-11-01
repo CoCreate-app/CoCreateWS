@@ -71,4 +71,8 @@ module.exports = [
         'path': '../CoCreate-server/CoCreate-ide',
         'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
     },
-];
+    {
+        'path': '../CoCreate-server/CoCreateEmail',
+        'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
+    },
+]
