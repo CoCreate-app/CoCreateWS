@@ -1,3 +1,16 @@
+# [0.11.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.6...v0.11.0) (2021-11-01)
+
+
+### Bug Fixes
+
+* added CoCreateEmail to repositiory list ([3cce903](https://github.com/CoCreate-app/CoCreateWS/commit/3cce9038157f0e3663d11ac099e1256a487f5911))
+* missing comma in package.json ([1889502](https://github.com/CoCreate-app/CoCreateWS/commit/18895029ac2339548fbd01c1ffd08af20921ce4b))
+
+
+### Features
+
+* added @cocreate/cli and repositories.js to manage serverside poly repos ([06c0660](https://github.com/CoCreate-app/CoCreateWS/commit/06c0660656d3b1765dce97072564d11e218e938f))
+
 ## [0.10.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.5...v0.10.6) (2021-10-11)
 
 
