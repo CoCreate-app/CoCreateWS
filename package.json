@@ -37,7 +37,7 @@
   "scripts": {
     "start": "PORT=3000 node src/server.js",
     "dev": "PORT=3000 nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
     "postinstal": "npm i -g @cocreate/cli"
   },
   "dependencies": {
