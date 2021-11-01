@@ -1,3 +1,10 @@
+## [0.10.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.5...v0.10.6) (2021-10-11)
+
+
+### Bug Fixes
+
+* crud.unique ([f3a8563](https://github.com/CoCreate-app/CoCreateWS/commit/f3a85633e5f4e2f1718e88d44dd3de40f1955ebc))
+
 ## [0.10.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.4...v0.10.5) (2021-10-08)
 
 
