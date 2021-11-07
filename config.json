@@ -1,12 +1,7 @@
 {
-    "db_url_old": "mongodb://127.0.0.1:27017",
-    "db_url": "mongodb+srv://cocreate-app:123@cocreatedb.dnjr1.mongodb.net",
-    "redis": {
-    	"host": "54.156.111.118",
-    	"port": 6379
-    },
+    "db_url": "${{ secrets.DB_URL }}",
     "jwttoken": {
-        "key": "aaIbx6W0366Mm6NXrPQb1k3Hg3sRxd1B",
+        "key": "${{ secrets.JWT_TOKEN_KEY }}",
         "options": {
             "algorithm": "HS256",
             "expiresIn": "2 days",
