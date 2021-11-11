@@ -2,6 +2,10 @@
 
 A simple CoCreateWS component in vanilla javascript. Easily configured using HTML5 data-attributes and/or JavaScript API. Take it for a spin in our [playground!](https://cocreate.app/docs/CoCreateWS)
 
+![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreateWS?style=flat-square)
+![License](https://img.shields.io/github/license/CoCreate-app/CoCreateWS?style=flat-square)
+![Hiring](https://img.shields.io/static/v1?style=flat-square&label=&message=Hiring&color=blueviolet)
+
 ![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreateWS?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/CoCreate-app/CoCreateWS?style=for-the-badge)
 ![GitHub labels](https://img.shields.io/github/labels/CoCreate-app/CoCreateWS/help%20wanted?style=for-the-badge)
@@ -65,7 +69,13 @@ We want this library to be community-driven, and CoCreate led. We need your help
 
 We appreciate your continued support, thank you!
 
-# License
-
+# Dual License
+## Open Source
 [Server Side Public License (SSPL)](https://github.com/CoCreate-app/CoCreateWS/blob/master/LICENSE)
 
+## Commercial
+The commercial license is designed for you to use CoCreateWS in commercial 
+products and applications, without the provisions of the SSPL. With the 
+commercial license, your code is kept propietary, to yourself. If you 
+want to use CoCreateWS to develop commercial sites, themes, projects, and 
+applications, the commercial license is the appropriate license.

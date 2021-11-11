@@ -51,10 +51,10 @@ module.exports = [
     
     
     // Maybe depreciated
-    // {
-    //     'path': '../CoCreate-server/CoCreate-keepalived',
-    //     'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
-    // },
+    {
+        'path': '../CoCreate-server/CoCreate-keepalived',
+        'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
+    },
     // {
     //     'path': '../CoCreate-server/CoCreate-mongodb',
     //     'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
