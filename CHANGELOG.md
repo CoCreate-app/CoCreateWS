@@ -1,3 +1,11 @@
+## [0.11.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.11.1...v0.11.2) (2021-11-11)
+
+
+### Bug Fixes
+
+* licensing information ([03bbc55](https://github.com/CoCreate-app/CoCreateWS/commit/03bbc55e394f12132c301ea7b84387dc57585ca4))
+* update readme ([f11b2d6](https://github.com/CoCreate-app/CoCreateWS/commit/f11b2d600715242f2202bb664dd5e5eff84ad8fe))
+
 ## [0.11.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.11.0...v0.11.1) (2021-11-11)
 
 
