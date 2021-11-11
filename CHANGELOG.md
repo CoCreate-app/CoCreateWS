@@ -1,3 +1,10 @@
+## [0.11.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.11.0...v0.11.1) (2021-11-11)
+
+
+### Bug Fixes
+
+* update repositories and gitignore ([f2b2389](https://github.com/CoCreate-app/CoCreateWS/commit/f2b23891ea05199713dde60f4adfb6c9cb48f09f))
+
 # [0.11.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.10.6...v0.11.0) (2021-11-01)
 
 
