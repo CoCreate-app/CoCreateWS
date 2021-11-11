@@ -3,7 +3,7 @@ module.exports = [
     // Servers
     {
         'path': '../CoCreateWS',
-        'repo': 'github.com/CoCreate-app/CoCreateJS.git'
+        'repo': 'github.com/CoCreate-app/CoCreateWS.git'
     },
     {
         'path': '../CoCreateAPI',
@@ -51,28 +51,24 @@ module.exports = [
     
     
     // Maybe depreciated
-    {
-        'path': '../CoCreate-server/CoCreate-keepalived',
-        'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
-    },
-    {
-        'path': '../CoCreate-server/CoCreate-mongodb',
-        'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
-    },
-    {
-        'path': '../CoCreate-server/CoCreate-openebs',
-        'repo': 'github.com/CoCreate-app/CoCreate-openebs.git'
-    },
-    {
-        'path': '../CoCreate-server/CoCreate-keepalived',
-        'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
-    },
+    // {
+    //     'path': '../CoCreate-server/CoCreate-keepalived',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
+    // },
+    // {
+    //     'path': '../CoCreate-server/CoCreate-mongodb',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
+    // },
+    // {
+    //     'path': '../CoCreate-server/CoCreate-openebs',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-openebs.git'
+    // },
     {
         'path': '../CoCreate-server/CoCreate-ide',
         'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
     },
-    {
-        'path': '../CoCreate-server/CoCreateEmail',
-        'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
-    },
+    // {
+    //     'path': '../CoCreate-server/CoCreateEmail',
+    //     'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
+    // },
 ]

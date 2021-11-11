@@ -1,7 +1,7 @@
 {
-    "db_url": "${{ secrets.DB_URL }}",
+    "db_url": "mongodb+srv://cocreate-app:123@cocreatedb.dnjr1.mongodb.net",
     "jwttoken": {
-        "key": "${{ secrets.JWT_TOKEN_KEY }}",
+        "key": "aaIbx6W0366Mm6NXrPQb1k3Hg3sRxd1B",
         "options": {
             "algorithm": "HS256",
             "expiresIn": "2 days",
