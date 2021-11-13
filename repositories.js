@@ -6,8 +6,8 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreateWS.git'
     },
     {
-        'path': '../CoCreateAPI',
-        'repo': 'github.com/CoCreate-app/CoCreateAPI.git'
+        'path': '../CoCreateApi',
+        'repo': 'github.com/CoCreate-app/CoCreateApi.git'
     },
     {
         'path': '../CoCreateLB',
