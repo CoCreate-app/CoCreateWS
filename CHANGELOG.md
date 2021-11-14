@@ -1,3 +1,10 @@
+## [0.12.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.0...v0.12.1) (2021-11-14)
+
+
+### Bug Fixes
+
+* use module.export ([1bc8978](https://github.com/CoCreate-app/CoCreateWS/commit/1bc897883d17b2e74c79487df00123cbb35d7544))
+
 # [0.12.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.11.2...v0.12.0) (2021-11-14)
 
 
