@@ -7,7 +7,7 @@ const mime = require('mime-types')
 const render = require('./render');
 
 const { MongoClient } = require('mongodb');
-var config = require('../../config.json');
+var config = require('../../config');
 
 let dbClient = null;
 

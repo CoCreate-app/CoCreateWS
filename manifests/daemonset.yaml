@@ -22,6 +22,17 @@ spec:
             - containerPort: 8081
               name: app
               protocol: TCP
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwttoken
+                  key: jwttoken
+            - name: MONGO_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-url
+                  key: db_url
       imagePullSecrets:
         - name: github
       restartPolicy: Always

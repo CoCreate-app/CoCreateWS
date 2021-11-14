@@ -1,6 +1,6 @@
 
 const MongoClient = require('mongodb').MongoClient;
-const config = require('../config.json');
+const config = require('../config');
 
 const CoCreateCrudServer = require('@cocreate/crud-server')
 const CoCreateMessageServer = require('@cocreate/message-server')
