@@ -1,3 +1,10 @@
+# [0.12.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.11.2...v0.12.0) (2021-11-14)
+
+
+### Features
+
+* use environment variables for config ([4ce1cb7](https://github.com/CoCreate-app/CoCreateWS/commit/4ce1cb7b7d17035417d4407421e6700b7885ab7b))
+
 ## [0.11.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.11.1...v0.11.2) (2021-11-11)
 
 
