@@ -1,3 +1,10 @@
+## [0.12.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.1...v0.12.2) (2022-02-09)
+
+
+### Bug Fixes
+
+* update CoCreate.config.js, bump @cocreate/docs version ([2b3580f](https://github.com/CoCreate-app/CoCreateWS/commit/2b3580f168e79e024ba27256d399267e243bf47e))
+
 ## [0.12.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.0...v0.12.1) (2021-11-14)
 
 
