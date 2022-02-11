@@ -1,3 +1,10 @@
+## [0.12.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.2...v0.12.3) (2022-02-11)
+
+
+### Bug Fixes
+
+* @coceate/permssions to repositories.js ([02d9e84](https://github.com/CoCreate-app/CoCreateWS/commit/02d9e84851cc7e66eb0c31cf53dee4d591856c60))
+
 ## [0.12.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.1...v0.12.2) (2022-02-09)
 
 
