@@ -45,6 +45,10 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-node-autoscaler.git'
     },
     {
+        'path': '../CoCreate-server/CoCreate-permissions',
+        'repo': 'github.com/CoCreate-app/CoCreate-permissions.git'
+    },
+    {
         'path': '../CoCreate-server/CoCreate-socket-server',
         'repo': 'github.com/CoCreate-app/CoCreate-socket-server.git'
     },
