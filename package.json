@@ -44,7 +44,7 @@
   "dependencies": {
     "@cocreate/auth": "latest",
     "@cocreate/crud-server": "latest",
-    "@cocreate/docs": "^1.2.68",
+    "@cocreate/docs": "latest",
     "@cocreate/message-server": "latest",
     "@cocreate/metrics-server": "latest",
     "@cocreate/permissions": "latest",

@@ -4,40 +4,25 @@ const {ObjectID} = require("mongodb");
 
 
 class ServerPermission extends CoCreatePermission {
-  constructor(db_client) {
-    super()
-    this.dbClient = db_client;
-    this.initEvent()
-  }
+	constructor(db_client) {
+		super()
+		this.dbClient = db_client;
+		this.initEvent()
+	}
   
-  getParameters(action, data, host) {
-		const { apiKey, organization_id, host, collection, document_id, name } = data;
-		return {
-			apikey: apiKey,
-			organization_id,
-			host,
-			collection,
-			plugin: 'messages',
-			type: action,
-			document_id,
-			name
-		}
-  }
-  
-  initEvent() {
-    const self = this;
-    process.on('changed-document', async (data) => {
-      const {collection, document_id, organization_id, data : permissionData } = data
-      
-      if (collection === 'permissions' && self.hasPermission(permissionData.key)) {
-        let new_permission = await self.getPermissionObject(permissionData.key, organization_id, permissionData.type)
-        self.setPermissionObject(permissionData.key, new_permission)
-      }
-    })
-  }
-  
+  	initEvent() {
+		const self = this;
+		process.on('changed-document', async (data) => {
+			const {collection, document_id, organization_id, data : permissionData } = data
+			
+			if (collection === 'permissions' && self.hasPermission(permissionData.key)) {
+				let new_permission = await self.getPermissionObject(permissionData.key, organization_id, permissionData.type)
+				self.setPermission(permissionData.key, new_permission)
+			}
+		})
+	}
+	
 	async getPermissionObject(key, organization_id, type) {
-		
 		try {
 			if (!organization_id) {
 				return null;
@@ -62,37 +47,28 @@ class ServerPermission extends CoCreatePermission {
 			}
 
 			if (permission && permission.roles) {
-			  const role_ids = []
-			  permission.roles.forEach((x) => {
-			    try {
-			      if (x) {
-  			      role_ids.push(ObjectID(x))
-			      }
-			    } catch (err) {
-			      console.log(err)
-			    }
-			  })
+				const role_ids = []
+				permission.roles.forEach((x) => {
+					try {
+						if (x) {
+							role_ids.push(ObjectID(x))
+						}
+					} catch (err) {
+						console.log(err)
+					}
+			  	})
 
 				let roles = await collection.find({
 					_id: { $in: role_ids }
 				}).toArray()
-
-				roles.map(role =>  {
-					if (role.collections) {
-						for (const c in role.collections) {
-							if (permission.collections[c]) {
-								permission.collections[c] = [...new Set([...permission.collections[c], ...role.collections[c]])]
-							}
-						}
-					}
-				})
+				
+				permission = this.createPermissionObject(permission, roles)
 			}
 		
-		// console.log('WS permission fetch data----', permission)
-
+			// console.log('WS permissions', permission)
 			return permission;
 		} catch (error) {
-		  console.log("Error en permission")
+			console.log("Error en permission", )
 			return null;
 		}
 		
