@@ -1,3 +1,10 @@
+## [0.12.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.4...v0.12.5) (2022-02-25)
+
+
+### Bug Fixes
+
+* comment ingress yaml as it is blocking LB ingress rules ([c15cd5e](https://github.com/CoCreate-app/CoCreateWS/commit/c15cd5ef78966ab40e43ab07f0007f020e36b114))
+
 ## [0.12.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.3...v0.12.4) (2022-02-25)
 
 
