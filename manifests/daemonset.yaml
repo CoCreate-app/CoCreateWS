@@ -31,7 +31,7 @@ spec:
             - name: MONGO_URL
               valueFrom:
                 secretKeyRef:
-                  name: db-url
+                  name: dburl
                   key: db_url
       imagePullSecrets:
         - name: github
