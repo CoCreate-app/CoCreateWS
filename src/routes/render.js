@@ -1,7 +1,9 @@
 let { parse } = require("node-html-parser");
-let { getDocument } = require('./utils');
+let ObjectID = require('mongodb').ObjectID;
+
 let renderedIgnoreEl = { INPUT: true, TEXTAREA: true, SELECT: true, LINK: true, IFRAME: true, "COCREATE-SELECT": true };
-module.exports = async function renderHtml(db_client, html, organization_id) {
+
+module.exports = async function renderHtml(orgDB, html, organization_id) {
 
     let dep = [];
     let dbCache = new Map();
@@ -42,16 +44,10 @@ module.exports = async function renderHtml(db_client, html, organization_id) {
             if (dbCache.has(cacheKey))
                 record = dbCache.get(cacheKey)
             else {
-
-                record = await
-                getDocument(db_client, {
-                    collection: coll,
-                    document_id: id
-                }, organization_id);
+                let collection = orgDB.collection(coll)
+                record = await collection.findOne({"_id": new ObjectID(id)});
                 dbCache.set(cacheKey, record)
             }
-
-
 
             if (!record || !record[name]) {
                 dep.pop();
