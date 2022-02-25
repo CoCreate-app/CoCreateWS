@@ -1,3 +1,10 @@
+## [0.12.7](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.6...v0.12.7) (2022-02-25)
+
+
+### Bug Fixes
+
+* added ingress.yaml ([1c2a528](https://github.com/CoCreate-app/CoCreateWS/commit/1c2a528c9d698a2e1b98e463fb92d2bb08b0a6e4))
+
 ## [0.12.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.5...v0.12.6) (2022-02-25)
 
 
