@@ -1,7 +1,7 @@
 resources:
   - daemonset.yaml
   - service.yaml
-  # - ingress.yaml
+  - ingress.yaml
 commonLabels:
   app: cocreatews
 images:
