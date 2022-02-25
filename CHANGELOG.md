@@ -1,3 +1,10 @@
+## [0.12.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.5...v0.12.6) (2022-02-25)
+
+
+### Bug Fixes
+
+* typo db-url to dburl ([57f27f6](https://github.com/CoCreate-app/CoCreateWS/commit/57f27f6bc312bf710901914c28e4953d395d23e2))
+
 ## [0.12.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.4...v0.12.5) (2022-02-25)
 
 
