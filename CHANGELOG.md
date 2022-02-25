@@ -1,3 +1,11 @@
+## [0.12.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.3...v0.12.4) (2022-02-25)
+
+
+### Bug Fixes
+
+* Removed file utils. Updated the way orgDb is found ([3172aeb](https://github.com/CoCreate-app/CoCreateWS/commit/3172aebab52805d597dcdafd63d2f9e21f95d199))
+* removed function getParameters ([08d1fb9](https://github.com/CoCreate-app/CoCreateWS/commit/08d1fb9bbed5ba03b27c4cf50425746618754e88))
+
 ## [0.12.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.2...v0.12.3) (2022-02-11)
 
 
