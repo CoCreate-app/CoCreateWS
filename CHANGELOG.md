@@ -1,3 +1,10 @@
+## [0.12.8](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.7...v0.12.8) (2022-02-26)
+
+
+### Bug Fixes
+
+* remove dead code from server.js ([ab1cae0](https://github.com/CoCreate-app/CoCreateWS/commit/ab1cae08e094de540d79e4568a756d539fec7b78))
+
 ## [0.12.7](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.6...v0.12.7) (2022-02-25)
 
 
