@@ -1,3 +1,10 @@
+## [0.12.9](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.8...v0.12.9) (2022-02-26)
+
+
+### Bug Fixes
+
+* add config.js to gitignore ([ce53042](https://github.com/CoCreate-app/CoCreateWS/commit/ce53042cc7f3160bfd10087159ae68e57269f5ef))
+
 ## [0.12.8](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.7...v0.12.8) (2022-02-26)
 
 
