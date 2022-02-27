@@ -1,9 +1,9 @@
 let { parse } = require("node-html-parser");
-let ObjectID = require('mongodb').ObjectID;
+let { ObjectID } = require('mongodb');
 
 let renderedIgnoreEl = { INPUT: true, TEXTAREA: true, SELECT: true, LINK: true, IFRAME: true, "COCREATE-SELECT": true };
 
-module.exports = async function renderHtml(orgDB, html, organization_id) {
+module.exports = async function renderHtml(orgDB, html) {
 
     let dep = [];
     let dbCache = new Map();

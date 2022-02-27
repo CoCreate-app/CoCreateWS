@@ -1,15 +1,12 @@
-var express = require('express');
-var router = express.Router();
-// var path = require('path');
-// var fs = require('fs');
+const express = require('express');
+const router = express.Router();
 const mime = require('mime-types');
 const render = require('./render');
 const dns = require('dns');
 
-const { MongoClient } = require('mongodb');
-let ObjectID = require('mongodb').ObjectID;
+const { MongoClient, ObjectID } = require('mongodb');
 
-var config = require('../../config');
+const config = require('../../CoCreate.config');
 
 let dbClient = null;
 
@@ -62,23 +59,23 @@ router.get('/*', async(req, res) => {
     if (!file['public'] ||  file['public'] === "false")
         return res.status(404).send(`access not allowed`);
 
-    let data;
+    let src;
     if (file['src'])
-        data = file['src'];
+        src = file['src'];
     else {
         let collection = orgDB.collection(file['collection'])
         let fileSrc = await collection.findOne({"_id": new ObjectID(file["document_id"])});
-        data = fileSrc[file['name']];
+        src = fileSrc[file['name']];
     }
 
-    if (!data) {
+    if (!src) {
         res.send('Document provided by routes could not be found and has no src ');
     }
 
     let content_type = file['content_type'] || mime.lookup(url) || 'text/html';
 
     if (content_type.startsWith('image/') || content_type.startsWith('audio/') || content_type.startsWith('video/')) {
-        var base64Data = data.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
+        var base64Data = src.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
         let file = Buffer.from(base64Data, 'base64');
         res.writeHead(200, {
          'Content-Type': content_type,
@@ -88,7 +85,7 @@ router.get('/*', async(req, res) => {
     }
     else if (content_type === 'text/html') {
         try {
-            let fullHtml = await render(orgDB, data, organization_id);
+            let fullHtml = await render(orgDB, src);
             res.type(content_type);
             res.send(fullHtml);
             console.log('html sent')
@@ -101,17 +98,16 @@ router.get('/*', async(req, res) => {
             }
             else {
                 console.warn('something is wrong with server-rendering: ' + err.message)
-                return res.send(data + `<script>console.log("${'something is wrong with server-rendering: ' + err.message}")</script>`)
+                return res.send(src + `<script>console.log("${'something is wrong with server-rendering: ' + err.message}")</script>`)
             }
         }
 
     }
     else {
         res.type(content_type);
-        res.send(data);
+        res.send(src);
         console.log('else')
     }
-
 
 });
 

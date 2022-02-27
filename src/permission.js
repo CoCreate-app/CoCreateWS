@@ -1,12 +1,11 @@
 const CoCreatePermission = require('@cocreate/permissions');
-// const mongodb = require('@cocreate/mongodb');
 const {ObjectID} = require("mongodb");
 
 
 class ServerPermission extends CoCreatePermission {
-	constructor(db_client) {
+	constructor(dbClient) {
 		super()
-		this.dbClient = db_client;
+		this.dbClient = dbClient;
 		this.initEvent()
 	}
   
