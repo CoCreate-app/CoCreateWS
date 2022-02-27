@@ -4,9 +4,9 @@ module.exports = {
         "organization_Id": "5ff747727005da1c272740ab",
         "host": "general.cocreate.app"
     },
-    db_url: process.env.MONGO_URL || '<MongoDb Url>',
+    db_url: process.env.MONGO_URL || '<MongoDB URL>',
     jwttoken: {
-        key: process.env.JWT_KEY || '<jwt token>',
+        key: process.env.JWT_KEY || '<JWT Token>',
         options: {
             algorithm: "HS256",
             expiresIn: "2 days",
