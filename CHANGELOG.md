@@ -1,3 +1,10 @@
+## [0.12.10](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.9...v0.12.10) (2022-02-27)
+
+
+### Bug Fixes
+
+* clean code, add db.js ([fe11943](https://github.com/CoCreate-app/CoCreateWS/commit/fe1194370d7be6888cc3d52596ba0011356adee1))
+
 ## [0.12.9](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.8...v0.12.9) (2022-02-26)
 
 
