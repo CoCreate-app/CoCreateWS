@@ -1,3 +1,10 @@
+## [0.12.11](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.10...v0.12.11) (2022-02-27)
+
+
+### Bug Fixes
+
+* update CoCreate.config ([348cae0](https://github.com/CoCreate-app/CoCreateWS/commit/348cae0a6519f0daa15305df308bd24f1f6dc9fb))
+
 ## [0.12.10](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.9...v0.12.10) (2022-02-27)
 
 
