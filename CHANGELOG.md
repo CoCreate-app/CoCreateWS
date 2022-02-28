@@ -1,3 +1,10 @@
+## [0.12.14](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.13...v0.12.14) (2022-02-28)
+
+
+### Bug Fixes
+
+* removed console.logs ([98a68c9](https://github.com/CoCreate-app/CoCreateWS/commit/98a68c962fde3404782b00ebe576d5930927c4ac))
+
 ## [0.12.13](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.12...v0.12.13) (2022-02-28)
 
 
