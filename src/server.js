@@ -26,4 +26,4 @@ mongoClient().then(dbClient => {
   components.init(wsManager, dbClient)
 });
 
-server.listen(process.env.PORT || 8081); //3000
+server.listen(process.env.PORT || 3000); //8081

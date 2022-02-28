@@ -19,7 +19,7 @@ spec:
           imagePullPolicy: Always
           name: cocreatews
           ports:
-            - containerPort: 8081
+            - containerPort: 3000
               name: app
               protocol: TCP
           env:
