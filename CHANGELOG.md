@@ -1,3 +1,10 @@
+## [0.12.12](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.11...v0.12.12) (2022-02-28)
+
+
+### Bug Fixes
+
+* update port to 3000 ([cdd72f7](https://github.com/CoCreate-app/CoCreateWS/commit/cdd72f7f03e90857b6322f6727f133c2f908433e))
+
 ## [0.12.11](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.10...v0.12.11) (2022-02-27)
 
 
