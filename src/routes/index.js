@@ -88,7 +88,6 @@ router.get('/*', async(req, res) => {
             let fullHtml = await render(orgDB, src);
             res.type(content_type);
             res.send(fullHtml);
-            console.log('html sent')
         }
         catch (err) {
             if (err.message.startsWith('infinite loop:')) {
@@ -106,7 +105,6 @@ router.get('/*', async(req, res) => {
     else {
         res.type(content_type);
         res.send(src);
-        console.log('else')
     }
 
 });
