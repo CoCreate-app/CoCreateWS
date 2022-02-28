@@ -1,3 +1,10 @@
+## [0.12.13](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.12...v0.12.13) (2022-02-28)
+
+
+### Bug Fixes
+
+* commented ingress.yaml it is inteferring with haproxy deployment ([5d33fd9](https://github.com/CoCreate-app/CoCreateWS/commit/5d33fd928c9f2fa93e753ecfa1ed1b311d94ab0b))
+
 ## [0.12.12](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.11...v0.12.12) (2022-02-28)
 
 
