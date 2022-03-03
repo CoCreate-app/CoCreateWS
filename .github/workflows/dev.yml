@@ -41,6 +41,7 @@ jobs:
     env:
       VERSION: dev
       KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_DEV }}
+      KUBECONFIG: kubeconfig
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -54,11 +55,11 @@ jobs:
         env:
           KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_DEV }}
         run: |
-          echo ${KUBECONFIG_FILE} | base64 -d  > kubeconfig
+          echo ${KUBECONFIG_FILE} | base64 -d  > ${KUBECONFIG}
 
       - name: Apply deployment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB }}
         run: |
-          sed -i "s/IMAGE_TAG/dev/g" manifests/kustomization.yaml
+          sed -i "s/IMAGE_TAG/${VERSION}/g" manifests/kustomization.yaml
           ./kubectl kustomize manifests/ | ./kubectl apply -f -
