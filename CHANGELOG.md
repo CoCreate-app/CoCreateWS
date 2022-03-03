@@ -1,3 +1,10 @@
+## [0.12.17](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.16...v0.12.17) (2022-03-03)
+
+
+### Bug Fixes
+
+* update secret name to github-packages ([7652edb](https://github.com/CoCreate-app/CoCreateWS/commit/7652edb610fe42057307b76ae982620696850676))
+
 ## [0.12.16](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.15...v0.12.16) (2022-03-03)
 
 
