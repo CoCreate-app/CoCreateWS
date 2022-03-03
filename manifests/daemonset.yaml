@@ -34,7 +34,7 @@ spec:
                   name: dburl
                   key: db_url
       imagePullSecrets:
-        - name: github
+        - name: github-packages
       restartPolicy: Always
       nodeSelector:
         nodeType: application
