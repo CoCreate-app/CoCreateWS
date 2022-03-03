@@ -1,3 +1,10 @@
+## [0.12.15](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.14...v0.12.15) (2022-03-03)
+
+
+### Bug Fixes
+
+* if dbUrl undefined or is not does not include mongodb display a console.log ([b4e91b4](https://github.com/CoCreate-app/CoCreateWS/commit/b4e91b4e2e3785e02b2d127ca963aca705fa4d9b))
+
 ## [0.12.14](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.13...v0.12.14) (2022-02-28)
 
 
