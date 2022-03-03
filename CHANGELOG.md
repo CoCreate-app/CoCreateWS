@@ -1,3 +1,12 @@
+## [0.12.16](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.15...v0.12.16) (2022-03-03)
+
+
+### Bug Fixes
+
+* add [@cocreate-server-side-render](https://github.com/cocreate-server-side-render) ([d865d3f](https://github.com/CoCreate-app/CoCreateWS/commit/d865d3fab65f882c5f4301b119cc0a5a36ae3075))
+* imagePull Secret updated to github-package ([b2f6b96](https://github.com/CoCreate-app/CoCreateWS/commit/b2f6b969bcf3210a0a9d26d6a734efee084819cc))
+* Verison to dev ([df87b8d](https://github.com/CoCreate-app/CoCreateWS/commit/df87b8d25447b1a437c1be8a2c203912e708f16d))
+
 ## [0.12.15](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.14...v0.12.15) (2022-03-03)
 
 
