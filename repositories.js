@@ -49,6 +49,10 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-permissions.git'
     },
     {
+        'path': '../CoCreate-server/CoCreate-server-side-render',
+        'repo': 'github.com/CoCreate-app/CoCreate-server-side-render.git'
+    },
+    {
         'path': '../CoCreate-server/CoCreate-socket-server',
         'repo': 'github.com/CoCreate-app/CoCreate-socket-server.git'
     },

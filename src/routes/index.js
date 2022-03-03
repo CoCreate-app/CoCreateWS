@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mime = require('mime-types');
-const render = require('./render');
+const render = require('@cocreate/server-side-render');
 const dns = require('dns');
 
 const { MongoClient, ObjectID } = require('mongodb');
