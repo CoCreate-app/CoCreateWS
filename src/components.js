@@ -1,5 +1,6 @@
 const config = require('../CoCreate.config');
 const crudServer = require('@cocreate/crud-server')
+const industry = require('@cocreate/industry')
 const messageServer = require('@cocreate/message-server')
 const metricsServer = require('@cocreate/metrics-server')
 const organizations = require('@cocreate/organizations');
@@ -17,6 +18,7 @@ module.exports.init = async function(wsManager, dbClient) {
 
 		crudServer.init(wsManager, dbClient);
 		// new crudServer(wsManager, dbClient);
+		new industry(wsManager, dbClient);
 		new messageServer(wsManager, dbClient);
 		new metricsServer(wsManager, dbClient);
 		new organizations(wsManager, dbClient);
