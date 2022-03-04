@@ -1,3 +1,11 @@
+## [0.12.18](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.17...v0.12.18) (2022-03-04)
+
+
+### Bug Fixes
+
+* add missing dependency @cocreate/industry ([55bd25f](https://github.com/CoCreate-app/CoCreateWS/commit/55bd25fe8d651dcc724d743cc0eb817d0935ad2b))
+* process.env ([d62f0bf](https://github.com/CoCreate-app/CoCreateWS/commit/d62f0bf445c6a402b8ff6158463fcc7989161b6f))
+
 ## [0.12.17](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.16...v0.12.17) (2022-03-03)
 
 
