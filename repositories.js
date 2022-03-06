@@ -17,43 +17,43 @@ module.exports = [
     
     // Components
     {
-        'path': '../CoCreate-server/CoCreate-auth',
+        'path': '../CoCreate-components/CoCreate-auth',
         'repo': 'github.com/CoCreate-app/CoCreate-auth.git'
     },
     {
-        'path': '../CoCreate-server/CoCreate-crud-server',
+        'path': '../CoCreate-components/CoCreate-crud-server',
         'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
     },
     // {
-    //     'path': '../CoCreate-server/CoCreate-crdt-server',
+    //     'path': '../CoCreate-components/CoCreate-crdt-server',
     //     'repo': 'github.com/CoCreate-app/CoCreate-crdt-server.git'
     // },
     {
-        'path': '../CoCreate-server/CoCreate-loadtest',
+        'path': '../CoCreate-components/CoCreate-loadtest',
         'repo': 'github.com/CoCreate-app/CoCreate-loadtest.git'
     },
     {
-        'path': '../CoCreate-server/CoCreate-message-server',
+        'path': '../CoCreate-components/CoCreate-message-server',
         'repo': 'github.com/CoCreate-app/CoCreate-message-server.git'
     },
     {
-        'path': '../CoCreate-server/CoCreate-metrics-server',
+        'path': '../CoCreate-components/CoCreate-metrics-server',
         'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
     },
     {
-        'path': '../CoCreate-server/CoCreate-node-autoscaler',
+        'path': '../CoCreate-components/CoCreate-node-autoscaler',
         'repo': 'github.com/CoCreate-app/CoCreate-node-autoscaler.git'
     },
     {
-        'path': '../CoCreate-server/CoCreate-permissions',
+        'path': '../CoCreate-components/CoCreate-permissions',
         'repo': 'github.com/CoCreate-app/CoCreate-permissions.git'
     },
     {
-        'path': '../CoCreate-server/CoCreate-server-side-render',
+        'path': '../CoCreate-components/CoCreate-server-side-render',
         'repo': 'github.com/CoCreate-app/CoCreate-server-side-render.git'
     },
     {
-        'path': '../CoCreate-server/CoCreate-socket-server',
+        'path': '../CoCreate-components/CoCreate-socket-server',
         'repo': 'github.com/CoCreate-app/CoCreate-socket-server.git'
     },
     {
@@ -121,23 +121,23 @@ module.exports = [
     
     // Maybe depreciated
     {
-        'path': '../CoCreate-server/CoCreate-keepalived',
+        'path': '../CoCreate-components/CoCreate-keepalived',
         'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
     },
     // {
-    //     'path': '../CoCreate-server/CoCreate-mongodb',
+    //     'path': '../CoCreate-components/CoCreate-mongodb',
     //     'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
     // },
     // {
-    //     'path': '../CoCreate-server/CoCreate-openebs',
+    //     'path': '../CoCreate-components/CoCreate-openebs',
     //     'repo': 'github.com/CoCreate-app/CoCreate-openebs.git'
     // },
     {
-        'path': '../CoCreate-server/CoCreate-ide',
+        'path': '../CoCreate-components/CoCreate-ide',
         'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
     },
     // {
-    //     'path': '../CoCreate-server/CoCreateEmail',
+    //     'path': '../CoCreate-components/CoCreateEmail',
     //     'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
     // },
 ]
