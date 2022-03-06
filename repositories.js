@@ -81,8 +81,16 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-elements.git'
     },
     {
+        'path': '../CoCreate-components/CoCreate-industry',
+        'repo': 'github.com/CoCreate-app/CoCreate-industry.git'
+    },
+    {
         'path': '../CoCreate-components/CoCreate-observer',
         'repo': 'github.com/CoCreate-app/CoCreate-observer.git'
+    },
+    {
+        'path': '../CoCreate-components/CoCreate-organizations',
+        'repo': 'github.com/CoCreate-app/CoCreate-organizations.git'
     },
     {
         'path': '../CoCreate-components/CoCreate-render',
@@ -91,6 +99,14 @@ module.exports = [
     {
         'path': '../CoCreate-components/CoCreate-socket-client',
         'repo': 'github.com/CoCreate-app/CoCreate-socket-client.git'
+    },
+    {
+        'path': '../CoCreate-components/CoCreate-unique',
+        'repo': 'github.com/CoCreate-app/CoCreate-unique.git'
+    },
+    {
+        'path': '../CoCreate-components/CoCreate-users',
+        'repo': 'github.com/CoCreate-app/CoCreate-users.git'
     },
     {
         'path': '../CoCreate-components/CoCreate-utils',
