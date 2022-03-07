@@ -1,3 +1,10 @@
+## [0.12.22](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.21...v0.12.22) (2022-03-07)
+
+
+### Bug Fixes
+
+* Add missing components ([9127238](https://github.com/CoCreate-app/CoCreateWS/commit/9127238595634c130be5736ceea3ba720c95a0b4))
+
 ## [0.12.21](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.20...v0.12.21) (2022-03-05)
 
 
