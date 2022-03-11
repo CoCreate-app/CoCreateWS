@@ -1,3 +1,10 @@
+## [0.12.23](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.22...v0.12.23) (2022-03-11)
+
+
+### Bug Fixes
+
+* bump @cocreate/industry ([781e04c](https://github.com/CoCreate-app/CoCreateWS/commit/781e04c3f01e702640765b17bb8f20e3fb628734))
+
 ## [0.12.22](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.21...v0.12.22) (2022-03-07)
 
 
