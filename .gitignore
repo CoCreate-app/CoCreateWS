@@ -3,7 +3,7 @@ config.js
 node_modules
 dist
 .npmrc
-yarn.lock
+# yarn.lock
 package-lock.json
 
 logs
