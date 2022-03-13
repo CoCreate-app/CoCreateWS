@@ -1,3 +1,10 @@
+## [0.12.24](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.23...v0.12.24) (2022-03-13)
+
+
+### Bug Fixes
+
+* Provide installation instructions in README.md ([e09360c](https://github.com/CoCreate-app/CoCreateWS/commit/e09360c03780c7759bea273222281a5edaea55c5))
+
 ## [0.12.23](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.22...v0.12.23) (2022-03-11)
 
 
