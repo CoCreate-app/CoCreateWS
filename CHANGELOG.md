@@ -1,3 +1,10 @@
+## [0.12.25](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.24...v0.12.25) (2022-03-21)
+
+
+### Bug Fixes
+
+* bump message-server dependency ([4e74e99](https://github.com/CoCreate-app/CoCreateWS/commit/4e74e993728a20135e8acbaa96303fb758ad1e0c))
+
 ## [0.12.24](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.23...v0.12.24) (2022-03-13)
 
 
