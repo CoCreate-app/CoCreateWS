@@ -4,7 +4,7 @@ const mime = require('mime-types');
 const render = require('@cocreate/server-side-render');
 const dns = require('dns');
 
-const { MongoClient, ObjectID } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const config = require('../../CoCreate.config');
 
@@ -65,7 +65,7 @@ router.get('/*', async(req, res) => {
         src = file['src'];
     else {
         let collection = orgDB.collection(file['collection'])
-        let fileSrc = await collection.findOne({"_id": new ObjectID(file["document_id"])});
+        let fileSrc = await collection.findOne({"_id": new ObjectId(file["document_id"])});
         src = fileSrc[file['name']];
     }
 

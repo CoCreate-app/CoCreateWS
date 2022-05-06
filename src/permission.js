@@ -1,5 +1,5 @@
 const CoCreatePermission = require('@cocreate/permissions');
-const {ObjectID} = require("mongodb");
+const {ObjectId} = require("mongodb");
 
 
 class ServerPermission extends CoCreatePermission {
@@ -50,7 +50,7 @@ class ServerPermission extends CoCreatePermission {
 				permission.roles.forEach((x) => {
 					try {
 						if (x) {
-							role_ids.push(ObjectID(x))
+							role_ids.push(ObjectId(x))
 						}
 					} catch (err) {
 						console.log(err)
