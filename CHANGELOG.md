@@ -1,3 +1,10 @@
+## [0.13.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.3...v0.13.4) (2022-05-06)
+
+
+### Bug Fixes
+
+* get masterDb from CoCreate.config ([6b62537](https://github.com/CoCreate-app/CoCreateWS/commit/6b62537f8f54afc5e48f9e253303b156b557c440))
+
 ## [0.13.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.2...v0.13.3) (2022-05-06)
 
 
