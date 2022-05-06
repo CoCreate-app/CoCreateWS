@@ -32,7 +32,7 @@ router.get('/*', async(req, res) => {
         let collection = masterDB.collection('organizations')
         let organization = await collection.findOne({ "domains": { $in: [hostname] } })
         if (!organization)
-            return res.send('Organization cannot be found using the domain:' + hostname);
+            return res.send('Organization cannot be found using the domain: ' + hostname + 'in platformDB: ' + masterOrg);
         organization_id = organization._id.toString();
     }
     let [url, parameters] = req.url.split("?");
