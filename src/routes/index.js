@@ -16,7 +16,7 @@ MongoClient.connect(config.db_url, { useNewUrlParser: true, useUnifiedTopology: 
     });
 
 // const masterOrg = '5ae0cfac6fb8c4e656fdaf92'
-const masterOrg = config.organization_id;
+const masterOrg = config.config.organization_id;
 router.get('/*', async(req, res) => {
     let organization_id;
     let hostname = req.hostname;
@@ -32,7 +32,7 @@ router.get('/*', async(req, res) => {
         let collection = masterDB.collection('organizations')
         let organization = await collection.findOne({ "domains": { $in: [hostname] } })
         if (!organization)
-            return res.send('Organization cannot be found using the domain: ' + hostname + 'in platformDB: ' + masterOrg);
+            return res.send('Organization cannot be found using the domain: ' + hostname + ' in platformDB: ' + masterOrg);
         organization_id = organization._id.toString();
     }
     let [url, parameters] = req.url.split("?");
