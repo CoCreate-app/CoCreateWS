@@ -19,7 +19,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      Version: ${{ github.event.inputs.Version }}
+      VERSION: ${{ github.event.inputs.Version }}
       KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
       KUBECONFIG: kubeconfig
     steps:
@@ -41,5 +41,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB }}
         run: |
-          sed -i "s/IMAGE_TAG/Latest/g" /manifests/kustomization.yaml
+          sed -i "s/IMAGE_TAG/${VERSION}/g" manifests/kustomization.yaml
           ./kubectl kustomize manifests/ | ./kubectl apply -f -
