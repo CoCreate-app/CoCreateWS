@@ -1,3 +1,10 @@
+## [0.13.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.4...v0.13.5) (2022-05-06)
+
+
+### Bug Fixes
+
+* update response if domain not found ([9d2642a](https://github.com/CoCreate-app/CoCreateWS/commit/9d2642a2353e44b69529fdd24614da59a5e4eeaf))
+
 ## [0.13.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.3...v0.13.4) (2022-05-06)
 
 
