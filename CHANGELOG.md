@@ -1,3 +1,10 @@
+## [0.13.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.2...v0.13.3) (2022-05-06)
+
+
+### Bug Fixes
+
+* error cant find domain ([5d6a3db](https://github.com/CoCreate-app/CoCreateWS/commit/5d6a3db2209f7e4754e73532eea9b8d251fe07fc))
+
 ## [0.13.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.1...v0.13.2) (2022-05-06)
 
 
