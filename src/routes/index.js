@@ -15,8 +15,8 @@ MongoClient.connect(config.db_url, { useNewUrlParser: true, useUnifiedTopology: 
         dbClient = client;
     });
 
-const masterOrg = '5ae0cfac6fb8c4e656fdaf92'
-// const masterOrg = config.organization_id;
+// const masterOrg = '5ae0cfac6fb8c4e656fdaf92'
+const masterOrg = config.organization_id;
 router.get('/*', async(req, res) => {
     let organization_id;
     let hostname = req.hostname;
