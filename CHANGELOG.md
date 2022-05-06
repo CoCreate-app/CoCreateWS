@@ -1,3 +1,10 @@
+## [0.13.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.5...v0.13.6) (2022-05-06)
+
+
+### Bug Fixes
+
+* update config variable to config.config ([c259dcd](https://github.com/CoCreate-app/CoCreateWS/commit/c259dcd436b0aa4163528bcfc3cb347d2e8266e5))
+
 ## [0.13.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.4...v0.13.5) (2022-05-06)
 
 
