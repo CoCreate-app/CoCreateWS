@@ -6,7 +6,7 @@ module.exports.mongoClient = async function(dbUrl) {
 		dbUrl = dbUrl || config.db_url;
 		if (!dbUrl || !dbUrl.includes('mongodb'))
 			console.log('CoCreate.config.js missing dbUrl')
-		dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, poolSize: 10, useUnifiedTopology: true });
+		dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 		return dbClient;
 	} catch (error) {
 		console.error(error)

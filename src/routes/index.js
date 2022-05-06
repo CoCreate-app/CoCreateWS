@@ -10,12 +10,13 @@ const config = require('../../CoCreate.config');
 
 let dbClient = null;
 
-MongoClient.connect(config.db_url, { useNewUrlParser: true, poolSize: 10, useUnifiedTopology: true })
+MongoClient.connect(config.db_url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((client, err) => {
         dbClient = client;
     });
 
-const masterOrg = '5ae0cfac6fb8c4e656fdaf92'
+// const masterOrg = '5ae0cfac6fb8c4e656fdaf92'
+const masterOrg = config.organization_id;
 router.get('/*', async(req, res) => {
     let organization_id;
     let hostname = req.hostname;
