@@ -10,7 +10,7 @@ const CoCreateAuth = require('@cocreate/auth')
 const ServerPermission = require("./permission.js")
 
 module.exports.init = async function(wsManager, dbClient) {
-	if (!config.config.organization_Id || !config.config.apiKey){
+	if (!config.config.organization_id || !config.config.apiKey){
 		require("./createDB.js")
 	}
 	try {

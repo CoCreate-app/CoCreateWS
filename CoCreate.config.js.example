@@ -1,7 +1,7 @@
 module.exports = {
     config: {
         "apiKey": "<CoCreate API Key>",
-        "organization_Id": "<CoCreate Organization ID>",
+        "organization_id": "<CoCreate Organization ID>",
         "host": "<CoCreate subdomain or custom domain pointing to cocreate server>"
     },
     db_url: process.env.MONGO_URL || '<MongoDb Url>',

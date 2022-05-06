@@ -1,7 +1,7 @@
 module.exports = {
   "config": {
     "apiKey": "",
-    "organization_Id": "^1.0.2",
+    "organization_id": "^1.0.2",
     "host": "general.cocreate.app"
   },
   "db_url": "mongodb+srv://cocreate-app:123@cocreatedb.dnjr1.mongodb.net",

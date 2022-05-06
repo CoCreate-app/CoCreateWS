@@ -16,7 +16,7 @@ function createConfig(path) {
         return console.log(path, 'not updated')
     else
         Object.assign(object.config, {
-           organization_Id: "^1.0.2",
+           organization_id: "^1.0.2",
         })
 
     let str = JSON.stringify(object)
