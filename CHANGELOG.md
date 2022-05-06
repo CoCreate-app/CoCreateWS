@@ -1,3 +1,18 @@
+# [0.13.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.27...v0.13.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* replace ObjectID with ObjectId due to mongodb depreciation ([6fc88da](https://github.com/CoCreate-app/CoCreateWS/commit/6fc88da4af20a8ada20f4b280e873239e365a1bb))
+* update config organization_Id to organization_id ([98e8d18](https://github.com/CoCreate-app/CoCreateWS/commit/98e8d18671e9811bc57c47fda4c2dabbf8d4d35c))
+
+
+### Features
+
+* add updateConfig.js ([4d235b9](https://github.com/CoCreate-app/CoCreateWS/commit/4d235b96ba8c8b4db55ca9068d61dce378369866))
+* Generate db with minimal data for succesful connection if config does not have an organization_id or apiKey ([622b8c7](https://github.com/CoCreate-app/CoCreateWS/commit/622b8c7b17a6ff8cb067b4a5911444d0674f0f67))
+* updateConfig.js to add generated organization_id and apiKey to CoCreate.config.js ([14ac038](https://github.com/CoCreate-app/CoCreateWS/commit/14ac038f426eb989ca8ed8d1a4abe0b484810479))
+
 ## [0.12.27](https://github.com/CoCreate-app/CoCreateWS/compare/v0.12.26...v0.12.27) (2022-04-01)
 
 
