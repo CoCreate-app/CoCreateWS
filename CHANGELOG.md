@@ -1,3 +1,10 @@
+# [0.14.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.6...v0.14.0) (2022-05-07)
+
+
+### Features
+
+* run command createdb to create first organization and user and generate apikeys ([cf374d3](https://github.com/CoCreate-app/CoCreateWS/commit/cf374d345a1cfbc05efa974ab778b4c3b307f9a8))
+
 ## [0.13.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.13.5...v0.13.6) (2022-05-06)
 
 
