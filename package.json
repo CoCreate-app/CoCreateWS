@@ -39,7 +39,8 @@
     "dev": "PORT=3000 nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstal": "npm i -g @cocreate/cli",
-    "docs": "node ./node_modules/@cocreate/docs/src/index.js"
+    "docs": "node ./node_modules/@cocreate/docs/src/index.js",
+    "createdb": "node ./installation/createDB.js"
   },
   "dependencies": {
     "@cocreate/auth": "latest",

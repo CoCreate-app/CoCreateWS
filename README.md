@@ -73,6 +73,21 @@ $ yarn install
 
 <br/>
 
+## Create an organization and apiKey
+In CoCreate.config.js add your organization and user data, then run createdb to create the first organization and user.
+
+### npm
+```shell
+$ npm createdb
+```
+
+### Yarn
+```shell
+$ yarn createdb
+```
+
+<br/>
+
 ## Start Server
 ### npm
 ```shell

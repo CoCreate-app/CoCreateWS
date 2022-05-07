@@ -15,7 +15,7 @@ module.exports.init = async function(wsManager, dbClient) {
 	// }
 	try {
 		let permission = new ServerPermission(dbClient)
-		let auth = new CoCreateAuth(config.jwttoken)
+		let auth = new CoCreateAuth(process.env.JWT_KEY || config.jwttoken)
 		wsManager.setPermission(permission)
 		wsManager.setAuth(auth)
 

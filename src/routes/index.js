@@ -9,8 +9,9 @@ const { MongoClient, ObjectId } = require('mongodb');
 const config = require('../../CoCreate.config');
 
 let dbClient = null;
+let dbURL = process.env.MONGO_URL || config.db_url;
 
-MongoClient.connect(config.db_url, { useNewUrlParser: true, useUnifiedTopology: true })
+MongoClient.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((client, err) => {
         dbClient = client;
     });
