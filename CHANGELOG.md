@@ -1,3 +1,10 @@
+## [0.14.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.14.1...v0.14.2) (2022-05-08)
+
+
+### Bug Fixes
+
+* bump @cocreate/auth version ([1ac5641](https://github.com/CoCreate-app/CoCreateWS/commit/1ac5641b6a9e2ba635e599e93ae3e11edebdb300))
+
 ## [0.14.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.14.0...v0.14.1) (2022-05-08)
 
 
