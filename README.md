@@ -156,3 +156,4 @@ products and applications, without the provisions of the SSPL. With the
 commercial license, your code is kept propietary, to yourself. If you 
 want to use CoCreateWS to develop commercial sites, themes, projects, and 
 applications, the commercial license is the appropriate license.
+
