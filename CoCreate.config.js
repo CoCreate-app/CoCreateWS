@@ -15,9 +15,9 @@ module.exports = {
     "organization_id": "5ff747727005da1c272740ab",
     "host": "general.cocreate.app"
   },
-  "db_url": "<MongoDb Url>",
+  "db_url": "mongodb+srv://cocreate-app:123@serverlessdb.dnjr1.mongodb.net",
   "jwttoken": {
-    "key": "<jwt token>",
+    "key": "aaIbx6W0366Mm6NXrPQb1k3Hg3sRxd1B",
     "options": {
       "algorithm": "HS256",
       "expiresIn": "2 days",
