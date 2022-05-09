@@ -1,3 +1,10 @@
+# [0.15.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.14.4...v0.15.0) (2022-05-09)
+
+
+### Features
+
+* createDb update to use insert, organization_id added as process.env, migrateDB to move collections between dbUrls ([7bdcff0](https://github.com/CoCreate-app/CoCreateWS/commit/7bdcff0a66ed0a9c8d625233c8a4dbbfd4406c2f))
+
 ## [0.14.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.14.3...v0.14.4) (2022-05-09)
 
 
