@@ -1,3 +1,10 @@
+## [0.14.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.14.3...v0.14.4) (2022-05-09)
+
+
+### Bug Fixes
+
+* removed process.env from auth ([668b06d](https://github.com/CoCreate-app/CoCreateWS/commit/668b06de8f5d016f75111833398b0f00e8f2cf73))
+
 ## [0.14.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.14.2...v0.14.3) (2022-05-09)
 
 
