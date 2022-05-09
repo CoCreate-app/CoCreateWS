@@ -21,22 +21,10 @@ async function update(dbClient){
 		// Create organization 
 		const organizations = dbClient.db(organization_id).collection('organizations');
 
-		let update = {};
-		update['$set'] = config.organization;
-		update['$set'].organization_id = organization_id;
-		update['$set'].apiKey = apiKey;
-
-		let projection = {}
-		Object.keys(update['$set']).forEach(x => {
-			projection[x] = 1
-		})
-
-		const query = {"_id": new ObjectId(organization_id) };
-		await organizations.findOneAndUpdate(query, update, {
-			returnOriginal : false,
-			upsert: true,
-			projection: projection
-		});
+		let organization = config.organization;
+		organization.organization_id = organization_id;
+		organization.apiKey = apiKey;
+		await organizations.insertOne(organization);
 
 		// Create apiKey permission
 		if (organization_id && apiKey) {
@@ -159,7 +147,7 @@ function updateConfig(organization_id, apiKey) {
         fs.unlinkSync(configfile)
     fs.writeFileSync(configfile, config)
     
-    console.log(configfile)
+    console.log('updated: ', configfile)
 	process.exit()
 
 }

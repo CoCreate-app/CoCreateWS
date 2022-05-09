@@ -19,6 +19,9 @@ server.on('upgrade', function upgrade(request, socket, head) {
   }
 });
 
+const { config } = require('../CoCreate.config');
+process.env['organization_id'] = config.organization_id;
+
 const components = require("./components")
 
 const {mongoClient} = require("./db")

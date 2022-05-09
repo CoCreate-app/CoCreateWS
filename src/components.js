@@ -1,4 +1,4 @@
-const config = require('../CoCreate.config');
+const { jwttoken } = require('../CoCreate.config');
 const crudServer = require('@cocreate/crud-server')
 const industry = require('@cocreate/industry')
 const messageServer = require('@cocreate/message-server')
@@ -10,12 +10,9 @@ const CoCreateAuth = require('@cocreate/auth')
 const ServerPermission = require("./permission.js")
 
 module.exports.init = async function(wsManager, dbClient) {
-	// if (!config.config.organization_id || !config.config.apiKey){
-	// 	require("./createDB.js")
-	// }
 	try {
 		let permission = new ServerPermission(dbClient)
-		let auth = new CoCreateAuth(config.jwttoken)
+		let auth = new CoCreateAuth(jwttoken)
 		wsManager.setPermission(permission)
 		wsManager.setAuth(auth)
 
@@ -27,7 +24,6 @@ module.exports.init = async function(wsManager, dbClient) {
 		new organizations(wsManager, dbClient);
 		new unique(wsManager, dbClient);
 		new users(wsManager, dbClient);
-		// return true;
 	} catch (error) {
 		console.error(error)
 		return {
