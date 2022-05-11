@@ -1,3 +1,10 @@
+## [0.15.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.0...v0.15.1) (2022-05-11)
+
+
+### Bug Fixes
+
+* permission.js error handling ([23f928b](https://github.com/CoCreate-app/CoCreateWS/commit/23f928bcbb529617a2a8cc03234c9c1404e0bd5f))
+
 # [0.15.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.14.4...v0.15.0) (2022-05-09)
 
 
