@@ -67,7 +67,7 @@ class ServerPermission extends CoCreatePermission {
 			// console.log('WS permissions', permission)
 			return permission;
 		} catch (error) {
-			console.log("Error en permission", )
+			console.log("Error en permission")
 			return null;
 		}
 		
