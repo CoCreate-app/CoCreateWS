@@ -1,3 +1,10 @@
+## [0.15.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.2...v0.15.3) (2022-05-12)
+
+
+### Bug Fixes
+
+* crud-server updateDocument responds with updated changes ([9d9eb93](https://github.com/CoCreate-app/CoCreateWS/commit/9d9eb93dd2a31dfef93a45f6af7afdfaae45ff04))
+
 ## [0.15.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.1...v0.15.2) (2022-05-12)
 
 
