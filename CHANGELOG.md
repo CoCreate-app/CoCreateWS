@@ -1,3 +1,10 @@
+## [0.15.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.1...v0.15.2) (2022-05-12)
+
+
+### Bug Fixes
+
+* crud-server bug with createDocument adding organization_id ([765c1ba](https://github.com/CoCreate-app/CoCreateWS/commit/765c1ba650ae1718efd7df100dbb617b3904784d))
+
 ## [0.15.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.0...v0.15.1) (2022-05-11)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/cocreatews",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "description": "CoCreateWS",
   "keywords": [
     "cocreatews",
@@ -69,4 +69,3 @@
     "wscat": "^5.1.0"
   }
 }
-
