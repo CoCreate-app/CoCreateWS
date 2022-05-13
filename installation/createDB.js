@@ -52,7 +52,6 @@ async function update(dbClient){
 					"actions": [
 						"login",
 						"signin",
-						"registerUser",
 						"userCurrentOrg",
 						"createUser",
 						"createOrg",
@@ -60,7 +59,7 @@ async function update(dbClient){
 					],
 					"sendgrid": ["sendEmail"]
 				},
-				"super_admin": "true"
+				"admin": "true"
 			}
 			await permissions.insertOne(data);
 		}
@@ -90,7 +89,7 @@ async function update(dbClient){
 				"modules": {
 					"*": ""
 				},
-				"super_admin": "false",
+				"admin": "false",
 				"hosts": ["*"]
 			};
 			let response = await permissions.insertOne(role);

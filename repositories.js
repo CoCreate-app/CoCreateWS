@@ -1,10 +1,10 @@
 module.exports = [
     
     // Servers
-    {
-        'path': '../CoCreateWS',
-        'repo': 'github.com/CoCreate-app/CoCreateWS.git'
-    },
+    // {
+    //     'path': '../CoCreateWS',
+    //     'repo': 'github.com/CoCreate-app/CoCreateWS.git'
+    // },
     // {
     //     'path': '../CoCreateApi',
     //     'repo': 'github.com/CoCreate-app/CoCreateApi.git'
