@@ -1,3 +1,10 @@
+## [0.15.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.3...v0.15.4) (2022-05-13)
+
+
+### Bug Fixes
+
+* remove registerUser ([022b272](https://github.com/CoCreate-app/CoCreateWS/commit/022b2729b90abdfd069bd1a119b23374a5f0b4af))
+
 ## [0.15.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.2...v0.15.3) (2022-05-12)
 
 
