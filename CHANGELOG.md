@@ -1,3 +1,10 @@
+# [0.16.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.4...v0.16.0) (2022-05-14)
+
+
+### Features
+
+* renamed readDocumentsList to readDocuments ([95bfa29](https://github.com/CoCreate-app/CoCreateWS/commit/95bfa29cec951be6c7c6edca0015e790ec48f414))
+
 ## [0.15.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.3...v0.15.4) (2022-05-13)
 
 
