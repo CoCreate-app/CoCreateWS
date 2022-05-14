@@ -1,3 +1,10 @@
+## [0.16.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.16.0...v0.16.1) (2022-05-14)
+
+
+### Bug Fixes
+
+* bump dependency versions ([0617745](https://github.com/CoCreate-app/CoCreateWS/commit/0617745eb988b8a061bf2f1c1151f11b4dce9e27))
+
 # [0.16.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.15.4...v0.16.0) (2022-05-14)
 
 
