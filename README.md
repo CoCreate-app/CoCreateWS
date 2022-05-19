@@ -1,6 +1,6 @@
 # CoCreateWS
 
-Server Side for CoCreateJS. Containing websocket, crud, auth, server side rendering, and permission components.
+Server Side for [CoCreateJS](https://github.com/CoCreate-app/CoCreateJS). Containing websocket, crud, auth, server side rendering, and permission components.
 
 ![GitHub latest release](https://img.shields.io/github/v/release/CoCreate-app/CoCreateWS?style=flat-square)
 ![GitHub contributors](https://img.shields.io/github/contributors/CoCreate-app/CoCreateWS?style=flat-square)
@@ -99,6 +99,46 @@ $ npm start
 $ yarn start
 ```
 
+<br/>
+
+## Testing with CoCreateJS clientside using HTML5 attribute api
+### HTML5 attribute api example
+```HTML
+<!DOCTYPE html>
+<html lang="en"> 
+
+    <body class="padding:5px">
+        
+        <form collection="test" document_id="">
+            <input placeholder="Name" name='firstname' class="floating-label">
+            <h1 name='lastname'  contenteditable></h1>
+        </form>
+
+        <script>
+            var config = {                 
+                apiKey: '<apiKey from CoCreate.config.js>',           
+                organization_id: '<organization_id from CoCreate.config.js>',             
+                host: '<Your CoCreateWS domain>'
+            };
+        </script>
+        <script src="https://cdn.cocreate.app/latest/CoCreate.min.js"></script>
+        
+    </body>
+</html>
+```
+
+<br/>
+
+### Javascript object api example
+Paste in your browsers console
+```js
+  crud.readDocument({
+    collection: "test",
+    document_id: ""
+  })
+```
+
+<br/>
 
 <a name="announcements"></a>
 
