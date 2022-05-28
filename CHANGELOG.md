@@ -1,3 +1,10 @@
+## [0.16.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.16.3...v0.16.4) (2022-05-28)
+
+
+### Bug Fixes
+
+* typo in cocreate.config ([97d8223](https://github.com/CoCreate-app/CoCreateWS/commit/97d82237e3224acfc9987ceb2f883d2a908c12d1))
+
 ## [0.16.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.16.2...v0.16.3) (2022-05-19)
 
 
