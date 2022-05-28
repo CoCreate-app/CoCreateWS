@@ -7,8 +7,8 @@ module.exports = {
   },
   "user": {
       "name": "admin",
-      "email": "<email to use for loggin>",
-      "password": "<password to use for loggin>"
+      "email": "<email to use for login>",
+      "password": "<password to use for login>"
   },
   "config": {
     "apiKey": "2061acef-0451-4545-f754-60cf8160",
