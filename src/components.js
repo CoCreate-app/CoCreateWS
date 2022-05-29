@@ -16,8 +16,7 @@ module.exports.init = async function(wsManager, dbClient) {
 		wsManager.setPermission(permission)
 		wsManager.setAuth(auth)
 
-		crudServer.init(wsManager, dbClient);
-		// new crudServer(wsManager, dbClient);
+		new crudServer(wsManager, dbClient);
 		new industry(wsManager, dbClient);
 		new messageServer(wsManager, dbClient);
 		new metricsServer(wsManager, dbClient);
