@@ -1,3 +1,10 @@
+## [0.16.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.16.4...v0.16.5) (2022-05-29)
+
+
+### Bug Fixes
+
+* replaced crudServer.init with new crudServer ([307437a](https://github.com/CoCreate-app/CoCreateWS/commit/307437a084555c62a0bccac217694c986c7cdf4d))
+
 ## [0.16.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.16.3...v0.16.4) (2022-05-28)
 
 
