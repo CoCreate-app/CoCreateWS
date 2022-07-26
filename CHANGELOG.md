@@ -1,3 +1,10 @@
+# [0.17.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.16.5...v0.17.0) (2022-07-26)
+
+
+### Features
+
+* convert arrays to mongodb dotNotation, Crud support for collections, removed isFlat ([9956ff0](https://github.com/CoCreate-app/CoCreateWS/commit/9956ff029a0a456fe5d8938dd4025223eba639c0))
+
 ## [0.16.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.16.4...v0.16.5) (2022-05-29)
 
 
