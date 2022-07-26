@@ -1,3 +1,10 @@
+## [0.18.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.18.0...v0.18.1) (2022-07-26)
+
+
+### Bug Fixes
+
+* update config ([000be54](https://github.com/CoCreate-app/CoCreateWS/commit/000be54cbd8a6f158c7904108dd00263811b2d04))
+
 # [0.18.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.17.0...v0.18.0) (2022-07-26)
 
 
