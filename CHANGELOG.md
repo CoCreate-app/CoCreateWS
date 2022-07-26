@@ -1,3 +1,10 @@
+# [0.18.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.17.0...v0.18.0) (2022-07-26)
+
+
+### Features
+
+* getObjectValueByPath, crud support for collections, render nested objects and arrays ([68fb383](https://github.com/CoCreate-app/CoCreateWS/commit/68fb383a9861923831d410fa0553ed63ace9751d))
+
 # [0.17.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.16.5...v0.17.0) (2022-07-26)
 
 
