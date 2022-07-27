@@ -1,3 +1,10 @@
+## [0.18.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.18.1...v0.18.2) (2022-07-27)
+
+
+### Bug Fixes
+
+* crud-server typo with broadcasting collection messageNames ([78c6b8d](https://github.com/CoCreate-app/CoCreateWS/commit/78c6b8da3e0233b7bf9db10b3609da7598aaccec))
+
 ## [0.18.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.18.0...v0.18.1) (2022-07-26)
 
 
