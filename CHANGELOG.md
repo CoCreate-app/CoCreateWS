@@ -1,3 +1,10 @@
+## [0.18.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.18.2...v0.18.3) (2022-07-29)
+
+
+### Bug Fixes
+
+* bump @cocreate/crud-server dependency. Contains fix that adds value collections to collection variable ([37297fa](https://github.com/CoCreate-app/CoCreateWS/commit/37297fafe09b29f5218a9e5b330b2227c6f94f03))
+
 ## [0.18.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.18.1...v0.18.2) (2022-07-27)
 
 
