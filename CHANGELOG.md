@@ -1,3 +1,10 @@
+# [0.19.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.18.3...v0.19.0) (2022-08-31)
+
+
+### Features
+
+* filter and sort collection list ([f809ffc](https://github.com/CoCreate-app/CoCreateWS/commit/f809ffcfff880a866e4142e5bb24e2a879fe3955))
+
 ## [0.18.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.18.2...v0.18.3) (2022-07-29)
 
 
