@@ -1,3 +1,11 @@
+## [0.19.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.19.0...v0.19.1) (2022-10-01)
+
+
+### Bug Fixes
+
+* bump [@cocreate](https://github.com/cocreate) dependencies ([ade8e4c](https://github.com/CoCreate-app/CoCreateWS/commit/ade8e4c01af8e4dcc6ae6a039c48405baa71da99))
+* minor bug fixes ([3b755b5](https://github.com/CoCreate-app/CoCreateWS/commit/3b755b5fecc011de864fed403bde66eda8cd1a20))
+
 # [0.19.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.18.3...v0.19.0) (2022-08-31)
 
 
