@@ -1,3 +1,10 @@
+## [0.19.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.19.1...v0.19.2) (2022-10-02)
+
+
+### Bug Fixes
+
+* getQuery bug when operator ([427715b](https://github.com/CoCreate-app/CoCreateWS/commit/427715bac778fdb2a5712ce2f696d6ef9e962eb7))
+
 ## [0.19.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.19.0...v0.19.1) (2022-10-01)
 
 
