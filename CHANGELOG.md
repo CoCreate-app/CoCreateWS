@@ -1,3 +1,10 @@
+# [0.20.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.19.2...v0.20.0) (2022-11-21)
+
+
+### Features
+
+* database connection handeled by crud-server. Ability to crud multiple databases. ([7a1bfc3](https://github.com/CoCreate-app/CoCreateWS/commit/7a1bfc3e553fe2d666877fce8e00276e5a33bf34))
+
 ## [0.19.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.19.1...v0.19.2) (2022-10-02)
 
 
