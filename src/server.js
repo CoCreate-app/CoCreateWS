@@ -23,10 +23,6 @@ const { config } = require('../CoCreate.config');
 process.env['organization_id'] = config.organization_id;
 
 const components = require("./components")
-
-const {mongoClient} = require("./db")
-mongoClient().then(dbClient => {
-  components.init(wsManager, dbClient)
-});
+components.init(wsManager)
 
 server.listen(process.env.PORT || 3000);

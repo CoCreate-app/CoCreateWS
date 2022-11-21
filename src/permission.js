@@ -1,11 +1,9 @@
 const CoCreatePermission = require('@cocreate/permissions');
-const {ObjectId} = require("mongodb");
-
 
 class ServerPermission extends CoCreatePermission {
-	constructor(dbClient) {
+	constructor(crud) {
 		super()
-		this.dbClient = dbClient;
+		this.crud = crud;
 		this.initEvent()
 	}
   
@@ -23,51 +21,51 @@ class ServerPermission extends CoCreatePermission {
 	
 	async getPermissionObject(key, organization_id, type) {
 		try {
-			if (!organization_id) {
-				return null;
-			}
+			if (!organization_id)
+				return null;			
 
-			const db = this.dbClient.db(organization_id)
-			if (!db)  {
-				return null;
-			}
-			const collection = db.collection('permissions');
-			if (!collection) {
-				return null;
-			}
+			let request = {
+				collection: 'permissions',
+				organization_id,
+				filter: {
+					query: [
+						{name: 'key', value: key, operator: '$eq'},
+						{name: 'type', value: type, operator: '$eq'}
+					]
+				}
+			} 
+			let permission = await this.crud.readDocument(request)
+			permission = permission.document[0]
 
-			let permission = await collection.findOne({
-				key,
-				type: type || 'apikey'
-			});
-			
 			if (!permission.collections) {
 				permission.collections = {};
 			}
 
 			if (permission && permission.roles) {
 				const role_ids = []
-				permission.roles.forEach((x) => {
+				permission.roles.forEach((_id) => {
 					try {
-						if (x) {
-							role_ids.push(ObjectId(x))
+						if (_id) {
+							role_ids.push({_id})
 						}
 					} catch (err) {
 						console.log(err)
 					}
 			  	})
-
-				let roles = await collection.find({
-					_id: { $in: role_ids }
-				}).toArray()
 				
+				delete request.filter
+				request.document =  role_ids
+				
+				let roles = await this.crud.readDocument(request)
+				roles = roles.document
+
 				permission = this.createPermissionObject(permission, roles)
 			}
 		
 			// console.log('WS permissions', permission)
 			return permission;
 		} catch (error) {
-			console.log("Error en permission")
+			console.log("Permission Error")
 			return null;
 		}
 		

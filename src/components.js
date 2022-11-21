@@ -9,20 +9,22 @@ const users = require('@cocreate/users');
 const CoCreateAuth = require('@cocreate/auth')
 const ServerPermission = require("./permission.js")
 
-module.exports.init = async function(wsManager, dbClient) {
+module.exports.init = async function(wsManager) {
 	try {
-		let permission = new ServerPermission(dbClient)
+		const crud = new crudServer(wsManager)
+
+		let permission = new ServerPermission(crud)
 		let auth = new CoCreateAuth(jwttoken)
 		wsManager.setPermission(permission)
 		wsManager.setAuth(auth)
 
-		new crudServer(wsManager, dbClient);
-		new industry(wsManager, dbClient);
-		new messageServer(wsManager, dbClient);
-		new metricsServer(wsManager, dbClient);
-		new organizations(wsManager, dbClient);
-		new unique(wsManager, dbClient);
-		new users(wsManager, dbClient);
+		new industry(wsManager, crud);
+		new messageServer(wsManager);
+		new metricsServer(wsManager, crud);
+		new organizations(wsManager, crud);
+		new unique(wsManager, crud);
+		new users(wsManager, crud);
+		
 	} catch (error) {
 		console.error(error)
 		return {
