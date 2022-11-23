@@ -6,7 +6,7 @@ const prettier = require("prettier");
 function updateConfig(organization_id, apiKey) {
     const ppath = './'
     let configfile = path.resolve(ppath, 'CoCreate.config1.js');
-    if(!fs.existsSync(configfile))
+    if (!fs.existsSync(configfile))
         return console.error('path does not exist:', configfile)
     
     let object = require(configfile)

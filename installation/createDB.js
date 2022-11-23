@@ -125,7 +125,7 @@ function encryptPassword(str) {
 function updateConfig(organization_id, apiKey) {
     const ppath = './'
     let configfile = path.resolve(ppath, 'CoCreate.config.js');
-    if(!fs.existsSync(configfile))
+    if (!fs.existsSync(configfile))
         return console.error('path does not exist:', configfile)
     
     let object = require(configfile)

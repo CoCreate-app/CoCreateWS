@@ -36,7 +36,7 @@ router.get('/*', async(req, res) => {
         organization_id = organization._id.toString();
     }
     let [url, parameters] = req.url.split("?");
-    if(parameters){}
+    if (parameters){}
     if (url.endsWith('/')) {
         url += "index.html";
     }
