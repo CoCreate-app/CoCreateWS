@@ -1,3 +1,10 @@
+## [0.20.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.20.4...v0.20.5) (2022-11-28)
+
+
+### Bug Fixes
+
+* bump utils. contains search and sort improvements ([4cd1673](https://github.com/CoCreate-app/CoCreateWS/commit/4cd16739b93fcf54dff7e2a49abfb64b2463962d))
+
 ## [0.20.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.20.3...v0.20.4) (2022-11-25)
 
 
