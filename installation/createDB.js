@@ -50,10 +50,9 @@ async function update(dbClient){
 				},
 				"modules": {
 					"actions": [
-						"login",
-						"signin",
+						"signIn",
+						"signUp",
 						"userCurrentOrg",
-						"createUser",
 						"createOrg",
 						"runIndustry"
 					],
