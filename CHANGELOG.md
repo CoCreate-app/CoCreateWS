@@ -1,3 +1,10 @@
+## [0.20.7](https://github.com/CoCreate-app/CoCreateWS/compare/v0.20.6...v0.20.7) (2022-12-02)
+
+
+### Bug Fixes
+
+* action createUser renamed to signUp ([04f60b3](https://github.com/CoCreate-app/CoCreateWS/commit/04f60b3b76f42b1496a73fd69da064ce9284843c))
+
 ## [0.20.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.20.5...v0.20.6) (2022-11-28)
 
 
