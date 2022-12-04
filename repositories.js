@@ -125,8 +125,8 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
     },
     // {
-    //     'path': '../CoCreate-components/CoCreate-mongodb',
-    //     'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
+    //     'path': '../CoCreate-components/CoCreate-mongodb-deployment',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-mongodb-deployment.git'
     // },
     // {
     //     'path': '../CoCreate-components/CoCreate-openebs',
