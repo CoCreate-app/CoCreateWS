@@ -1,3 +1,10 @@
+## [0.21.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.21.5...v0.21.6) (2022-12-04)
+
+
+### Bug Fixes
+
+* bump @cocreate/crud-server ([da2538b](https://github.com/CoCreate-app/CoCreateWS/commit/da2538b6555179137b132f5cb3e7fcc584d68a2e))
+
 ## [0.21.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.21.4...v0.21.5) (2022-12-04)
 
 
