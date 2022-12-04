@@ -1,3 +1,10 @@
+## [0.21.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.21.0...v0.21.1) (2022-12-04)
+
+
+### Bug Fixes
+
+* missing dependency @cocreate/file-server ([c7af244](https://github.com/CoCreate-app/CoCreateWS/commit/c7af244c478c9b44b9c053145b4e37b14c160f24))
+
 # [0.21.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.20.7...v0.21.0) (2022-12-04)
 
 
