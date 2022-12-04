@@ -1,3 +1,10 @@
+# [0.21.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.20.7...v0.21.0) (2022-12-04)
+
+
+### Features
+
+* replace routes with @cocreate/file-server ([8b79a56](https://github.com/CoCreate-app/CoCreateWS/commit/8b79a561866fc47a20325a2301ca021d019ac83a))
+
 ## [0.20.7](https://github.com/CoCreate-app/CoCreateWS/compare/v0.20.6...v0.20.7) (2022-12-02)
 
 
