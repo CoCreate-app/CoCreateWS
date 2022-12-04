@@ -1,3 +1,10 @@
+# [0.22.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.21.7...v0.22.0) (2022-12-04)
+
+
+### Features
+
+* mongodb now handeled by crud allowing for multiple database support ([fbbcd66](https://github.com/CoCreate-app/CoCreateWS/commit/fbbcd668b0a4d3196dc5e6a7e237f40394ac2377))
+
 ## [0.21.7](https://github.com/CoCreate-app/CoCreateWS/compare/v0.21.6...v0.21.7) (2022-12-04)
 
 
