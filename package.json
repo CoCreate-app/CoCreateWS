@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/cocreatews",
-  "version": "0.21.0",
+  "version": "0.20.7",
   "description": "Server Side for CoCreateJS. Containing websocket, crud, auth, server side rendering, and permission components.",
   "keywords": [
     "cocreatews",
@@ -46,6 +46,7 @@
     "@cocreate/auth": "latest",
     "@cocreate/crud-server": "latest",
     "@cocreate/docs": "latest",
+    "@cocreate/file-server": "latest",
     "@cocreate/industry": "latest",
     "@cocreate/message-server": "latest",
     "@cocreate/metrics-server": "latest",
