@@ -17,7 +17,7 @@ module.exports.init = async function(app, wsManager) {
 		const render = new serverSideRender(crud);
 		const file = new fileServer(crud, render)
 
-		app.use('/', file.router);
+		app.use('/', file.router)
 
 		let permission = new ServerPermission(crud)
 		let auth = new CoCreateAuth(jwttoken)
