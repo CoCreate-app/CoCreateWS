@@ -29,6 +29,10 @@ module.exports = [
     //     'repo': 'github.com/CoCreate-app/CoCreate-crdt-server.git'
     // },
     {
+        'path': '../CoCreate-components/CoCreate-file-server',
+        'repo': 'github.com/CoCreate-app/CoCreate-file-server.git'
+    },
+    {
         'path': '../CoCreate-components/CoCreate-loadtest',
         'repo': 'github.com/CoCreate-app/CoCreate-loadtest.git'
     },
@@ -83,6 +87,10 @@ module.exports = [
     {
         'path': '../CoCreate-components/CoCreate-industry',
         'repo': 'github.com/CoCreate-app/CoCreate-industry.git'
+    },
+    {
+        'path': '../CoCreate-components/CoCreate-mongodb',
+        'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
     },
     {
         'path': '../CoCreate-components/CoCreate-observer',
