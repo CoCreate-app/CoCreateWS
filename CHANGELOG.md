@@ -1,3 +1,10 @@
+## [0.22.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.3...v0.22.4) (2022-12-05)
+
+
+### Bug Fixes
+
+* redeploy ([15e323d](https://github.com/CoCreate-app/CoCreateWS/commit/15e323d41ed5542e28f13125820c1ac0faa40241))
+
 ## [0.22.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.2...v0.22.3) (2022-12-05)
 
 
