@@ -1,3 +1,10 @@
+## [0.22.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.0...v0.22.1) (2022-12-05)
+
+
+### Bug Fixes
+
+* bump file-server- and  server-side-render ([8e08e5d](https://github.com/CoCreate-app/CoCreateWS/commit/8e08e5d5953520333d4e279a58a40cc626b73004))
+
 # [0.22.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.21.7...v0.22.0) (2022-12-04)
 
 
