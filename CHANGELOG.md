@@ -1,3 +1,10 @@
+# [0.23.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.5...v0.23.0) (2022-12-05)
+
+
+### Features
+
+* set db_url in process.env ([c31a69a](https://github.com/CoCreate-app/CoCreateWS/commit/c31a69afadd9185bd8b3dee8af1aee34b0bfbe4e))
+
 ## [0.22.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.4...v0.22.5) (2022-12-05)
 
 
