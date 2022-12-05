@@ -1,3 +1,10 @@
+## [0.23.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.5...v0.23.6) (2022-12-05)
+
+
+### Bug Fixes
+
+* testing ([03bfa0d](https://github.com/CoCreate-app/CoCreateWS/commit/03bfa0d9a8d70e9e54620c9207d4838460b50573))
+
 ## [0.23.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.4...v0.23.5) (2022-12-05)
 
 
