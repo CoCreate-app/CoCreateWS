@@ -1,3 +1,10 @@
+## [0.22.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.1...v0.22.2) (2022-12-05)
+
+
+### Bug Fixes
+
+* bug in file-server ([5e90b02](https://github.com/CoCreate-app/CoCreateWS/commit/5e90b02b6a6afd6065ce3481723e68c6a87d5eed))
+
 ## [0.22.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.0...v0.22.1) (2022-12-05)
 
 
