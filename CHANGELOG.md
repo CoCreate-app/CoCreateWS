@@ -1,3 +1,10 @@
+## [0.22.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.2...v0.22.3) (2022-12-05)
+
+
+### Bug Fixes
+
+* bump server-siwde-render minor bug fixes ([2b10cc6](https://github.com/CoCreate-app/CoCreateWS/commit/2b10cc696d69f1f934cdf455b661d97af74dec8e))
+
 ## [0.22.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.22.1...v0.22.2) (2022-12-05)
 
 
