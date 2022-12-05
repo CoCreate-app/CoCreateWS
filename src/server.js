@@ -19,8 +19,9 @@ server.on('upgrade', function upgrade(request, socket, head) {
   }
 });
 
-const { config } = require('../CoCreate.config');
+const { config, db_url } = require('../CoCreate.config');
 process.env['organization_id'] = config.organization_id;
+process.env['MONGO_URL'] = db_url
 
 const components = require("./components")
 components.init(app, wsManager)
