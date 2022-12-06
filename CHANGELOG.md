@@ -1,3 +1,10 @@
+## [0.23.10](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.9...v0.23.10) (2022-12-06)
+
+
+### Bug Fixes
+
+* bump file-server. contains bug fix related to base64 ([ea71b07](https://github.com/CoCreate-app/CoCreateWS/commit/ea71b07fe56f2e086f207e390167ba6859d4a56f))
+
 ## [0.23.9](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.8...v0.23.9) (2022-12-06)
 
 
