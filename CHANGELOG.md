@@ -1,3 +1,10 @@
+## [0.23.9](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.8...v0.23.9) (2022-12-06)
+
+
+### Bug Fixes
+
+* if condition to set process.env.MONGO_URL ([dabf6fa](https://github.com/CoCreate-app/CoCreateWS/commit/dabf6fa5abafede830a5a17ae9faedfd202e0b67))
+
 ## [0.23.8](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.7...v0.23.8) (2022-12-05)
 
 
