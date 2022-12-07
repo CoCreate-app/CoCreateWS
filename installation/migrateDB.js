@@ -28,7 +28,7 @@ mongoClient(fromDB).then(fromDBClient => {
 			}
 		})			
 	} catch(error) {
-		console.log('readCollections error', error); 
+		console.log('readCollection error', error); 
 	}
 });
 
