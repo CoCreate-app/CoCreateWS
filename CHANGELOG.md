@@ -1,3 +1,10 @@
+## [0.23.12](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.11...v0.23.12) (2022-12-08)
+
+
+### Bug Fixes
+
+* removed dependencies not in use ([4c8a8d1](https://github.com/CoCreate-app/CoCreateWS/commit/4c8a8d19df4575c3a2012f43b4da09cb006459e8))
+
 ## [0.23.11](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.10...v0.23.11) (2022-12-07)
 
 
