@@ -23,11 +23,6 @@ spec:
               name: app
               protocol: TCP
           env:
-            - name: JWT_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: jwttoken
-                  key: jwttoken
             - name: MONGO_URL
               valueFrom:
                 secretKeyRef:
