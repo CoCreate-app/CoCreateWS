@@ -1,3 +1,10 @@
+## [0.23.17](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.16...v0.23.17) (2022-12-08)
+
+
+### Bug Fixes
+
+* handle config in components.js, bump @cocreate/auth auto generates key ([351f2ce](https://github.com/CoCreate-app/CoCreateWS/commit/351f2ce2934a9e21e446c555ab1580c18323f3c8))
+
 ## [0.23.16](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.15...v0.23.16) (2022-12-08)
 
 
