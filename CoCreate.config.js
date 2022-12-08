@@ -17,7 +17,6 @@ module.exports = {
   },
   "db_url": "<MongoDb Url>",
   "jwttoken": {
-    "key": "<jwt token>",
     "options": {
       "algorithm": "HS256",
       "expiresIn": "2 days",
