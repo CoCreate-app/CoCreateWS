@@ -1,3 +1,10 @@
+## [0.23.19](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.18...v0.23.19) (2022-12-08)
+
+
+### Bug Fixes
+
+* jwttoken removed from manifest. it is auto gnerated on server start ([54103fe](https://github.com/CoCreate-app/CoCreateWS/commit/54103fe7ea7fcab4ab7888aefd56e953e33c39b0))
+
 ## [0.23.18](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.17...v0.23.18) (2022-12-08)
 
 
