@@ -10,14 +10,14 @@ const unique = require('@cocreate/unique');
 const users = require('@cocreate/users');
 const CoCreateAuth = require('@cocreate/auth')
 const serverPermission = require("@cocreate/permissions");
-const mongodb = require('@cocreate/mongodb');
 
 module.exports.init = async function(app, wsManager) {
 	try {
 		process.env['organization_id'] = config.organization_id;
 		if (!process.env['MONGO_URL'])
 			process.env['MONGO_URL'] = db_url
-
+		
+		const mongodb = require('@cocreate/mongodb');
 		const databases = {mongodb}
 		const crud = new crudServer(wsManager, databases)
 		const render = new serverSideRender(crud);
