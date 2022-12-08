@@ -1,3 +1,10 @@
+## [0.23.15](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.14...v0.23.15) (2022-12-08)
+
+
+### Bug Fixes
+
+* removed node-html-parser ([a23c288](https://github.com/CoCreate-app/CoCreateWS/commit/a23c288d889d1c682b1a99528c7f472e08ffcda2))
+
 ## [0.23.14](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.13...v0.23.14) (2022-12-08)
 
 
