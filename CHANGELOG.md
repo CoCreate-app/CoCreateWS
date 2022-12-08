@@ -1,3 +1,10 @@
+## [0.23.18](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.17...v0.23.18) (2022-12-08)
+
+
+### Bug Fixes
+
+* mongodb initialized before config applied ([09d904a](https://github.com/CoCreate-app/CoCreateWS/commit/09d904a7f3ba1f135d1ab2c87e45e0efe4d2ee04))
+
 ## [0.23.17](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.16...v0.23.17) (2022-12-08)
 
 
