@@ -15,7 +15,7 @@ module.exports = {
     "organization_id": "5ff747727005da1c272740ab",
     "host": "general.cocreate.app"
   },
-  "db_url": "mongodb+srv://cocreate-app:rolling123@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority",
+  "db_url": "<MongoDb Url>",
   "jwttoken": {
     "options": {
       "algorithm": "HS256",
