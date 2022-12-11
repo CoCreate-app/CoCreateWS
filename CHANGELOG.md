@@ -1,3 +1,10 @@
+## [0.23.21](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.20...v0.23.21) (2022-12-11)
+
+
+### Bug Fixes
+
+* bump @cocreate/mongodb - contains ability to query, search and sort databases and collections ([7185963](https://github.com/CoCreate-app/CoCreateWS/commit/7185963b642da11db8641492d1a0ad23429560fc))
+
 ## [0.23.20](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.19...v0.23.20) (2022-12-09)
 
 
