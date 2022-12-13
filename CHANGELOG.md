@@ -1,3 +1,10 @@
+## [0.23.23](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.22...v0.23.23) (2022-12-13)
+
+
+### Bug Fixes
+
+* bump @cocreate/mongodb ([a2b6fde](https://github.com/CoCreate-app/CoCreateWS/commit/a2b6fde834bda67afa2e388648843c4c1ece6ac2))
+
 ## [0.23.22](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.21...v0.23.22) (2022-12-12)
 
 
