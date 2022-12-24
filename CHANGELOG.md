@@ -1,3 +1,10 @@
+## [0.23.25](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.24...v0.23.25) (2022-12-24)
+
+
+### Bug Fixes
+
+* bump @cocreate/permissions ([f55c118](https://github.com/CoCreate-app/CoCreateWS/commit/f55c118b5f72596c08a273aa279cae9a6c14de51))
+
 ## [0.23.24](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.23...v0.23.24) (2022-12-24)
 
 
