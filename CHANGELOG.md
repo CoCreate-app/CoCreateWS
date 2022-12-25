@@ -1,3 +1,10 @@
+# [0.24.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.25...v0.24.0) (2022-12-25)
+
+
+### Features
+
+* permission improvements ([db7845f](https://github.com/CoCreate-app/CoCreateWS/commit/db7845fdc446905acce8a0b746ed77411d24f4d8))
+
 ## [0.23.25](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.24...v0.23.25) (2022-12-24)
 
 
