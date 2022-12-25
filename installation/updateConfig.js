@@ -15,9 +15,9 @@ function updateConfig(organization_id, apiKey) {
     Object.assign(object.config, {apiKey})
     delete object.organization
     delete object.user
-    let str = JSON.stringify(object)
-    let formated = prettier.format(str, { semi: false, parser: "json" });
-    let config = `module.exports = ${formated}`
+
+    let str = JSON.stringify(data.document, null, 4);
+    let config = `module.exports = ${str}`
 
     // process.exit()
     if (fs.existsSync(configfile))

@@ -1,6 +1,6 @@
 const { ObjectId } = require("mongodb");
 const { mongoClient } = require("../src/db")
-// const config = require('../CoCreate.config');
+// const config = require('./CoCreate.config');
 
 const fromDB = 'dbUrl';
 const fromDBName = '5ff747727005da1c272740ab'

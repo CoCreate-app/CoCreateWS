@@ -1,6 +1,6 @@
 const { ObjectId } = require("mongodb");
 const { mongoClient } = require("../src/db")
-const config = require('../CoCreate.config');
+const config = require('./CoCreate.config');
 const CoCreateUUID = require('@cocreate/uuid');
 // const { updateConfig } = require('./updateConfig');
 
@@ -48,17 +48,14 @@ async function update(dbClient){
 						}
 					}
 				},
-				"modules": {
-					"actions": [
-						"signIn",
-						"signUp",
-						"userCurrentOrg",
-						"createOrg",
-						"runIndustry"
-					],
+				"actions": {
+					"signIn": "",
+					"signUp": "",
+					"createOrg": "",
+					"runIndustry": "",
 					"sendgrid": ["sendEmail"]
 				},
-				"admin": "true"
+				"admin": "false"
 			}
 			await permissions.insertOne(data);
 		}
