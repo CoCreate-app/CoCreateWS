@@ -1,3 +1,10 @@
+## [0.24.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.24.0...v0.24.1) (2022-12-28)
+
+
+### Bug Fixes
+
+* update cdn to latest ([a71508e](https://github.com/CoCreate-app/CoCreateWS/commit/a71508ebc441194533064a04bdbda978785519d2))
+
 # [0.24.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.23.25...v0.24.0) (2022-12-25)
 
 
