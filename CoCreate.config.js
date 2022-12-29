@@ -4,7 +4,7 @@ module.exports = {
     "organization_id": "5ff747727005da1c272740ab",
     "host": "general.cocreate.app"
   },
-  "db_url": "<url>",
+  "db_url": "<dburl>",
   "jwttoken": {
     "options": {
       "algorithm": "HS256",
