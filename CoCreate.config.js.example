@@ -1,44 +1,45 @@
 module.exports = {
-  "organization": {
-    "name": "<organization, company or project name>",
-    "domains": [
-        "<CoCreate subdomain or custom domain pointing to CoCreateWS server>",
+    "organization": {
+        "name": "<organization, company or project name>",
+        "domains": [
+            "<CoCreate subdomain or custom domain pointing to CoCreateWS server>",
+        ]
+    },
+    "user": {
+        "name": "admin",
+        "email": "<email to use for loggin>",
+        "password": "<password to use for loggin>"
+    },
+    "config": {
+        "apiKey": "<CoCreate API Key>",
+        "organization_id": "<CoCreate Organization ID>",
+        "host": "<CoCreate subdomain or custom domain pointing to CoCreateWS server>"
+    },
+    "db_url": "<MongoDb Url>",
+    "jwttoken": {
+        "options": {
+            "algorithm": "HS256",
+            "expiresIn": "2 days",
+            "issuer": "issuer"
+        }
+    },
+    "sources": [
+        {
+            "collection": "files",
+            "document": {
+                "_id": "",
+                "name": "index.html",
+                "path": "/docs/CoCreateWS/index.html",
+                "src": "{{./docs/index.html}}",
+                "domains": [
+                    "*",
+                    "general.cocreate.app"
+                ],
+                "directory": "/docs/CoCreateWS",
+                "content-type": "text/html",
+                "public": "true",
+                "website_id": "5ffbceb7f11d2d00103c4535"
+            }
+        }
     ]
-  },
-  "user": {
-      "name": "admin",
-      "email": "<email to use for loggin>",
-      "password": "<password to use for loggin>"
-  },
-  "config": {
-    "apiKey": "<CoCreate API Key>",
-    "organization_id": "<CoCreate Organization ID>",
-    "host": "<CoCreate subdomain or custom domain pointing to CoCreateWS server>"
-  },
-  "db_url": "<MongoDb Url>",
-  "jwttoken": {
-    "key": "<jwt token>",
-    "options": {
-      "algorithm": "HS256",
-      "expiresIn": "2 days",
-      "issuer": "issuer"
-    }
-  },
-  "sources": [
-    {
-      "entry": "./docs/index.html",
-      "collection": "files",
-      "document_id": "",
-      "key": "src",
-      "data": {
-        "name": "index.html",
-        "path": "/docs/CoCreateWS/index.html",
-        "domains": ["*"],
-        "directory": "/docs/CoCreateWS",
-        "content-type": "text/html",
-        "public": "true",
-        "website_id": ""
-      }
-    }
-  ]
 }
