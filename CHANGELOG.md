@@ -1,3 +1,10 @@
+## [0.25.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.0...v0.25.1) (2022-12-31)
+
+
+### Bug Fixes
+
+* update config to use new template braces containg entry ([702b157](https://github.com/CoCreate-app/CoCreateWS/commit/702b157e766bcf26b19aebbfc57da489a64b037d))
+
 # [0.25.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.24.1...v0.25.0) (2022-12-29)
 
 
