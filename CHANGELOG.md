@@ -1,3 +1,11 @@
+## [0.25.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.1...v0.25.2) (2023-01-02)
+
+
+### Bug Fixes
+
+* height of sandbox preview ([5fe8212](https://github.com/CoCreate-app/CoCreateWS/commit/5fe82122ab09faab25ee830932e485d13bdeedaa))
+* permissions bug ([2bc07bc](https://github.com/CoCreate-app/CoCreateWS/commit/2bc07bc7400e077467d7831e4b0a428581ff1f0f))
+
 ## [0.25.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.0...v0.25.1) (2022-12-31)
 
 
