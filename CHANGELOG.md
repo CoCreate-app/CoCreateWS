@@ -1,3 +1,11 @@
+## [0.25.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.2...v0.25.3) (2023-01-31)
+
+
+### Bug Fixes
+
+* bump dependencies ([70b2a73](https://github.com/CoCreate-app/CoCreateWS/commit/70b2a73aa2375d94f4472a5db70da46c226de4d3))
+* semantic-release-action v3 ([5028818](https://github.com/CoCreate-app/CoCreateWS/commit/5028818851cd3861d324c1324547398df5dafc1f))
+
 ## [0.25.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.1...v0.25.2) (2023-01-02)
 
 
