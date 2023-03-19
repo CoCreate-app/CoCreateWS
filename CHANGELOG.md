@@ -1,3 +1,10 @@
+## [0.26.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.26.0...v0.26.1) (2023-03-19)
+
+
+### Bug Fixes
+
+* bump socket-server ([d064ee8](https://github.com/CoCreate-app/CoCreateWS/commit/d064ee8a637728fc429e825e50b8362f7f4c831d))
+
 # [0.26.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.4...v0.26.0) (2023-03-19)
 
 
