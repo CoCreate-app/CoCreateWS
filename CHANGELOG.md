@@ -1,3 +1,10 @@
+# [0.26.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.4...v0.26.0) (2023-03-19)
+
+
+### Features
+
+* ability to connect to user defined db urls ([78f4eb6](https://github.com/CoCreate-app/CoCreateWS/commit/78f4eb609348d06dda7a67f84e973c84556f7b44))
+
 ## [0.25.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.3...v0.25.4) (2023-02-01)
 
 
