@@ -1,3 +1,17 @@
+## [0.26.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.26.0...v0.26.1) (2023-03-19)
+
+
+### Bug Fixes
+
+* bump socket-server ([d064ee8](https://github.com/CoCreate-app/CoCreateWS/commit/d064ee8a637728fc429e825e50b8362f7f4c831d))
+
+# [0.26.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.4...v0.26.0) (2023-03-19)
+
+
+### Features
+
+* ability to connect to user defined db urls ([78f4eb6](https://github.com/CoCreate-app/CoCreateWS/commit/78f4eb609348d06dda7a67f84e973c84556f7b44))
+
 ## [0.25.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.25.3...v0.25.4) (2023-02-01)
 
 
