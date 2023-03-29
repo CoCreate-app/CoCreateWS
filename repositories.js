@@ -1,18 +1,19 @@
 module.exports = [
     
     // Servers
-    // {
-    //     'path': '../CoCreateWS',
-    //     'repo': 'github.com/CoCreate-app/CoCreateWS.git'
-    // },
+    {
+        'path': '../CoCreateWS',
+        'repo': 'github.com/CoCreate-app/CoCreateWS.git',
+        'exclude': ['git']
+    },
     // {
     //     'path': '../CoCreateApi',
     //     'repo': 'github.com/CoCreate-app/CoCreateApi.git'
     // },
-    {
-        'path': '../CoCreateLB',
-        'repo': 'github.com/CoCreate-app/CoCreateLB.git'
-    },
+    // {
+    //     'path': '../CoCreateLB',
+    //     'repo': 'github.com/CoCreate-app/CoCreateLB.git'
+    // },
     
     
     // Components
@@ -24,10 +25,6 @@ module.exports = [
         'path': '../CoCreate-components/CoCreate-crud-server',
         'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
     },
-    // {
-    //     'path': '../CoCreate-components/CoCreate-crdt-server',
-    //     'repo': 'github.com/CoCreate-app/CoCreate-crdt-server.git'
-    // },
     {
         'path': '../CoCreate-components/CoCreate-file-server',
         'repo': 'github.com/CoCreate-app/CoCreate-file-server.git'
@@ -43,6 +40,10 @@ module.exports = [
     {
         'path': '../CoCreate-components/CoCreate-metrics-server',
         'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
+    },
+    {
+        'path': '../CoCreate-components/CoCreate-mongodb',
+        'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
     },
     {
         'path': '../CoCreate-components/CoCreate-node-autoscaler',
@@ -69,6 +70,11 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-api.git'
     },
     {
+        'path': '../CoCreate-components/CoCreate-cli',
+        'repo': 'github.com/CoCreate-app/CoCreate-cli.git',
+        'install': true
+    },
+    {
         'path': '../CoCreate-components/CoCreate-docs',
         'repo': 'github.com/CoCreate-app/CoCreate-docs.git'
     },
@@ -87,10 +93,6 @@ module.exports = [
     {
         'path': '../CoCreate-components/CoCreate-industry',
         'repo': 'github.com/CoCreate-app/CoCreate-industry.git'
-    },
-    {
-        'path': '../CoCreate-components/CoCreate-mongodb',
-        'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
     },
     {
         'path': '../CoCreate-components/CoCreate-observer',
@@ -128,10 +130,10 @@ module.exports = [
     
     
     // Maybe depreciated
-    {
-        'path': '../CoCreate-components/CoCreate-keepalived',
-        'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
-    },
+    // {
+    //     'path': '../CoCreate-components/CoCreate-keepalived',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-keepalived.git'
+    // },
     // {
     //     'path': '../CoCreate-components/CoCreate-mongodb-deployment',
     //     'repo': 'github.com/CoCreate-app/CoCreate-mongodb-deployment.git'
@@ -140,10 +142,10 @@ module.exports = [
     //     'path': '../CoCreate-components/CoCreate-openebs',
     //     'repo': 'github.com/CoCreate-app/CoCreate-openebs.git'
     // },
-    {
-        'path': '../CoCreate-components/CoCreate-ide',
-        'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
-    },
+    // {
+    //     'path': '../CoCreate-components/CoCreate-ide',
+    //     'repo': 'github.com/CoCreate-app/CoCreate-ide.git'
+    // },
     // {
     //     'path': '../CoCreate-components/CoCreateEmail',
     //     'repo': 'github.com/CoCreate-app/CoCreateEmail.git'
