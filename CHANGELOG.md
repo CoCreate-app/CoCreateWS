@@ -1,3 +1,10 @@
+## [0.26.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.26.1...v0.26.2) (2023-03-29)
+
+
+### Bug Fixes
+
+* add git exclude to config ([76498ac](https://github.com/CoCreate-app/CoCreateWS/commit/76498acabf03088557d1ee872d5fd13c3c7ad63e))
+
 ## [0.26.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.26.0...v0.26.1) (2023-03-19)
 
 
