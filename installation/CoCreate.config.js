@@ -1,7 +1,7 @@
 module.exports = {
   "organization": {
     "name": "<organization, company or project name>",
-    "domains": [
+    "hosts": [
         "<optional domain pointing to this server's ip>",
     ]
   },

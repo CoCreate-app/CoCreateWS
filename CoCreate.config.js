@@ -4,7 +4,7 @@ module.exports = {
         "organization_id": "5ff747727005da1c272740ab",
         "host": "general.cocreate.app"
     },
-    "db_url": "<dburl>",
+    "db_url": "mongodb+srv://cocreate-app:56VAZlwk8qfiAMfk@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority",
     "jwttoken": {
         "options": {
             "algorithm": "HS256",
@@ -20,7 +20,7 @@ module.exports = {
                 "name": "index.html",
                 "path": "/docs/CoCreateWS/index.html",
                 "src": "{{./docs/index.html}}",
-                "domains": [
+                "hosts": [
                     "*",
                     "general.cocreate.app"
                 ],
