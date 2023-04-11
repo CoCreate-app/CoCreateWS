@@ -15,7 +15,9 @@ module.exports = {
         "organization_id": "<CoCreate Organization ID>",
         "host": "<CoCreate subdomain or custom domain pointing to CoCreateWS server>"
     },
-    "db_url": "<MongoDb Url>",
+    "dbUrl": {
+        'mongodb': ['<dbUrl>']
+    },
     "jwttoken": {
         "options": {
             "algorithm": "HS256",

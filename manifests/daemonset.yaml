@@ -23,11 +23,11 @@ spec:
               name: app
               protocol: TCP
           env:
-            - name: MONGO_URL
+            - name: dbUrl
               valueFrom:
                 secretKeyRef:
                   name: dburl
-                  key: db_url
+                  key: dbUrl
       imagePullSecrets:
         - name: github-packages
       restartPolicy: Always
