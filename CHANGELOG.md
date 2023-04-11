@@ -1,3 +1,15 @@
+# [0.28.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.27.0...v0.28.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* config ([bb4cecb](https://github.com/CoCreate-app/CoCreateWS/commit/bb4cecbe07249b7bb40da5639fe016c5a76af4ec))
+
+
+### Features
+
+* define platform dburl in config, and get databases from organization ([77a090b](https://github.com/CoCreate-app/CoCreateWS/commit/77a090b0d7cbe125f1b3b6b9fcfcb05eecce0efb))
+
 # [0.27.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.26.2...v0.27.0) (2023-04-11)
 
 
