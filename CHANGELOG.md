@@ -1,3 +1,15 @@
+# [0.27.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.26.2...v0.27.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* coc renaed domamins to hosts ([667de85](https://github.com/CoCreate-app/CoCreateWS/commit/667de8537fe1bfa3b3badb8574b64bbb3175e381))
+
+
+### Features
+
+* support for custom org databases.  Mongodb_URL replaced with dbUrl ([0413ca5](https://github.com/CoCreate-app/CoCreateWS/commit/0413ca519079702a5efaebaf3354ffff708c2908))
+
 ## [0.26.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.26.1...v0.26.2) (2023-03-29)
 
 
