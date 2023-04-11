@@ -1,4 +1,4 @@
-const { config, dbUrl, jwttoken} = require('../CoCreate.config');
+const { config, database, jwttoken} = require('../CoCreate.config');
 const crudServer = require('@cocreate/crud-server')
 const fileServer = require('@cocreate/file-server')
 const industry = require('@cocreate/industry')
@@ -14,11 +14,12 @@ const serverPermission = require("@cocreate/permissions");
 module.exports.init = async function(app, wsManager) {
 	try {
 		process.env['organization_id'] = config.organization_id;
+		process.env['database'] = database
 		
 		const databases = {
 			mongodb: require('@cocreate/mongodb')
 		}
-		const crud = new crudServer(wsManager, databases, dbUrl)
+		const crud = new crudServer(wsManager, databases, database)
 		const render = new serverSideRender(crud);
 		const file = new fileServer(crud, render)
 

@@ -4,8 +4,9 @@ module.exports = {
         "apiKey": "2061acef-0451-4545-f754-60cf8160",
         "host": "general.cocreate.app"
     },
-    "dbUrl": {
-        'mongodb': ['<dbUrl>']
+    "database": {
+        "name": 'mongodb',
+        "url": ['<dbUrl>'],
     },
     "jwttoken": {
         "options": {
