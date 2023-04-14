@@ -6,7 +6,6 @@ const messageServer = require('@cocreate/message-server')
 const metricsServer = require('@cocreate/metrics-server')
 const organizations = require('@cocreate/organizations');
 const serverSideRender = require('@cocreate/server-side-render');
-const unique = require('@cocreate/unique');
 const users = require('@cocreate/users');
 const CoCreateAuth = require('@cocreate/auth')
 const serverPermission = require("@cocreate/permissions");
@@ -22,7 +21,7 @@ module.exports.init = async function(app, wsManager) {
 		const crud = new crudServer(wsManager, databases, database)
 		const render = new serverSideRender(crud);
 		const file = new fileServer(crud, render)
-
+		app.enable('trust proxy')
 		app.use('/', file.router)
 
 		let auth = new CoCreateAuth(jwttoken)
@@ -34,7 +33,6 @@ module.exports.init = async function(app, wsManager) {
 		new messageServer(wsManager);
 		new metricsServer(wsManager, crud);
 		new organizations(wsManager, crud);
-		new unique(wsManager, crud);
 		new users(wsManager, crud);
 		
 	} catch (error) {
