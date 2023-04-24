@@ -1,3 +1,10 @@
+## [0.28.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.1...v0.28.2) (2023-04-24)
+
+
+### Bug Fixes
+
+* add postinstall @cocreate/cli ([96f8217](https://github.com/CoCreate-app/CoCreateWS/commit/96f8217d302f4396c5d564d4fb338a26053bba3f))
+
 ## [0.28.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.0...v0.28.1) (2023-04-14)
 
 
