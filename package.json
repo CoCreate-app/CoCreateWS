@@ -1,6 +1,6 @@
 {
   "name": "@cocreate/cocreatews",
-  "version": "0.27.0",
+  "version": "0.28.1",
   "description": "Server Side for CoCreateJS. Containing websocket, crud, auth, server side rendering, and permission components.",
   "keywords": [
     "cocreatews",
@@ -39,6 +39,7 @@
     "dev": "PORT=3000 nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "node ./node_modules/@cocreate/docs/src/index.js",
+    "postinstall": "npm install -g @cocreate/cli",
     "createdb": "node ./installation/createDB.js"
   },
   "dependencies": {
@@ -54,7 +55,6 @@
     "@cocreate/permissions": "latest",
     "@cocreate/server-side-render": "latest",
     "@cocreate/socket-server": "latest",
-    "@cocreate/unique": "latest",
     "@cocreate/users": "latest",
     "@cocreate/uuid": "latest",
     "cors": "^2.8.5",
