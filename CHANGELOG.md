@@ -1,3 +1,10 @@
+## [0.28.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.2...v0.28.3) (2023-04-29)
+
+
+### Bug Fixes
+
+* pwa manifest.json and workflow node version 16 ([d31610a](https://github.com/CoCreate-app/CoCreateWS/commit/d31610a3dfdc0c9649c6e0f272c943d1046fa46d))
+
 ## [0.28.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.1...v0.28.2) (2023-04-24)
 
 
