@@ -1,0 +1,17 @@
+.collapsed>.code-editor {
+    height: 0px;
+    overflow: hidden
+}
+
+.tab[selected] {
+    background: whitesmoke;
+}
+
+textarea.active {
+    display:block;
+    height: 100vh;
+    width: 100%;
+    border:none;
+    outline:none;
+    padding:10px;
+}
