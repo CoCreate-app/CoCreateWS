@@ -43,52 +43,9 @@
 				<!-- fullscreen toogle and icon transform-->
 				<li class="margin-right:15px"><a fullscreen><i toggle="fa-compress, fa-expand" class="fas fa-expand"></i></a></li>
 
-				<!-- Render Module Form -->
-				<li class="margin-right:15px">
-					<a actions="pass, openModal" modal-src="./modules/form.html" modal-width="320px">
-                        <i class="fas fa-cog"></i>
-                        <div pass_id="module-form" pass-collection="modules" pass-document_id="" pass_to="form-fields"></div>
-                        <div pass_id="module_id" pass-filter-value="" pass_to="module_id"></div>
-                    </a>
-				</li>
-
-				<!-- Render Code Editor -->
-				<li class="margin-right:15px">
-					<a actions="pass, openModal" modal-src="./code-editor/index.html">
-                        <i class="fas fa-code"></i>
-                        <div pass_id="render" pass-collection="" pass-document_id="" pass-name="" pass_to="code-editor"></div>
-                    </a>
-				</li>
-
-				<!-- Render Builder -->
-				<li class="margin-right:15px">
-					<a actions="pass, openModal" modal-src="./builder/index.html">
-                        <i class="fas fa-palette"></i>
-                        <div pass_id="render" pass-collection="" pass-document_id="" pass-name="" pass_to="builder"></div>
-                    </a>
-				</li>
-
 				<!-- Datatable Controls -->
 				<li class="margin-right:15px">
 					<a actions="deleteDocuments" collection="users" pass_id="datatable" template_id="datatable"><i class="far fa-trash-alt"></i></a>
-				</li>
-				<li class="margin-right:15px">
-					<a toggle="hidden" toogle-target="#column-visibility"><i class="far fa-eye"></i></a>
-				</li>
-				<li class="margin-right:15px">
-					<a actions="export" export-type="csv" template_id="" pass_id="datatable"><i class="fas fa-file-csv"></i></a>
-				</li>
-				<li class="margin-right:15px">
-					<a actions="export" template_id="" pass_id="datatable"><i class="fas fa-file-download"></i></a>
-				</li>
-				<li class="margin-right:15px">
-					<a actions="import" collection="" pass_id="datatable"><i class="fas fa-file-upload"></i></a>
-				</li>
-				<li class="margin-right:15px">
-					<a actions="copy" copy-target="tbody"><i class="far fa-copy"></i></a>
-				</li>
-				<li class="margin-right:15px">
-					<a actions="print" print-target='tbody[template_id="datatable"]'><i class="fas fa-print"></i></a>
 				</li>
 
 			</ul>
@@ -111,7 +68,7 @@
 					</td>
 					<td class="position:sticky top:0 background:white padding:0px_10px_10px">
 	            		<floating-label>
-							<input type="text" class="floating-label" filter-name="_id" template_id="datatable" placeholder="Document_id" />
+							<input type="text" class="floating-label" filter-name="_id" template_id="" pass_id="datatable" placeholder="Document_id" />
 						</floating-label>
 						<span class="position:absolute bottom:18px right:20px float:right font-size:18px z-index:6">
 							<a filter-sort-name="_id" filter-sort-direction="" icon click-value="desc, asc" click-attribute="filter-sort-direction" template_id="" pass_id="datatable"></a>
@@ -119,7 +76,7 @@
 					</td>
 				</tr>
 
-				<tbody template_id="datatable" fetch-collection="users" pass_id="datatable">
+				<tbody template_id="" fetch-collection="users" pass_id="datatable">
 
 					<tr class="background:gainsboro:hover border-bottom:1px_solid_darkgray" template="" pass_id="datatable" document_id="{{document._id}}" toggle="selected">
 						<td class="padding:10px">
