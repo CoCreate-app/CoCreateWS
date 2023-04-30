@@ -29,7 +29,7 @@
                 <li class="margin-right:15px"><a actions="parkModal"><i class="far fa-window-minimize"></i></a></li>
 
                 <!-- fullscreen toogle and icon transform-->
-                <li class="margin-right:15px"><a fullscreen><i toggle="fa-compress, fa-expand" class="fas fa-expand"></i></a></li>
+                <li class="margin-right:15px"><a fullscreen></a></li>
 
                 <!-- deleteDocument-->
                 <li class="margin-right:15px">
@@ -42,7 +42,7 @@
 
         <!-- Main Content -->
 		<main class="padding:10px" content_id="content">
-            <form collection="organizations" document_id="" pass_id="form-fields">
+            <form collection="organizations" document_id="{{orgId}}" pass_id="form-fields" localstorage-get="organization_id" localstorage-key="orgId">
 
                 <input type="text" name="logo" placeholder="Logo" class="floating-label" />
 
