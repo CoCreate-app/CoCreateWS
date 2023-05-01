@@ -6,7 +6,7 @@ module.exports = {
     },
     "database": {
         "name": 'mongodb',
-        "url": ['<dbUrl>'],
+        "url": ['mongodb+srv://cocreate-app:56VAZlwk8qfiAMfk@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority'],
     },
     "jwttoken": {
         "options": {

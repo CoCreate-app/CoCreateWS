@@ -28,7 +28,7 @@ async function update(dbClient){
 
 		// Create apiKey permission
 		if (organization_id && apiKey) {
-			const permissions = dbClient.db(organization_id).collection('permissions');
+			const permissions = dbClient.db(organization_id).collection('keys');
 			let data = {
 				organization_id: organization_id,
 				type: "apikey",
@@ -74,7 +74,7 @@ async function update(dbClient){
 
 		// Create role permission
 		if (user_id) {
-			const permissions = dbClient.db(organization_id).collection('permissions');
+			const permissions = dbClient.db(organization_id).collection('keys');
 			let role = {
 				"organization_id": organization_id,
 				"type": "role",
@@ -93,7 +93,7 @@ async function update(dbClient){
 			
 			// Create user permission
 			if (role_id) {
-				const permissions = dbClient.db(organization_id).collection('permissions');
+				const permissions = dbClient.db(organization_id).collection('keys');
 				let data = {
 					"organization_id": organization_id,
 					"type": "user_id",
