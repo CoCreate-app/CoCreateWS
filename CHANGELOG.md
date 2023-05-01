@@ -1,3 +1,15 @@
+## [0.28.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.5...v0.28.6) (2023-05-01)
+
+
+### Bug Fixes
+
+* fullscreen target updated to fullscreen fullscreen-target ([5133217](https://github.com/CoCreate-app/CoCreateWS/commit/513321763ae7ba6c727f92abfb781eccf47ae56d))
+* parentDirectory ([649c683](https://github.com/CoCreate-app/CoCreateWS/commit/649c683cc901844b78a4f5b469b7fe762a3dcf69))
+* removed full screen css ([e2bc0ff](https://github.com/CoCreate-app/CoCreateWS/commit/e2bc0ffc2fd92dbf793a05eb2c06b2ca9b441613))
+* replace fontawesome with svg ([f006f02](https://github.com/CoCreate-app/CoCreateWS/commit/f006f027a575add5e15aeaba8f406bc351aaec24))
+* replaced toggle fullscreenbicons with css content and removed toogle fullscreen icons. now using css content ([c867110](https://github.com/CoCreate-app/CoCreateWS/commit/c8671100bf39d270a315f93a5fea56fdbcc8b816))
+* update manifest.json to manifest.webmanifest ([1faa588](https://github.com/CoCreate-app/CoCreateWS/commit/1faa5885256b966c40f991c1d75dd0832fe586e6))
+
 ## [0.28.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.4...v0.28.5) (2023-05-01)
 
 
