@@ -1,3 +1,10 @@
+## [0.28.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.3...v0.28.4) (2023-04-29)
+
+
+### Bug Fixes
+
+* package-lock.json and pnpm-lock.yaml added to .gitignore ([8f111fe](https://github.com/CoCreate-app/CoCreateWS/commit/8f111fe18f2e4e700bdc1d7d182854b281be609d))
+
 ## [0.28.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.2...v0.28.3) (2023-04-29)
 
 
