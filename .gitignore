@@ -2,8 +2,9 @@
 config.js
 node_modules
 dist
-.npmrc
+package-lock.json
 yarn.lock
+pnpm-lock.yaml
 package-lock.json
 
 logs
