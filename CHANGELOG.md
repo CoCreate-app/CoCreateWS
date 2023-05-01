@@ -1,3 +1,10 @@
+## [0.28.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.4...v0.28.5) (2023-05-01)
+
+
+### Bug Fixes
+
+* updated permissions collection to keys ([5bd5f44](https://github.com/CoCreate-app/CoCreateWS/commit/5bd5f446a7b0dd3fcb41c551462227a99356f973))
+
 ## [0.28.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.3...v0.28.4) (2023-04-29)
 
 
