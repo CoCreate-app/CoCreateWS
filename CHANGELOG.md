@@ -1,3 +1,10 @@
+## [0.29.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.0...v0.29.1) (2023-05-03)
+
+
+### Bug Fixes
+
+* moved admin outside of src ([c21c241](https://github.com/CoCreate-app/CoCreateWS/commit/c21c2412ed9d67c015b297b344a7cc66c2487df1))
+
 # [0.29.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.6...v0.29.0) (2023-05-03)
 
 
