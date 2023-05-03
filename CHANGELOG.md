@@ -1,3 +1,10 @@
+# [0.29.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.6...v0.29.0) (2023-05-03)
+
+
+### Features
+
+* add keys to superadmin ([9d9e78d](https://github.com/CoCreate-app/CoCreateWS/commit/9d9e78df4da6e85cf3671674b2b45852fcd658e9))
+
 ## [0.28.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.28.5...v0.28.6) (2023-05-01)
 
 
