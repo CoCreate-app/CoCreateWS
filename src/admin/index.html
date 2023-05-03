@@ -117,25 +117,22 @@
 
         <div class="padding-right:5px padding-bottom:5px">
 
-            <ul
-                class="overflow:auto display:flex flex-direction:column width:100% height:calc(100vh_-_165px) bottom:10px margin-right:5px">
-                <li
-                    class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
+            <ul class="overflow:auto display:flex flex-direction:column width:100% height:calc(100vh_-_165px) bottom:10px margin-right:5px">
+                <li class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                     <a actions="pass, openModal" modal-src='./organizations/form.html' modal-width="375px"
-                        modal-color="green" class="display:inline-block">
-                        <span class="display:inline-block width:50px text-align:center">
-                            <i class="height:20px fill:#505050" src="/assets/svg/city.svg"></i>
+                        modal-color="green" class="display:flex align-items:center">
+                        <span class="display:flex justify-content:center min-width:50px">
+                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/city.svg"></i>
                         </span>
                         <span>Organization</span>
                     </a>
                 </li>
 
-                <li
-                    class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
+                <li class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                     <a actions="pass, openModal" modal-src='./users/datatable.html' modal-width="640px"
-                        modal-color="green" class="display:inline-block">
-                        <span class="display:inline-block width:50px text-align:center">
-                            <i class="height:20px fill:#505050" src="/assets/svg/users.svg"></i>
+                        modal-color="green" class="display:flex align-items:center">
+                        <span class="display:flex justify-content:center min-width:50px">
+                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/users.svg"></i>
                         </span>
                         <span>Users</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -148,31 +145,29 @@
                     </div>
                 </li>
 
-                <li
-                    class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
-                    <a actions="pass, openModal" modal-src='./apikeys/datatable.html' modal-width="100%"
-                        modal-color="green" class="display:inline-block">
-                        <span class="display:inline-block width:50px text-align:center">
-                            <i class="height:20px fill:#505050" src="/assets/svg/key.svg"></i>
+                <li class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
+                    <a actions="pass, openModal" modal-src='./keys/datatable.html' modal-width="100%"
+                        modal-color="green" class="display:flex align-items:center">
+                        <span class="display:flex justify-content:center min-width:50px">
+                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/key.svg"></i>
                         </span>
-                        <span>API keys</span>
+                        <span>Keys</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
 
                     </a>
                     <div class="float:right width:50px text-align:center">
-                        <a actions="pass, openModal" modal-src='./apikeys/form.html' modal-width="375px"
+                        <a actions="pass, openModal" modal-src='./keys/form.html' modal-width="375px"
                             modal-color="red">
                             <i class="height:16px fill:#505050" src="/assets/svg/plus.svg"></i>
                         </a>
                     </div>
                 </li>
 
-                <li
-                    class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
+                <li class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                     <a actions="pass, openModal" modal-src='./database/index.html' modal-width="100%"
-                        modal-color="green" class="display:inline-block">
-                        <span class="display:inline-block width:50px text-align:center">
-                            <i class="height:20px fill:#505050" src="/assets/svg/database.svg"></i>
+                        modal-color="green" class="display:flex align-items:center">
+                        <span class="display:flex justify-content:center min-width:50px">
+                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/database.svg"></i>
                         </span>
                         <span>Database</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -185,12 +180,11 @@
                     </div>
                 </li>
 
-                <li
-                    class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
+                <li class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                     <a actions="pass, openModal" modal-src='./files/datatable.html' modal-width="100%"
-                        modal-color="green" class="display:inline-block">
-                        <span class="display:inline-block width:50px text-align:center">
-                            <i class="height:16px fill:#505050" src="/assets/svg/folder.svg"></i>
+                        modal-color="green" class="display:flex align-items:center">
+                        <span class="display:flex justify-content:center min-width:50px">
+                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/folder.svg"></i>
                         </span>
                         <span>Files</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -203,12 +197,11 @@
                     </div>
                 </li>
 
-                <li
-                    class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover margin-bottom:10px">
+                <li class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover margin-bottom:10px">
                     <a actions="pass, openModal" modal-src='./websites/list.html' modal-width="640px"
-                        modal-color="green" class="display:inline-block">
-                        <span class="display:inline-block width:50px text-align:center">
-                            <i class="height:20px fill:#505050" src="/assets/svg/desktop.svg"></i>
+                        modal-color="green" class="display:flex align-items:center">
+                        <span class="display:flex justify-content:center min-width:50px">
+                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/desktop.svg"></i>
                         </span>
                         <span>Sites & Apps</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -223,11 +216,10 @@
             </ul>
 
             <!-- sidenav Footer -->
-            <div
-                class="display:flex justify-content:space-between flex-wrap:wrap position:absolute bottom:0px background:gainsboro line-height:40px height:40px width:100% overflow:hidden">
-                <a actions="signOut" href="./signin.html">
-                    <span class="display:inline-block width:50px text-align:center">
-                        <i class="height:16px fill:#505050" src="/assets/svg/sign-out-alt.svg"></i>
+            <div class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap position:absolute bottom:0px background:gainsboro width:100%">
+                <a actions="signOut" href="./signin.html" class="display:flex align-items:center">
+                    <span class="display:flex justify-content:center min-width:50px">
+                        <i class="display:flex height:16px fill:#505050" src="/assets/svg/sign-out-alt.svg"></i>
                     </span>
                     <span>Sign Out</span>
                 </a>

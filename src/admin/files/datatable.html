@@ -52,7 +52,6 @@
 					</a>
 				</li>
 
-
 				<!-- Datatable Controls -->
 				<li class="margin-right:15px">
 					<a actions="deleteDocuments" collection="files" pass_id="datatable" template_id=""><i class="height:18px fill:#505050" src="/assets/svg/trash-alt.svg"></i></a>
@@ -67,7 +66,10 @@
 		<main content_id="content" class="padding:5px overflow:auto">
 			<table class="width:100% border-collapse:collapse">
 				<tr class="border-bottom:1px_solid_darkgray">
-					<td class="position:sticky top:0 background:white padding:0px_10px_10px">
+					<td class="position:sticky top:0 background:white padding:20px">
+	            		<input type="checkbox">
+					</td>
+					<td class="position:sticky top:0 background:white padding:0px_10px_10px_0px">
 	            		<floating-label>
 							<input type="text" class="floating-label" filter-name="path" template_id="" pass_id="datatable" placeholder="Path">
 						</floating-label>
@@ -88,19 +90,17 @@
 				<tbody template_id="" fetch-collection="files" fetch-document filter-sort-name="path" filter-sort-direction="asc" fetch-limit="20" pass_id="datatable">
 
 					<tr template class="background:gainsboro:hover border-bottom:1px_solid_darkgray" document_id="{{document._id}}" toggle="selected" pass_id="datatable">
-						<td class="padding:10px">
-							<div class="display:flex min-width:200px">
-								<div class="margin-left:10px">
-									<a actions="pass, openModal" modal-src="./files/form.html" modal-width="320px" modal-color="#229954">
-										<h4>{{document.path}}</h4>
-										<div pass-collection="{{document.collection}}" pass-document_id="{{document._id}}" pass_to="form-fields"></div>
-										<div pass_id="form" pass-collection="" pass-document_id="" pass-name="" pass_to="render"></div>
-										<div pass-value="{{document.module_id}}" pass-filter-value="{{document.module_id}}" pass_to="module_id"></div>
-										<div pass-document_id="{{document.module_id}}" pass_to="module-form"></div>
-									</a>
-									<h5 name="description" value="description"></h5>
-								</div>
-							</div>
+						<td class="padding:20px">
+							<input type="checkbox">
+						</td>
+						<td class="padding:20px_5px display:flex min-width:200px align-items:center">
+							<a actions="pass, openModal" modal-src="./files/form.html" modal-width="320px" modal-color="#229954">
+								<h4>{{document.path}}</h4>
+								<div pass-collection="{{document.collection}}" pass-document_id="{{document._id}}" pass_to="form-fields"></div>
+								<div pass_id="form" pass-collection="" pass-document_id="" pass-name="" pass_to="render"></div>
+								<div pass-value="{{document.module_id}}" pass-filter-value="{{document.module_id}}" pass_to="module_id"></div>
+								<div pass-document_id="{{document.module_id}}" pass_to="module-form"></div>
+							</a>
 						</td>
 						<td class="padding:10px">
 							<a actions="pass, openModal" modal-src="./files/form.html" modal-width="320px" modal-color="#229954">
