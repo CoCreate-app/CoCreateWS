@@ -8,7 +8,7 @@
 		<link rel="icon" href="https://cdn.cocreate.app/favicon.ico" type="image/ico" sizes="16x16">
 		<title>Dashboard | CoCreate</title>
 		<link rel="stylesheet" href="../index.css" collection="files" document_id="637bc8fe91249e639db315d9" name="src" type="text/css"/>
-		<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="manifest" href="/superadmin/manifest.webmanifest" />
 	</head>
 	<style>
 		.progressbar {
@@ -57,19 +57,19 @@
 			<ul class="display:inline-flex direction:rtl overflow:auto font-size:20px align-items:center list-style-type:none width:100% height:50px">
 
 				<!-- Modal Controls -->
-				<li class="margin-right:15px"><a actions="closeModal"><i class="height:18px fill:#505050" src="/assets/svg/times.svg"></i></a></li>
+				<li class="margin-right:15px"><a actions="closeModal"><i class="height:18px fill:#505050" src="/superadmin/assets/svg/times.svg"></i></a></li>
 				<li class="margin-right:15px">
 					<a actions="minMaxModal">
-						<i toggle="/assets/svg/window-restore.svg, /assets/svg/window-maximize.svg" toggle-attribute="src" class="display:flex height:18px fill:#505050" src="/assets/svg/window-maximize.svg"></i>
+						<i toggle="/superadmin/assets/svg/window-restore.svg, /superadmin/assets/svg/window-maximize.svg" toggle-attribute="src" class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/window-maximize.svg"></i>
 					</a>
 				</li>
-				<li class="margin-right:15px"><a actions="parkModal"><i class="height:18px fill:#505050" src="/assets/svg/window-minimize.svg"></i></a></li>
+				<li class="margin-right:15px"><a actions="parkModal"><i class="height:18px fill:#505050" src="/superadmin/assets/svg/window-minimize.svg"></i></a></li>
 
 				<!-- fullscreen toogle and icon transform-->
 				<li class="margin-right:15px">
 					<a fullscreen>
-						<i class="display:flex height:18px fill:#505050" src="/assets/svg/expand.svg"></i>
-						<i class="display:flex height:18px fill:#505050" src="/assets/svg/compress.svg"></i>
+						<i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/expand.svg"></i>
+						<i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/compress.svg"></i>
 					</a>
 				</li>
 
@@ -77,7 +77,7 @@
 				<!-- Render Module Form -->
 				<li class="margin-right:15px">
 					<a actions="pass, openModal" modal-src="./modules/form.html" modal-width="320px">
-                        <i class="display:flex height:18px fill:#505050" src="/assets/svg/cog.svg"></i>
+                        <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/cog.svg"></i>
                         <div pass_id="module-form" pass-collection="modules" pass-document_id="" pass_to="form-fields"></div>
                         <div pass_id="module_id" pass-filter-value="" pass_to="module_id"></div>
                     </a>
@@ -86,7 +86,7 @@
 				<!-- Render Code Editor -->
 				<li class="margin-right:15px">
 					<a actions="pass, openModal" modal-src="./code-editor/index.html">
-                        <i class="display:flex height:18px fill:#505050" src="/assets/svg/code.svg"></i>
+                        <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/code.svg"></i>
                         <div pass_id="render" pass-collection="" pass-document_id="" pass-name="" pass_to="code-editor"></div>
                     </a>
 				</li>
@@ -94,7 +94,7 @@
 				<!-- Render Builder -->
 				<li class="margin-right:15px">
 					<a actions="pass, openModal" modal-src="./builder/index.html">
-                        <i class="display:flex height:18px fill:#505050" src="/assets/svg/palette.svg"></i>
+                        <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/palette.svg"></i>
                         <div pass_id="render" pass-collection="" pass-document_id="" pass-name="" pass_to="builder"></div>
                     </a>
 				</li>
@@ -102,7 +102,7 @@
 				<!-- deleteDocument-->
 				<li class="margin-right:15px">
 					<a actions="deleteDocument, closeModal" collection="" document_id="" pass_id="form-fields">
-                        <i class="height:18px fill:#505050" src="/assets/svg/trash-alt.svg"></i>
+                        <i class="height:18px fill:#505050" src="/superadmin/assets/svg/trash-alt.svg"></i>
                     </a>
 				</li>
 			</ul>
@@ -116,7 +116,7 @@
 			<!--	<input type="text" class="floating-label" pass_to="results">-->
 			<!--	<span class="passValueBtn position:relative bottom:29px right:11px float:right font-size:18px">-->
 			<!--		<a actions="pass, openModal" pass_to="render" collection="website-pages" document_id="" pass-name="src" modal-width="900px" modal-color="#229954">-->
-			<!--			<i class="height:20px fill:#505050" src="/assets/svg/search.svg"></i>-->
+			<!--			<i class="height:20px fill:#505050" src="/superadmin/assets/svg/search.svg"></i>-->
 			<!--		</a>-->
 			<!--	</span>-->
 			<!--</form>-->
@@ -155,7 +155,7 @@
                                 <!--<a actions="pass, openModal" id="a{{document._id}}" href='..{{secondary-url}}'-->
    <!--                                 modal-width="{{document.main-menu-secondary-width}}"-->
    <!--                                 modal-color="{{document.main-menu-secondary-color}}">-->
-   <!--                                 <i class="height:16px fill:#505050" src="/assets/svg/plus.svg"></i>-->
+   <!--                                 <i class="height:16px fill:#505050" src="/superadmin/assets/svg/plus.svg"></i>-->
    <!--                                 <div pass-value="{{document._id}}" pass-filter-value="{{document._id}}" pass_to="module_id"></div>-->
    <!--                                 <div pass-collection="files" pass-document_id="{{document.main-menu-secondary}}" pass-name="src" pass_to="render"></div>-->
    <!--                                 <div pass-document_id="{{document._id}}" pass_to="module-form"></div>-->
@@ -169,23 +169,23 @@
                 <!-- sidenav Footer -->
 			<!--	<div class="display:flex justify-content:space-between flex-wrap:wrap position:absolute bottom:0px background:gainsboro line-height:40px height:40px width:100% overflow:hidden">-->
 			<!--		<a actions="pass, openModal" modal-src="./settings/index.html" modal-width="275px" modal-color="#229954" modal-x="0" modal-y="0" class="width:50px text-align:center display:inline-block">-->
-			<!--		    <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/assets/svg/cogs.svg"></i></span>-->
+			<!--		    <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/superadmin/assets/svg/cogs.svg"></i></span>-->
 			<!--		    <div pass-collection="files" pass-document_id="60ddfdc014b5ab0c2dd2fe18" pass-name="src" pass_to="render"></div>-->
 			<!--		</a>-->
 			<!--		<a actions="pass, openModal" modal-src="./modules/datatable.html" modal-width="640px" modal-color="#229954" class="width:50px text-align:center display:inline-block">-->
-			<!--		    <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/assets/svg/project-diagram.svg"></i></span>-->
+			<!--		    <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/superadmin/assets/svg/project-diagram.svg"></i></span>-->
 			<!--		    <div pass-collection="files" pass-document_id="60ddfdbf14b5ab0c2dd2fe08" pass-name="src" pass_to="render"></div>-->
 			<!--		</a>-->
 			<!--		<a actions="pass, openModal" modal-src="./module-views/datatable.html" modal-width="640px" modal-color="#229954" class="width:50px text-align:center display:inline-block">-->
-			<!--		    <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/assets/svg/shapes.svg"></i></span>-->
+			<!--		    <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/superadmin/assets/svg/shapes.svg"></i></span>-->
 			<!--		    <div pass-collection="files" pass-document_id="60ddfdc014b5ab0c2dd2fe0b" pass-name="src" pass_to="render"></div>-->
 			<!--		</a>-->
 			<!--		<a actions="pass, openModal" modal-src="./files/datatable.html" modal-width="640px" modal-color="#229954" class="width:50px text-align:center display:inline-block">-->
-			<!--		    <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/assets/svg/folder.svg"></i></span>-->
+			<!--		    <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/superadmin/assets/svg/folder.svg"></i></span>-->
 			<!--		    <div pass-collection="files" pass-document_id="60ddfdc014b5ab0c2dd2fe15" pass-name="src" pass_to="render"></div>-->
 			<!--		</a>-->
-			<!--		<a actions="logout" href="./signin.html" pass_to class="width:50px text-align:center display:inline-block">-->
-			<!--		  <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/assets/svg/sign-out-alt.svg"></i></span>-->
+			<!--		<a actions="logout" href="/superadmin/signin.html" pass_to class="width:50px text-align:center display:inline-block">-->
+			<!--		  <span class="padding:10px width:50px text-align:center"><i class="height:16px fill:#505050" src="/superadmin/assets/svg/sign-out-alt.svg"></i></span>-->
 			<!--		</a>-->
 			<!--	</div>-->
 			<!--</div>-->
@@ -209,7 +209,7 @@
 						<div class="display:flex align-items:center">
 							<h2>$<span fetch-collection="" fetch-document filter-name="total" chart-operator="sum">4000</span></h2>
 							<div filter-name="status" filter-value="completed"></div>
-							<!-- <i class="height:18px fill:green padding:0px_15px" src="/assets/svg/chart-line.svg"></i> -->
+							<!-- <i class="height:18px fill:green padding:0px_15px" src="/superadmin/assets/svg/chart-line.svg"></i> -->
 							<span class="cocreate-badge background:green round font-size:12px">7%</span>
 						</div>
 						<a href="#">Detail</a>
@@ -227,7 +227,7 @@
 			
 			<button class="position:absolute bottom:15px right:15px line-height:50px width:50px background:dodgerblue color:#fff font-size:1.5rem grow-hover border-radius:50% border-width:0 box-shadow:0px_2px_10px_0px_rgba(0,_0,_0,_0.4)">
 				<a actions="pass, openModal" modal-src="./dashboard/form.html" modal-width="320px" modal-color="#229954">
-					<i class="height:20px fill:#505050" src="/assets/svg/plus.svg"></i>
+					<i class="height:20px fill:#505050" src="/superadmin/assets/svg/plus.svg"></i>
 					<div pass_to="form-fields" pass-document_id=""></div>
 					<div pass_id="module_id" pass-document_id="" pass-value="" pass-filter-value="" pass_to="module_id"></div>
 	                <div pass_id="form" pass-collection="" pass-document_id="" pass-name="" pass_to="render"></div>

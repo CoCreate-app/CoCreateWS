@@ -21,19 +21,18 @@ module.exports.init = async function(app, wsManager) {
 		const crud = new crudServer(wsManager, databases, database)
 		const render = new serverSideRender(crud);
 		const file = new fileServer(crud, render)
-		app.enable('trust proxy')
 		app.use('/', file.router)
 
 		let auth = new CoCreateAuth(jwttoken)
 		wsManager.setAuth(auth)
 		let permission = new serverPermission(crud)
 		wsManager.setPermission(permission)
-
-		new industry(wsManager, crud);
+		
 		new messageServer(wsManager);
-		new metricsServer(wsManager, crud);
-		new organizations(wsManager, crud);
-		new users(wsManager, crud);
+		new industry(crud);
+		new metricsServer(crud);
+		new organizations(crud);
+		new users(crud);
 		
 	} catch (error) {
 		console.error(error)
