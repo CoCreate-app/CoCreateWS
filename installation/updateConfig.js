@@ -1,7 +1,6 @@
 
 const fs = require('fs');
 const path = require("path")
-const prettier = require("prettier");
 
 function updateConfig(organization_id, apiKey) {
     const ppath = './'

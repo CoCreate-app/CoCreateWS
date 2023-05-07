@@ -1,11 +1,13 @@
 module.exports = {
     "organization": {
+        "_id": "<If Known or leave empty>",
         "name": "<organization, company or project name>",
         "hosts": [
             "<CoCreate subdomain or custom domain pointing to CoCreateWS server>",
         ]
     },
     "user": {
+        "_id": "<If Known or leave empty>",
         "name": "admin",
         "email": "<email to use for loggin>",
         "password": "<password to use for loggin>"
