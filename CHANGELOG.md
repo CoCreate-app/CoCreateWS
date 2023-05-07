@@ -1,3 +1,11 @@
+## [0.29.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.1...v0.29.2) (2023-05-07)
+
+
+### Bug Fixes
+
+* createDb functions ([088fed7](https://github.com/CoCreate-app/CoCreateWS/commit/088fed7c91d3fcc5086b16ec2b8047e7ff46f50b))
+* supderadmin files path ([d63d20c](https://github.com/CoCreate-app/CoCreateWS/commit/d63d20c67f960284c6042c092d4201cc7cd9298e))
+
 ## [0.29.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.0...v0.29.1) (2023-05-03)
 
 
