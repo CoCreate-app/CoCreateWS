@@ -5,8 +5,10 @@ module.exports = {
         "host": "general.cocreate.app"
     },
     "database": {
-        "name": 'mongodb',
-        "url": ['<dbUrl>'],
+        "name": "mongodb",
+        "url": [
+            "<dbUrl>"
+        ]
     },
     "jwttoken": {
         "options": {
@@ -15,23 +17,22 @@ module.exports = {
             "issuer": "issuer"
         }
     },
-    "sources": [
+    "directories": [
         {
+            "entry": "./admin",
             "collection": "files",
             "document": {
-                "_id": "63af5afb7c43c94f9cf6c4be",
-                "name": "index.html",
-                "path": "/docs/CoCreateWS/index.html",
-                "src": "{{./docs/index.html}}",
+                "name": "{{name}}",
+                "src": "{{source}}",
                 "hosts": [
                     "*",
                     "general.cocreate.app"
                 ],
-                "directory": "/docs/CoCreateWS",
                 "parentDirectory": "{{parentDirectory}}",
+                "directory": "/superadmin{{directory}}",
+                "path": "{{path}}",
                 "content-type": "{{content-type}}",
-                "public": "true",
-                "website_id": "644d4bff8036fb9d1d1fd69c"
+                "public": "true"
             }
         }
     ]

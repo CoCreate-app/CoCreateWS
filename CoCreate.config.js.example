@@ -1,11 +1,13 @@
 module.exports = {
     "organization": {
+        "_id": "<If Known or leave empty>",
         "name": "<organization, company or project name>",
         "hosts": [
             "<CoCreate subdomain or custom domain pointing to CoCreateWS server>",
         ]
     },
     "user": {
+        "_id": "<If Known or leave empty>",
         "name": "admin",
         "email": "<email to use for loggin>",
         "password": "<password to use for loggin>"
@@ -15,8 +17,11 @@ module.exports = {
         "organization_id": "<CoCreate Organization ID>",
         "host": "<CoCreate subdomain or custom domain pointing to CoCreateWS server>"
     },
-    "dbUrl": {
-        'mongodb': ['<dbUrl>']
+    "database": {
+        "name": "mongodb",
+        "url": [
+            "<dbUrl>"
+        ]
     },
     "jwttoken": {
         "options": {

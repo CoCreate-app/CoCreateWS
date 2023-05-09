@@ -1,29 +1,34 @@
-const { ObjectId } = require("mongodb");
-const { mongoClient } = require("../src/db")
-const config = require('./CoCreate.config');
+// const { ObjectId } = require("mongodb");
+const { MongoClient, ObjectId } = require('mongodb');
+const config = require('../CoCreate.config');
 const CoCreateUUID = require('@cocreate/uuid');
-// const { updateConfig } = require('./updateConfig');
 
 const fs = require('fs');
 const path = require("path")
-const prettier = require("prettier");
 
-mongoClient().then(dbClient => {
-	update(dbClient)
-});
+let dbUrl = config.database.url[0]
+if (dbUrl)
+	update(dbUrl)
+async function update(dbUrl) {
+	let dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+	const organization_id = config.config.organization_id || `${ObjectId()}`
+	const apiKey = config.config.apiKey ||  CoCreateUUID.generate(32);
+	let user_id = config.user._id;
+	console.log(organization_id, apiKey, user_id)
 
-async function update(dbClient){
-	const organization_id = `${ObjectId()}`
-	const apiKey = CoCreateUUID.generate(32);
-	let user_id = '';
-
+	// return ''
 	try {
 		// Create organization 
 		const organizations = dbClient.db(organization_id).collection('organizations');
 
 		let organization = config.organization;
-		organization.organization_id = organization_id;
+		organization._id = ObjectId(organization_id);
 		organization.apiKey = apiKey;
+		organization.databases = {
+			mongodb: {name: config.database.name, url: config.database.url}
+		}
+		organization.organization_id = organization_id;
+
 		await organizations.insertOne(organization);
 
 		// Create apiKey permission
@@ -55,7 +60,7 @@ async function update(dbClient){
 					"runIndustry": "",
 					"sendgrid": ["sendEmail"]
 				},
-				"admin": "false"
+				"admin": "true"
 			}
 			await permissions.insertOne(data);
 		}
@@ -64,6 +69,7 @@ async function update(dbClient){
 		if (organization_id) {
 			const users = dbClient.db(organization_id).collection('users');
 			let user = config.user;
+			user['_id'] = ObjectId(user._id);
 			user['password'] = encryptPassword(user.password);
 			user['connected_orgs'] = [organization_id];
 			user['current_org'] = organization_id;
@@ -134,9 +140,8 @@ function updateConfig(organization_id, apiKey) {
     Object.assign(object.config, {apiKey})
     delete object.organization
     delete object.user
-    let str = JSON.stringify(object)
-    let formated = prettier.format(str, { semi: false, parser: "json" });
-    let config = `module.exports = ${formated}`
+
+	let config = `module.exports = ${JSON.stringify(object, null, 4)}`
 
     if (fs.existsSync(configfile))
         fs.unlinkSync(configfile)

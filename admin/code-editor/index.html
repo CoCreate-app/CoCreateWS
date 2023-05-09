@@ -9,7 +9,7 @@
         <title>Code Editor | CoCreate</title>
         <link rel="stylesheet" type="text/css" href="https://cdn.cocreate.app/latest/CoCreate.min.css">
         <link rel="stylesheet" href="./index.css" collection="files" document_id="637bc8ff91249e639db315e9" name="src" type="text/css"/>
-		<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="manifest" href="/superadmin/manifest.webmanifest" />
 	</head>
 
     <body>
@@ -21,32 +21,32 @@
             <ul class="display:inline-flex direction:rtl overflow:auto font-size:20px align-items:center list-style-type:none width:100% height:50px">
 
                 <!-- Modal Controls -->
-                <li class="margin-right:15px"><a actions="closeModal"><i class="display:flex height:18px fill:#505050" src="/assets/svg/times.svg"></i></a></li>
+                <li class="margin-right:15px"><a actions="closeModal"><i class="height:18px fill:#505050" src="/superadmin/assets/svg/times.svg"></i></a></li>
                 <li class="margin-right:15px">
 					<a actions="minMaxModal">
-						<i toggle="/assets/svg/window-restore.svg, /assets/svg/window-maximize.svg" toggle-attribute="src" class="display:flex height:18px fill:#505050" src="/assets/svg/window-maximize.svg"></i>
+						<i toggle="/superadmin/assets/svg/window-restore.svg, /superadmin/assets/svg/window-maximize.svg" toggle-attribute="src" class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/window-maximize.svg"></i>
 					</a>
 				</li>
-                <li class="margin-right:15px"><a actions="parkModal"><i class="display:flex height:18px fill:#505050" src="/assets/svg/window-minimize.svg"></i></a></li>
+                <li class="margin-right:15px"><a actions="parkModal"><i class="height:18px fill:#505050" src="/superadmin/assets/svg/window-minimize.svg"></i></a></li>
 
                 <!-- fullscreen toogle and icon transform-->
                             <li class="margin-right:15px">
                 <a fullscreen>
-                    <i class="display:flex height:18px fill:#505050" src="/assets/svg/expand.svg"></i>
-                    <i class="display:flex height:18px fill:#505050" src="/assets/svg/compress.svg"></i>
+                    <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/expand.svg"></i>
+                    <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/compress.svg"></i>
                 </a>
             </li>
 
                 
                 <!-- Save and Make live -->
                 <li class="margin-right:15px">
-                    <a actions="saveDomText" pass_id="code-editor" collection="" document_id="" name="src"><i class="height:20px fill:#505050" src="/assets/svg/save.svg"></i></a>
+                    <a actions="saveDomText" pass_id="code-editor" collection="" document_id="" name="src"><i class="height:20px fill:#505050" src="/superadmin/assets/svg/save.svg"></i></a>
                 </li>
                 
                 <!-- Render Module Form -->
                 <li class="margin-right:15px">
                     <a actions="pass, openModal" modal-src="./modules/form.html" modal-width="320px">
-                        <i class="display:flex height:18px fill:#505050" src="/assets/svg/cog.svg"></i>
+                        <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/cog.svg"></i>
                         <div pass-collection="modules" pass-document_id="5ff747727005da1c27274191" pass_to="form-fields"></div>
                         <div pass-filter-value="5ff747727005da1c27274191" pass_to="module_id"></div>
                     </a>
@@ -55,7 +55,7 @@
                 <!-- Render Code Editor -->
                 <li class="margin-right:15px">
                     <a actions="pass, openModal" modal-src="./code-editor/index.html">
-                        <i class="display:flex height:18px fill:#505050" src="/assets/svg/code.svg"></i>
+                        <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/code.svg"></i>
                         <div pass_id="render" pass-collection="files" pass-document_id="60ddfdbe14b5ab0c2dd2fdf5" pass-name="src" pass_to="code-editor"></div>
                     </a>
                 </li>
@@ -63,7 +63,7 @@
                 <!-- Render Builder -->
                 <li class="margin-right:15px">
                     <a actions="pass, openModal" modal-src="./builder/index.html">
-                        <i class="display:flex height:18px fill:#505050" src="/assets/svg/palette.svg"></i>
+                        <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/palette.svg"></i>
                         <div pass_id="render" pass-collection="" pass-document_id="" pass-name="" pass_to="builder"></div>
                     </a>
                 </li>

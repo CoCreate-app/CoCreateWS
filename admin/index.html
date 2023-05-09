@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>admin | CoCreate</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/superadmin/assets/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.cocreate.app/latest/CoCreate.min.css">
-    <link rel="stylesheet" href="./index.css" collection="files" document_id="637bc8fe91249e639db315d9" name="src"
+    <link rel="stylesheet" href="/superadmin/index.css" collection="files" document_id="637bc8fe91249e639db315d9" name="src"
         type="text/css" />
-    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="manifest" href="/superadmin/manifest.webmanifest" />
 </head>
 
 <style type="text/css">
@@ -21,7 +21,7 @@
 </style>
 
 <body>
-    <a href="./signin.html" session="false" hidden></a>
+    <a href="/superadmin/signin.html" session="false" hidden></a>
     <!-- Navbar  -->
     <nav class="nav display:flex align-items:center background:whitesmoke" content_id="content" scroll=", hide-nav"
         scroll-up="5" scroll-down="5">
@@ -39,8 +39,8 @@
             <!-- Fullscreen toogle -->
                         <li class="margin-right:15px">
                 <a fullscreen>
-                    <i class="display:flex height:18px fill:#505050" src="/assets/svg/expand.svg"></i>
-                    <i class="display:flex height:18px fill:#505050" src="/assets/svg/compress.svg"></i>
+                    <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/expand.svg"></i>
+                    <i class="display:flex height:18px fill:#505050" src="/superadmin/assets/svg/compress.svg"></i>
                 </a>
             </li>
 
@@ -89,13 +89,13 @@
                 <cc-option class="display:flex height:50px margin:0!important padding:4px_12px!important"
                     template="connected_orgs" value="{{connected_orgs}}">
                     <span class="logo-icon"><img collection="organizations" document_id="{{connected_orgs}}" name="logo"
-                            src="/assets/icon.png" height="40px" alt="..." class="margin-top:3px"></span>
+                            src="/superadmin/assets/icon.png" height="40px" alt="..." class="margin-top:3px"></span>
                     <span collection="organizations" document_id="{{connected_orgs}}" name="name"
                         class="margin-left:12px font-size:1.5em"></span>
                 </cc-option>
                 <div class="line-height:40px height:40px overflow:hidden">
                     <a href="./organizations/creator.html">
-                        <span class="padding:13px"><i class="height:16px fill:#505050" src="/assets/svg/plus.svg"></i></span>
+                        <span class="padding:13px"><i class="height:16px fill:#505050" src="/superadmin/assets/svg/plus.svg"></i></span>
                         <span>New Orginaztion</span>
                     </a>
                 </div>
@@ -110,7 +110,7 @@
             <span class="passValueBtn position:relative bottom:29px right:11px float:right font-size:18px">
                 <a actions="pass, openModal" pass_to="render" collection="website-pages" document_id="" pass-name="src"
                     modal-width="900px" modal-color="#229954">
-                    <i class="height:20px fill:#505050" src="/assets/svg/search.svg"></i>
+                    <i class="height:20px fill:#505050" src="/superadmin/assets/svg/search.svg"></i>
                 </a>
             </span>
         </form>
@@ -122,7 +122,7 @@
                     <a actions="pass, openModal" modal-src='./organizations/form.html' modal-width="375px"
                         modal-color="green" class="display:flex align-items:center">
                         <span class="display:flex justify-content:center min-width:50px">
-                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/city.svg"></i>
+                            <i class="display:flex height:16px fill:#505050" src="/superadmin/assets/svg/city.svg"></i>
                         </span>
                         <span>Organization</span>
                     </a>
@@ -132,7 +132,7 @@
                     <a actions="pass, openModal" modal-src='./users/datatable.html' modal-width="640px"
                         modal-color="green" class="display:flex align-items:center">
                         <span class="display:flex justify-content:center min-width:50px">
-                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/users.svg"></i>
+                            <i class="display:flex height:16px fill:#505050" src="/superadmin/assets/svg/users.svg"></i>
                         </span>
                         <span>Users</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -140,7 +140,7 @@
                     <div class="float:right width:50px text-align:center">
                         <a actions="pass, openModal" modal-src='./users/form.html' modal-width="375px"
                             modal-color="red">
-                            <i class="height:16px fill:#505050" src="/assets/svg/plus.svg"></i>
+                            <i class="height:16px fill:#505050" src="/superadmin/assets/svg/plus.svg"></i>
                         </a>
                     </div>
                 </li>
@@ -149,7 +149,7 @@
                     <a actions="pass, openModal" modal-src='./keys/datatable.html' modal-width="100%"
                         modal-color="green" class="display:flex align-items:center">
                         <span class="display:flex justify-content:center min-width:50px">
-                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/key.svg"></i>
+                            <i class="display:flex height:16px fill:#505050" src="/superadmin/assets/svg/key.svg"></i>
                         </span>
                         <span>Keys</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -158,7 +158,7 @@
                     <div class="float:right width:50px text-align:center">
                         <a actions="pass, openModal" modal-src='./keys/form.html' modal-width="375px"
                             modal-color="red">
-                            <i class="height:16px fill:#505050" src="/assets/svg/plus.svg"></i>
+                            <i class="height:16px fill:#505050" src="/superadmin/assets/svg/plus.svg"></i>
                         </a>
                     </div>
                 </li>
@@ -167,7 +167,7 @@
                     <a actions="pass, openModal" modal-src='./database/index.html' modal-width="100%"
                         modal-color="green" class="display:flex align-items:center">
                         <span class="display:flex justify-content:center min-width:50px">
-                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/database.svg"></i>
+                            <i class="display:flex height:16px fill:#505050" src="/superadmin/assets/svg/database.svg"></i>
                         </span>
                         <span>Database</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -175,7 +175,7 @@
                     <div class="float:right width:50px text-align:center">
                         <a actions="pass, openModal" modal-src='./database/form.html' modal-width="375px"
                             modal-color="red">
-                            <i class="height:16px fill:#505050" src="/assets/svg/plus.svg"></i>
+                            <i class="height:16px fill:#505050" src="/superadmin/assets/svg/plus.svg"></i>
                         </a>
                     </div>
                 </li>
@@ -184,7 +184,7 @@
                     <a actions="pass, openModal" modal-src='./files/datatable.html' modal-width="100%"
                         modal-color="green" class="display:flex align-items:center">
                         <span class="display:flex justify-content:center min-width:50px">
-                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/folder.svg"></i>
+                            <i class="display:flex height:16px fill:#505050" src="/superadmin/assets/svg/folder.svg"></i>
                         </span>
                         <span>Files</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -192,7 +192,7 @@
                     <div class="float:right width:50px text-align:center">
                         <a actions="pass, openModal" modal-src='./files/form.html' modal-width="375px"
                             modal-color="red">
-                            <i class="height:16px fill:#505050" src="/assets/svg/plus.svg"></i>
+                            <i class="height:16px fill:#505050" src="/superadmin/assets/svg/plus.svg"></i>
                         </a>
                     </div>
                 </li>
@@ -201,7 +201,7 @@
                     <a actions="pass, openModal" modal-src='./websites/list.html' modal-width="640px"
                         modal-color="green" class="display:flex align-items:center">
                         <span class="display:flex justify-content:center min-width:50px">
-                            <i class="display:flex height:16px fill:#505050" src="/assets/svg/desktop.svg"></i>
+                            <i class="display:flex height:16px fill:#505050" src="/superadmin/assets/svg/desktop.svg"></i>
                         </span>
                         <span>Sites & Apps</span>
                         <div pass-template="$uid" pass_to="datatable"></div>
@@ -209,7 +209,7 @@
                     <div class="float:right width:50px text-align:center">
                         <a actions="pass, openModal" modal-src='./websites/form.html' modal-width="375px"
                             modal-color="red">
-                            <i class="height:16px fill:#505050" src="/assets/svg/plus.svg"></i>
+                            <i class="height:16px fill:#505050" src="/superadmin/assets/svg/plus.svg"></i>
                         </a>
                     </div>
                 </li>
@@ -217,9 +217,9 @@
 
             <!-- sidenav Footer -->
             <div class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap position:absolute bottom:0px background:gainsboro width:100%">
-                <a actions="signOut" href="./signin.html" class="display:flex align-items:center">
+                <a actions="signOut" href="/superadmin/signin.html" class="display:flex align-items:center">
                     <span class="display:flex justify-content:center min-width:50px">
-                        <i class="display:flex height:16px fill:#505050" src="/assets/svg/sign-out-alt.svg"></i>
+                        <i class="display:flex height:16px fill:#505050" src="/superadmin/assets/svg/sign-out-alt.svg"></i>
                     </span>
                     <span>Sign Out</span>
                 </a>
@@ -238,7 +238,14 @@
         </div>
     </div>
 
-    <script src="../../../CoCreateJS/dist/CoCreate.js"></script>
+    <script>
+        var CoCreateConfig = {                 
+            apiKey: '2061acef-0451-4545-f754-60cf8160',                 
+            organization_id: '5ff747727005da1c272740ab',                 
+        }         
+    </script>
+
+    <script src="https://cdn.cocreate.app/1.53.0/CoCreate.min.js"></script>
 
 </body>
 
