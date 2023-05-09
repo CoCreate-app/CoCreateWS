@@ -1,3 +1,10 @@
+## [0.29.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.3...v0.29.4) (2023-05-09)
+
+
+### Bug Fixes
+
+* update icon toggle ([f52125a](https://github.com/CoCreate-app/CoCreateWS/commit/f52125a707a4c987796c44293e4dd286276bb2c3))
+
 ## [0.29.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.2...v0.29.3) (2023-05-09)
 
 
