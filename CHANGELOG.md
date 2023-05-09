@@ -1,3 +1,10 @@
+## [0.29.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.2...v0.29.3) (2023-05-09)
+
+
+### Bug Fixes
+
+* update CoCreate.config.example ([676f6ec](https://github.com/CoCreate-app/CoCreateWS/commit/676f6ec51a4e49bee04e6d3341f60a3d957c6b2f))
+
 ## [0.29.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.1...v0.29.2) (2023-05-07)
 
 
