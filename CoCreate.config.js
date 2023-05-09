@@ -5,8 +5,10 @@ module.exports = {
         "host": "general.cocreate.app"
     },
     "database": {
-        "name": 'mongodb',
-        "url": ['<dbUrl>'],
+        "name": "mongodb",
+        "url": [
+            "<dbUrl>"
+        ]
     },
     "jwttoken": {
         "options": {

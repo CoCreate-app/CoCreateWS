@@ -2,7 +2,6 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const config = require('../CoCreate.config');
 const CoCreateUUID = require('@cocreate/uuid');
-// const { updateConfig } = require('./updateConfig');
 
 const fs = require('fs');
 const path = require("path")
