@@ -1,3 +1,13 @@
+## [0.29.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.5...v0.29.6) (2023-05-10)
+
+
+### Bug Fixes
+
+* add cdn ([d850d46](https://github.com/CoCreate-app/CoCreateWS/commit/d850d46d09568bd0dd0131ae2e5c803ce18332e6))
+* createDb improvemnts, fix superadmin path in config ([aacfb13](https://github.com/CoCreate-app/CoCreateWS/commit/aacfb1342066d906d625cfd5338f22e0b29e9a3c))
+* renamed apikey to key ([170e414](https://github.com/CoCreate-app/CoCreateWS/commit/170e414418b29caebcd472c551f0561a7fd02505))
+* superadmin file paths ([832fb67](https://github.com/CoCreate-app/CoCreateWS/commit/832fb676fa3f65401d48602836c563a140a696d9))
+
 ## [0.29.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.4...v0.29.5) (2023-05-10)
 
 
