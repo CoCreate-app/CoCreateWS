@@ -13,6 +13,7 @@ const serverPermission = require("@cocreate/permissions");
 module.exports.init = async function(app, wsManager) {
 	try {
 		process.env['organization_id'] = config.organization_id;
+		process.env['key'] = config.apiKey;
 		process.env['database'] = database
 		
 		const databases = {

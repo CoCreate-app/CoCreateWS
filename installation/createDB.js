@@ -27,6 +27,13 @@ async function update(dbUrl) {
 		organization.databases = {
 			mongodb: {name: config.database.name, url: config.database.url}
 		}
+		organization.apis = {
+			stripe: {
+				environment: "test",
+				test: "",
+				production:""
+			}
+		}
 		organization.organization_id = organization_id;
 
 		await organizations.insertOne(organization);
