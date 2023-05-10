@@ -13,7 +13,7 @@ module.exports = {
         "password": "<password to use for loggin>"
     },
     "config": {
-        "apiKey": "<CoCreate API Key>",
+        "key": "<CoCreate API Key>",
         "organization_id": "<CoCreate Organization ID>",
         "host": "<CoCreate subdomain or custom domain pointing to CoCreateWS server>"
     },

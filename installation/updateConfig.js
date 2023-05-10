@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require("path")
 
-function updateConfig(organization_id, apiKey) {
+function updateConfig(organization_id, key) {
     const ppath = './'
     let configfile = path.resolve(ppath, 'CoCreate.config1.js');
     if (!fs.existsSync(configfile))
@@ -11,7 +11,7 @@ function updateConfig(organization_id, apiKey) {
     let object = require(configfile)
 
     Object.assign(object.config, {organization_id})
-    Object.assign(object.config, {apiKey})
+    Object.assign(object.config, {key})
     delete object.organization
     delete object.user
 

@@ -13,9 +13,9 @@ if (dbUrl)
 async function update(dbUrl) {
 	let dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 	const organization_id = config.organization._id || config.config.organization_id || `${ObjectId()}`
-	const apiKey = config.organization.apiKey || config.config.apiKey || uuid.generate(32);
+	const key = config.organization.key || config.config.key || uuid.generate(32);
 	let user_id = config.user._id;
-	console.log(organization_id, apiKey, user_id)
+	console.log(organization_id, key, user_id)
 
 	// return ''
 	try {
@@ -24,7 +24,7 @@ async function update(dbUrl) {
 
 		let organization = config.organization;
 		organization._id = ObjectId(organization_id);
-		organization.apiKey = apiKey;
+		organization.key = key;
 		organization.hosts = config.organization.hosts
 		organization.databases = {
 			mongodb: {name: config.database.name, url: config.database.url}
@@ -40,13 +40,13 @@ async function update(dbUrl) {
 
 		await organizations.insertOne(organization);
 
-		// Create apiKey permission
-		if (organization_id && apiKey) {
+		// Create key permission
+		if (organization_id && key) {
 			const permissions = dbClient.db(organization_id).collection('keys');
 			let data = {
 				organization_id: organization_id,
-				type: "apikey",
-				key: apiKey,
+				type: "key",
+				key: key,
 				hosts: [
 					"*"
 				],
@@ -119,8 +119,8 @@ async function update(dbUrl) {
 			}
 		}	
 
-		if (organization_id && apiKey)
-			updateConfig(organization_id, apiKey)
+		if (organization_id && key)
+			updateConfig(organization_id, key)
 		
 		
 	} catch (error) {
@@ -128,7 +128,7 @@ async function update(dbUrl) {
 	}
 }
 
-function updateConfig(organization_id, apiKey) {
+function updateConfig(organization_id, key) {
     const ppath = './'
     let configfile = path.resolve(ppath, 'CoCreate.config.js');
     if (!fs.existsSync(configfile))
@@ -141,7 +141,7 @@ function updateConfig(organization_id, apiKey) {
 		object = {...obj, ...object}
 	}
     Object.assign(object.config, {organization_id})
-    Object.assign(object.config, {apiKey})
+    Object.assign(object.config, {key})
     delete object.organization
     delete object.user
 
