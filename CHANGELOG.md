@@ -1,3 +1,11 @@
+## [0.29.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.4...v0.29.5) (2023-05-10)
+
+
+### Bug Fixes
+
+* admin foler renamed to superadmin ([955d04d](https://github.com/CoCreate-app/CoCreateWS/commit/955d04d684342fae95501160ff2165680db4f662))
+* signup ([5536113](https://github.com/CoCreate-app/CoCreateWS/commit/55361131fcbb101e50b09ecde347ee97adb062e9))
+
 ## [0.29.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.3...v0.29.4) (2023-05-09)
 
 
