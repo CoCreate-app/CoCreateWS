@@ -19,7 +19,7 @@ module.exports = {
     },
     "directories": [
         {
-            "entry": "./admin",
+            "entry": "./superadmin",
             "collection": "files",
             "document": {
                 "name": "{{name}}",

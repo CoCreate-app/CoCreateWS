@@ -1,7 +1,8 @@
 // const { ObjectId } = require("mongodb");
+// ToDo: replace with @cocreate/crud  to support multiple databases
 const { MongoClient, ObjectId } = require('mongodb');
 const config = require('../CoCreate.config');
-const CoCreateUUID = require('@cocreate/uuid');
+const uuid = require('@cocreate/uuid');
 
 const fs = require('fs');
 const path = require("path")
@@ -11,8 +12,8 @@ if (dbUrl)
 	update(dbUrl)
 async function update(dbUrl) {
 	let dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
-	const organization_id = config.config.organization_id || `${ObjectId()}`
-	const apiKey = config.config.apiKey ||  CoCreateUUID.generate(32);
+	const organization_id = config.organization._id || config.config.organization_id || `${ObjectId()}`
+	const apiKey = config.organization.apiKey || config.config.apiKey || uuid.generate(32);
 	let user_id = config.user._id;
 	console.log(organization_id, apiKey, user_id)
 
@@ -24,6 +25,7 @@ async function update(dbUrl) {
 		let organization = config.organization;
 		organization._id = ObjectId(organization_id);
 		organization.apiKey = apiKey;
+		organization.hosts = config.organization.hosts
 		organization.databases = {
 			mongodb: {name: config.database.name, url: config.database.url}
 		}
@@ -77,7 +79,7 @@ async function update(dbUrl) {
 			const users = dbClient.db(organization_id).collection('users');
 			let user = config.user;
 			user['_id'] = ObjectId(user._id);
-			user['password'] = encryptPassword(user.password);
+			user['password'] = btoa(user.password);
 			user['connected_orgs'] = [organization_id];
 			user['current_org'] = organization_id;
 			user['organization_id'] = organization_id;
@@ -124,11 +126,6 @@ async function update(dbUrl) {
 	} catch (error) {
 		console.log(error)
 	}
-}
-
-function encryptPassword(str) {
-	let encodedString = btoa(str);
-	return encodedString;
 }
 
 function updateConfig(organization_id, apiKey) {
