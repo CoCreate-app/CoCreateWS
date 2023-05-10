@@ -88,34 +88,34 @@ jobs:
           docker push ${IMAGE}:latest
           docker push ${IMAGE}:${VERSION}
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs:
-      - release
-      - package
-    if: needs.release.outputs.new_release_published == 'true'
-    env:
-      VERSION: ${{ needs.release.outputs.new_release_version }}
-      KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
-      KUBECONFIG: kubeconfig
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - release
+  #     - package
+  #   if: needs.release.outputs.new_release_published == 'true'
+  #   env:
+  #     VERSION: ${{ needs.release.outputs.new_release_version }}
+  #     KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
+  #     KUBECONFIG: kubeconfig
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v1
 
-      - name: Get kubectl
-        run: |
-          curl -LO https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl
-          chmod +x kubectl
+  #     - name: Get kubectl
+  #       run: |
+  #         curl -LO https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl
+  #         chmod +x kubectl
 
-      - name: Save kubeconfig
-        env:
-          KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
-        run: |
-          echo ${KUBECONFIG_FILE} | base64 -d  > ${KUBECONFIG}
+  #     - name: Save kubeconfig
+  #       env:
+  #         KUBECONFIG_FILE: ${{ secrets.KUBECONFIG }}
+  #       run: |
+  #         echo ${KUBECONFIG_FILE} | base64 -d  > ${KUBECONFIG}
 
-      - name: Apply deployment
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB }}
-        run: |
-          sed -i "s/IMAGE_TAG/${VERSION}/g" manifests/kustomization.yaml
-          ./kubectl kustomize manifests/ | ./kubectl apply -f -
+  #     - name: Apply deployment
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB }}
+  #       run: |
+  #         sed -i "s/IMAGE_TAG/${VERSION}/g" manifests/kustomization.yaml
+  #         ./kubectl kustomize manifests/ | ./kubectl apply -f -
