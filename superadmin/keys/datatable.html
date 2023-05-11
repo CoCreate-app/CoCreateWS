@@ -9,7 +9,7 @@
 		<title>keys Datatables | CoCreate</title>
 		<link rel="stylesheet" type="text/css" href="https://cdn.cocreate.app/latest/CoCreate.min.css">
         <link rel="stylesheet" href="../index.css" collection="files" document_id="637bc8fe91249e639db315d9" name="src" type="text/css"/>
-		<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="manifest" href="./manifest.webmanifest" />
 	</head>
 
 	<style>
@@ -36,20 +36,20 @@
 			<ul class="display:inline-flex direction:rtl overflow:auto font-size:20px align-items:center list-style-type:none width:100% height:50px">
 
 				<!-- Modal Controls -->
-				<li class="margin-right:15px"><a actions="closeModal"><i class="height:18px fill:#505050" src="/assets/svg/times.svg"></i></a></li>
+				<li class="margin-right:15px"><a actions="closeModal"><i class="height:18px fill:#505050" src="./assets/svg/times.svg"></i></a></li>
 				<li class="margin-right:15px">
 					<a actions="minMaxModal">
-						<i toggle="/assets/svg/window-restore.svg, /assets/svg/window-maximize.svg" toggle-attribute="src" class="display:flex height:18px fill:#505050" src="/assets/svg/window-maximize.svg"></i>
+						<i toggle="./assets/svg/window-restore.svg, ./assets/svg/window-maximize.svg" toggle-attribute="src" class="display:flex height:18px fill:#505050" src="./assets/svg/window-maximize.svg"></i>
 					</a>
 				</li>
-				<li class="margin-right:15px"><a actions="parkModal"><i class="height:18px fill:#505050" src="/assets/svg/window-minimize.svg"></i></a></li>
+				<li class="margin-right:15px"><a actions="parkModal"><i class="height:18px fill:#505050" src="./assets/svg/window-minimize.svg"></i></a></li>
 
 				<!-- fullscreen toogle and icon transform-->
 				<li class="margin-right:15px"><a fullscreen fullscreen-closest="#apikeytable"></a></li>
 
 				<!-- Datatable Controls -->
 				<li class="margin-right:15px">
-					<a actions="deleteDocuments" collection="keys" pass_id="datatable" template_id="datatable"><i class="height:18px fill:#505050" src="/assets/svg/trash-alt.svg"></i></a>
+					<a actions="deleteDocuments" collection="keys" pass_id="datatable" template_id="datatable"><i class="height:18px fill:#505050" src="./assets/svg/trash-alt.svg"></i></a>
 				</li>
 
 			</ul>
@@ -71,7 +71,7 @@
 						</floating-label>
 						<span class="position:absolute bottom:20px right:20px float:right z-index:6">
 							<a filter-sort-name="name" filter-sort-direction="asc" click-value="desc, asc" click-attribute="filter-sort-direction" template_id="" pass_id="datatable">
-								<i toggle-attribute="src" toggle-value="/assets/svg/sort-down.svg, /assets/svg/sort-up.svg" class="display:flex height:18px fill:#505050" src="/assets/svg/sort.svg"></i>
+								<i toggle-attribute="src" toggle-value="./assets/svg/sort-down.svg, ./assets/svg/sort-up.svg" class="display:flex height:18px fill:#505050" src="./assets/svg/sort.svg"></i>
 							</a>
 						</span>
 					</td>
@@ -81,7 +81,7 @@
 						</floating-label>
 						<span class="position:absolute bottom:20px right:20px float:right z-index:6">
 							<a filter-sort-name="type" filter-sort-direction="" click-value="desc, asc" click-attribute="filter-sort-direction" template_id="" pass_id="datatable">
-								<i toggle-attribute="src" toggle-value="/assets/svg/sort-down.svg, /assets/svg/sort-up.svg" class="display:flex height:18px fill:#505050" src="/assets/svg/sort.svg"></i>
+								<i toggle-attribute="src" toggle-value="./assets/svg/sort-down.svg, ./assets/svg/sort-up.svg" class="display:flex height:18px fill:#505050" src="./assets/svg/sort.svg"></i>
 							</a>
 						</span>
 					</td>
@@ -91,7 +91,7 @@
 						</floating-label>
 						<span class="position:absolute bottom:20px right:20px float:right z-index:6">
 							<a filter-sort-name="key" filter-sort-direction="" click-value="desc, asc" click-attribute="filter-sort-direction" template_id="" pass_id="datatable">
-								<i toggle-attribute="src" toggle-value="/assets/svg/sort-down.svg, /assets/svg/sort-up.svg" class="display:flex height:18px fill:#505050" src="/assets/svg/sort.svg"></i>
+								<i toggle-attribute="src" toggle-value="./assets/svg/sort-down.svg, ./assets/svg/sort-up.svg" class="display:flex height:18px fill:#505050" src="./assets/svg/sort.svg"></i>
 							</a>
 						</span>
 					</td>
@@ -101,7 +101,7 @@
 						</floating-label>
 						<span class="position:absolute bottom:20px right:20px float:right z-index:6">
 							<a filter-sort-name="_id" filter-sort-direction="" click-value="desc, asc" click-attribute="filter-sort-direction" template_id="" pass_id="datatable">
-								<i toggle-attribute="src" toggle-value="/assets/svg/sort-down.svg, /assets/svg/sort-up.svg" class="display:flex height:18px fill:#505050" src="/assets/svg/sort.svg"></i>
+								<i toggle-attribute="src" toggle-value="./assets/svg/sort-down.svg, ./assets/svg/sort-up.svg" class="display:flex height:18px fill:#505050" src="./assets/svg/sort.svg"></i>
 							</a>
 						</span>
 					</td>
@@ -159,7 +159,7 @@
 
 		<button class="position:absolute bottom:15px right:15px line-height:50px width:50px background:dodgerblue color:#fff font-size:1.5rem grow-hover border-radius:50% border-width:0 box-shadow:0px_2px_10px_0px_rgba(0,_0,_0,_0.4)">
 			<a actions="pass, openModal" modal-src="./keys/form.html" modal-width="320px" modal-color="#229954">
-				<i class="height:20px fill:#505050" src="/assets/svg/plus.svg"></i>
+				<i class="height:20px fill:#505050" src="./assets/svg/plus.svg"></i>
 				<div pass_to="form-fields" pass-document_id=""></div>
 				<div pass_id="form" pass-collection="" pass-document_id="" pass-name="" pass_to="render"></div>
 				<div pass_id="module_id" pass-value="" pass-filter-value="" pass_to="module_id"></div>
@@ -167,7 +167,7 @@
 			</a>
 		</button>
 
-        <script src="https://cdn.cocreate.app/1.54.2/CoCreate.min.js"></script>
+        <script src="https://cdn.cocreate.app/1.55.0/CoCreate.min.js"></script>
 
 	</body>
 
