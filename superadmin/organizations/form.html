@@ -52,12 +52,15 @@
 
         <!-- Main Content -->
 		<main class="padding:10px" content_id="content">
-            <form collection="organizations" document_id="{{orgId}}" pass_id="form-fields" localstorage-get="organization_id" localstorage-key="orgId">
+            <form collection="organizations" crdt="false" document_id="{{orgId}}" pass_id="form-fields" localstorage-get="organization_id" localstorage-key="orgId">
 
                 <input type="text" name="logo" placeholder="Logo" class="floating-label" />
 
                 <input type="text" name="name" id="name" placeholder="Organization Name" class="floating-label" />
 
+                <input type="text" name="databases.mongodb.name" placeholder="DB Name" class="floating-label" />
+                <input type="text" name="databases.mongodb.url" placeholder="DB Url" class="floating-label" />
+                
                 <input type="text" name="description" placeholder="Description" class="floating-label" />
 
                 <input type="text" name="_id" id="orgid" placeholder="Organization Id" class="floating-label" crdt="false" readonly/>
@@ -71,7 +74,7 @@
             </form>
         </main>
 
-        <script src="https://cdn.cocreate.app/1.55.0/CoCreate.min.js"></script>
+        <script src="https://cdn.cocreate.app/1.55.1/CoCreate.min.js"></script>
 
     </body>
 
