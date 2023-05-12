@@ -1,5 +1,5 @@
 // const { ObjectId } = require("mongodb");
-// ToDo: replace with @cocreate/crud  to support multiple databases
+// TODO: replace with @cocreate/crud  to support multiple databases
 const { MongoClient, ObjectId } = require('mongodb');
 const config = require('../CoCreate.config');
 const uuid = require('@cocreate/uuid');
