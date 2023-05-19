@@ -1,3 +1,15 @@
+# [0.30.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.6...v0.30.0) (2023-05-19)
+
+
+### Bug Fixes
+
+* superadmin file paths ([51ad8f4](https://github.com/CoCreate-app/CoCreateWS/commit/51ad8f40365e9f8004ba477a2544e1a0dc7d0e00))
+
+
+### Features
+
+* Add @cocreate/unique component to repositories.js and import it in src/components.js ([d1fe574](https://github.com/CoCreate-app/CoCreateWS/commit/d1fe574656dd7a17f49270bd0afec200d99826fe))
+
 ## [0.29.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.5...v0.29.6) (2023-05-10)
 
 
