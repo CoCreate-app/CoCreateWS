@@ -1,5 +1,5 @@
 module.exports = [
-    
+
     // Servers
     {
         'path': '../CoCreateWS',
@@ -14,8 +14,8 @@ module.exports = [
     //     'path': '../CoCreateLB',
     //     'repo': 'github.com/CoCreate-app/CoCreateLB.git'
     // },
-    
-    
+
+
     // Components
     {
         'path': '../CoCreate-components/CoCreate-auth',
@@ -111,6 +111,10 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-socket-client.git'
     },
     {
+        'path': '../CoCreate-components/CoCreate-unique',
+        'repo': 'github.com/CoCreate-app/CoCreate-unique.git'
+    },
+    {
         'path': '../CoCreate-components/CoCreate-users',
         'repo': 'github.com/CoCreate-app/CoCreate-users.git'
     },
@@ -123,8 +127,8 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-uuid.git'
     },
 
-    
-    
+
+
     // Maybe depreciated
     // {
     //     'path': '../CoCreate-components/CoCreate-keepalived',
