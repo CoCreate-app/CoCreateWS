@@ -57,6 +57,7 @@
     "@cocreate/permissions": "latest",
     "@cocreate/server-side-render": "latest",
     "@cocreate/socket-server": "latest",
+    "@cocreate/unique": "^1.10.8",
     "@cocreate/users": "latest",
     "@cocreate/uuid": "latest",
     "cors": "^2.8.5",
