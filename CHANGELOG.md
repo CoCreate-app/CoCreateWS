@@ -1,3 +1,10 @@
+## [0.30.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.30.0...v0.30.1) (2023-05-20)
+
+
+### Bug Fixes
+
+* Refactor key and user permission creation in `createDB.js` ([d35ca93](https://github.com/CoCreate-app/CoCreateWS/commit/d35ca93627389da4936aca0555867d5479de225c))
+
 # [0.30.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.29.6...v0.30.0) (2023-05-19)
 
 
