@@ -1,3 +1,11 @@
+## [0.30.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.30.1...v0.30.2) (2023-05-21)
+
+
+### Bug Fixes
+
+* Refactor createDB ([1ecb400](https://github.com/CoCreate-app/CoCreateWS/commit/1ecb400c38d4b3baeccdc115de3d68d18627d5e4))
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([56e8497](https://github.com/CoCreate-app/CoCreateWS/commit/56e849702e641e7947627dcd7377e5a109d3fa81))
+
 ## [0.30.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.30.0...v0.30.1) (2023-05-20)
 
 
