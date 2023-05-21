@@ -1,5 +1,4 @@
-// const { ObjectId } = require("mongodb");
-// TODO: replace with @cocreate/crud  to support multiple databases
+// TODO: replace mongodb with @cocreate/crud  to support multiple databases
 const { MongoClient, ObjectId } = require('mongodb');
 const config = require('../CoCreate.config');
 const uuid = require('@cocreate/uuid');
@@ -10,21 +9,21 @@ const path = require("path")
 let dbUrl = config.database.url[0]
 if (dbUrl)
     update(dbUrl)
+
 async function update(dbUrl) {
-    let dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+    const dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
     const organization_id = config.organization._id || config.config.organization_id || `${ObjectId()}`
     const key = config.organization.key || config.config.key || uuid.generate(32);
-    let user_id = config.user._id;
+    const user_id = config.user._id || `${ObjectId()}`;
+
     console.log(organization_id, key, user_id)
 
-    // return ''
     try {
         // Create organization 
         const organizations = dbClient.db(organization_id).collection('organizations');
 
         let organization = config.organization;
         organization._id = ObjectId(organization_id);
-        organization.key = key;
         organization.hosts = config.organization.hosts
         organization.databases = {
             mongodb: { name: config.database.name, url: config.database.url }
@@ -37,67 +36,51 @@ async function update(dbUrl) {
             }
         }
         organization.organization_id = organization_id;
-
         await organizations.insertOne(organization);
 
-        // Create key permission
-        if (organization_id && key) {
-            const permissions = dbClient.db(organization_id).collection('keys');
-            let data = {
-                organization_id: organization_id,
-                type: "key",
-                key: key,
-                hosts: [
-                    "*"
-                ],
-                "actions": {
-                    "signIn": "",
-                    "signUp": "",
-                    "createOrg": "",
-                    "runIndustry": "",
-                    "sendgrid": ["sendEmail"]
-                },
-                default: true
-
-            }
-            await permissions.insertOne(data);
-        }
-
         // Create user
-        if (organization_id) {
-            const users = dbClient.db(organization_id).collection('users');
-            let user = config.user;
-            user['_id'] = ObjectId(user._id);
-            user['organization_id'] = organization_id;
-            let response = await users.insertOne(user);
-            user_id = `${response.insertedId}`;
-        }
+        const users = dbClient.db(organization_id).collection('users');
+        let user = config.user;
+        user['_id'] = ObjectId(user_id);
+        user['organization_id'] = organization_id;
+        await users.insertOne(user);
 
-        // Create role permission
-        if (user_id) {
-            const permissions = dbClient.db(organization_id).collection('keys');
-            let role = {
-                "type": "role",
-                "name": "admin",
-                "admin": "false",
-                "hosts": ["*"],
-                "organization_id": organization_id
-            };
-            let response = await permissions.insertOne(role);
-            let role_id = `${response.insertedId}`;
-
-            // Create user permission
-            if (role_id) {
-                const permissions = dbClient.db(organization_id).collection('keys');
-                let data = {
-                    "type": "user",
-                    "key": user_id,
-                    "roles": [role_id],
-                    "organization_id": organization_id
-                };
-                await permissions.insertOne(data);
-            }
+        // Create default key
+        const permissions = dbClient.db(organization_id).collection('keys');
+        let data = {
+            type: "key",
+            key: key,
+            hosts: [
+                "*"
+            ],
+            actions: {
+                "signIn": "",
+                "signUp": ""
+            },
+            default: true,
+            organization_id
         }
+        await permissions.insertOne(data);
+
+        // Create admin role
+        let role = {
+            _id: ObjectId(),
+            type: "role",
+            name: "admin",
+            admin: "true",
+            hosts: ["*"],
+            organization_id: organization_id
+        };
+        await permissions.insertOne(role);
+
+        // Create user key
+        let userKey = {
+            type: "user",
+            key: user_id,
+            roles: [role._id],
+            organization_id: organization_id
+        };
+        await permissions.insertOne(userKey);
 
         if (organization_id && key)
             updateConfig(organization_id, key)
