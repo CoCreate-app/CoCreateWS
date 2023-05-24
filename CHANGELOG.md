@@ -1,3 +1,15 @@
+# [0.31.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.30.2...v0.31.0) (2023-05-24)
+
+
+### Bug Fixes
+
+* Updated CoCreate.js CDN to version 1.56.7 ([d225015](https://github.com/CoCreate-app/CoCreateWS/commit/d225015d5cd618069d84c523a2a73c4962d1e471))
+
+
+### Features
+
+* Refactor CoCreate config file to standardize database objects. ([483d587](https://github.com/CoCreate-app/CoCreateWS/commit/483d587039af3f99a46fb7976a54c6cb5723796e))
+
 ## [0.30.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.30.1...v0.30.2) (2023-05-21)
 
 
