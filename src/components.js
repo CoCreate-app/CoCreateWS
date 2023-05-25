@@ -8,8 +8,8 @@ const organizations = require('@cocreate/organizations');
 const serverSideRender = require('@cocreate/server-side-render');
 const unique = require('@cocreate/unique');
 const users = require('@cocreate/users');
-const CoCreateAuth = require('@cocreate/auth')
-const serverPermission = require("@cocreate/permissions");
+const authenticate = require('@cocreate/auth')
+const authorize = require("@cocreate/permissions");
 
 module.exports.init = async function (app, wsManager) {
     try {
@@ -26,10 +26,8 @@ module.exports.init = async function (app, wsManager) {
         app.use('/', file.router)
         app.disable('x-powered-by');
 
-        let auth = new CoCreateAuth(jwttoken)
-        wsManager.setAuth(auth)
-        let permission = new serverPermission(crud)
-        wsManager.setPermission(permission)
+        wsManager.authenticate = new authenticate(jwttoken)
+        wsManager.authorize = new authorize(crud)
 
         new messageServer(wsManager);
         new industry(crud);
