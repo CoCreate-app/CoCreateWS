@@ -1,3 +1,37 @@
+# [0.32.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.31.2...v0.32.0) (2023-06-01)
+
+
+### Features
+
+* Add new packages for authentication and authorization ([ad97925](https://github.com/CoCreate-app/CoCreateWS/commit/ad97925f3de0d693ddb5e76983c8a0d890e3ca9e))
+
+## [0.31.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.31.1...v0.31.2) (2023-05-25)
+
+
+### Bug Fixes
+
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([3a5e058](https://github.com/CoCreate-app/CoCreateWS/commit/3a5e058fe471cf457aebb4b369e4a07e7761e179))
+
+## [0.31.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.31.0...v0.31.1) (2023-05-25)
+
+
+### Bug Fixes
+
+* update dependencies ([62101f5](https://github.com/CoCreate-app/CoCreateWS/commit/62101f5ab55c7bfe60c13228ca4738f770d88473))
+* Update dependencies versions ([6ea8ea3](https://github.com/CoCreate-app/CoCreateWS/commit/6ea8ea3196fdb3daa793d6823a8a66ac3f27dc4e))
+
+# [0.31.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.30.2...v0.31.0) (2023-05-24)
+
+
+### Bug Fixes
+
+* Updated CoCreate.js CDN to version 1.56.7 ([d225015](https://github.com/CoCreate-app/CoCreateWS/commit/d225015d5cd618069d84c523a2a73c4962d1e471))
+
+
+### Features
+
+* Refactor CoCreate config file to standardize database objects. ([483d587](https://github.com/CoCreate-app/CoCreateWS/commit/483d587039af3f99a46fb7976a54c6cb5723796e))
+
 ## [0.30.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.30.1...v0.30.2) (2023-05-21)
 
 

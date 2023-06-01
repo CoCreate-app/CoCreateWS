@@ -1,4 +1,4 @@
-const { config, database, jwttoken } = require('../CoCreate.config');
+const { config, database, db, jwttoken } = require('../CoCreate.config');
 const crudServer = require('@cocreate/crud-server')
 const fileServer = require('@cocreate/file-server')
 const industry = require('@cocreate/industry')
@@ -8,28 +8,26 @@ const organizations = require('@cocreate/organizations');
 const serverSideRender = require('@cocreate/server-side-render');
 const unique = require('@cocreate/unique');
 const users = require('@cocreate/users');
-const CoCreateAuth = require('@cocreate/auth')
-const serverPermission = require("@cocreate/permissions");
+const authenticate = require('@cocreate/authenticate')
+const authorize = require("@cocreate/authorize");
 
 module.exports.init = async function (app, wsManager) {
     try {
         process.env['organization_id'] = config.organization_id;
         process.env['key'] = config.key;
-        process.env['database'] = database
+        process.env['db'] = db
 
         const databases = {
             mongodb: require('@cocreate/mongodb')
         }
-        const crud = new crudServer(wsManager, databases, database)
+        const crud = new crudServer(wsManager, databases, db)
         const render = new serverSideRender(crud);
         const file = new fileServer(crud, render)
         app.use('/', file.router)
         app.disable('x-powered-by');
 
-        let auth = new CoCreateAuth(jwttoken)
-        wsManager.setAuth(auth)
-        let permission = new serverPermission(crud)
-        wsManager.setPermission(permission)
+        wsManager.authenticate = new authenticate(jwttoken)
+        wsManager.authorize = new authorize(crud)
 
         new messageServer(wsManager);
         new industry(crud);

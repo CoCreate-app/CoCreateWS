@@ -25,9 +25,7 @@ async function update(dbUrl) {
         let organization = config.organization;
         organization._id = ObjectId(organization_id);
         organization.hosts = config.organization.hosts
-        organization.databases = {
-            mongodb: { name: config.database.name, url: config.database.url }
-        }
+        organization.db = config.db
         organization.apis = {
             stripe: {
                 environment: "test",
@@ -50,9 +48,6 @@ async function update(dbUrl) {
         let data = {
             type: "key",
             key: key,
-            hosts: [
-                "*"
-            ],
             actions: {
                 "signIn": "",
                 "signUp": ""
@@ -68,7 +63,6 @@ async function update(dbUrl) {
             type: "role",
             name: "admin",
             admin: "true",
-            hosts: ["*"],
             organization_id: organization_id
         };
         await permissions.insertOne(role);

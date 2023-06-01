@@ -22,6 +22,14 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-auth.git'
     },
     {
+        'path': '../CoCreate-components/CoCreate-authenticate',
+        'repo': 'github.com/CoCreate-app/CoCreate-authenticate.git'
+    },
+    {
+        'path': '../CoCreate-components/CoCreate-authorize',
+        'repo': 'github.com/CoCreate-app/CoCreate-authorize.git'
+    },
+    {
         'path': '../CoCreate-components/CoCreate-crud-server',
         'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
     },
