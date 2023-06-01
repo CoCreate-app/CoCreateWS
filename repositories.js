@@ -18,10 +18,6 @@ module.exports = [
 
     // Components
     {
-        'path': '../CoCreate-components/CoCreate-auth',
-        'repo': 'github.com/CoCreate-app/CoCreate-auth.git'
-    },
-    {
         'path': '../CoCreate-components/CoCreate-authenticate',
         'repo': 'github.com/CoCreate-app/CoCreate-authenticate.git'
     },
@@ -56,10 +52,6 @@ module.exports = [
     {
         'path': '../CoCreate-components/CoCreate-node-autoscaler',
         'repo': 'github.com/CoCreate-app/CoCreate-node-autoscaler.git'
-    },
-    {
-        'path': '../CoCreate-components/CoCreate-permissions',
-        'repo': 'github.com/CoCreate-app/CoCreate-permissions.git'
     },
     {
         'path': '../CoCreate-components/CoCreate-server-side-render',
