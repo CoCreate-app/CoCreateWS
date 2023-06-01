@@ -1,3 +1,10 @@
+# [0.32.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.31.2...v0.32.0) (2023-06-01)
+
+
+### Features
+
+* Add new packages for authentication and authorization ([ad97925](https://github.com/CoCreate-app/CoCreateWS/commit/ad97925f3de0d693ddb5e76983c8a0d890e3ca9e))
+
 ## [0.31.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.31.1...v0.31.2) (2023-05-25)
 
 
