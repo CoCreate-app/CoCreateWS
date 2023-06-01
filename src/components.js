@@ -8,8 +8,8 @@ const organizations = require('@cocreate/organizations');
 const serverSideRender = require('@cocreate/server-side-render');
 const unique = require('@cocreate/unique');
 const users = require('@cocreate/users');
-const authenticate = require('@cocreate/auth')
-const authorize = require("@cocreate/permissions");
+const authenticate = require('@cocreate/authenticate')
+const authorize = require("@cocreate/authorize");
 
 module.exports.init = async function (app, wsManager) {
     try {
