@@ -8,7 +8,7 @@ module.exports = {
         "mongodb": {
             "provider": "mongodb",
             "url": [
-                "mongodb+srv://cocreate-app:0kqEaoEzDUM9lGTP@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority"
+                "<dbUrl>"
             ]
         }
     },
