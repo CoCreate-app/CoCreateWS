@@ -79,10 +79,6 @@ module.exports = [
         'repo': 'github.com/CoCreate-app/CoCreate-docs.git'
     },
     {
-        'path': '../CoCreate-components/CoCreate-hosting',
-        'repo': 'github.com/CoCreate-app/CoCreate-hosting.git'
-    },
-    {
         'path': '../CoCreate-components/CoCreate-crud-client',
         'repo': 'github.com/CoCreate-app/CoCreate-crud-client.git'
     },

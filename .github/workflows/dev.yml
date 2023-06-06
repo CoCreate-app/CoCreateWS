@@ -1,65 +1,65 @@
 name: Dev Deployment
 
 on:
-  push:
-    branches:
-      - dev
+    push:
+        branches:
+            - dev
 
 jobs:
-  package:
-    runs-on: ubuntu-latest
-    env:
-      IMAGE: docker.pkg.github.com/cocreate-app/cocreatews/cocreatews
-      VERSION: dev
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
-
-      - name: npm login
+    package:
+        runs-on: ubuntu-latest
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} 
-        run: >
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >
-          .npmrc
-      - name: Login docker registry
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN}
+            IMAGE: docker.pkg.github.com/cocreate-app/cocreatews/cocreatews
+            VERSION: dev
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v1
 
-      - name: Build docker image
-        run: docker build . -t ${IMAGE}:dev
+            - name: npm login
+              env:
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: >
+                  echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >
+                  .npmrc
+            - name: Login docker registry
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB }}
+              run: |
+                  docker login docker.pkg.github.com -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN}
 
-      - name: Push docker image
-        run: |
-          docker push ${IMAGE}:dev
+            - name: Build docker image
+              run: docker build . -t ${IMAGE}:dev
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs:
-      - package
-    env:
-      VERSION: dev
-      KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_DEV }}
-      KUBECONFIG: kubeconfig
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
+            - name: Push docker image
+              run: |
+                  docker push ${IMAGE}:dev
 
-      - name: Get kubectl
-        run: |
-          curl -LO https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl
-          chmod +x kubectl
+    # deploy:
+    #     runs-on: ubuntu-latest
+    #     needs:
+    #         - package
+    #     env:
+    #         VERSION: dev
+    #         KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_DEV }}
+    #         KUBECONFIG: kubeconfig
+    #     steps:
+    #         - name: Checkout repository
+    #           uses: actions/checkout@v1
 
-      - name: Save kubeconfig
-        env:
-          KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_DEV }}
-        run: |
-          echo ${KUBECONFIG_FILE} | base64 -d  > ${KUBECONFIG}
+    #         - name: Get kubectl
+    #           run: |
+    #               curl -LO https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl
+    #               chmod +x kubectl
 
-      - name: Apply deployment
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB }}
-        run: |
-          sed -i "s/IMAGE_TAG/${VERSION}/g" manifests/kustomization.yaml
-          ./kubectl kustomize manifests/ | ./kubectl apply -f -
+    #         - name: Save kubeconfig
+    #           env:
+    #               KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_DEV }}
+    #           run: |
+    #               echo ${KUBECONFIG_FILE} | base64 -d  > ${KUBECONFIG}
+
+    #         - name: Apply deployment
+    #           env:
+    #               GITHUB_TOKEN: ${{ secrets.GITHUB }}
+    #           run: |
+    #               sed -i "s/IMAGE_TAG/${VERSION}/g" manifests/kustomization.yaml
+    #               ./kubectl kustomize manifests/ | ./kubectl apply -f -
