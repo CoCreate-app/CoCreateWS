@@ -33,14 +33,17 @@
     "url": "https://github.com/CoCreate-app/CoCreateWS/issues"
   },
   "homepage": "https://cocreate.app/docs/CoCreateWS",
-  "main": "index.js",
+  "main": "./src/server.js",
   "scripts": {
     "start": "PORT=3000 node src/server.js",
     "dev": "PORT=3000 nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "node ./node_modules/@cocreate/docs/src/index.js",
-    "postinstall": "npm install -g @cocreate/cli",
+    "postinstall": "node ./node_modules/@cocreate/cli/check-coc.js",
     "createdb": "node ./installation/createDB.js"
+  },
+  "devDependencies": {
+    "@cocreate/cli": "^1.29.3"
   },
   "dependencies": {
     "@cocreate/authenticate": "^1.0.0",
@@ -58,7 +61,6 @@
     "@cocreate/unique": "^1.11.5",
     "@cocreate/users": "^1.22.7",
     "@cocreate/uuid": "^1.4.11",
-    "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "cors": "^2.8.5"
   }
 }
