@@ -60,7 +60,6 @@
     "@cocreate/socket-server": "^1.10.2",
     "@cocreate/unique": "^1.11.5",
     "@cocreate/users": "^1.22.7",
-    "@cocreate/uuid": "^1.4.11",
-    "cors": "^2.8.5"
+    "@cocreate/uuid": "^1.4.11"
   }
 }
