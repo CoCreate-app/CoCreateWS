@@ -5,9 +5,33 @@ const uuid = require('@cocreate/uuid');
 
 const fs = require('fs');
 const path = require("path")
-const config = await cli.config(
-    { key: 'organization_id', prompt: 'Enter your organization_id: ' }
-)
+let config = await cli.config([
+    {
+        key: 'organization_id',
+        prompt: 'Enter your organization_id: '
+    }, {
+        key: 'host',
+        prompt: 'Enter the host: '
+    }, {
+        prompt: 'Choose an authentication option: \n1.key\n2.Sign In\n',
+        choices: {
+            '1': {
+                key: 'key',
+                prompt: 'Enter your key: '
+            },
+            '2': [
+                {
+                    key: 'email',
+                    prompt: 'Enter your email: '
+                },
+                {
+                    key: 'password',
+                    prompt: 'Enter your password: '
+                }
+            ]
+        }
+    }
+])
 
 // TODO: add config propmts
 let databases = Object.keys(config.storage)
