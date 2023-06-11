@@ -2,7 +2,7 @@ module.exports = {
     "organization": {
         "_id": "<If Known or leave empty>",
         "name": "<organization, company or project name>",
-        "hosts": [
+        "host": [
             "<CoCreate subdomain or custom domain pointing to CoCreateWS server>",
         ]
     },
@@ -17,7 +17,7 @@ module.exports = {
         "organization_id": "<CoCreate Organization ID>",
         "host": "<CoCreate subdomain or custom domain pointing to CoCreateWS server>"
     },
-    "db": {
+    "storage": {
         "mongodb": {
             "provider": "mongodb",
             "url": [
@@ -40,7 +40,7 @@ module.exports = {
                 "name": "index.html",
                 "path": "/docs/CoCreateWS/index.html",
                 "src": "{{./docs/index.html}}",
-                "hosts": [
+                "host": [
                     "*",
                     "general.cocreate.app"
                 ],

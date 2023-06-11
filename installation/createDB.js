@@ -1,12 +1,13 @@
 // TODO: replace mongodb with @cocreate/crud  to support multiple databases
 const { MongoClient, ObjectId } = require('mongodb');
-const config = require('../CoCreate.config');
+const { config } = require('@cocreate/cli');
 const uuid = require('@cocreate/uuid');
 
 const fs = require('fs');
 const path = require("path")
 
-let dbUrl = config.database.url[0]
+// TODO: add config propmts
+let dbUrl = config.storage.url[0]
 if (dbUrl)
     update(dbUrl)
 
@@ -24,8 +25,8 @@ async function update(dbUrl) {
 
         let organization = config.organization;
         organization._id = ObjectId(organization_id);
-        organization.hosts = config.organization.hosts
-        organization.db = config.db
+        organization.host = config.organization.host
+        organization.storage = config.storage
         organization.apis = {
             stripe: {
                 environment: "test",
