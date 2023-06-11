@@ -1,15 +1,22 @@
 // TODO: replace mongodb with @cocreate/crud  to support multiple databases
 const { MongoClient, ObjectId } = require('mongodb');
-const { config } = require('@cocreate/cli');
+const cli = require('@cocreate/cli');
 const uuid = require('@cocreate/uuid');
 
 const fs = require('fs');
 const path = require("path")
+const config = await cli.config(
+    { key: 'organization_id', prompt: 'Enter your organization_id: ' }
+)
 
 // TODO: add config propmts
-let dbUrl = config.storage.url[0]
+let databases = Object.keys(config.storage)
+let dbUrl = databases[0].url[0]
 if (dbUrl)
     update(dbUrl)
+else
+    process.exit()
+
 
 async function update(dbUrl) {
     const dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
