@@ -38,7 +38,7 @@
     "start": "PORT=3000 node src/server.js",
     "dev": "PORT=3000 nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node $PWD/node_modules/@cocreate/cli/check-coc.js",
+    "postinstall": "node -e 'const fs = require(\"fs\"); const path = require(\"path\"); if (fs.existsSync(path.resolve(__dirname, \"node_modules/@cocreate/cli/check-coc.js\"))) { require(\"./node_modules/@cocreate/cli/check-coc.js\"); }'",
     "createdb": "node ./installation/createDB.js"
   },
   "dependencies": {
