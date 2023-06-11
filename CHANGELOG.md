@@ -1,3 +1,18 @@
+# [0.33.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.32.0...v0.33.0) (2023-06-11)
+
+
+### Bug Fixes
+
+* bumpdependencies and cdn to latestest version ([7e8e76f](https://github.com/CoCreate-app/CoCreateWS/commit/7e8e76fdb845cd1cb30e7af31cd626c2b85c8f41))
+* html formating ([32d7dc8](https://github.com/CoCreate-app/CoCreateWS/commit/32d7dc8e886a9aed0156888451b2a209199fc6cc))
+* Refactor server.js to main and add devDependency ([6b8b722](https://github.com/CoCreate-app/CoCreateWS/commit/6b8b72213bb23955240fc057226a3d2482bea91f))
+* workflow semantic release requires node v14 ([b59d697](https://github.com/CoCreate-app/CoCreateWS/commit/b59d6976b35ff448930aa3222ea70d492cff0e7f))
+
+
+### Features
+
+* Replaced express with nodejs http module ([65dfcd2](https://github.com/CoCreate-app/CoCreateWS/commit/65dfcd2265f8fef93f70bc4dfec60c5c223e90a3))
+
 # [0.32.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.31.2...v0.32.0) (2023-06-01)
 
 
