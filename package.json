@@ -42,20 +42,20 @@
     "createdb": "node ./installation/createDB.js"
   },
   "dependencies": {
-    "@cocreate/authenticate": "^1.0.11",
-    "@cocreate/authorize": "^1.3.7",
-    "@cocreate/cli": "^1.33.4",
-    "@cocreate/crud-server": "^1.23.6",
-    "@cocreate/file-server": "^1.6.7",
-    "@cocreate/industry": "^1.11.24",
-    "@cocreate/message-server": "^1.3.60",
-    "@cocreate/metrics-server": "^1.4.47",
-    "@cocreate/mongodb": "^1.4.11",
-    "@cocreate/organizations": "^1.15.12",
-    "@cocreate/server-side-render": "^1.3.47",
-    "@cocreate/socket-server": "^1.13.6",
-    "@cocreate/unique": "^1.11.16",
-    "@cocreate/users": "^1.22.20",
-    "@cocreate/uuid": "^1.4.21"
+    "@cocreate/authenticate": "^1.0.14",
+    "@cocreate/authorize": "^1.3.10",
+    "@cocreate/cli": "^1.33.6",
+    "@cocreate/crud-server": "^1.23.9",
+    "@cocreate/file-server": "^1.6.10",
+    "@cocreate/industry": "^1.11.27",
+    "@cocreate/message-server": "^1.3.63",
+    "@cocreate/metrics-server": "^1.4.50",
+    "@cocreate/mongodb": "^1.4.14",
+    "@cocreate/organizations": "^1.15.15",
+    "@cocreate/server-side-render": "^1.3.50",
+    "@cocreate/socket-server": "^1.13.9",
+    "@cocreate/unique": "^1.11.19",
+    "@cocreate/users": "^1.22.23",
+    "@cocreate/uuid": "^1.4.24"
   }
 }
