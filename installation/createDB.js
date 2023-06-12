@@ -7,46 +7,28 @@ const fs = require('fs');
 const path = require("path")
 let config = await cli.config([
     {
-        key: 'organization_id',
-        prompt: 'Enter your organization_id: '
-    }, {
-        key: 'host',
-        prompt: 'Enter the host: '
-    }, {
-        prompt: 'Choose an authentication option: \n1.key\n2.Sign In\n',
-        choices: {
-            '1': {
-                key: 'key',
-                prompt: 'Enter your key: '
-            },
-            '2': [
-                {
-                    key: 'email',
-                    prompt: 'Enter your email: '
-                },
-                {
-                    key: 'password',
-                    prompt: 'Enter your password: '
-                }
-            ]
-        }
+        key: 'storage',
+        prompt: 'Enter a JSON.stringify storage object'
     }
 ])
 
-// TODO: add config propmts
+if (typeof config.storage === 'string')
+    config.storage = JSON.parse(config.storage)
 let databases = Object.keys(config.storage)
 let dbUrl = databases[0].url[0]
 if (dbUrl)
     update(dbUrl)
-else
+else {
+    console.log('Could not find a url in your storage object')
     process.exit()
+}
 
 
 async function update(dbUrl) {
     const dbClient = await MongoClient.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
-    const organization_id = config.organization._id || config.config.organization_id || `${ObjectId()}`
-    const key = config.organization.key || config.config.key || uuid.generate(32);
-    const user_id = config.user._id || `${ObjectId()}`;
+    const organization_id = config.organization_id || `${ObjectId()}`
+    const key = config.key || uuid.generate(32);
+    const user_id = config.user_id || `${ObjectId()}`;
 
     console.log(organization_id, key, user_id)
 
@@ -54,24 +36,18 @@ async function update(dbUrl) {
         // Create organization 
         const organizations = dbClient.db(organization_id).collection('organizations');
 
-        let organization = config.organization;
+        let organization = {};
         organization._id = ObjectId(organization_id);
-        organization.host = config.organization.host
+        organization.host = config.host
         organization.storage = config.storage
-        organization.apis = {
-            stripe: {
-                environment: "test",
-                test: "",
-                production: ""
-            }
-        }
         organization.organization_id = organization_id;
         await organizations.insertOne(organization);
 
         // Create user
         const users = dbClient.db(organization_id).collection('users');
-        let user = config.user;
+        let user = {};
         user['_id'] = ObjectId(user_id);
+        user['firstname'] = 'Admin'
         user['organization_id'] = organization_id;
         await users.insertOne(user);
 
@@ -124,15 +100,8 @@ function updateConfig(organization_id, key) {
         return console.error('path does not exist:', configfile)
 
     let object = require(configfile)
-    if (!object.config) {
-        let obj = {}
-        obj['config'] = {}
-        object = { ...obj, ...object }
-    }
-    Object.assign(object.config, { organization_id })
-    Object.assign(object.config, { key })
-    delete object.organization
-    delete object.user
+    object.organization_id = organization_id
+    object.key = key
 
     let config = `module.exports = ${JSON.stringify(object, null, 4)}`
 

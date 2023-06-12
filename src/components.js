@@ -13,6 +13,16 @@ const authorize = require("@cocreate/authorize");
 
 module.exports.init = async function (server) {
     try {
+        let config = await cli.config([
+            {
+                key: 'organization_id',
+                prompt: 'Enter your organization_id or continue and one will created: '
+            }
+        ])
+
+        if (!config.organization_id)
+            require('@cocreate/createDB');
+
         const databases = {
             mongodb: require('@cocreate/mongodb')
         }

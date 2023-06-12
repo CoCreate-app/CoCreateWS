@@ -1,22 +1,10 @@
 module.exports = {
-    "organization": {
-        "_id": "<If Known or leave empty>",
-        "name": "<organization, company or project name>",
-        "host": [
-            "<CoCreate subdomain or custom domain pointing to CoCreateWS server>",
-        ]
-    },
-    "user": {
-        "_id": "<If Known or leave empty>",
-        "name": "admin",
-        "email": "<email to use for loggin>",
-        "password": "<password to use for loggin>"
-    },
-    "config": {
-        "key": "<CoCreate API Key>",
-        "organization_id": "<CoCreate Organization ID>",
-        "host": "<CoCreate subdomain or custom domain pointing to CoCreateWS server>"
-    },
+    "user_id": "<If Known or leave empty>",
+    "email": "<email to use for loggin>",
+    "password": "<password to use for loggin>",
+    "organization_id": "<CoCreate Organization ID>",
+    "key": "<CoCreate API Key>",
+    "host": "<CoCreate subdomain or custom domain pointing to CoCreateWS server>"
     "storage": {
         "mongodb": {
             "provider": "mongodb",
