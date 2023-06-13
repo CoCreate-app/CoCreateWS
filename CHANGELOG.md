@@ -1,3 +1,21 @@
+# [0.34.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.33.0...v0.34.0) (2023-06-13)
+
+
+### Bug Fixes
+
+* testing workflow ([2eaf090](https://github.com/CoCreate-app/CoCreateWS/commit/2eaf090bef29d5add69eef63dded30516537f8c0))
+* testing workflow ([85798b5](https://github.com/CoCreate-app/CoCreateWS/commit/85798b50f2076a155e5e9478b262af1cc8e48aa8))
+* testing workflow ([b04e249](https://github.com/CoCreate-app/CoCreateWS/commit/b04e2491f9ed66fe61497555d1348b1d81287e95))
+* testing workflow ([fc53491](https://github.com/CoCreate-app/CoCreateWS/commit/fc53491e6b6b19bdf6cf2ab1079550a054695e4f))
+* testing workflow ([7c6cf74](https://github.com/CoCreate-app/CoCreateWS/commit/7c6cf74d452ae0a7330f2d35c9d663172bc5657b))
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([129adf3](https://github.com/CoCreate-app/CoCreateWS/commit/129adf3b03e84742829f4258f98731ab691717c2))
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([1120034](https://github.com/CoCreate-app/CoCreateWS/commit/1120034bc8c2de1d8836bda29e989312c18da323))
+
+
+### Features
+
+* add component @cocreate/config, improves onboarding process using a combination of local configs, global configs and prompts ([35579f6](https://github.com/CoCreate-app/CoCreateWS/commit/35579f629fb9da1b09e6265bb2b810744d4689e9))
+
 # [0.33.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.32.0...v0.33.0) (2023-06-11)
 
 
