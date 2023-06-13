@@ -45,6 +45,7 @@
     "@cocreate/authenticate": "^1.0.16",
     "@cocreate/authorize": "^1.3.12",
     "@cocreate/cli": "^1.33.8",
+    "@cocreate/config": "^1.0.0",
     "@cocreate/crud-server": "^1.23.11",
     "@cocreate/file-server": "^1.6.12",
     "@cocreate/industry": "^1.11.29",

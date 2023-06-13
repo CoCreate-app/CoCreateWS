@@ -1,15 +1,7 @@
 module.exports = {
-    "organization_id": "5ff747727005da1c272740ab",
+    "organization_id": "",
     "key": "",
     "host": "",
-    "storage": {
-        "mongodb": {
-            "provider": "mongodb",
-            "url": [
-                "mongodb+srv://cocreate-app:0kqEaoEzDUM9lGTP@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority"
-            ]
-        }
-    },
     "directories": [
         {
             "entry": "./superadmin",
@@ -103,6 +95,10 @@ module.exports = {
         {
             'path': '../CoCreate-components/CoCreate-cli',
             'repo': 'github.com/CoCreate-app/CoCreate-cli.git'
+        },
+        {
+            'path': '../CoCreate-components/CoCreate-config',
+            'repo': 'github.com/CoCreate-app/CoCreate-config.git'
         },
         {
             'path': '../CoCreate-components/CoCreate-docs',
