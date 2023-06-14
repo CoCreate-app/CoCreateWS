@@ -18,7 +18,7 @@ module.exports = async function () {
         'storage.{{name}}.url': {
             prompt: 'Enter the storage providers url: '
         }
-    }, false, false)
+    })
 
     const storage = {}
     if (!config.name && !config.provider && !config.url) {
