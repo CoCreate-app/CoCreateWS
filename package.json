@@ -44,9 +44,8 @@
   "dependencies": {
     "@cocreate/authenticate": "^1.0.17",
     "@cocreate/authorize": "^1.3.13",
-    "@cocreate/cli": "^1.34.0",
-    "@cocreate/config": "^1.0.1",
-    "@cocreate/crud-server": "^1.23.13",
+    "@cocreate/config": "^1.0.2",
+    "@cocreate/crud-server": "^1.23.14",
     "@cocreate/file-server": "^1.6.13",
     "@cocreate/industry": "^1.11.30",
     "@cocreate/message-server": "^1.3.66",
@@ -54,7 +53,7 @@
     "@cocreate/mongodb": "^1.4.17",
     "@cocreate/organizations": "^1.15.18",
     "@cocreate/server-side-render": "^1.3.53",
-    "@cocreate/socket-server": "^1.13.13",
+    "@cocreate/socket-server": "^1.13.14",
     "@cocreate/unique": "^1.11.22",
     "@cocreate/users": "^1.22.26",
     "@cocreate/uuid": "^1.4.27"
