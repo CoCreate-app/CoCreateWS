@@ -1,3 +1,10 @@
+## [0.34.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.34.0...v0.34.1) (2023-06-14)
+
+
+### Bug Fixes
+
+* Update dependencies versions for [@cocreate](https://github.com/cocreate) libraries ([f7bdc77](https://github.com/CoCreate-app/CoCreateWS/commit/f7bdc778c19119a9fad1fe227efa57c6ccfd9409))
+
 # [0.34.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.33.0...v0.34.0) (2023-06-13)
 
 
