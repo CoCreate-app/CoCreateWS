@@ -1,3 +1,10 @@
+## [0.34.6](https://github.com/CoCreate-app/CoCreateWS/compare/v0.34.5...v0.34.6) (2023-06-16)
+
+
+### Bug Fixes
+
+* add CoCreate-config ([38c6c8a](https://github.com/CoCreate-app/CoCreateWS/commit/38c6c8a55618eb2602a40f4003915f1d8bf3dbe3))
+
 ## [0.34.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.34.4...v0.34.5) (2023-06-15)
 
 
