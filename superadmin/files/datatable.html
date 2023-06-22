@@ -174,7 +174,7 @@
                     fetch-document
                     filter-sort-name="path"
                     filter-sort-direction="asc"
-                    fetch-limit="20"
+                    filter-limit="20"
                     pass_id="datatable">
                     <tr
                         template
@@ -243,23 +243,23 @@
             </table>
             <span
                 template_id=""
-                fetch-type="fetched"
+                filter-on="fetched"
                 pass_id="datatable"
                 class="height:30px"></span>
             /
             <span
                 template_id=""
-                fetch-type="count"
+                filter-on="count"
                 pass_id="datatable"
                 class="height:30px"></span>
             <div
                 template_id=""
-                fetch-type="loadmore"
+                filter-on="loadmore"
                 pass_id="datatable"
                 class="height:30px">
                 Load More
             </div>
-            <!-- <div template_id="" fetch-type="scroll" pass_id="datatable" class="opacity:0 height:30px"></div> -->
+            <!-- <div template_id="" filter-on="scroll" pass_id="datatable" class="opacity:0 height:30px"></div> -->
         </main>
 
         <button
