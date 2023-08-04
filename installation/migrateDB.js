@@ -9,45 +9,45 @@ const toDB = 'dbUrl';
 const toDBName = '5ff747727005da1c272740ab'
 let newDb;
 mongoClient(toDB).then(toDBClient => {
-	try {
-		newDb = toDBClient.db(toDBName);			
-	} catch(error) {
-		console.log('newDb error', error); 
-	}
+    try {
+        newDb = toDBClient.db(toDBName);
+    } catch (error) {
+        console.log('newDb error', error);
+    }
 });
 
 mongoClient(fromDB).then(fromDBClient => {
-	try {
-		const db = fromDBClient.db(fromDBName);
-		db.listCollections().toArray(function(error, results) {
-			if (!error && results && results.length > 0) {
-				for (let result of results) {
-					if (!["organizations", "users", "keys", "files", "crdt-transactions", "metrics", "industries", "industry_documents"].includes(result.name))
-						getCollection(db, result.name)
-				}
-			}
-		})			
-	} catch(error) {
-		console.log('readCollection error', error); 
-	}
+    try {
+        const db = fromDBClient.db(fromDBName);
+        db.listCollections().toArray(function (error, results) {
+            if (!error && results && results.length > 0) {
+                for (let result of results) {
+                    if (!["organizations", "users", "keys", "files", "crdt-transactions", "metrics", "industries", "industry_objects"].includes(result.name))
+                        getCollection(db, result.name)
+                }
+            }
+        })
+    } catch (error) {
+        console.log('readCollection error', error);
+    }
 });
 
-function getCollection(db, collectionName){
-	try {
-		const collection = db.collection(collectionName);
-		collection.find().toArray(function(error, results) {
-			if (results) {
-				try {
-					const newCollection = newDb.collection(collectionName);
-					newCollection.insert(results);
-				} catch (error) {
-					console.log('documents error', error);
-				}						
-			} else {
-				console.log(error)
-			}
-		})
-	} catch (error) {
-		console.log('documentList error', error);
-	}
+function getCollection(db, arrayName) {
+    try {
+        const array = db.array(arrayName);
+        array.find().toArray(function (error, results) {
+            if (results) {
+                try {
+                    const newCollection = newDb.array(arrayName);
+                    newCollection.insert(results);
+                } catch (error) {
+                    console.log('arrays error', error);
+                }
+            } else {
+                console.log(error)
+            }
+        })
+    } catch (error) {
+        console.log('arrayList error', error);
+    }
 }
