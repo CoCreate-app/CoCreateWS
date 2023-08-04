@@ -5,8 +5,8 @@ module.exports = {
     "directories": [
         {
             "entry": "./superadmin",
-            "collection": "files",
-            "document": {
+            "array": "files",
+            "object": {
                 "name": "{{name}}",
                 "src": "{{source}}",
                 "host": [
