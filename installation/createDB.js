@@ -39,10 +39,11 @@ module.exports = async function () {
 
         try {
             // Create organization 
-            await crudServer.createDocument({
+            await crudServer.send({
+                method: 'create.object',
                 database: organization_id,
-                collection: 'organizations',
-                document: {
+                array: 'organizations',
+                object: {
                     _id: ObjectId(organization_id),
                     host: config.host,
                     storage: config.storage,
@@ -52,10 +53,11 @@ module.exports = async function () {
             })
 
             // Create user
-            await crudServer.createDocument({
+            await crudServer.send({
+                method: 'create.object',
                 database: organization_id,
-                collection: 'users',
-                document: {
+                array: 'users',
+                object: {
                     _id: ObjectId(user_id),
                     firstname: 'Admin',
                     organization_id
@@ -65,10 +67,11 @@ module.exports = async function () {
 
 
             // Create default key
-            await crudServer.createDocument({
+            await crudServer.send({
+                method: 'create.object',
                 database: organization_id,
-                collection: 'keys',
-                document: {
+                array: 'keys',
+                object: {
                     type: "key",
                     key: key,
                     actions: {
@@ -83,10 +86,11 @@ module.exports = async function () {
 
             // Create admin role
             let role_id = crudServer.ObjectId();
-            await crudServer.createDocument({
+            await crudServer.send({
+                method: 'create.object',
                 database: organization_id,
-                collection: 'keys',
-                document: {
+                array: 'keys',
+                object: {
                     _id: role_id,
                     type: "role",
                     name: "admin",
@@ -98,10 +102,11 @@ module.exports = async function () {
 
 
             // Create user key
-            await crudServer.createDocument({
+            await crudServer.send({
+                method: 'create.object',
                 database: organization_id,
-                collection: 'keys',
-                document: {
+                array: 'keys',
+                object: {
                     type: "user",
                     key: user_id,
                     roles: [role_id],
