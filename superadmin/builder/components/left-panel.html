@@ -3,7 +3,7 @@
 <div class="padding:5px min-width:260px">
     <div class="display:flex margin-bottom:5px font-size:16px tabs">
         <div
-            classname="builder-tab-round"
+            classkey="builder-tab-round"
             class="width:40px line-height:40px text-align:center margin:5px border-radius:50% cursor:pointer background:gainsboro background:silver:hover"
             selected-value="active"
             selected-selector="#vdom"
@@ -22,7 +22,7 @@
             selected-group="left-panels"
             toggle="files"
             toggle-selector="#fetch-assets"
-            toggle-attribute="fetch-collection">
+            toggle-attribute="array">
             <i
                 class="height:16px fill:#505050"
                 src="./assets/svg/photo-video.svg"></i>
@@ -34,7 +34,7 @@
             selected-group="left-panels"
             toggle="files"
             toggle-selector=".fetch-files"
-            toggle-attribute="fetch-collection">
+            toggle-attribute="array">
             <i
                 class="height:16px fill:#505050"
                 src="./assets/svg/folder.svg"></i>
@@ -97,24 +97,22 @@
             </div>
 
             <!-- Block Categories -->
-            <!--<div template_id="block-categories" filter-name="type" filter-value="611829a9c0e9580010ea589d"></div>-->
             <div
-                template_id="block-categories"
-                filter-name="tags"
+                filter-key="tags"
                 filter-value="6200378ea8b6b4001ae57821"
-                filter-operator="$ne"></div>
+                filter-operator="$ne"
+                filter-next></div>
             <div
                 id="elements"
                 class="components display:none active"
-                template_id="block-categories"
-                fetch-collection="tags"
-                filter-name="module_id"
+                array="tags"
+                filter-key="module_id"
                 filter-value="5ff747727005da1c27274194"
-                filter-sort-name="position"
+                filter-sort-key="position"
                 filter-sort-direction="asc"
-                render_id="tag">
+                render-selector=":last-child">
                 <!-- Block Categories Template -->
-                <div template="block-categories" document_id="{{tag._id}}">
+                <div template render-as="tag">
                     <div
                         class="padding:5px background:gainsboro"
                         show=".category{{tag._id}}"
@@ -134,27 +132,27 @@
                     <!-- Blocks  -->
                     <div
                         class="category{{tag._id}} display:flex flex-wrap:wrap justify-content:center text-align:center padding-bottom:20px"
-                        template_id="block{{tag._id}}"
-                        fetch-collection="blocks"
-                        filter-name="category"
+                        array="blocks"
+                        filter-key="category"
                         filter-value="{{tag._id}}"
-                        filter-sort-name="position"
-                        filter-sort-direction="asc">
+                        filter-sort-key="position"
+                        filter-sort-direction="asc"
+                        render-selector=":fist-child">
                         <!-- Blocks Template -->
                         <div
-                            template="block{{tag._id}}"
+                            template
                             class="card position:relative flex-grow:1 width:70px height:75px margin:5px padding:5px"
                             hover="display:block!important"
-                            hover-selector="#editblock{{document._id}}"
-                            document_id="{{document._id}}">
+                            hover-selector="#editblock{{object._id}}"
+                            object="{{object._id}}">
                             <div
-                                id="editblock{{document._id}}"
+                                id="editblock{{object._id}}"
                                 class="position:absolute top:8px right:8px font-size:11px display:none">
                                 <a
                                     actions="pass, openModal"
                                     modal-src="./blocks/form.html"
-                                    pass-collection="{{document.collection}}"
-                                    pass-document_id="{{document._id}}"
+                                    pass-array="{{object.array}}"
+                                    pass-object="{{object._id}}"
                                     pass_to="form-fields"
                                     modal-width="320px">
                                     <i
@@ -165,11 +163,9 @@
                             <div
                                 cloneable="true"
                                 class="height:65px padding:5px">
-                                <cloneable-html
-                                    >{{document.html}}</cloneable-html
-                                >
-                                <i>{{document.icon}}</i>
-                                <p class="font-size:11px">{{document.name}}</p>
+                                <cloneable-html>{{object.html}}</cloneable-html>
+                                <i>{{object.icon}}</i>
+                                <p class="font-size:11px">{{object.name}}</p>
                             </div>
                         </div>
                     </div>
@@ -178,21 +174,20 @@
 
             <!-- Component Categories -->
             <div
-                template_id="component-categories"
-                filter-name="tags"
-                filter-value="6200378ea8b6b4001ae57821"></div>
+                filter-key="tags"
+                filter-value="6200378ea8b6b4001ae57821"
+                filter-next></div>
             <div
                 id="components"
                 class="components display:none"
-                template_id="component-categories"
-                fetch-collection="tags"
-                filter-name="module_id"
+                array="tags"
+                filter-key="module_id"
                 filter-value="5ff747727005da1c27274194"
-                filter-sort-name="position"
+                filter-sort-key="position"
                 filter-sort-direction="asc"
-                render_id="tag">
+                render-selector=":last-child">
                 <!-- Components Categories Template -->
-                <div template="component-categories" document_id="{{tag._id}}">
+                <div template render-as="tag">
                     <div
                         class="padding:5px background:gainsboro"
                         show=".category{{tag._id}}"
@@ -212,26 +207,26 @@
                     <!-- Components -->
                     <div
                         class="category{{tag._id}} display:flex flex-wrap:wrap justify-content:center text-align:center padding-bottom:20px"
-                        template_id="component{{tag._id}}"
-                        fetch-collection="blocks"
-                        filter-name="category"
+                        array="blocks"
+                        filter-key="category"
                         filter-value="{{tag._id}}"
-                        filter-sort-name="position"
-                        filter-sort-direction="asc">
+                        filter-sort-key="position"
+                        filter-sort-direction="asc"
+                        render-selector=":last-child">
                         <!-- Components Template -->
                         <div
-                            template="component{{tag._id}}"
+                            template
                             class="card position:relative flex-grow:1 width:70px height:125px margin:5px padding:5px"
                             hover="display:block!important"
-                            hover-selector="#editcategory{{document._id}}">
+                            hover-selector="#editcategory{{object._id}}">
                             <div
-                                id="editcategory{{document._id}}"
+                                id="editcategory{{object._id}}"
                                 class="position:absolute top:8px right:8px font-size:11px display:none">
                                 <a
                                     actions="pass, openModal"
                                     modal-src="./blocks/form.html"
-                                    pass-collection="{{document.collection}}"
-                                    pass-document_id="{{document._id}}"
+                                    pass-array="{{object.array}}"
+                                    pass-object="{{object._id}}"
                                     pass_to="form-fields"
                                     modal-width="320px">
                                     <i
@@ -241,10 +236,10 @@
                             </div>
                             <div
                                 cloneable="true"
-                                cloneable-html="{{document.html}}"
+                                cloneable-html="{{object.html}}"
                                 class="height:115px padding:5px">
-                                <i>{{document.icon}}</i>
-                                <p class="font-size:11px">{{document.name}}</p>
+                                <i>{{object.icon}}</i>
+                                <p class="font-size:11px">{{object.name}}</p>
                             </div>
                         </div>
                     </div>
@@ -256,7 +251,7 @@
         <div
             id="vdom"
             vdom-selector=""
-            dnd-group-name="vdom"
+            dnd-group-key="vdom"
             class="left-panel display:none">
             vdom
         </div>
@@ -267,13 +262,13 @@
                 <input
                     type="file"
                     directory
-                    template_id="file-preview"
-                    collection="files" />
+                    render-closest="#upload; [template]"
+                    array="files" />
 
                 <button actions="upload">upload</button>
             </form>
 
-            <div template="file-preview">
+            <div template>
                 <input file="name" value="{{name}}" />
                 <input file="directory" value="{{directory}}" />
                 <input file="content-type" value="{{content-type}}" />
@@ -292,9 +287,9 @@
                     <a
                         actions="pass, openModal"
                         pass_to="render"
-                        collection="website-pages"
-                        document_id=""
-                        pass-name="src"
+                        array="website-pages"
+                        object=""
+                        pass-key="src"
                         modal-width="900px"
                         modal-color="#229954">
                         <i
@@ -312,33 +307,33 @@
                 ></span>
                 <span
                     class="margin-left:5px"
-                    collection="websites"
-                    document_id=""
-                    name="name"
+                    array="websites"
+                    object=""
+                    key="name"
                     >Project name</span
                 >
                 <div
                     id="fetch-files"
                     class="fetch-files margin-left:10px"
                     sortable
-                    template_id="$auto"
-                    fetch-collection=""
-                    fetch-document
-                    filter-name="directory"
+                    array=""
+                    document
+                    filter-key="directory"
                     filter-value="/"
                     filter-operator="$eq"
-                    filter-sort-name="name"
+                    filter-sort-key="name"
                     filter-sort-direction="asc"
-                    render_id="$auto">
+                    render-selector=":last-child">
                     <div
-                        template_id="$auto"
-                        filter-name="content-type"
-                        filter-value="text/directory"></div>
+                        filter-key="content-type"
+                        filter-value="text/directory"
+                        filter-parent></div>
                     <!--Folder Template -->
                     <div
                         class="padding:5px"
-                        template="$auto"
-                        document_id="{{$auto._id}}">
+                        template
+                        render-as="$auto"
+                        object="{{$auto._id}}">
                         <span
                             class=""
                             show="#directory{{$auto._id}}"
@@ -351,43 +346,43 @@
                         </span>
                         <span
                             class="margin-left:5px"
-                            collection="files"
-                            document_id="{{$auto._id}}"
-                            name="name"></span>
+                            array="files"
+                            object="{{$auto._id}}"
+                            key="name"></span>
 
                         <!-- fetches folder and file template. This loops until tree ends -->
                         <div
                             id="directory{{$auto._id}}"
                             class="domEditor margin-left:10px"
                             hidden
-                            collection="files"
-                            document_id="611ab5d9251afa96bd20f6cc"
-                            name="src"
+                            array="files"
+                            object="611ab5d9251afa96bd20f6cc"
+                            key="src"
                             filter-value="{{$auto.path}}"></div>
                     </div>
                 </div>
                 <div
                     class="fetch-files margin-left:10px"
                     sortable
-                    template_id="$auto"
-                    fetch-collection=""
-                    fetch-document
-                    filter-name="directory"
+                    array=""
+                    document
+                    filter-key="directory"
                     filter-value="/"
                     filter-operator="$eq"
-                    filter-sort-name="name"
-                    render_id="auto">
+                    filter-sort-key="name"
+                    render-selector=":last-child">
                     <div
-                        template_id="$auto"
-                        filter-name="content-type"
+                        filter-key="content-type"
                         filter-value="text/directory"
-                        filter-operator="$ne"></div>
+                        filter-operator="$ne"
+                        filter-parent></div>
 
                     <!-- File Template -->
                     <div
                         class="padding:5px"
-                        template="$auto"
-                        document_id="{{$auto._id}}">
+                        template
+                        render-as="$auto"
+                        object="{{$auto._id}}">
                         <span class="{{$auto.content-type}}"
                             ><i
                                 class="height:20px fill:#505050"
@@ -395,9 +390,9 @@
                         ></span>
                         <span
                             class="margin-left:5px"
-                            collection="files"
-                            document_id="{{$auto._id}}"
-                            name="name"></span>
+                            array="files"
+                            object="{{$auto._id}}"
+                            key="name"></span>
                     </div>
                 </div>
             </div>
@@ -413,9 +408,9 @@
                     <a
                         actions="pass, openModal"
                         pass_to="render"
-                        collection="website-pages"
-                        document_id=""
-                        pass-name="src"
+                        array="website-pages"
+                        object=""
+                        pass-key="src"
                         modal-width="900px"
                         modal-color="#229954">
                         <i
@@ -428,13 +423,13 @@
             <div
                 id="fetch-assets"
                 class="display:flex flex-wrap:wrap justify-content:center width:100% text-align:center padding-bottom:20px"
-                template_id="assets"
-                fetch-collection=""
-                fetch-document
-                filter-name="content-type"
+                array=""
+                document
+                filter-key="content-type"
                 filter-value="image, video"
-                filter-sort-name="path"
-                filter-sort-direction="asc">
+                filter-sort-key="path"
+                filter-sort-direction="asc"
+                render-selector="[template]">
                 <style>
                     [image-type*="image"] {
                         display: block !important;
@@ -446,18 +441,18 @@
                 </style>
                 <!-- Asset Template -->
                 <div
-                    template="assets"
+                    template
                     class="card position:relative flex-grow:1 width:105px height:90px margin:5px padding:5px"
                     hover="display:block!important"
-                    hover-selector="#editassests{{document._id}}">
+                    hover-selector="#editassests{{object._id}}">
                     <div
-                        id="editassets{{document._id}}"
+                        id="editassets{{object._id}}"
                         class="position:absolute top:8px right:8px font-size:11px display:none">
                         <a
                             actions="pass, openModal"
                             modal-src="https://server.cocreate.app/CoCreate-plugins/CoCreate-tui-image-editor/demo/index.html"
-                            pass-collection="files"
-                            pass-document_id="{{document._id}}"
+                            pass-array="files"
+                            pass-object="{{object._id}}"
                             pass_to="form-fields"
                             modal-width="900px">
                             <i
@@ -468,38 +463,38 @@
                     <a
                         actions="attributes"
                         attribute="src"
-                        value="{{document.path}}"
+                        value="{{object.path}}"
                         attribute-selector="iframe;">
                         <!-- image -->
                         <div
                             cloneable="true"
-                            cloneable-html="<img src='{{document.path}}'>"
+                            cloneable-html="<img src='{{object.path}}'>"
                             class="padding:5px display:none"
-                            image-type="{{document.content-type}}">
+                            image-type="{{object.content-type}}">
                             <img
                                 width="auto"
                                 height="auto"
-                                collection="files"
-                                document_id="{{document._id}}"
-                                name="path"
+                                array="files"
+                                object="{{object._id}}"
+                                key="path"
                                 class="max-height:65px max-width:100%" />
                         </div>
                         <!-- Video -->
                         <div
                             cloneable="true"
-                            cloneable-html="<video><source src='{{document.path}}''></video>"
+                            cloneable-html="<video><source src='{{object.path}}''></video>"
                             class="padding:5px display:none"
-                            video-type="{{document.content-type}}">
+                            video-type="{{object.content-type}}">
                             <video
                                 width="auto"
                                 height="auto"
                                 class="max-height:65px max-width:100%">
                                 <source
-                                    collection="files"
-                                    document_id="{{document._id}}"
-                                    name="path"
-                                    src="{{document.path}}"
-                                    type="{{document.content-type}}" />
+                                    array="files"
+                                    object="{{object._id}}"
+                                    key="path"
+                                    src="{{object.path}}"
+                                    type="{{object.content-type}}" />
                             </video>
                         </div>
                     </a>

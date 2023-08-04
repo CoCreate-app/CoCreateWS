@@ -18,9 +18,9 @@
         <link
             rel="stylesheet"
             href="./index.css"
-            collection="files"
-            document_id="637bc8fe91249e639db315d9"
-            name="src"
+            array="files"
+            object="637bc8fe91249e639db315d9"
+            key="src"
             type="text/css" />
         <link rel="manifest" href="./manifest.webmanifest" />
     </head>
@@ -55,8 +55,8 @@
                 <div
                     class="flex-grow:1 height:fit-content width:35% min-width:370px max-width:400px margin:10px align-self:flex-end">
                     <form id="new" realtime="false" autocomplete="off">
-                        <!-- <input type="hidden" localstorage-get="user_id" input-attribute="document_id" input-selector="[collection='users']">
-					    <input type="hidden" localstorage-get="organization_id" input-attribute="document_id" input-selector="[collection='organizations']"> -->
+                        <!-- <input type="hidden" localstorage-get="user_id" input-attribute="object" input-selector="[array='users']">
+					    <input type="hidden" localstorage-get="organization_id" input-attribute="object" input-selector="[array='organizations']"> -->
 
                         <div
                             class="overflow:hidden padding:0px_25px background:white">
@@ -77,9 +77,9 @@
                                 <input
                                     id="fistName"
                                     type="text"
-                                    collection="users"
-                                    document_id=""
-                                    name="fistName"
+                                    array="users"
+                                    object=""
+                                    key="fistName"
                                     placeholder="First name"
                                     autocomplete="off"
                                     render-key="fistName"
@@ -89,9 +89,9 @@
                                 <input
                                     id="lastName"
                                     type="text"
-                                    collection="users"
-                                    document_id=""
-                                    name="lastName"
+                                    array="users"
+                                    object=""
+                                    key="lastName"
                                     placeholder="Last name"
                                     autocomplete="off"
                                     render-key="lastName"
@@ -102,9 +102,9 @@
                                 <input
                                     type="text"
                                     id="org-name"
-                                    collection="organizations"
-                                    document_id=""
-                                    name="name"
+                                    array="organizations"
+                                    object=""
+                                    key="name"
                                     placeholder="Organization Name"
                                     required />
                             </floating-label>
@@ -112,9 +112,9 @@
                             <floating-label>
                                 <input
                                     type="email"
-                                    collection="users"
-                                    document_id=""
-                                    name="email"
+                                    array="users"
+                                    object=""
+                                    key="email"
                                     placeholder="Email"
                                     required />
                             </floating-label>
@@ -123,9 +123,9 @@
                                 <input
                                     type="password"
                                     id="password"
-                                    collection="users"
-                                    document_id=""
-                                    name="password"
+                                    array="users"
+                                    object=""
+                                    key="password"
                                     placeholder="Password" />
                             </floating-label>
 
@@ -138,9 +138,9 @@
 
                             <input
                                 type="hidden"
-                                collection="organizations"
-                                document_id=""
-                                name="key" />
+                                array="organizations"
+                                object=""
+                                key="key" />
 
                             <button
                                 type="button"
@@ -176,25 +176,25 @@
                             class="padding:25px background:gainsboro text-align:left">
                             <floating-label>
                                 <input
-                                    collection="organizations"
-                                    document_id=""
-                                    name="_id"
+                                    array="organizations"
+                                    object=""
+                                    key="_id"
                                     placeholder="organiztion_id" />
                             </floating-label>
 
                             <floating-label>
                                 <input
-                                    collection="organizations"
-                                    document_id=""
-                                    name="key"
+                                    array="organizations"
+                                    object=""
+                                    key="key"
                                     placeholder="key" />
                             </floating-label>
 
                             <floating-label>
                                 <input
-                                    collection="users"
-                                    document_id=""
-                                    name="_id"
+                                    array="users"
+                                    object=""
+                                    key="_id"
                                     placeholder="user_id"
                                     required />
                             </floating-label>
@@ -202,9 +202,9 @@
                             <floating-label>
                                 <input
                                     type="email"
-                                    collection="users"
-                                    document_id=""
-                                    name="email"
+                                    array="users"
+                                    object=""
+                                    key="email"
                                     placeholder="Email"
                                     required />
                             </floating-label>
@@ -212,9 +212,9 @@
                             <floating-label>
                                 <input
                                     type="password"
-                                    collection="users"
-                                    document_id=""
-                                    name="password"
+                                    array="users"
+                                    object=""
+                                    key="password"
                                     placeholder="Password" />
                             </floating-label>
 
@@ -241,16 +241,12 @@
         </main>
 
         <div class="position:fixed!important bottom:15px right:15px">
-            <div
-                template="validate"
-                class="card margin:5px padding:10px {{status}}">
+            <div template class="card margin:5px padding:10px {{status}}">
                 <span class="{{type}}">{{message}}</span
                 ><a actions="remove"> X</a>
             </div>
 
-            <div
-                template="notification"
-                class="card margin:5px padding:10px {{status}}">
+            <div template class="card margin:5px padding:10px {{status}}">
                 <span class="{{type}}">{{message}}</span
                 ><a actions="remove"> X</a>
             </div>

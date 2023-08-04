@@ -17,9 +17,9 @@
         <link
             rel="stylesheet"
             href="./index.css"
-            collection="files"
-            document_id="637bc8fe91249e639db315d9"
-            name="src"
+            array="files"
+            object="637bc8fe91249e639db315d9"
+            key="src"
             type="text/css" />
         <link rel="manifest" href="./manifest.webmanifest" />
     </head>
@@ -82,40 +82,40 @@
                     modal-height="375px"
                     modal-color="#229954">
                     <span
-                        collection="users"
-                        document_id="{{userId}}"
-                        name="name"
+                        array="users"
+                        object="{{userId}}"
+                        key="name"
                         class="avatar-name"></span>
                     <span class="avatar-image">
                         <img
-                            collection="users"
-                            document_id="{{userId}}"
-                            name="avatar"
+                            array="users"
+                            object="{{userId}}"
+                            key="avatar"
                             onerror="this.style.display='none'"
                             width="40px" />
                     </span>
                     <div
-                        pass-collection="modules"
-                        document_id="5ff747727005da1c27274182"
+                        pass-array="modules"
+                        object="5ff747727005da1c27274182"
                         pass_to="module_id"></div>
                     <div
-                        pass-collection="files"
-                        pass-document_id="60ddfdc114b5ab0c2dd2fe1c"
+                        pass-array="files"
+                        pass-object="60ddfdc114b5ab0c2dd2fe1c"
                         pass_to="form"></div>
                     <div
-                        pass-collection="users"
-                        pass-document_id="{{userId}}"
+                        pass-array="users"
+                        pass-object="{{userId}}"
                         pass_to="form-fields"></div>
                     <div
-                        pass-collection="files"
-                        pass-document_id="60ddfdc114b5ab0c2dd2fe1d"
-                        pass-name="src"
+                        pass-array="files"
+                        pass-object="60ddfdc114b5ab0c2dd2fe1d"
+                        pass-key="src"
                         pass_to="render"></div>
                 </a>
                 <div
                     class="avatar-status"
-                    collection="users"
-                    document_id="{{userId}}"
+                    array="users"
+                    object="{{userId}}"
                     user-status="{'name':'status'}"></div>
             </div>
         </nav>
@@ -140,39 +140,36 @@
             <!-- Select to change organizations  -->
             <cocreate-select
                 class="org-changer remove-none border:none padding:0"
-                name="current_org"
-                collection="users"
-                document_id="{{userId}}">
-                <input
-                    placeholder="Search"
-                    filter-search
-                    template_id="connected_orgs" />
+                key="current_org"
+                array="users"
+                object="{{userId}}">
+                <input placeholder="Search" filter-search filter-next />
                 <cc-options
                     class="options overflow:auto"
-                    fetch-collection="users"
-                    fetch-name="connected_orgs"
-                    filter-name="_id"
+                    array="users"
+                    key="connected_orgs"
+                    filter-key="_id"
                     filter-value="{{userId}}"
                     filter-operator="$eq"
-                    template_id="connected_orgs">
+                    render-selector="[template]">
                     <cc-option
                         class="display:flex height:50px margin:0!important padding:4px_12px!important"
-                        template="connected_orgs"
+                        template
                         value="{{connected_orgs}}">
                         <span class="logo-icon"
                             ><img
-                                collection="organizations"
-                                document_id="{{connected_orgs}}"
-                                name="logo"
+                                array="organizations"
+                                object="{{connected_orgs}}"
+                                key="logo"
                                 src="./assets/icon.png"
                                 height="40px"
                                 alt="..."
                                 class="margin-top:3px"
                         /></span>
                         <span
-                            collection="organizations"
-                            document_id="{{connected_orgs}}"
-                            name="name"
+                            array="organizations"
+                            object="{{connected_orgs}}"
+                            key="name"
                             class="margin-left:12px font-size:1.5em"></span>
                     </cc-option>
                     <div class="line-height:40px height:40px overflow:hidden">
@@ -201,9 +198,9 @@
                     <a
                         actions="pass, openModal"
                         pass_to="render"
-                        collection="website-pages"
-                        document_id=""
-                        pass-name="src"
+                        array="website-pages"
+                        object=""
+                        pass-key="src"
                         modal-width="900px"
                         modal-color="#229954">
                         <i
@@ -409,7 +406,7 @@
             <button actions="install" type="button" hidden>Install</button>
 
             <div
-                template="notification"
+                template
                 class="card position:fixed!important bottom:15px right:15px padding:10px {{status}}">
                 <span class="{{type}}">{{message}}</span
                 ><a actions="remove" remove-closest="[templateid]"> X</a>
