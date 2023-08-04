@@ -22,7 +22,7 @@ module.exports = {
     },
     "sources": [
         {
-            "collection": "files",
+            "array": "files",
             "document": {
                 "_id": "",
                 "name": "index.html",
