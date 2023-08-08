@@ -145,7 +145,7 @@
                     <input placeholder="Search" filter-next filter-search />
                     <cc-options
                         array=""
-                        document
+                        object
                         filter-key=""
                         filter-value=""
                         filter-sort-key="name"
@@ -188,7 +188,7 @@
                 <!--<input type="hidden" filter-key="module-view" filter-value="module-view" filter-next">-->
                 <div
                     array=""
-                    document
+                    object
                     filter-key=""
                     filter-value=""
                     filter-operator="$eq"
@@ -234,7 +234,7 @@
                             </a>
 
                             <a
-                                actions="deletedocument="
+                                actions="deleteObject"
                                 array="{{object.array}}"
                                 object="{{object._id}}"
                                 class="float:right padding:5px">
@@ -284,7 +284,7 @@
                 <div
                     class="display:flex flex-wrap:wrap"
                     array=""
-                    document
+                    object
                     pass-refresh="true"
                     filter-sort-key="name"
                     filter-sort-direction="asc"

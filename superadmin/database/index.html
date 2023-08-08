@@ -125,7 +125,7 @@
                 </tr>
                 <tbody
                     array=""
-                    document
+                    object
                     filter-limit="5"
                     pass-refresh
                     pass_id="array-view"
@@ -146,7 +146,7 @@
                                     class="visibility:hidden tools{{object._id}}">
                                     <a
                                         class="float:right margin-right:15px"
-                                        actions="deletedocument="
+                                        actions="deleteObject"
                                         array="{{object.array}}"
                                         object=""
                                         ><i
@@ -157,7 +157,7 @@
                             </div>
                             <div
                                 class="template display:flex"
-                                render="document="
+                                render="object"
                                 render-as="one"
                                 render-exclude="db, database, array"
                                 hover="visibility:visible!important"
