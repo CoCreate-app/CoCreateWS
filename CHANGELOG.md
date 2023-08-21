@@ -1,3 +1,25 @@
+# [0.35.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.34.8...v0.35.0) (2023-08-21)
+
+
+### Bug Fixes
+
+* /dist/CoCreate.js updated to https://CoCreate.app/dist/CoCreate.js ([e558b62](https://github.com/CoCreate-app/CoCreateWS/commit/e558b622440756b09c098b3af7186fb263606b48))
+* Refactor file upload components and simplify CSS styles ([230531d](https://github.com/CoCreate-app/CoCreateWS/commit/230531da396786ea6f5380ebf02fd576c1040d52))
+* Refactored *-target to *-selector ([d8f2a32](https://github.com/CoCreate-app/CoCreateWS/commit/d8f2a327d89fc1d8aa79fa4c07ae338d27c8d8d9))
+* render-array and render-object attributes renamed to render ([5489928](https://github.com/CoCreate-app/CoCreateWS/commit/5489928406d5948777203aa874c10bce29121784))
+
+
+### Features
+
+* **createDB:** Add function to create organization, user, default key, admin role, and user key ([13a363b](https://github.com/CoCreate-app/CoCreateWS/commit/13a363b9c8b9b73897c6c4232645551f428df666))
+* Refactor CoCreate.config.js for directory entries ([5cfced6](https://github.com/CoCreate-app/CoCreateWS/commit/5cfced6676f8207bc0b81ac2afe270805ebd363d))
+* Refactor config file example to rename collection to array ([820f5b2](https://github.com/CoCreate-app/CoCreateWS/commit/820f5b2bd257706cf11ebf37091b9c112ad6ce82))
+* Refactor migrateDB.js and updateConfig.js for clarity and consistency ([ae423e6](https://github.com/CoCreate-app/CoCreateWS/commit/ae423e629d9d3be8b35157be330ac07fde648002))
+* renamed CRUD attributes and params ([5969a59](https://github.com/CoCreate-app/CoCreateWS/commit/5969a595c1d310922579b68b90ab7f78eba0bfa2))
+* replace attributes "collection", "document" and "name" with "array", "object" and "key". ([928996b](https://github.com/CoCreate-app/CoCreateWS/commit/928996b99788162f84dcdae4f5eb3122c825e605))
+* Update cocreate dependencies for the latest features and bug fixes ([708a096](https://github.com/CoCreate-app/CoCreateWS/commit/708a0965beec257b82f8eae1326088a515f260df))
+* Upgrade "[@cocreate](https://github.com/cocreate)" package dependencies to their latest versions. ([89b1c10](https://github.com/CoCreate-app/CoCreateWS/commit/89b1c102c37fe80132889120856eca5a65b204bf))
+
 ## [0.34.8](https://github.com/CoCreate-app/CoCreateWS/compare/v0.34.7...v0.34.8) (2023-06-16)
 
 
