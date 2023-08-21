@@ -121,7 +121,7 @@ $ yarn start
                 host: '<Your CoCreateWS domain>'
             };
         </script>
-        <script src="https://cdn.cocreate.app/latest/CoCreate.min.js"></script>
+        <script src="/dist/CoCreate.js"></script>
         
     </body>
 </html>
