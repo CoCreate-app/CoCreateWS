@@ -20,23 +20,22 @@ module.exports = {
             "issuer": "issuer"
         }
     },
-    "sources": [
+    "directories": [
         {
+            "entry": "./superadmin",
             "array": "files",
-            "document": {
-                "_id": "",
-                "name": "index.html",
-                "path": "/docs/CoCreateWS/index.html",
-                "src": "{{./docs/index.html}}",
+            "object": {
+                "name": "{{name}}",
+                "src": "{{source}}",
                 "host": [
                     "*",
                     "general.cocreate.app"
                 ],
-                "directory": "/docs/CoCreateWS",
-                "parentDirectory": "{{parentDirectory}}",
+                "directory": "{{directory}}",
+                "path": "{{path}}",
+                "pathname": "{{pathname}}",
                 "content-type": "{{content-type}}",
-                "public": "true",
-                "website_id": "644d4bff8036fb9d1d1fd69c"
+                "public": "true"
             }
         }
     ]

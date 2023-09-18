@@ -13,9 +13,9 @@ module.exports = {
                     "*",
                     "general.cocreate.app"
                 ],
-                "parentDirectory": "{{parentDirectory}}",
-                "directory": "/superadmin{{directory}}",
+                "directory": "{{directory}}",
                 "path": "{{path}}",
+                "pathname": "{{pathname}}",
                 "content-type": "{{content-type}}",
                 "public": "true"
             }
