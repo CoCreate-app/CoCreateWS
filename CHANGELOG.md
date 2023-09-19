@@ -1,3 +1,16 @@
+# [0.36.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.35.0...v0.36.0) (2023-09-19)
+
+
+### Bug Fixes
+
+* add pathname ([68acaba](https://github.com/CoCreate-app/CoCreateWS/commit/68acabae90ae41ddeb477ddf2133862eb7e7a4bd))
+* Update CoCreate dependencies to it's latest versions ([c7ed725](https://github.com/CoCreate-app/CoCreateWS/commit/c7ed7250e98a3c2182d3728d0c8a0e3b34156e71))
+
+
+### Features
+
+* Update CoCreate dependencies to their latest versions ([81b9cc7](https://github.com/CoCreate-app/CoCreateWS/commit/81b9cc72b7b2290a2d5409aad42a1cb9802668c1))
+
 # [0.35.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.34.8...v0.35.0) (2023-08-21)
 
 
