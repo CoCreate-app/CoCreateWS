@@ -77,6 +77,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-node-autoscaler.git'
         },
         {
+            'path': '../CoCreate-components/CoCreate-notification',
+            'repo': 'github.com/CoCreate-app/CoCreate-notification.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-server-side-render',
             'repo': 'github.com/CoCreate-app/CoCreate-server-side-render.git'
         },

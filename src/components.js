@@ -11,6 +11,7 @@ const users = require('@cocreate/users');
 const authenticate = require('@cocreate/authenticate')
 const authorize = require("@cocreate/authorize");
 const Config = require("@cocreate/config");
+const notification = require("@cocreate/notification");
 const createDb = require('../installation/createDB');
 
 module.exports.init = async function (server) {
@@ -35,6 +36,7 @@ module.exports.init = async function (server) {
             wsManager.authorize = new authorize(crud)
 
             new fileServer(server, crud, new serverSideRender(crud));
+            new notification(crud);
             new messageServer(wsManager);
             new industry(crud);
             new metricsServer(crud);
