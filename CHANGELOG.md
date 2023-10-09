@@ -1,3 +1,10 @@
+# [0.38.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.37.0...v0.38.0) (2023-10-09)
+
+
+### Features
+
+* Added cocreate/notification ([d7f768f](https://github.com/CoCreate-app/CoCreateWS/commit/d7f768fa78d789a82e56c5ac6e70e74589943330))
+
 # [0.37.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.36.0...v0.37.0) (2023-10-09)
 
 
