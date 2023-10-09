@@ -1,3 +1,16 @@
+# [0.37.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.36.0...v0.37.0) (2023-10-09)
+
+
+### Bug Fixes
+
+* bump '[@cocreate](https://github.com/cocreate)' dependencies ([134b727](https://github.com/CoCreate-app/CoCreateWS/commit/134b7279b556f08a24ad2c0deb74deac086c03f7))
+* replaces sw.js ([431579c](https://github.com/CoCreate-app/CoCreateWS/commit/431579c7255587845bcfc9a81389ee6a34747715))
+
+
+### Features
+
+* add CoCreate-notification component ([4cfd41b](https://github.com/CoCreate-app/CoCreateWS/commit/4cfd41bd89ade02bc21d62b144f55a901bc54bd8))
+
 # [0.36.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.35.0...v0.36.0) (2023-09-19)
 
 
