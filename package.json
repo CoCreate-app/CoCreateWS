@@ -42,20 +42,20 @@
     "createdb": "node ./installation/createDB.js"
   },
   "dependencies": {
-    "@cocreate/authenticate": "^1.3.4",
-    "@cocreate/authorize": "^1.7.0",
-    "@cocreate/config": "^1.5.2",
-    "@cocreate/crud-server": "^1.28.4",
-    "@cocreate/file-server": "^1.11.1",
-    "@cocreate/industry": "^1.15.0",
-    "@cocreate/message-server": "^1.6.4",
-    "@cocreate/metrics-server": "^1.9.1",
-    "@cocreate/mongodb": "^1.9.1",
-    "@cocreate/organizations": "^1.21.0",
+    "@cocreate/authenticate": "^1.3.5",
+    "@cocreate/authorize": "^1.7.1",
+    "@cocreate/config": "^1.6.0",
+    "@cocreate/crud-server": "^1.28.5",
+    "@cocreate/file-server": "^1.11.2",
+    "@cocreate/industry": "^1.16.0",
+    "@cocreate/message-server": "^1.6.5",
+    "@cocreate/metrics-server": "^1.9.2",
+    "@cocreate/mongodb": "^1.10.0",
+    "@cocreate/organizations": "^1.21.1",
     "@cocreate/server-side-render": "^1.6.3",
-    "@cocreate/socket-server": "^1.18.1",
+    "@cocreate/socket-server": "^1.19.0",
     "@cocreate/unique": "^1.15.0",
-    "@cocreate/users": "^1.26.0",
+    "@cocreate/users": "^1.27.0",
     "@cocreate/uuid": "^1.7.2"
   }
 }
