@@ -1,3 +1,10 @@
+## [0.38.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.1...v0.38.2) (2023-10-09)
+
+
+### Bug Fixes
+
+* update service-worker ([ddbc0f4](https://github.com/CoCreate-app/CoCreateWS/commit/ddbc0f47bbbfb77f09accfd0ffebd1e4aefcb98c))
+
 ## [0.38.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.0...v0.38.1) (2023-10-09)
 
 
