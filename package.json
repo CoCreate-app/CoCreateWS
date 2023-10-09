@@ -51,6 +51,7 @@
     "@cocreate/message-server": "^1.6.5",
     "@cocreate/metrics-server": "^1.9.2",
     "@cocreate/mongodb": "^1.10.0",
+    "@cocreate/notification": "^1.1.0",
     "@cocreate/organizations": "^1.21.1",
     "@cocreate/server-side-render": "^1.6.3",
     "@cocreate/socket-server": "^1.19.0",
