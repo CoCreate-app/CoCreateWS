@@ -1,3 +1,10 @@
+## [0.38.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.2...v0.38.3) (2023-10-14)
+
+
+### Bug Fixes
+
+* update pass-refresh to pass-overwrite ([54f6cbc](https://github.com/CoCreate-app/CoCreateWS/commit/54f6cbc34257752e08af4c3a674c8849b65c376f))
+
 ## [0.38.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.1...v0.38.2) (2023-10-09)
 
 
