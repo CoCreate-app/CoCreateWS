@@ -1,3 +1,10 @@
+## [0.38.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.3...v0.38.4) (2023-10-16)
+
+
+### Bug Fixes
+
+* deleteObject renamed to delete ([1179363](https://github.com/CoCreate-app/CoCreateWS/commit/11793639a512b89f8f18164ad2b4fab1f680ebfb))
+
 ## [0.38.3](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.2...v0.38.3) (2023-10-14)
 
 
