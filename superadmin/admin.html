@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CareerCall | CareerCalling | professionalCalling</title>
+
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.cocreate.app/latest/CoCreate.min.css" />
+
+        <link rel="stylesheet" href="./index.css" type="text/css" parse />
+        <link rel="manifest" href="/manifest.webmanifest" />
+    </head>
+    <style>
+        .main-view {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+            overflow: auto;
+        }
+        .input-300 {
+            width: 292px;
+        }
+        .input-600 {
+            width: 100%;
+            max-width: 600px;
+        }
+        @media (max-width: 628px) {
+            .input-300 {
+                width: 100%;
+            }
+        }
+        .selected {
+            background-color: gainsboro;
+        }
+    </style>
+    <body>
+        <a href="./signin.html" session="false" hidden></a>
+
+        <nav>
+            <!-- Icon Logo -->
+            <a href="./" class="">
+                <span class="logo-name"
+                    >Career<span class="logo-name-colored">Calling</span></span
+                >
+            </a>
+        </nav>
+
+        <!-- Menu Icon -->
+        <a
+            style="position: fixed; left: 15px; top: 25px; z-index: 11"
+            actions=""
+            class="menu_icon"
+            click="active"
+            toggle-parent
+            toggle-attribute="sidenav"
+            toggle-value="open, close">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+
+        <sidenav>
+            <ul>
+                <li class="">
+                    <a
+                        actions="pass, action(document; .menu_icon)"
+                        pass_to="main"
+                        pass-src="./interviews/datatable.html"
+                        pass-overwrite
+                        class="display:flex align-items:center">
+                        <span
+                            class="display:flex justify-content:center min-width:50px">
+                            <i
+                                class="display:flex height:16px fill:#505050"
+                                src="./assets/svg/users.svg"></i>
+                        </span>
+                        <span>Interviews</span>
+                    </a>
+                    <div class="float:right width:50px text-align:center">
+                        <a
+                            actions="pass, action(document; .menu_icon)"
+                            pass_to="main"
+                            pass-src="./interviews/form.html"
+                            pass-overwrite
+                            class="display:flex justify-content:center align-items:center height:40px">
+                            <i
+                                class="display:flex height:18px fill:#505050"
+                                src="./assets/svg/plus.svg"></i>
+                        </a>
+                    </div>
+                </li>
+                <li class="">
+                    <a
+                        actions="pass, action(document; .menu_icon)"
+                        pass_to="main"
+                        pass-src="./interview-forms/datatable.html"
+                        pass-overwrite
+                        class="display:flex align-items:center">
+                        <span
+                            class="display:flex justify-content:center min-width:50px">
+                            <i
+                                class="display:flex height:16px fill:#505050"
+                                src="./assets/svg/list.svg"></i>
+                        </span>
+                        <span>Interview Forms</span>
+                    </a>
+
+                    <div class="float:right width:50px text-align:center">
+                        <a
+                            actions="pass, action(document; .menu_icon)"
+                            pass_to="main"
+                            pass-src="./interview-forms/form.html"
+                            pass-overwrite
+                            class="display:flex justify-content:center align-items:center height:40px">
+                            <i
+                                class="display:flex height:18px fill:#505050"
+                                src="./assets/svg/plus.svg"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </sidenav>
+
+        <main pass_id="main" src="./interviews/datatable.html"></main>
+
+        <!-- <script src="https://CoCreate.app/dist/CoCreate.min.js"></script> -->
+        <script src="http://CoCreate.app/dist/CoCreate.js"></script>
+
+        <!-- <script src="/CoCreateJS/dist/CoCreate.min.js"></script> -->
+    </body>
+</html>

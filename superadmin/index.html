@@ -137,54 +137,6 @@
             resize-selector="[content_id='content']"
             resize-property="margin-left"
             resize-value="width">
-            <!-- Select to change organizations  -->
-            <cocreate-select
-                class="org-changer remove-none border:none padding:0"
-                key="current_org"
-                array="users"
-                object="{{userId}}">
-                <input placeholder="Search" filter-search filter-next />
-                <cc-options
-                    class="options overflow:auto"
-                    array="users"
-                    key="connected_orgs"
-                    filter-key="_id"
-                    filter-value="{{userId}}"
-                    filter-operator="$eq"
-                    render-selector="[template]">
-                    <cc-option
-                        class="display:flex height:50px margin:0!important padding:4px_12px!important"
-                        template
-                        value="{{connected_orgs}}">
-                        <span class="logo-icon"
-                            ><img
-                                array="organizations"
-                                object="{{connected_orgs}}"
-                                key="logo"
-                                src="./assets/icon.png"
-                                height="40px"
-                                alt="..."
-                                class="margin-top:3px"
-                        /></span>
-                        <span
-                            array="organizations"
-                            object="{{connected_orgs}}"
-                            key="name"
-                            class="margin-left:12px font-size:1.5em"></span>
-                    </cc-option>
-                    <div class="line-height:40px height:40px overflow:hidden">
-                        <a href="./organizations/creator.html">
-                            <span class="padding:13px"
-                                ><i
-                                    class="height:16px fill:#505050"
-                                    src="./assets/svg/plus.svg"></i
-                            ></span>
-                            <span>New Orginaztion</span>
-                        </a>
-                    </div>
-                </cc-options>
-            </cocreate-select>
-
             <!-- Search -->
             <form class="padding:5px">
                 <floating-label>
@@ -216,10 +168,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, openModal"
-                            modal-src="./organizations/form.html"
-                            modal-width="375px"
-                            modal-color="green"
+                            actions="pass, action(document; .menu_icon)"
+                            pass_to="main"
+                            pass-src="./organizations/form.html"
+                            pass-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -234,10 +186,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, openModal"
-                            modal-src="./users/datatable.html"
-                            modal-width="640px"
-                            modal-color="green"
+                            actions="pass, action(document; .menu_icon)"
+                            pass_to="main"
+                            pass-src="./users/datatable.html"
+                            pass-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -250,10 +202,10 @@
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, openModal"
-                                modal-src="./users/form.html"
-                                modal-width="375px"
-                                modal-color="red">
+                                actions="pass, action(document; .menu_icon)"
+                                pass_to="main"
+                                pass-src="./users/form.html"
+                                pass-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
@@ -264,10 +216,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, openModal"
-                            modal-src="./keys/datatable.html"
-                            modal-width="100%"
-                            modal-color="green"
+                            actions="pass, action(document; .menu_icon)"
+                            pass_to="main"
+                            pass-src="./keys/datatable.html"
+                            pass-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -280,10 +232,10 @@
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, openModal"
-                                modal-src="./keys/form.html"
-                                modal-width="375px"
-                                modal-color="red">
+                                actions="pass, action(document; .menu_icon)"
+                                pass_to="main"
+                                pass-src="./keys/form.html"
+                                pass-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
@@ -294,10 +246,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, openModal"
-                            modal-src="./database/index.html"
-                            modal-width="100%"
-                            modal-color="green"
+                            actions="pass, action(document; .menu_icon)"
+                            pass_to="main"
+                            pass-src="./database/index.html"
+                            pass-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -310,10 +262,10 @@
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, openModal"
-                                modal-src="./database/form.html"
-                                modal-width="375px"
-                                modal-color="red">
+                                actions="pass, action(document; .menu_icon)"
+                                pass_to="main"
+                                pass-src="./database/form.html"
+                                pass-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
@@ -324,10 +276,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, openModal"
-                            modal-src="./files/datatable.html"
-                            modal-width="100%"
-                            modal-color="green"
+                            actions="pass, action(document; .menu_icon)"
+                            pass_to="main"
+                            pass-src="./files/datatable.html"
+                            pass-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -340,10 +292,10 @@
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, openModal"
-                                modal-src="./files/form.html"
-                                modal-width="375px"
-                                modal-color="red">
+                                actions="pass, action(document; .menu_icon)"
+                                pass_to="main"
+                                pass-src="./files/form.html"
+                                pass-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
@@ -354,10 +306,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover margin-bottom:10px">
                         <a
-                            actions="pass, openModal"
-                            modal-src="./websites/list.html"
-                            modal-width="640px"
-                            modal-color="green"
+                            actions="pass, action(document; .menu_icon)"
+                            pass_to="main"
+                            pass-src="./websites/datatable.html"
+                            pass-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -370,10 +322,10 @@
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, openModal"
-                                modal-src="./websites/form.html"
-                                modal-width="375px"
-                                modal-color="red">
+                                actions="pass, action(document; .menu_icon)"
+                                pass_to="main"
+                                pass-src="./users/datatable.html"
+                                pass-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
