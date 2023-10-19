@@ -61,10 +61,6 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-loadtest.git'
         },
         {
-            'path': '../CoCreate-components/CoCreate-message-server',
-            'repo': 'github.com/CoCreate-app/CoCreate-message-server.git'
-        },
-        {
             'path': '../CoCreate-components/CoCreate-metrics-server',
             'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
         },
