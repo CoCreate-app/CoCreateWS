@@ -2,7 +2,6 @@ const socketServer = require("@cocreate/socket-server")
 const crudServer = require('@cocreate/crud-server')
 const fileServer = require('@cocreate/file-server')
 const industry = require('@cocreate/industry')
-const messageServer = require('@cocreate/message-server')
 const metricsServer = require('@cocreate/metrics-server')
 const organizations = require('@cocreate/organizations');
 const serverSideRender = require('@cocreate/server-side-render');
@@ -37,7 +36,6 @@ module.exports.init = async function (server) {
 
             new fileServer(server, crud, new serverSideRender(crud));
             new notification(crud);
-            new messageServer(wsManager);
             new industry(crud);
             new metricsServer(crud);
             new unique(crud);

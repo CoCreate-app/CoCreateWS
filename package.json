@@ -48,7 +48,6 @@
     "@cocreate/crud-server": "^1.28.6",
     "@cocreate/file-server": "^1.11.3",
     "@cocreate/industry": "^1.16.1",
-    "@cocreate/message-server": "^1.6.6",
     "@cocreate/metrics-server": "^1.9.3",
     "@cocreate/mongodb": "^1.10.1",
     "@cocreate/notification": "^1.1.1",
