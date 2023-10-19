@@ -1,3 +1,12 @@
+## [0.38.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.4...v0.38.5) (2023-10-19)
+
+
+### Bug Fixes
+
+* removed '@cocreate/message' client and server ([091e940](https://github.com/CoCreate-app/CoCreateWS/commit/091e940d19067edab25ac3c5a450da7e80b3c902))
+* removed @cocreate/message-server ([62cd2e5](https://github.com/CoCreate-app/CoCreateWS/commit/62cd2e53c3e4d075da3a2cf93c2c1dc97ee7db10))
+* update superadmin ui ([4d3fe8e](https://github.com/CoCreate-app/CoCreateWS/commit/4d3fe8eff71327ca5b989222e0566293a8eeae8e))
+
 ## [0.38.4](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.3...v0.38.4) (2023-10-16)
 
 
