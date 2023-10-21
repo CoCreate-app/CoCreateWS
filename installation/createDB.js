@@ -31,9 +31,9 @@ module.exports = async function () {
     update()
 
     async function update() {
-        const organization_id = config.organization_id || `${crudServer.ObjectId()}`
+        const organization_id = config.organization_id || `${crudServer.ObjectId().toString()}`
         const key = config.key || uuid.generate(32);
-        const user_id = config.user_id || `${crudServer.ObjectId()}`;
+        const user_id = config.user_id || `${crudServer.ObjectId().toString()}`;
 
         console.log(organization_id, key, user_id)
 
@@ -85,7 +85,7 @@ module.exports = async function () {
             })
 
             // Create admin role
-            let role_id = crudServer.ObjectId();
+            let role_id = crudServer.ObjectId().toString();
             await crudServer.send({
                 method: 'create.object',
                 database: organization_id,
