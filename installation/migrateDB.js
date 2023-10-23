@@ -22,7 +22,7 @@ mongoClient(fromDB).then(fromDBClient => {
         db.listCollections().toArray(function (error, results) {
             if (!error && results && results.length > 0) {
                 for (let result of results) {
-                    if (!["organizations", "users", "keys", "files", "crdt-transactions", "metrics", "industries", "industry_objects"].includes(result.name))
+                    if (!["organizations", "users", "keys", "files", "crdt", "metrics", "industries", "industry_objects"].includes(result.name))
                         getCollection(db, result.name)
                 }
             }
