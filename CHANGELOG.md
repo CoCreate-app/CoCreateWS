@@ -1,3 +1,15 @@
+# [0.39.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.5...v0.39.0) (2023-10-24)
+
+
+### Bug Fixes
+
+* crdt-transactions renamed to crdt ([f61a934](https://github.com/CoCreate-app/CoCreateWS/commit/f61a934f7858f6bdf89c9fcc124536675f59ab33))
+
+
+### Features
+
+* ObjectId() returns an object containg the parts iof the _id along with a toString() function ([6b1be9c](https://github.com/CoCreate-app/CoCreateWS/commit/6b1be9cd3d5e49aff52cba5b72cfe4a6e944fb4b))
+
 ## [0.38.5](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.4...v0.38.5) (2023-10-19)
 
 
