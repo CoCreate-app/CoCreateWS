@@ -58,5 +58,11 @@
     "@cocreate/unique": "^1.15.5",
     "@cocreate/users": "^1.28.2",
     "@cocreate/uuid": "^1.7.2"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   }
 }
