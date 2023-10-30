@@ -40,7 +40,7 @@ module.exports = async function () {
         try {
             // Create organization 
             await crudServer.send({
-                method: 'create.object',
+                method: 'object.create',
                 database: organization_id,
                 array: 'organizations',
                 object: {
@@ -54,7 +54,7 @@ module.exports = async function () {
 
             // Create user
             await crudServer.send({
-                method: 'create.object',
+                method: 'object.create',
                 database: organization_id,
                 array: 'users',
                 object: {
@@ -68,7 +68,7 @@ module.exports = async function () {
 
             // Create default key
             await crudServer.send({
-                method: 'create.object',
+                method: 'object.create',
                 database: organization_id,
                 array: 'keys',
                 object: {
@@ -87,7 +87,7 @@ module.exports = async function () {
             // Create admin role
             let role_id = crudServer.ObjectId().toString();
             await crudServer.send({
-                method: 'create.object',
+                method: 'object.create',
                 database: organization_id,
                 array: 'keys',
                 object: {
@@ -103,7 +103,7 @@ module.exports = async function () {
 
             // Create user key
             await crudServer.send({
-                method: 'create.object',
+                method: 'object.create',
                 database: organization_id,
                 array: 'keys',
                 object: {
