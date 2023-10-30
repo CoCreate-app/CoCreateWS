@@ -35,6 +35,7 @@
   "homepage": "https://cocreate.app/docs/CoCreateWS",
   "main": "./src/server.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -42,20 +43,20 @@
     "createdb": "node ./installation/createDB.js"
   },
   "dependencies": {
-    "@cocreate/authenticate": "^1.3.7",
-    "@cocreate/authorize": "^1.7.2",
-    "@cocreate/config": "^1.6.1",
-    "@cocreate/crud-server": "^1.28.6",
-    "@cocreate/file-server": "^1.11.3",
-    "@cocreate/industry": "^1.16.1",
-    "@cocreate/metrics-server": "^1.9.3",
-    "@cocreate/mongodb": "^1.10.1",
-    "@cocreate/notification": "^1.1.1",
-    "@cocreate/organizations": "^1.21.1",
-    "@cocreate/server-side-render": "^1.6.4",
-    "@cocreate/socket-server": "^1.19.3",
-    "@cocreate/unique": "^1.15.0",
-    "@cocreate/users": "^1.27.0",
+    "@cocreate/authenticate": "^1.4.0",
+    "@cocreate/authorize": "^1.7.4",
+    "@cocreate/config": "^1.6.5",
+    "@cocreate/crud-server": "^1.28.10",
+    "@cocreate/file-server": "^1.12.0",
+    "@cocreate/industry": "^1.17.1",
+    "@cocreate/metrics-server": "^1.9.5",
+    "@cocreate/mongodb": "^1.10.2",
+    "@cocreate/notification": "^1.2.0",
+    "@cocreate/organizations": "^1.23.0",
+    "@cocreate/server-side-render": "^1.6.5",
+    "@cocreate/socket-server": "^1.21.2",
+    "@cocreate/unique": "^1.15.5",
+    "@cocreate/users": "^1.28.2",
     "@cocreate/uuid": "^1.7.2"
   }
 }
