@@ -1,3 +1,17 @@
+# [0.40.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.39.0...v0.40.0) (2023-11-04)
+
+
+### Bug Fixes
+
+* favicon.ico path ([5f130d6](https://github.com/CoCreate-app/CoCreateWS/commit/5f130d6884beee4f28902b16288042ec07176fb7))
+* update '[@cocreate](https://github.com/cocreate)' dependencies to there latest versions ([0e3b442](https://github.com/CoCreate-app/CoCreateWS/commit/0e3b44232158359f4471157f44c0a6192ea117c2))
+* update method to use object.update etc ([5fd4b7f](https://github.com/CoCreate-app/CoCreateWS/commit/5fd4b7f3af5e7ba69376c1d5bcf5e7194d2fcb0a))
+
+
+### Features
+
+* update dependencies to the latest versions ([a025c73](https://github.com/CoCreate-app/CoCreateWS/commit/a025c7362feee0ac1a45d8227b8f47dd43067c4f))
+
 # [0.39.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.38.5...v0.39.0) (2023-10-24)
 
 
