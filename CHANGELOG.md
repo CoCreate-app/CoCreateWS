@@ -1,3 +1,16 @@
+# [0.41.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.40.0...v0.41.0) (2023-11-12)
+
+
+### Bug Fixes
+
+* meta name typo ([7e9e927](https://github.com/CoCreate-app/CoCreateWS/commit/7e9e927c5f03fddf6a62f1466d802e67842a5368))
+* update host ([2f89248](https://github.com/CoCreate-app/CoCreateWS/commit/2f89248302fd74736000103e0896a2355c5829c8))
+
+
+### Features
+
+* update "[@cocreate](https://github.com/cocreate)" dependencies ([8e53911](https://github.com/CoCreate-app/CoCreateWS/commit/8e53911dd4c7f6b5017753c4c69bc9e1a8742964))
+
 # [0.40.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.39.0...v0.40.0) (2023-11-04)
 
 
