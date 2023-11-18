@@ -121,6 +121,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-observer.git'
         },
         {
+            'path': '../CoCreate-plugins/CoCreate-openai',
+            'repo': 'github.com/CoCreate-app/CoCreate-openai.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-organizations',
             'repo': 'github.com/CoCreate-app/CoCreate-organizations.git'
         },

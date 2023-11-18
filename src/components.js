@@ -12,6 +12,7 @@ const authorize = require("@cocreate/authorize");
 const Config = require("@cocreate/config");
 const notification = require("@cocreate/notification");
 const createDb = require('../installation/createDB');
+const openai = require('@cocreate/openai');
 
 module.exports.init = async function (server) {
     try {
@@ -41,6 +42,7 @@ module.exports.init = async function (server) {
             new unique(crud);
             new organizations(crud);
             new users(crud);
+            new openai(crud);
         } else {
             console.log('organization_id could not be found')
         }
