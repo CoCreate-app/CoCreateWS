@@ -1,3 +1,16 @@
+# [0.42.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.41.0...v0.42.0) (2023-11-19)
+
+
+### Bug Fixes
+
+* filter-name renamed to filter-key ([6aeaf49](https://github.com/CoCreate-app/CoCreateWS/commit/6aeaf497cdcc879214b1a9b1b32dca406e8c57d6))
+
+
+### Features
+
+* openai plugin ([d89bef1](https://github.com/CoCreate-app/CoCreateWS/commit/d89bef17b51a0ce70a54f1cd8d641780abb8c798))
+* update cocreate dependencies for the latest features ([a718f34](https://github.com/CoCreate-app/CoCreateWS/commit/a718f3463afb1cd6b2cc0bcdba5166ba6357596c))
+
 # [0.41.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.40.0...v0.41.0) (2023-11-12)
 
 
