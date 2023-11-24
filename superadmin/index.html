@@ -76,7 +76,7 @@
             <div class="avatar-wrapper margin:5px">
                 <a
                     class="avatar round"
-                    actions="pass, openModal"
+                    actions="state, openModal"
                     modal-src="./users/profile.html"
                     modal-width="300px"
                     modal-height="375px"
@@ -95,22 +95,22 @@
                             width="40px" />
                     </span>
                     <div
-                        pass-array="modules"
+                        state-array="modules"
                         object="5ff747727005da1c27274182"
-                        pass_to="module_id"></div>
+                        state_to="module_id"></div>
                     <div
-                        pass-array="files"
-                        pass-object="60ddfdc114b5ab0c2dd2fe1c"
-                        pass_to="form"></div>
+                        state-array="files"
+                        state-object="60ddfdc114b5ab0c2dd2fe1c"
+                        state_to="form"></div>
                     <div
-                        pass-array="users"
-                        pass-object="{{userId}}"
-                        pass_to="form-fields"></div>
+                        state-array="users"
+                        state-object="{{userId}}"
+                        state_to="form-fields"></div>
                     <div
-                        pass-array="files"
-                        pass-object="60ddfdc114b5ab0c2dd2fe1d"
-                        pass-key="src"
-                        pass_to="render"></div>
+                        state-array="files"
+                        state-object="60ddfdc114b5ab0c2dd2fe1d"
+                        state-key="src"
+                        state_to="render"></div>
                 </a>
                 <div
                     class="avatar-status"
@@ -143,16 +143,16 @@
                     <input
                         type="text"
                         class="floating-label"
-                        pass_to="results" />
+                        state_to="results" />
                 </floating-label>
                 <span
-                    class="passValueBtn position:relative bottom:29px right:11px float:right font-size:18px">
+                    class="position:relative bottom:29px right:11px float:right font-size:18px">
                     <a
-                        actions="pass, openModal"
-                        pass_to="render"
+                        actions="state, openModal"
+                        state_to="render"
                         array="website-pages"
                         object=""
-                        pass-key="src"
+                        state-key="src"
                         modal-width="900px"
                         modal-color="#229954">
                         <i
@@ -168,10 +168,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, action(document; .menu_icon)"
-                            pass_to="main"
-                            pass-src="./organizations/form.html"
-                            pass-overwrite
+                            actions="state, action(document; .menu_icon)"
+                            state_to="main"
+                            state-src="./organizations/form.html"
+                            state-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -186,10 +186,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, action(document; .menu_icon)"
-                            pass_to="main"
-                            pass-src="./users/datatable.html"
-                            pass-overwrite
+                            actions="state, action(document; .menu_icon)"
+                            state_to="main"
+                            state-src="./users/datatable.html"
+                            state-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -198,14 +198,16 @@
                                     src="./assets/svg/users.svg"></i>
                             </span>
                             <span>Users</span>
-                            <div pass-template="$uid" pass_to="datatable"></div>
+                            <div
+                                state-template="$uid"
+                                state_to="datatable"></div>
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, action(document; .menu_icon)"
-                                pass_to="main"
-                                pass-src="./users/form.html"
-                                pass-overwrite>
+                                actions="state, action(document; .menu_icon)"
+                                state_to="main"
+                                state-src="./users/form.html"
+                                state-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
@@ -216,10 +218,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, action(document; .menu_icon)"
-                            pass_to="main"
-                            pass-src="./keys/datatable.html"
-                            pass-overwrite
+                            actions="state, action(document; .menu_icon)"
+                            state_to="main"
+                            state-src="./keys/datatable.html"
+                            state-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -228,14 +230,16 @@
                                     src="./assets/svg/key.svg"></i>
                             </span>
                             <span>Keys</span>
-                            <div pass-template="$uid" pass_to="datatable"></div>
+                            <div
+                                state-template="$uid"
+                                state_to="datatable"></div>
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, action(document; .menu_icon)"
-                                pass_to="main"
-                                pass-src="./keys/form.html"
-                                pass-overwrite>
+                                actions="state, action(document; .menu_icon)"
+                                state_to="main"
+                                state-src="./keys/form.html"
+                                state-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
@@ -246,10 +250,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, action(document; .menu_icon)"
-                            pass_to="main"
-                            pass-src="./database/index.html"
-                            pass-overwrite
+                            actions="state, action(document; .menu_icon)"
+                            state_to="main"
+                            state-src="./database/index.html"
+                            state-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -258,14 +262,16 @@
                                     src="./assets/svg/database.svg"></i>
                             </span>
                             <span>Database</span>
-                            <div pass-template="$uid" pass_to="datatable"></div>
+                            <div
+                                state-template="$uid"
+                                state_to="datatable"></div>
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, action(document; .menu_icon)"
-                                pass_to="main"
-                                pass-src="./database/form.html"
-                                pass-overwrite>
+                                actions="state, action(document; .menu_icon)"
+                                state_to="main"
+                                state-src="./database/form.html"
+                                state-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
@@ -276,10 +282,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover">
                         <a
-                            actions="pass, action(document; .menu_icon)"
-                            pass_to="main"
-                            pass-src="./files/datatable.html"
-                            pass-overwrite
+                            actions="state, action(document; .menu_icon)"
+                            state_to="main"
+                            state-src="./files/datatable.html"
+                            state-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -288,14 +294,16 @@
                                     src="./assets/svg/folder.svg"></i>
                             </span>
                             <span>Files</span>
-                            <div pass-template="$uid" pass_to="datatable"></div>
+                            <div
+                                state-template="$uid"
+                                state_to="datatable"></div>
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, action(document; .menu_icon)"
-                                pass_to="main"
-                                pass-src="./files/form.html"
-                                pass-overwrite>
+                                actions="state, action(document; .menu_icon)"
+                                state_to="main"
+                                state-src="./files/form.html"
+                                state-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
@@ -306,10 +314,10 @@
                     <li
                         class="line-height:40px min-height:40px height:40px overflow:hidden white-space:nowrap background:dodgerblue:hover margin-bottom:10px">
                         <a
-                            actions="pass, action(document; .menu_icon)"
-                            pass_to="main"
-                            pass-src="./websites/datatable.html"
-                            pass-overwrite
+                            actions="state, action(document; .menu_icon)"
+                            state_to="main"
+                            state-src="./websites/datatable.html"
+                            state-overwrite
                             class="display:flex align-items:center">
                             <span
                                 class="display:flex justify-content:center min-width:50px">
@@ -318,14 +326,16 @@
                                     src="./assets/svg/desktop.svg"></i>
                             </span>
                             <span>Sites &amp; Apps</span>
-                            <div pass-template="$uid" pass_to="datatable"></div>
+                            <div
+                                state-template="$uid"
+                                state_to="datatable"></div>
                         </a>
                         <div class="float:right width:50px text-align:center">
                             <a
-                                actions="pass, action(document; .menu_icon)"
-                                pass_to="main"
-                                pass-src="./users/datatable.html"
-                                pass-overwrite>
+                                actions="state, action(document; .menu_icon)"
+                                state_to="main"
+                                state-src="./users/datatable.html"
+                                state-overwrite>
                                 <i
                                     class="height:16px fill:#505050"
                                     src="./assets/svg/plus.svg"></i>
