@@ -28,7 +28,7 @@
     "url": "git+https://github.com/CoCreate-app/CoCreateWS.git"
   },
   "author": "CoCreate LLC",
-  "license": "SSPL-1.0",
+  "license": "AGPL-3.0",
   "bugs": {
     "url": "https://github.com/CoCreate-app/CoCreateWS/issues"
   },
@@ -45,20 +45,20 @@
   "dependencies": {
     "@cocreate/authenticate": "^1.5.0",
     "@cocreate/authorize": "^1.9.0",
-    "@cocreate/config": "^1.7.0",
+    "@cocreate/config": "^1.8.0",
     "@cocreate/crud-server": "^1.31.0",
     "@cocreate/file-server": "^1.13.0",
-    "@cocreate/industry": "^1.18.0",
+    "@cocreate/industry": "^1.19.0",
     "@cocreate/metrics-server": "^1.10.0",
     "@cocreate/mongodb": "^1.13.1",
-    "@cocreate/notification": "^1.3.0",
-    "@cocreate/openai": "^1.2.0",
-    "@cocreate/organizations": "^1.24.0",
+    "@cocreate/notification": "^1.4.0",
+    "@cocreate/openai": "^1.3.0",
+    "@cocreate/organizations": "^1.25.0",
     "@cocreate/server-side-render": "^1.7.0",
     "@cocreate/socket-server": "^1.22.0",
-    "@cocreate/unique": "^1.16.0",
-    "@cocreate/users": "^1.29.0",
-    "@cocreate/uuid": "^1.8.0"
+    "@cocreate/unique": "^1.17.0",
+    "@cocreate/users": "^1.30.0",
+    "@cocreate/uuid": "^1.9.0"
   },
   "devDependencies": {
     "css-loader": "^6.8.1",
