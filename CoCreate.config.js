@@ -103,6 +103,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-socket-server.git'
         },
         {
+            'path': '../CoCreate-components/CoCreate-usage',
+            'repo': 'github.com/CoCreate-app/CoCreate-usage.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-actions',
             'repo': 'github.com/CoCreate-app/CoCreate-actions.git'
         },

@@ -3,6 +3,7 @@ const crudServer = require('@cocreate/crud-server')
 const fileServer = require('@cocreate/file-server')
 const industry = require('@cocreate/industry')
 const metrics = require('@cocreate/metrics')
+const usage = require('@cocreate/usage')
 const organizations = require('@cocreate/organizations');
 const serverSideRender = require('@cocreate/server-side-render');
 const unique = require('@cocreate/unique');
@@ -12,7 +13,7 @@ const authorize = require("@cocreate/authorize");
 const Config = require("@cocreate/config");
 const notification = require("@cocreate/notification");
 const createDb = require('../installation/createDB');
-// const lazyLoader = require('@cocreate/lazy-loader');
+const lazyLoader = require('@cocreate/lazy-loader');
 const masterMap = require('./masterMap');
 const openai = require('@cocreate/openai');
 
@@ -44,6 +45,7 @@ module.exports.init = async function (cluster, server) {
             new fileServer(server, crud, new serverSideRender(crud));
             new notification(crud);
             new metrics(crud);
+            new usage(crud);
             new unique(crud);
             new organizations(crud);
             new users(crud);
