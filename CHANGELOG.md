@@ -1,3 +1,18 @@
+# [0.43.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.42.0...v0.43.0) (2023-11-25)
+
+
+### Bug Fixes
+
+* height 1em ([c6a58d0](https://github.com/CoCreate-app/CoCreateWS/commit/c6a58d028f13d5624ecc86675357311d9a2ddfa8))
+* update licensing details ([3426bd9](https://github.com/CoCreate-app/CoCreateWS/commit/3426bd9cd9d3280e47f96383d8ccba1ae4cbba92))
+* update pass to state ([0e39ce7](https://github.com/CoCreate-app/CoCreateWS/commit/0e39ce7b0c3b9ae1e46a9a772b4911b1fdbe4066))
+
+
+### Features
+
+* upgrade dependencies for latest features and fixes ([9700b04](https://github.com/CoCreate-app/CoCreateWS/commit/9700b0456d92a89c110f67e139d1b80e38564b15))
+* upgrade dependencies for latest features and fixes ([f89eab4](https://github.com/CoCreate-app/CoCreateWS/commit/f89eab4c8d1a0b5291df2ff0d2aea067e1ecc7ad))
+
 # [0.42.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.41.0...v0.42.0) (2023-11-19)
 
 
