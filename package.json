@@ -49,6 +49,7 @@
     "@cocreate/crud-server": "^1.31.0",
     "@cocreate/file-server": "^1.13.0",
     "@cocreate/industry": "^1.19.0",
+    "@cocreate/lazy-loader": "^1.9.0",
     "@cocreate/metrics": "^1.0.0",
     "@cocreate/mongodb": "^1.13.1",
     "@cocreate/notification": "^1.4.0",
