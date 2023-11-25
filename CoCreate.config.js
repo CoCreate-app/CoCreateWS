@@ -2,6 +2,21 @@ module.exports = {
     "organization_id": "",
     "key": "",
     "host": "",
+    "lazyload": {
+        openaii: {
+            event: "openai",
+            path: "@cocreate/openai",
+            unload: "10000" // true, false, number in milli seconds to wait before unloading
+        },
+        industry: {
+            event: "industry",
+            array: "files",
+            object: {
+                pathname: "/dist/industry-chunk.js",
+            },
+            unload: "10000" // true, false, number in milli seconds to wait before unloading
+        }
+    },
     "directories": [
         {
             "entry": "./superadmin",
@@ -60,8 +75,12 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-loadtest.git'
         },
         {
-            'path': '../CoCreate-components/CoCreate-metrics-server',
-            'repo': 'github.com/CoCreate-app/CoCreate-metrics-server.git'
+            'path': '../CoCreate-components/CoCreate-lazy-loader',
+            'repo': 'github.com/CoCreate-app/CoCreate-lazy-loader.git'
+        },
+        {
+            'path': '../CoCreate-components/CoCreate-metrics',
+            'repo': 'github.com/CoCreate-app/CoCreate-metrics.git'
         },
         {
             'path': '../CoCreate-components/CoCreate-mongodb',
