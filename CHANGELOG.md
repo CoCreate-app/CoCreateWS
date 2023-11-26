@@ -1,3 +1,10 @@
+## [0.43.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.43.0...v0.43.1) (2023-11-26)
+
+
+### Bug Fixes
+
+* renamed calculation to calculate ([83854ff](https://github.com/CoCreate-app/CoCreateWS/commit/83854ff9afb7b782895c305b7379059a6d4c7395))
+
 # [0.43.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.42.0...v0.43.0) (2023-11-25)
 
 
