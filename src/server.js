@@ -28,8 +28,8 @@ if (cluster.isMaster) {
 
     const server = http.createServer();
 
-    const components = require("./components");
-    components.init(cluster, server);
+    const modules = require("./modules");
+    modules.init(cluster, server);
 
     server.listen(process.env.PORT || 3000, () => {
         console.log(`Worker ${process.pid} (ID: ${workerId}) started, listening on PORT ${process.env.PORT || 3000}`);

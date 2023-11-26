@@ -1,7 +1,6 @@
 const socketServer = require("@cocreate/socket-server")
 const crudServer = require('@cocreate/crud-server')
 const fileServer = require('@cocreate/file-server')
-const industry = require('@cocreate/industry')
 const metrics = require('@cocreate/metrics')
 const usage = require('@cocreate/usage')
 const organizations = require('@cocreate/organizations');
@@ -52,7 +51,6 @@ module.exports.init = async function (cluster, server) {
             new lazyLoader(crud);
 
             new openai(crud);
-            // new industry(crud);
 
         } else {
             console.log('organization_id could not be found')
