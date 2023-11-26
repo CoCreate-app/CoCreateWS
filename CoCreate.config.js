@@ -2,6 +2,10 @@ module.exports = {
     "organization_id": "",
     "key": "",
     "host": "",
+    server: {
+        workers: 4, // Number of worker processes
+    },
+
     "lazyload": {
         openaii: {
             event: "openai",
@@ -17,6 +21,19 @@ module.exports = {
             unload: "10000" // true, false, number in milli seconds to wait before unloading
         }
     },
+
+    // Horizontal scaling configuration
+    autoscaler: {
+        horizontal: {
+            enabled: true, // Enable or disable horizontal scaling
+            memoryThreshold: '70%', // Memory usage threshold for scaling
+            cpuThreshold: '70%', // CPU usage threshold for scaling
+            serverType: 't2.medium', // Generic term for instance type
+            maxServers: 10 // Maximum number of servers to scale out to
+        },
+        vertical: false // Vertical scaling not enabled
+    },
+
     "directories": [
         {
             "entry": "./superadmin",
@@ -35,6 +52,7 @@ module.exports = {
             }
         }
     ],
+
     "repositories": [
 
         // Servers
