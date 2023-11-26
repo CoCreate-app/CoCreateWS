@@ -2,36 +2,46 @@
 const cluster = require('cluster');
 const http = require('http');
 const os = require('os');
-const cpu = 2
+const config = require("@cocreate/config");
 
-if (cluster.isMaster) {
-    const numCPUs = cpu || os.cpus().length;
-    console.log(`Master process is running with PID: ${process.pid}`);
-    console.log(`Forking ${numCPUs} workers...`);
+const modules = require("./modules");
 
-    for (let i = 0; i < numCPUs; i++) {
-        // Forking the worker and passing the worker ID as an environment variable
-        const worker = cluster.fork({ WORKER_ID: i + 1 });
+async function init() {
+    let workers = await config('workers')
+    workers = workers.workers
+    if (!workers || workers === 'false') {
+        workers = 1
+    } else
+        workers = workers = parseInt(workers) || os.cpus().length;
 
-        // Logging the path that could be used for routing
-        console.log(`Worker ${worker.process.pid} will handle path /worker${i + 1}`);
+    if (cluster.isMaster) {
+
+        console.log(`Master process is running with PID: ${process.pid}`);
+        console.log(`Forking ${workers} workers...`);
+
+        for (let i = 0; i < workers; i++) {
+            const worker = cluster.fork({ WORKER_ID: i + 1 });
+            console.log(`Worker ${worker.process.pid} will handle path /worker${i + 1}`);
+        }
+
+        cluster.on('exit', (worker, code, signal) => {
+            console.log(`Worker ${worker.process.pid} died with code: ${code}, and signal: ${signal}`);
+            console.log('Starting a new worker');
+            cluster.fork();
+        });
+    } else {
+        // Each worker can use the WORKER_ID environment variable to determine its unique path
+        const workerId = process.env.WORKER_ID;
+
+        const server = http.createServer();
+
+        cluster.totalWorkers = workers
+        modules.init(cluster, server);
+
+        server.listen(process.env.PORT || 3000, () => {
+            console.log(`Worker ${process.pid} (ID: ${workerId}) started, listening on PORT ${process.env.PORT || 3000}`);
+        });
     }
-
-    cluster.on('exit', (worker, code, signal) => {
-        console.log(`Worker ${worker.process.pid} died with code: ${code}, and signal: ${signal}`);
-        console.log('Starting a new worker');
-        cluster.fork();
-    });
-} else {
-    // Each worker can use the WORKER_ID environment variable to determine its unique path
-    const workerId = process.env.WORKER_ID;
-
-    const server = http.createServer();
-
-    const modules = require("./modules");
-    modules.init(cluster, server);
-
-    server.listen(process.env.PORT || 3000, () => {
-        console.log(`Worker ${process.pid} (ID: ${workerId}) started, listening on PORT ${process.env.PORT || 3000}`);
-    });
 }
+
+init()
