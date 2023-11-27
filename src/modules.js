@@ -33,12 +33,12 @@ module.exports.init = async function (cluster, server) {
         if (config.organization_id) {
             const wsManager = new socketServer(server, 'ws')
             wsManager.cluster = cluster
-            wsManager.authenticate = authenticate
 
             const databases = {
                 mongodb: require('@cocreate/mongodb')
             }
             const crud = new crudServer(wsManager, databases)
+            wsManager.authenticate = new authenticate(crud)
             wsManager.authorize = new authorize(crud)
 
             new fileServer(server, crud, new serverSideRender(crud));
