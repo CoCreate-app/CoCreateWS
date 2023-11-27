@@ -2,7 +2,7 @@ module.exports = {
     "organization_id": "",
     "key": "",
     "host": "",
-    workers: true, // Number of worker processes
+    workers: 1, // Number of worker processes
 
     "lazyload": {
         openaii: {
