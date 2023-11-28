@@ -57,6 +57,7 @@
     "@cocreate/organizations": "^1.25.0",
     "@cocreate/server-side-render": "^1.7.0",
     "@cocreate/socket-server": "^1.22.0",
+    "@cocreate/stripe": "^1.15.1",
     "@cocreate/unique": "^1.17.0",
     "@cocreate/usage": "^1.0.0",
     "@cocreate/users": "^1.30.0",
