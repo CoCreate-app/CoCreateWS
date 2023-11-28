@@ -1,11 +1,17 @@
 module.exports = {
-    "organization_id": "",
-    "key": "",
-    "host": "",
+    organization_id: "",
+    key: "",
+    host: "",
     workers: 1, // Number of worker processes
-
-    "lazyload": {
-        openaii: {
+    databases: {
+        mongodb: require('@cocreate/mongodb')
+    },
+    modules: {
+        'file-server': {
+            path: "@cocreate/file-server",
+            unload: false // true, false, number in milli seconds to wait before unloading
+        },
+        openai: {
             event: "openai",
             path: "@cocreate/openai",
             unload: "10000" // true, false, number in milli seconds to wait before unloading
@@ -17,6 +23,11 @@ module.exports = {
                 pathname: "/dist/industry-chunk.js",
             },
             unload: "10000" // true, false, number in milli seconds to wait before unloading
+        },
+        stripe: {
+            event: "stripe",
+            path: "@cocreate/stripe",
+            unload: "10000"
         }
     },
 
