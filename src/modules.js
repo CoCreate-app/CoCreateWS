@@ -14,7 +14,6 @@ const notification = require("@cocreate/notification");
 const createDb = require('../installation/createDB');
 const lazyLoader = require('@cocreate/lazy-loader');
 const masterMap = require('./masterMap');
-const openai = require('@cocreate/openai');
 
 module.exports.init = async function (cluster, server) {
     try {
@@ -37,21 +36,20 @@ module.exports.init = async function (cluster, server) {
             const databases = {
                 mongodb: require('@cocreate/mongodb')
             }
+
             const crud = new crudServer(wsManager, databases)
             wsManager.authenticate = new authenticate(crud)
             wsManager.authorize = new authorize(crud)
 
-            new fileServer(server, crud, new serverSideRender(crud));
-            new notification(crud);
+            new lazyLoader(server, crud, new fileServer(new serverSideRender(crud)));
+
             new metrics(crud);
+            new notification(crud);
+
             new usage(crud);
             new unique(crud);
             new organizations(crud);
             new users(crud);
-            new lazyLoader(crud);
-
-            new openai(crud);
-
         } else {
             console.log('organization_id could not be found')
         }
