@@ -1,3 +1,24 @@
+# [0.44.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.43.1...v0.44.0) (2023-12-01)
+
+
+### Bug Fixes
+
+* accepts cluster varible ([ce1d488](https://github.com/CoCreate-app/CoCreateWS/commit/ce1d4889d7b4089103a9d140ca3e100017512f58))
+* add usage module previously called metrics-server ([e2d8cbc](https://github.com/CoCreate-app/CoCreateWS/commit/e2d8cbca0bb0e187496455a0c8dd5653af241d94))
+* components renamed to modules ([b3369a0](https://github.com/CoCreate-app/CoCreateWS/commit/b3369a0fd641b1f1a2810f2964f7fadf89baf7fb))
+* metrics-server to metrics ([7026b84](https://github.com/CoCreate-app/CoCreateWS/commit/7026b84e2b0d2689f762a86c2a7070e98008251e))
+* metrics-server to metrics ([7b7b2d9](https://github.com/CoCreate-app/CoCreateWS/commit/7b7b2d925d769f64c2655d050fecb99dc5523465))
+* pass empty cluster ([442e727](https://github.com/CoCreate-app/CoCreateWS/commit/442e7273b5792853ff13c151c144b69eb3bf63af))
+
+
+### Features
+
+* add "@cocreate/lazy-loader" ([8193926](https://github.com/CoCreate-app/CoCreateWS/commit/8193926ae86ef86a1ea2d16006106b1c0c7dd7f8))
+* masterMap with IPC communication ([146f80d](https://github.com/CoCreate-app/CoCreateWS/commit/146f80dfc05acdf7f3abecd8795cecbdfe22e2ea))
+* node cluster support ([92ba99e](https://github.com/CoCreate-app/CoCreateWS/commit/92ba99efded2be54347785def155ed99eb174183))
+* support node clustering ([9335d46](https://github.com/CoCreate-app/CoCreateWS/commit/9335d46a902341ba108e7838fbe31e282c82ff67))
+* supports passing workers count in config ([e03328b](https://github.com/CoCreate-app/CoCreateWS/commit/e03328b92a915a91f4cd8cce6b7934bd8d00dd6c))
+
 ## [0.43.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.43.0...v0.43.1) (2023-11-26)
 
 
