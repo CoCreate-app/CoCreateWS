@@ -1,3 +1,12 @@
+## [0.44.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.44.0...v0.44.1) (2023-12-05)
+
+
+### Bug Fixes
+
+*  title ([dc7ef14](https://github.com/CoCreate-app/CoCreateWS/commit/dc7ef1487e73116cc6f84c3dcbd9eb748e05e39b))
+* authenticate declartion ([dcad0d0](https://github.com/CoCreate-app/CoCreateWS/commit/dcad0d033e8e82f51b1263440e0ff5fd04fcd950))
+* worket set to 1 ([a857c93](https://github.com/CoCreate-app/CoCreateWS/commit/a857c93554cb579120ed259e31dfeff5064a5ec2))
+
 # [0.44.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.43.1...v0.44.0) (2023-12-01)
 
 
