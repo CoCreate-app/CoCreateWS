@@ -1,3 +1,16 @@
+# [0.45.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.44.1...v0.45.0) (2023-12-09)
+
+
+### Bug Fixes
+
+* add "@cocreate/stripe" ([0a9632a](https://github.com/CoCreate-app/CoCreateWS/commit/0a9632a10d38226c7721a175bac2e7ce197f1b09))
+
+
+### Features
+
+* added stripe to confog ([7f60760](https://github.com/CoCreate-app/CoCreateWS/commit/7f607605f8b4778c251228752af8c36196cccf06))
+* improved lazyloader, fileserver handled by lazyloader ([5b94292](https://github.com/CoCreate-app/CoCreateWS/commit/5b94292cf7ee3be63a0c0ed3845164c5ba13ed88))
+
 ## [0.44.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.44.0...v0.44.1) (2023-12-05)
 
 
