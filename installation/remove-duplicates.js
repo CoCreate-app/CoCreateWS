@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb');
 
-const storageUrl = 'mongodb+srv://oracleai:ir7Wm52vVDDCBbk5@cluster0.hxeqbre.mongodb.net/?retryWrites=true&w=majority';
+const storageUrl = '';
 const database = '652c8d62679eca03e0b116a7'
 
 async function removeDuplicates() {
