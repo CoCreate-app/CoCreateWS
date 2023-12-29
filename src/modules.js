@@ -15,6 +15,7 @@ const notification = require("@cocreate/notification");
 const createDb = require('../installation/createDB');
 const lazyLoader = require('@cocreate/lazy-loader');
 const masterMap = require('./masterMap');
+const proxy = require('@cocreate/nginx');
 
 module.exports.init = async function (cluster, server) {
     try {
