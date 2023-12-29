@@ -82,6 +82,10 @@ module.exports = {
 
         // Components
         {
+            'path': '../CoCreate-components/CoCreate-acme',
+            'repo': 'github.com/CoCreate-app/CoCreate-acme.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-authenticate',
             'repo': 'github.com/CoCreate-app/CoCreate-authenticate.git'
         },
@@ -112,6 +116,10 @@ module.exports = {
         {
             'path': '../CoCreate-components/CoCreate-mongodb',
             'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
+        },
+        {
+            'path': '../CoCreate-components/CoCreate-nginx',
+            'repo': 'github.com/CoCreate-app/CoCreate-nginx.git'
         },
         {
             'path': '../CoCreate-components/CoCreate-node-autoscaler',
