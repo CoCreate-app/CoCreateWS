@@ -7,6 +7,7 @@ const organizations = require('@cocreate/organizations');
 const serverSideRender = require('@cocreate/server-side-render');
 const unique = require('@cocreate/unique');
 const users = require('@cocreate/users');
+const acme = require('@cocreate/acme')
 const authenticate = require('@cocreate/authenticate')
 const authorize = require("@cocreate/authorize");
 const Config = require("@cocreate/config");
@@ -38,6 +39,7 @@ module.exports.init = async function (cluster, server) {
             }
 
             const crud = new crudServer(wsManager, databases)
+            wsManager.acme = new acme(crud)
             wsManager.authenticate = new authenticate(crud)
             wsManager.authorize = new authorize(crud)
 
