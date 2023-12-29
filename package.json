@@ -43,6 +43,7 @@
     "createdb": "node ./installation/createDB.js"
   },
   "dependencies": {
+    "@cocreate/acme": "^1.0.0",
     "@cocreate/authenticate": "^1.5.0",
     "@cocreate/authorize": "^1.9.0",
     "@cocreate/config": "^1.8.0",
