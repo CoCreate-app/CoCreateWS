@@ -118,7 +118,7 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
         },
         {
-            'path': '../CoCreate-components/CoCreate-nginx',
+            'path': '../CoCreate-plugins/CoCreate-nginx',
             'repo': 'github.com/CoCreate-app/CoCreate-nginx.git'
         },
         {
