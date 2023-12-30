@@ -15,11 +15,9 @@ const notification = require("@cocreate/notification");
 const createDb = require('../installation/createDB');
 const lazyLoader = require('@cocreate/lazy-loader');
 const masterMap = require('./masterMap');
-const proxy = require('@cocreate/nginx');
 
-module.exports.init = async function (cluster, server) {
+module.exports.init = async function (cluster, server, proxy) {
     try {
-
         cluster.masterMap = () => new masterMap(cluster)
 
         let config = await Config({
@@ -40,7 +38,7 @@ module.exports.init = async function (cluster, server) {
             }
 
             const crud = new crudServer(wsManager, databases)
-            wsManager.acme = new acme(crud)
+            wsManager.acme = new acme(proxy, crud)
             wsManager.authenticate = new authenticate(crud)
             wsManager.authorize = new authorize(crud)
 
