@@ -7,7 +7,6 @@ const config = require("@cocreate/config");
 const modules = require("./modules");
 
 async function init() {
-    let proxy
     let workers = await config('workers')
     workers = workers.workers
     if (!workers || workers === 'false') {
@@ -16,8 +15,6 @@ async function init() {
         workers = workers = parseInt(workers) || os.cpus().length;
 
     if (cluster.isMaster) {
-        const nginx = require('@cocreate/nginx');
-        proxy = new nginx()
         console.log(`Master process is running with PID: ${process.pid}`);
         console.log(`Forking ${workers} workers...`);
 
@@ -38,7 +35,7 @@ async function init() {
         const server = http.createServer();
 
         cluster.totalWorkers = workers
-        modules.init(cluster, server, proxy);
+        modules.init(cluster, server);
 
         server.listen(process.env.PORT || 3000, () => {
             console.log(`Worker ${process.pid} (ID: ${workerId}) started, listening on PORT ${process.env.PORT || 3000}`);
