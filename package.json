@@ -57,6 +57,7 @@
     "@cocreate/notification": "^1.4.0",
     "@cocreate/openai": "^1.3.0",
     "@cocreate/organizations": "^1.25.0",
+    "@cocreate/server": "^1.0.0",
     "@cocreate/server-side-render": "^1.7.0",
     "@cocreate/socket-server": "^1.22.0",
     "@cocreate/stripe": "^1.15.1",

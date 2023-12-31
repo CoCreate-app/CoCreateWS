@@ -1,7 +1,7 @@
 'use strict';
 const cluster = require('cluster');
-const http = require('http');
 const os = require('os');
+const server = require("@cocreate/server")
 const config = require("@cocreate/config");
 
 const modules = require("./modules");
@@ -29,16 +29,20 @@ async function init() {
             cluster.fork();
         });
     } else {
-        // Each worker can use the WORKER_ID environment variable to determine its unique path
-        const workerId = process.env.WORKER_ID;
-
-        const server = http.createServer();
-
         cluster.totalWorkers = workers
         modules.init(cluster, server);
 
-        server.listen(process.env.PORT || 3000, () => {
-            console.log(`Worker ${process.pid} (ID: ${workerId}) started, listening on PORT ${process.env.PORT || 3000}`);
+        // Each worker can use the WORKER_ID environment variable to determine its unique path
+        const workerId = process.env.WORKER_ID;
+
+        // Start HTTPS server on port 8443
+        server.https.listen(8443, () => {
+            console.log(`Worker ${process.pid} (ID: ${workerId}) HTTPS Server is listening on PORT 8443`);
+        });
+
+        // Start HTTP server on port 8080
+        server.http.listen(8080, () => {
+            console.log(`Worker ${process.pid} (ID: ${workerId}) HTTP Server is listening on PORT 8080`);
         });
     }
 }
