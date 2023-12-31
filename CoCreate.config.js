@@ -130,6 +130,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-notification.git'
         },
         {
+            'path': '../CoCreate-components/CoCreate-server',
+            'repo': 'github.com/CoCreate-app/CoCreate-server.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-server-side-render',
             'repo': 'github.com/CoCreate-app/CoCreate-server-side-render.git'
         },
