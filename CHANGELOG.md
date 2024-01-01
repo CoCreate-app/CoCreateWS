@@ -1,3 +1,21 @@
+# [0.46.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.45.0...v0.46.0) (2024-01-01)
+
+
+### Bug Fixes
+
+* add '@cocreate/nginx' ([395c213](https://github.com/CoCreate-app/CoCreateWS/commit/395c2137b2612f670bb4746bc36535e543c285d0))
+* add acme and nginx to repositories ([bbbed78](https://github.com/CoCreate-app/CoCreateWS/commit/bbbed785a5344d82748b08ad12ea89f949d040f0))
+* added certificates and scripts ([5f53fd6](https://github.com/CoCreate-app/CoCreateWS/commit/5f53fd65be9e53ae125ed1b598a5fe927ade9df1))
+* handle nginx proxy init in master ([90b046e](https://github.com/CoCreate-app/CoCreateWS/commit/90b046e16f50d75137e7f4822e54267e465c7660))
+* relocated proxy to modules ([c399a03](https://github.com/CoCreate-app/CoCreateWS/commit/c399a03908d04e5817c44cc3ae3e1e66009a70e7))
+* typo nginx ([a4a3a71](https://github.com/CoCreate-app/CoCreateWS/commit/a4a3a71991a2c893ec3d3a985419b0adae70843c))
+
+
+### Features
+
+* Added '[@cocreate-acme](https://github.com/cocreate-acme)' ([a6ad133](https://github.com/CoCreate-app/CoCreateWS/commit/a6ad133a7629be95a0feb3be87b5e13268d9ea86))
+* added '[@cocreate-nginx](https://github.com/cocreate-nginx)' ([3f91b80](https://github.com/CoCreate-app/CoCreateWS/commit/3f91b80553d300ecf2feaa9df835f190d4524c64))
+
 # [0.45.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.44.1...v0.45.0) (2023-12-09)
 
 
