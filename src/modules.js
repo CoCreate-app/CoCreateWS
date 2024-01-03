@@ -7,7 +7,6 @@ const organizations = require('@cocreate/organizations');
 const serverSideRender = require('@cocreate/server-side-render');
 const unique = require('@cocreate/unique');
 const users = require('@cocreate/users');
-const acme = require('@cocreate/acme')
 const authenticate = require('@cocreate/authenticate')
 const authorize = require("@cocreate/authorize");
 const Config = require("@cocreate/config");
@@ -20,6 +19,8 @@ const nginx = require('@cocreate/nginx');
 module.exports.init = async function (cluster, server) {
     try {
         const proxy = new nginx(cluster)
+        server.acme.proxy = proxy
+
         cluster.masterMap = () => new masterMap(cluster)
 
         let config = await Config({
@@ -40,7 +41,8 @@ module.exports.init = async function (cluster, server) {
             }
 
             const crud = new crudServer(wsManager, databases)
-            wsManager.acme = new acme(proxy, crud)
+            server.acme.crud = crud
+
             wsManager.authenticate = new authenticate(crud)
             wsManager.authorize = new authorize(crud)
 
