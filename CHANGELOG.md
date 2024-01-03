@@ -1,3 +1,17 @@
+# [0.47.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.46.0...v0.47.0) (2024-01-03)
+
+
+### Bug Fixes
+
+* added CoCreate-server ([b0cde9b](https://github.com/CoCreate-app/CoCreateWS/commit/b0cde9bdeaec7be42549e1732fa5d1490ad4b653))
+* await modules ([b45891c](https://github.com/CoCreate-app/CoCreateWS/commit/b45891c50f723642ae16e29fa06cbc4cfd501696))
+* removed certificates ([41c89c7](https://github.com/CoCreate-app/CoCreateWS/commit/41c89c70c58a3340c8f94629714b2f23943f2c77))
+
+
+### Features
+
+* Added '[@cocreate-server](https://github.com/cocreate-server)' handle http and https ([d4c9f51](https://github.com/CoCreate-app/CoCreateWS/commit/d4c9f510ca32fa155e672183092de15eba0c71c4))
+
 # [0.46.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.45.0...v0.46.0) (2024-01-01)
 
 
