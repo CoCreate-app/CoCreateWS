@@ -30,7 +30,8 @@ async function init() {
         });
     } else {
         cluster.totalWorkers = workers
-        modules.init(cluster, server);
+
+        await modules.init(cluster, server);
 
         // Each worker can use the WORKER_ID environment variable to determine its unique path
         const workerId = process.env.WORKER_ID;
