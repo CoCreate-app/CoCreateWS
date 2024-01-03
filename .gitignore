@@ -1,6 +1,5 @@
 # ignore
 config.js
-certificates
 scripts
 node_modules
 dist
