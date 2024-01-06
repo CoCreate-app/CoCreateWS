@@ -20,6 +20,7 @@ module.exports.init = async function (cluster, server) {
     try {
         const proxy = new nginx(cluster)
         server.acme.proxy = proxy
+        server.proxy = proxy
 
         cluster.masterMap = () => new masterMap(cluster)
 
@@ -35,6 +36,7 @@ module.exports.init = async function (cluster, server) {
         if (config.organization_id) {
             const wsManager = new socketServer(server, 'ws')
             wsManager.cluster = cluster
+            wsManager.server = server
 
             const databases = {
                 mongodb: require('@cocreate/mongodb')
@@ -42,6 +44,7 @@ module.exports.init = async function (cluster, server) {
 
             const crud = new crudServer(wsManager, databases)
             server.acme.crud = crud
+            server.crud = crud
 
             wsManager.authenticate = new authenticate(crud)
             wsManager.authorize = new authorize(crud)
