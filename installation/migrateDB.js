@@ -1,45 +1,45 @@
-const { ObjectId } = require("mongodb");
-const { mongoClient } = require("../src/db")
-// const config = require('./CoCreate.config');
+const { MongoClient } = require("mongodb");
 
-const fromDB = 'dbUrl';
+const fromDB = 'mongodb+srv://cocreate-app:0kqEaoEzDUM9lGTP@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority';
 const fromDBName = '5ff747727005da1c272740ab'
 
-const toDB = 'dbUrl';
-const toDBName = '5ff747727005da1c272740ab'
-let newDb;
-mongoClient(toDB).then(toDBClient => {
-    try {
-        newDb = toDBClient.db(toDBName);
-    } catch (error) {
-        console.log('newDb error', error);
-    }
-});
+const toDB = 'mongodb+srv://cocreate-app:0kqEaoEzDUM9lGTP@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority';
+const toDBName = 'dev'
 
-mongoClient(fromDB).then(fromDBClient => {
+const array = ["organizations", "users", "keys"];
+// const exclude = ["organizations", "users", "keys", "files", "crdt", "metrics", "industries", "industry_objects"];
+
+
+async function migrateDb() {
     try {
-        const db = fromDBClient.db(fromDBName);
-        db.listCollections().toArray(function (error, results) {
+        const newDb = await MongoClient.connect(toDB, { useNewUrlParser: true, useUnifiedTopology: true });
+        const newDatabase = newDb.db(toDBName);
+
+        const previousDb = await MongoClient.connect(fromDB, { useNewUrlParser: true, useUnifiedTopology: true });
+        const previousDatabase = previousDb.db(fromDBName);
+
+        previousDatabase.listCollections().toArray(function (error, results) {
             if (!error && results && results.length > 0) {
                 for (let result of results) {
-                    if (!["organizations", "users", "keys", "files", "crdt", "metrics", "industries", "industry_objects"].includes(result.name))
-                        getCollection(db, result.name)
+                    if (array.includes(result.name))
+                        getCollection(previousDatabase, newDatabase, result.name)
                 }
             }
         })
-    } catch (error) {
-        console.log('readCollection error', error);
-    }
-});
 
-function getCollection(db, arrayName) {
+    } catch (err) {
+        console.error("An error occurred:", err);
+    }
+}
+
+function getCollection(previousDatabase, newDatabase, arrayName) {
     try {
-        const array = db.array(arrayName);
-        array.find().toArray(function (error, results) {
+        const previousArray = previousDatabase.collection(arrayName);
+        previousArray.find().toArray(function (error, results) {
             if (results) {
                 try {
-                    const newCollection = newDb.array(arrayName);
-                    newCollection.insert(results);
+                    const newCollection = newDatabase.collection(arrayName);
+                    newCollection.insertMany(results);
                 } catch (error) {
                     console.log('arrays error', error);
                 }
@@ -51,3 +51,5 @@ function getCollection(db, arrayName) {
         console.log('arrayList error', error);
     }
 }
+
+migrateDb();
