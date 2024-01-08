@@ -38,12 +38,12 @@ async function init() {
 
         // Start HTTPS server on port 8443
         server.https.listen(8443, () => {
-            console.log(`Worker ${process.pid} (ID: ${workerId}) HTTPS Server is listening on PORT 8443`);
+            console.log(`Worker ${process.pid} (ID: ${workerId}) HTTPS listening on PORT 8443`);
         });
 
         // Start HTTP server on port 8080
         server.http.listen(8080, () => {
-            console.log(`Worker ${process.pid} (ID: ${workerId}) HTTP Server is listening on PORT 8080`);
+            console.log(`Worker ${process.pid} (ID: ${workerId}) HTTP listening on PORT 8080`);
         });
     }
 }
