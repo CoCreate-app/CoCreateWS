@@ -94,6 +94,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-authorize.git'
         },
         {
+            'path': '../CoCreate-components/CoCreate-cli',
+            'repo': 'github.com/CoCreate-app/CoCreate-cli.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-crud-server',
             'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
         },
