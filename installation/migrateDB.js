@@ -1,9 +1,9 @@
 const { MongoClient } = require("mongodb");
 
-const fromDB = 'mongodb+srv://cocreate-app:0kqEaoEzDUM9lGTP@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority';
-const fromDBName = '5ff747727005da1c272740ab'
+const fromDB = 'dbUrl';
+const fromDBName = '652c8d62679eca03e0b116a7'
 
-const toDB = 'mongodb+srv://cocreate-app:0kqEaoEzDUM9lGTP@cocreatedatabase.ne3tel6.mongodb.net/?retryWrites=true&w=majority';
+const toDB = 'dbUrl';
 const toDBName = 'dev'
 
 const array = ["organizations", "users", "keys"];
@@ -21,8 +21,8 @@ async function migrateDb() {
         previousDatabase.listCollections().toArray(function (error, results) {
             if (!error && results && results.length > 0) {
                 for (let result of results) {
-                    if (array.includes(result.name))
-                        getCollection(previousDatabase, newDatabase, result.name)
+                    // if (array.includes(result.name))
+                    migrate(previousDatabase, newDatabase, result.name)
                 }
             }
         })
@@ -32,23 +32,47 @@ async function migrateDb() {
     }
 }
 
-function getCollection(previousDatabase, newDatabase, arrayName) {
+function migrate(previousDatabase, newDatabase, arrayName) {
     try {
         const previousArray = previousDatabase.collection(arrayName);
-        previousArray.find().toArray(function (error, results) {
-            if (results) {
-                try {
-                    const newCollection = newDatabase.collection(arrayName);
-                    newCollection.insertMany(results);
-                } catch (error) {
-                    console.log('arrays error', error);
+        const newArray = newDatabase.collection(arrayName); // Moved outside of the forEach
+        const cursor = previousArray.find();
+
+        let batch = [];
+        let batchSize = 0; // Keep track of the batch size in memory
+        const maxBatchSize = 16000000; // Adjust based on MongoDB's BSON Document Size limit (16MB)
+        const maxCount = 1000; // Maximum count of documents
+
+        cursor.forEach(
+            function (doc) {
+                if (doc) {
+                    let docSize = JSON.stringify(doc).length; // Approximation of document size
+                    if (batchSize + docSize < maxBatchSize && batch.length < maxCount) {
+                        batch.push(doc);
+                        batchSize += docSize;
+                    } else {
+                        // Batch is full, insert it
+                        newArray.insertMany(batch);
+                        batch = [doc]; // Start a new batch with the current document
+                        batchSize = docSize; // Reset batch size to current document's size
+                    }
                 }
-            } else {
-                console.log(error)
+            },
+            function (err) {
+                if (err) {
+                    console.log('Cursor processing error:', err);
+                } else {
+                    // Insert any remaining documents in the batch
+                    if (batch.length > 0) {
+                        newArray.insertMany(batch);
+                    }
+                    console.log('Migration completed successfully');
+                }
             }
-        })
+        );
+
     } catch (error) {
-        console.log('arrayList error', error);
+        console.log('Migration error', error);
     }
 }
 
