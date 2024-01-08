@@ -1,3 +1,17 @@
+# [0.48.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.47.0...v0.48.0) (2024-01-08)
+
+
+### Bug Fixes
+
+* update server properties are handled ([156b7c9](https://github.com/CoCreate-app/CoCreateWS/commit/156b7c91299624133f93eb0fbaee01e484eb8377))
+* update to use MongoClient ([48fafd0](https://github.com/CoCreate-app/CoCreateWS/commit/48fafd01a0356e0dfd0d729e8214bfb9d6749f9b))
+
+
+### Features
+
+* bumped CoCreate dependencies to their latest versions ([3c3b979](https://github.com/CoCreate-app/CoCreateWS/commit/3c3b97944c4275433efae6c88021c6e161807d82))
+* update to use cursor and batch in order to handle large data sets efficiently ([1a985e8](https://github.com/CoCreate-app/CoCreateWS/commit/1a985e8bbfd615d187cc5360ae87fcd54bca67d8))
+
 # [0.47.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.46.0...v0.47.0) (2024-01-03)
 
 
