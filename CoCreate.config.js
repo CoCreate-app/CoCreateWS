@@ -203,6 +203,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-socket-client.git'
         },
         {
+            'path': '../CoCreate-plugins/CoCreate-stripe',
+            'repo': 'github.com/CoCreate-app/CoCreate-stripe.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-unique',
             'repo': 'github.com/CoCreate-app/CoCreate-unique.git'
         },
