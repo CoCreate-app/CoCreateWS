@@ -1,3 +1,11 @@
+## [0.48.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.48.0...v0.48.1) (2024-01-17)
+
+
+### Bug Fixes
+
+* add stripe to CoCreate.config ([767a8ea](https://github.com/CoCreate-app/CoCreateWS/commit/767a8ea28bda78c6776a494f2ace942f6d425032))
+* Added '@cocreate/cli' ([5e54375](https://github.com/CoCreate-app/CoCreateWS/commit/5e543756126f026c8bd0050a9cdd9b3ba462b4dc))
+
 # [0.48.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.47.0...v0.48.0) (2024-01-08)
 
 
