@@ -28,6 +28,12 @@ module.exports = {
             event: "stripe",
             path: "@cocreate/stripe",
             unload: "10000"
+        },
+        postmark: {
+            event: "postmark",
+            path: "postmark",
+            initialize: "ServerClient",
+            unload: "10000"
         }
     },
 

@@ -64,7 +64,8 @@
     "@cocreate/unique": "^1.18.2",
     "@cocreate/usage": "^1.0.0",
     "@cocreate/users": "^1.32.0",
-    "@cocreate/uuid": "^1.10.0"
+    "@cocreate/uuid": "^1.10.0",
+    "postmark": "^4.0.2"
   },
   "devDependencies": {
     "@cocreate/cli": "^1.47.0",
