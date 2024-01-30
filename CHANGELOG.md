@@ -1,3 +1,10 @@
+# [0.49.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.48.1...v0.49.0) (2024-01-30)
+
+
+### Features
+
+* add postmark ([2f654f4](https://github.com/CoCreate-app/CoCreateWS/commit/2f654f407dd8bcd6b2d9f068bc3c5fa495414085))
+
 ## [0.48.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.48.0...v0.48.1) (2024-01-17)
 
 
