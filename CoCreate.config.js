@@ -69,24 +69,11 @@ module.exports = {
     ],
 
     "repositories": [
-
-        // Servers
         {
             'path': '../CoCreateWS',
             'repo': 'github.com/CoCreate-app/CoCreateWS.git',
             'exclude': ['git']
         },
-        // {
-        //     'path': '../CoCreateApi',
-        //     'repo': 'github.com/CoCreate-app/CoCreateApi.git'
-        // },
-        // {
-        //     'path': '../CoCreateLB',
-        //     'repo': 'github.com/CoCreate-app/CoCreateLB.git'
-        // },
-
-
-        // Components
         {
             'path': '../CoCreate-components/CoCreate-acme',
             'repo': 'github.com/CoCreate-app/CoCreate-acme.git'
@@ -158,10 +145,6 @@ module.exports = {
         {
             'path': '../CoCreate-components/CoCreate-actions',
             'repo': 'github.com/CoCreate-app/CoCreate-actions.git'
-        },
-        {
-            'path': '../CoCreate-components/CoCreate-api',
-            'repo': 'github.com/CoCreate-app/CoCreate-api.git'
         },
         {
             'path': '../CoCreate-components/CoCreate-cli',
