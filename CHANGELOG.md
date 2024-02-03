@@ -1,3 +1,10 @@
+## [0.49.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.49.0...v0.49.1) (2024-02-03)
+
+
+### Bug Fixes
+
+* removed CoCreate-api ([5908819](https://github.com/CoCreate-app/CoCreateWS/commit/5908819d1f9829ba95181bd2ff21f7d7e9191534))
+
 # [0.49.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.48.1...v0.49.0) (2024-01-30)
 
 
