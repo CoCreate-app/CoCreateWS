@@ -1,3 +1,10 @@
+## [0.49.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.49.1...v0.49.2) (2024-02-05)
+
+
+### Bug Fixes
+
+* Removed https://cdn.cocreate.app/latest/CoCreate.min.css ([26528c5](https://github.com/CoCreate-app/CoCreateWS/commit/26528c55fa1f7a48cde25e99a9eb69157adbc5bb))
+
 ## [0.49.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.49.0...v0.49.1) (2024-02-03)
 
 
