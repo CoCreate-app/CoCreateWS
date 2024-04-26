@@ -1,3 +1,10 @@
+# [0.50.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.49.2...v0.50.0) (2024-04-26)
+
+
+### Features
+
+* added initialize to openai and stripe ([4069713](https://github.com/CoCreate-app/CoCreateWS/commit/40697131d47e063f9b1a0ddd17c8fb8d0253c540))
+
 ## [0.49.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.49.1...v0.49.2) (2024-02-05)
 
 
