@@ -11,22 +11,24 @@ module.exports = {
             path: "@cocreate/file-server",
             unload: false // true, false, number in milli seconds to wait before unloading
         },
-        openai: {
-            event: "openai",
-            path: "@cocreate/openai",
-            unload: "10000" // true, false, number in milli seconds to wait before unloading
-        },
         industry: {
             event: "industry",
             array: "files",
             object: {
                 pathname: "/dist/industry-chunk.js",
             },
-            unload: "10000" // true, false, number in milli seconds to wait before unloading
+            unload: "10000"
+        },
+        openai: {
+            event: "openai",
+            path: "openai",
+            initialize: "",
+            unload: "10000"
         },
         stripe: {
             event: "stripe",
-            path: "@cocreate/stripe",
+            path: "stripe",
+            initialize: "",
             unload: "10000"
         },
         postmark: {
