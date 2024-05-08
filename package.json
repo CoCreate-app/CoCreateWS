@@ -55,17 +55,17 @@
     "@cocreate/mongodb": "^1.15.0",
     "@cocreate/nginx": "^1.2.0",
     "@cocreate/notification": "^1.5.1",
-    "@cocreate/openai": "^1.6.3",
     "@cocreate/organizations": "^1.26.1",
     "@cocreate/server": "^1.0.2",
     "@cocreate/server-side-render": "^1.9.0",
     "@cocreate/socket-server": "^1.26.0",
-    "@cocreate/stripe": "^1.15.1",
     "@cocreate/unique": "^1.18.2",
     "@cocreate/usage": "^1.0.0",
     "@cocreate/users": "^1.32.0",
     "@cocreate/uuid": "^1.10.0",
-    "postmark": "^4.0.2"
+    "openai": "^4.43.0",
+    "postmark": "^4.0.2",
+    "stripe": "^15.5.0"
   },
   "devDependencies": {
     "@cocreate/cli": "^1.47.0",
