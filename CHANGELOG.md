@@ -1,3 +1,10 @@
+## [0.50.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.50.0...v0.50.1) (2024-05-08)
+
+
+### Bug Fixes
+
+* removed @cocreate/openai and @cocreate/stripe as they are now handled dynamically ([d26b972](https://github.com/CoCreate-app/CoCreateWS/commit/d26b972df6458f7a09a8cd7cd055cc42dd2b0870))
+
 # [0.50.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.49.2...v0.50.0) (2024-04-26)
 
 
