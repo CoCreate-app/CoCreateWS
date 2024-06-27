@@ -1,3 +1,11 @@
+## [0.50.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.50.1...v0.50.2) (2024-06-27)
+
+
+### Bug Fixes
+
+* bump '[@cocreate](https://github.com/cocreate)' dependencies ([f5bcefb](https://github.com/CoCreate-app/CoCreateWS/commit/f5bcefbc96c55f13df6d41daa8d355ccc5290a0d))
+* color and fill handled by index.css to support dark and light mode ([8a08b8c](https://github.com/CoCreate-app/CoCreateWS/commit/8a08b8c375cc46e37d5ba250567eac0eb6d7af18))
+
 ## [0.50.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.50.0...v0.50.1) (2024-05-08)
 
 
