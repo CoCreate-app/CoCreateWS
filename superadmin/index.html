@@ -56,20 +56,16 @@
                 <li class="margin-right:15px">
                     <a fullscreen>
                         <i
-                            class="display:flex height:18px fill:#505050"
+                            class="height:18px"
                             src="./assets/svg/expand.svg"></i>
                         <i
-                            class="display:flex height:18px fill:#505050"
+                            class="height:18px"
                             src="./assets/svg/compress.svg"></i>
                     </a>
                 </li>
             </ul>
 
             <!-- Avatar -->
-            <div
-                localstorage-get="user_id"
-                localstorage-key="userId"
-                localstorage-selector="cocreate-select, .avatar-wrapper"></div>
             <div class="avatar-wrapper margin:5px">
                 <a
                     class="avatar round"
@@ -80,13 +76,13 @@
                     modal-color="#229954">
                     <span
                         array="users"
-                        object="{{userId}}"
+                        object="$user_id"
                         key="name"
                         class="avatar-name"></span>
                     <span class="avatar-image">
                         <img
                             array="users"
-                            object="{{userId}}"
+                            object="$user_id"
                             key="avatar"
                             onerror="this.style.display='none'"
                             width="40px" />
@@ -101,7 +97,7 @@
                         state_to="form"></div>
                     <div
                         state-array="users"
-                        state-object="{{userId}}"
+                        state-object="$user_id"
                         state_to="form-fields"></div>
                     <div
                         state-array="files"
@@ -112,7 +108,7 @@
                 <div
                     class="avatar-status"
                     array="users"
-                    object="{{userId}}"
+                    object="$user_id"
                     user-status="{'name':'status'}"></div>
             </div>
         </nav>
@@ -152,9 +148,7 @@
                         state-key="src"
                         modal-width="900px"
                         modal-color="#229954">
-                        <i
-                            class="height:20px fill:#505050"
-                            src="./assets/svg/search.svg"></i>
+                        <i src="./assets/svg/search.svg"></i>
                     </a>
                 </span>
             </form>
@@ -173,7 +167,7 @@
                             <span
                                 class="display:flex justify-content:center min-width:50px">
                                 <i
-                                    class="display:flex height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/city.svg"></i>
                             </span>
                             <span>Organization</span>
@@ -191,7 +185,7 @@
                             <span
                                 class="display:flex justify-content:center min-width:50px">
                                 <i
-                                    class="display:flex height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/users.svg"></i>
                             </span>
                             <span>Users</span>
@@ -206,7 +200,7 @@
                                 state-src="./users/form.html"
                                 state-overwrite>
                                 <i
-                                    class="height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/plus.svg"></i>
                             </a>
                         </div>
@@ -223,7 +217,7 @@
                             <span
                                 class="display:flex justify-content:center min-width:50px">
                                 <i
-                                    class="display:flex height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/key.svg"></i>
                             </span>
                             <span>Keys</span>
@@ -238,7 +232,7 @@
                                 state-src="./keys/form.html"
                                 state-overwrite>
                                 <i
-                                    class="height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/plus.svg"></i>
                             </a>
                         </div>
@@ -255,7 +249,7 @@
                             <span
                                 class="display:flex justify-content:center min-width:50px">
                                 <i
-                                    class="display:flex height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/database.svg"></i>
                             </span>
                             <span>Database</span>
@@ -270,7 +264,7 @@
                                 state-src="./database/form.html"
                                 state-overwrite>
                                 <i
-                                    class="height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/plus.svg"></i>
                             </a>
                         </div>
@@ -287,7 +281,7 @@
                             <span
                                 class="display:flex justify-content:center min-width:50px">
                                 <i
-                                    class="display:flex height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/folder.svg"></i>
                             </span>
                             <span>Files</span>
@@ -302,7 +296,7 @@
                                 state-src="./files/form.html"
                                 state-overwrite>
                                 <i
-                                    class="height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/plus.svg"></i>
                             </a>
                         </div>
@@ -319,7 +313,7 @@
                             <span
                                 class="display:flex justify-content:center min-width:50px">
                                 <i
-                                    class="display:flex height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/desktop.svg"></i>
                             </span>
                             <span>Sites &amp; Apps</span>
@@ -334,7 +328,7 @@
                                 state-src="./users/datatable.html"
                                 state-overwrite>
                                 <i
-                                    class="height:16px fill:#505050"
+                                    class="height:16px"
                                     src="./assets/svg/plus.svg"></i>
                             </a>
                         </div>
@@ -351,7 +345,7 @@
                         <span
                             class="display:flex justify-content:center min-width:50px">
                             <i
-                                class="display:flex height:16px fill:#505050"
+                                class="height:16px"
                                 src="./assets/svg/sign-out-alt.svg"></i>
                         </span>
                         <span>Sign Out</span>
