@@ -15,6 +15,7 @@ const createDb = require('../installation/createDB');
 const lazyLoader = require('@cocreate/lazy-loader');
 const masterMap = require('./masterMap');
 const nginx = require('@cocreate/nginx');
+const urlUploader = require('@cocreate/url-uploader');
 
 module.exports.init = async function (cluster, server) {
     try {
@@ -58,6 +59,7 @@ module.exports.init = async function (cluster, server) {
             new unique(crud);
             new organizations(crud);
             new users(crud);
+            new urlUploader(crud);
         } else {
             console.log('organization_id could not be found')
         }

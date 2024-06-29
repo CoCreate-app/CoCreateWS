@@ -60,6 +60,7 @@
     "@cocreate/server-side-render": "^1.10.3",
     "@cocreate/socket-server": "^1.29.3",
     "@cocreate/unique": "^1.19.6",
+    "@cocreate/url-uploader": "^1.0.0",
     "@cocreate/usage": "^1.1.2",
     "@cocreate/users": "^1.37.1",
     "@cocreate/uuid": "^1.11.4",
