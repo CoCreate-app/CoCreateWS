@@ -202,6 +202,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-unique.git'
         },
         {
+            'path': '../CoCreate-components/CoCreate-url-uploader',
+            'repo': 'github.com/CoCreate-app/CoCreate-url-uploader.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-users',
             'repo': 'github.com/CoCreate-app/CoCreate-users.git'
         },
