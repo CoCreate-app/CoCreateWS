@@ -1,3 +1,15 @@
+# [0.51.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.50.2...v0.51.0) (2024-06-30)
+
+
+### Bug Fixes
+
+* added url-uploader to repositories config ([ce92020](https://github.com/CoCreate-app/CoCreateWS/commit/ce92020cf475d2b8ebe73b90cb2fb747f95a9835))
+
+
+### Features
+
+* added url-uploader ([7a6c70c](https://github.com/CoCreate-app/CoCreateWS/commit/7a6c70cb3b574e5d529524dca407a98e55c45078))
+
 ## [0.50.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.50.1...v0.50.2) (2024-06-27)
 
 
