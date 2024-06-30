@@ -1,3 +1,10 @@
+## [0.51.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.51.0...v0.51.1) (2024-06-30)
+
+
+### Bug Fixes
+
+* readme typeo ([b4ac600](https://github.com/CoCreate-app/CoCreateWS/commit/b4ac600e3f64ccfa0a10904eb6df14274155f53a))
+
 # [0.51.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.50.2...v0.51.0) (2024-06-30)
 
 
