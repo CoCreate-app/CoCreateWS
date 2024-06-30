@@ -125,7 +125,7 @@ $ yarn start
 
     <body class="padding:5px">
 
-        <form collection="test" document_id="">
+        <form array="test" object="">
             <input placeholder="Name" name='firstname' class="floating-label">
             <h1 name='lastname'  contenteditable></h1>
         </form>
@@ -151,8 +151,8 @@ Paste in your browsers console
 
 ```js
 crud.readDocument({
-    collection: "test",
-    document_id: "",
+    array: "test",
+    object: "",
 });
 ```
 
