@@ -1,3 +1,10 @@
+## [0.51.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.51.1...v0.51.2) (2024-07-10)
+
+
+### Bug Fixes
+
+* removed superadmin ([2758866](https://github.com/CoCreate-app/CoCreateWS/commit/2758866281ad290144d6f07b33a43bb884aa3a1a))
+
 ## [0.51.1](https://github.com/CoCreate-app/CoCreateWS/compare/v0.51.0...v0.51.1) (2024-06-30)
 
 
