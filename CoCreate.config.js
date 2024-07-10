@@ -51,25 +51,6 @@ module.exports = {
         vertical: false // Vertical scaling not enabled
     },
 
-    "directories": [
-        {
-            "entry": "./superadmin",
-            "array": "files",
-            "object": {
-                "name": "{{name}}",
-                "src": "{{source}}",
-                "host": [
-                    "*"
-                ],
-                "directory": "{{directory}}",
-                "path": "{{path}}",
-                "pathname": "{{pathname}}",
-                "content-type": "{{content-type}}",
-                "public": "true"
-            }
-        }
-    ],
-
     "repositories": [
         {
             'path': '../CoCreateWS',
