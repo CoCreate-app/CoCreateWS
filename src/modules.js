@@ -55,6 +55,7 @@ module.exports.init = async function (cluster, server) {
 
             new metrics(crud);
             new notification(crud);
+
             new usage(crud);
             new unique(crud);
             new organizations(crud);
