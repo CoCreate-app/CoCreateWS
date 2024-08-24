@@ -171,6 +171,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-render.git'
         },
         {
+            'path': '../CoCreate-components/CoCreate-sitemap',
+            'repo': 'github.com/CoCreate-app/CoCreate-sitemap.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-socket-client',
             'repo': 'github.com/CoCreate-app/CoCreate-socket-client.git'
         },

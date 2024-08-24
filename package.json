@@ -58,6 +58,7 @@
     "@cocreate/organizations": "^1.27.4",
     "@cocreate/server": "^1.1.6",
     "@cocreate/server-side-render": "^1.10.3",
+    "@cocreate/sitemap": "^1.0.0",
     "@cocreate/socket-server": "^1.29.3",
     "@cocreate/unique": "^1.19.6",
     "@cocreate/url-uploader": "^1.0.0",
