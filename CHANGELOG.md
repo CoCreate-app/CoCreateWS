@@ -1,3 +1,15 @@
+# [1.0.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.52.0...v1.0.0) (2024-08-24)
+
+
+### Features
+
+* node clustering ([acb423b](https://github.com/CoCreate-app/CoCreateWS/commit/acb423b979936654a15c51f476dcfbc224a6025b))
+
+
+### BREAKING CHANGES
+
+* This commit changes thenode clustering and its configuration.
+
 # [0.52.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.51.2...v0.52.0) (2024-08-24)
 
 
