@@ -1,3 +1,10 @@
+# [0.52.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.51.2...v0.52.0) (2024-08-24)
+
+
+### Features
+
+* CoCreate-sitemap to dynamically genereate sitemaps and enttries ([ad45238](https://github.com/CoCreate-app/CoCreateWS/commit/ad45238eab130822a7775d932e1eba7f563ff749))
+
 ## [0.51.2](https://github.com/CoCreate-app/CoCreateWS/compare/v0.51.1...v0.51.2) (2024-07-10)
 
 
