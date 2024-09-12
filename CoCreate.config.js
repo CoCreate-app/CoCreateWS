@@ -36,7 +36,13 @@ module.exports = {
             path: "postmark",
             initialize: "ServerClient",
             unload: "10000"
-        }
+        },
+        // googleapis: {
+        //     event: "googleapis",
+        //     path: "googleapis",
+        //     initialize: "auth.OAuth2",
+        //     unload: "10000"
+        // }
     },
 
     // Horizontal scaling configuration
@@ -74,6 +80,10 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-cli.git'
         },
         {
+            'path': '../CoCreate-components/CoCreate-cron-jobs',
+            'repo': 'github.com/CoCreate-app/CoCreate-cron-jobs.git'
+        },
+        {
             'path': '../CoCreate-components/CoCreate-crud-server',
             'repo': 'github.com/CoCreate-app/CoCreate-crud-server.git'
         },
@@ -94,7 +104,7 @@ module.exports = {
             'repo': 'github.com/CoCreate-app/CoCreate-metrics.git'
         },
         {
-            'path': '../CoCreate-components/CoCreate-mongodb',
+            'path': '../CoCreate-plugins/CoCreate-mongodb',
             'repo': 'github.com/CoCreate-app/CoCreate-mongodb.git'
         },
         {
