@@ -22,7 +22,7 @@ module.exports = {
         openai: {
             event: "openai",
             path: "openai",
-            initialize: "",
+            initialize: "OpenAI",
             unload: "10000"
         },
         stripe: {
