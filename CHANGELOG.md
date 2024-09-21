@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.0...v1.0.1) (2024-09-21)
+
+
+### Bug Fixes
+
+* openai intialization ([9ce1720](https://github.com/CoCreate-app/CoCreateWS/commit/9ce1720f40d7efc3f15f14ac97e5dd557df42cc0))
+
 # [1.0.0](https://github.com/CoCreate-app/CoCreateWS/compare/v0.52.0...v1.0.0) (2024-08-24)
 
 
