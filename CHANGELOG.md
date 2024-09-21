@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.1...v1.0.2) (2024-09-21)
+
+
+### Bug Fixes
+
+* update @cocreate/sitemap ([711b91e](https://github.com/CoCreate-app/CoCreateWS/commit/711b91e71a936018c4714268fec53cbac6c5a702))
+
 ## [1.0.1](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.0...v1.0.1) (2024-09-21)
 
 
