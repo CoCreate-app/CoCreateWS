@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.2...v1.0.3) (2024-12-14)
+
+
+### Bug Fixes
+
+* add prettier config file ([1b46792](https://github.com/CoCreate-app/CoCreateWS/commit/1b46792e6948e9e0b88d783c2890a6282c2e1809))
+* formating ([a8fe442](https://github.com/CoCreate-app/CoCreateWS/commit/a8fe442799e75295e80d87623c082a29a5e49ac8))
+* migratedb ([7ed30b4](https://github.com/CoCreate-app/CoCreateWS/commit/7ed30b445cde3f344fb2760b228e974e30d4522e))
+
 ## [1.0.2](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.1...v1.0.2) (2024-09-21)
 
 
