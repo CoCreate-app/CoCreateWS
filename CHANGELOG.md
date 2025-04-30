@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.3...v1.0.4) (2025-04-30)
+
+
+### Bug Fixes
+
+* renamed CoCreate-components to CoCreate-modules ([468940b](https://github.com/CoCreate-app/CoCreateWS/commit/468940b50f435dd14dfd427d46d511d1360843fa))
+* update query selector attributes to *-query ([c31871d](https://github.com/CoCreate-app/CoCreateWS/commit/c31871d25ebbe9c7d7ceeaba354b8a0857adc091))
+* webpack.config and devdependencies ([56c2280](https://github.com/CoCreate-app/CoCreateWS/commit/56c2280c8dbf544c13d4d1af0ab2160f2063ef80))
+
 ## [1.0.3](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.2...v1.0.3) (2024-12-14)
 
 
