@@ -132,6 +132,10 @@ module.exports = {
 			repo: "github.com/CoCreate-app/CoCreate-socket-server.git"
 		},
 		{
+			path: "../CoCreate-components/CoCreate-sitemap",
+			repo: "github.com/CoCreate-app/CoCreate-sitemap.git"
+		},
+		{
 			path: "../CoCreate-components/CoCreate-usage",
 			repo: "github.com/CoCreate-app/CoCreate-usage.git"
 		},
