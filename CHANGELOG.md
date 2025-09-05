@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.4...v1.0.5) (2025-05-01)
+
+
+### Bug Fixes
+
+* update [@cocreate](https://github.com/cocreate) dependencies ([55d67b4](https://github.com/CoCreate-app/CoCreateWS/commit/55d67b40fa5a3bddf7a872bdccfa51a96ccf2646))
+
 ## [1.0.4](https://github.com/CoCreate-app/CoCreateWS/compare/v1.0.3...v1.0.4) (2025-04-30)
 
 
